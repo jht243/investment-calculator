@@ -2,278 +2,398 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Mortgage Calculator Widget</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      body {
-        margin: 0;
-        padding: 24px;
-        background: radial-gradient(circle at top, #1f2937, #0b101a);
-        color: #f9fafb;
-        display: flex;
-        justify-content: center;
-      }
-
-      .app {
-        width: min(620px, 100%);
-        background: rgba(15, 23, 42, 0.85);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.5);
-        backdrop-filter: blur(12px);
-      }
-
-      h1 {
-        font-size: 22px;
-        font-weight: 600;
-        margin: 0 0 6px;
-      }
-
-      p.subtitle {
-        margin: 0 0 24px;
-        color: rgba(226, 232, 240, 0.72);
-        font-size: 14px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-      }
-
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        font-size: 13px;
-        color: rgba(226, 232, 240, 0.86);
-      }
-
-      input[type="number"] {
-        border-radius: 10px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        background: rgba(15, 23, 42, 0.6);
-        color: #f9fafb;
-        font-size: 16px;
-        padding: 10px 12px;
-        transition: border 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      input[type="number"]:focus {
-        outline: none;
-        border-color: #38bdf8;
-        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
-      }
-
-      .actions {
-        margin: 24px 0 12px;
-        display: flex;
-        gap: 12px;
-      }
-
-      button {
-        flex: 1;
-        border: none;
-        border-radius: 12px;
-        padding: 12px 16px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        background: linear-gradient(135deg, #38bdf8, #6366f1);
-        color: #0b1120;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-
-      button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
-      }
-
-      button.secondary {
-        flex: none;
-        min-width: 120px;
-        background: rgba(148, 163, 184, 0.15);
-        color: rgba(226, 232, 240, 0.85);
-        box-shadow: none;
-      }
-
-      .results {
-        border-top: 1px solid rgba(148, 163, 184, 0.2);
-        padding-top: 20px;
-        display: grid;
-        gap: 14px;
-      }
-
-      .result-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        border-radius: 12px;
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid rgba(148, 163, 184, 0.15);
-      }
-
-      .result-card span.label {
-        font-size: 13px;
-        color: rgba(226, 232, 240, 0.7);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-
-      .result-card span.value {
-        font-size: 22px;
-        font-weight: 600;
-        color: #f9fafb;
-      }
-
-      .result-card span.value.secondary {
-        font-size: 18px;
-        color: #38bdf8;
-      }
-
-      .summary {
-        border-radius: 12px;
-        border: 1px solid rgba(148, 163, 184, 0.15);
-        background: rgba(15, 23, 42, 0.55);
-        padding: 16px;
-        font-size: 14px;
-        color: rgba(226, 232, 240, 0.82);
-        line-height: 1.6;
-      }
-
-      .summary strong {
-        color: #f9fafb;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 16px;
-        }
-
-        .app {
-          padding: 20px;
-        }
-
-        button {
-          font-size: 15px;
-        }
-      }
-    </style>
+    <title>Mortgage Calculator Engine</title>
   </head>
   <body>
-    <div class="app">
-      <h1>Mortgage payment estimator</h1>
-      <p class="subtitle">
-        Enter a few details and we will estimate your monthly payment, lifetime interest, and total cost.
-      </p>
+    <script type="module">
+      (function () {
+        const MONTHS_IN_YEAR = 12;
+        const ZERO_TOLERANCE = 1e-8;
 
-      <div class="grid">
-        <label>
-          Purchase price ($)
-          <input type="number" id="purchasePrice" min="0" step="1000" value="450000" />
-        </label>
-        <label>
-          Down payment ($)
-          <input type="number" id="downPayment" min="0" step="1000" value="90000" />
-        </label>
-        <label>
-          Interest rate (% APR)
-          <input type="number" id="interestRate" min="0" step="0.01" value="6.75" />
-        </label>
-        <label>
-          Term length (years)
-          <input type="number" id="termYears" min="1" step="1" value="30" />
-        </label>
-      </div>
+        const toNumber = (value) => {
+          const num = Number(value);
+          return Number.isFinite(num) ? num : 0;
+        };
 
-      <div class="actions">
-        <button id="calculateBtn">Calculate payment</button>
-        <button class="secondary" id="resetBtn">Reset</button>
-      </div>
+        const clampNonNegative = (value) => {
+          const num = toNumber(value);
+          return num < 0 ? 0 : num;
+        };
 
-      <div class="results" id="results">
-        <div class="result-card">
-          <span class="label">Estimated monthly payment</span>
-          <span class="value" id="monthlyPayment">$2,323</span>
-        </div>
-        <div class="result-card">
-          <span class="label">Total interest paid</span>
-          <span class="value secondary" id="totalInterest">$476,280</span>
-        </div>
-        <div class="result-card">
-          <span class="label">Lifetime cost</span>
-          <span class="value" id="totalCost">$836,280</span>
-        </div>
-      </div>
+        const normalizeMonth = (month) => {
+          const m = Math.round(toNumber(month));
+          if (Number.isNaN(m) || m <= 0) return 1;
+          if (m > 12) {
+            return ((m - 1) % 12) + 1;
+          }
+          return m;
+        };
 
-      <div class="summary" id="summaryText">
-        For a $360,000 loan at 6.75% APR over 30 years, your monthly payment is approximately <strong>$2,323</strong>.
-        You would pay about <strong>$476,280</strong> in interest, for a total cost of <strong>$836,280</strong>.
-      </div>
-    </div>
+        const normalizeYear = (year) => {
+          const y = Math.round(toNumber(year));
+          return y > 0 ? y : new Date().getFullYear();
+        };
 
-    <script>
-      const formatCurrency = (value) =>
-        value.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+        function compute_base_loan_amount(home_value, down_payment_value, down_payment_pct) {
+          const hv = clampNonNegative(home_value);
+          const dpValueInput = clampNonNegative(down_payment_value);
+          const dpPctInput = clampNonNegative(down_payment_pct);
 
-      const calculate = () => {
-        const purchasePrice = Number(document.getElementById("purchasePrice").value) || 0;
-        const downPayment = Number(document.getElementById("downPayment").value) || 0;
-        const interestRate = Number(document.getElementById("interestRate").value) || 0;
-        const termYears = Number(document.getElementById("termYears").value) || 0;
+          let downPaymentValue = 0;
+          if (dpValueInput > 0) {
+            downPaymentValue = Math.min(dpValueInput, hv);
+          } else if (dpPctInput > 0) {
+            downPaymentValue = Math.min(hv * dpPctInput, hv);
+          }
 
-        const loanAmount = Math.max(purchasePrice - downPayment, 0);
-        const monthlyRate = interestRate > 0 ? interestRate / 100 / 12 : 0;
-        const numberOfPayments = termYears * 12;
+          const loan_amount_base = clampNonNegative(hv - downPaymentValue);
+          const down_payment_pct_normalized = hv > 0 ? downPaymentValue / hv : 0;
 
-        let monthlyPayment = 0;
-        if (monthlyRate === 0) {
-          monthlyPayment = numberOfPayments > 0 ? loanAmount / numberOfPayments : 0;
-        } else {
-          const factor = Math.pow(1 + monthlyRate, numberOfPayments);
-          monthlyPayment = (loanAmount * monthlyRate * factor) / (factor - 1 || 1);
+          return {
+            loan_amount_base,
+            down_payment_value: downPaymentValue,
+            down_payment_pct: down_payment_pct_normalized,
+          };
         }
 
-        const totalPaid = monthlyPayment * numberOfPayments;
-        const totalInterest = Math.max(totalPaid - loanAmount, 0);
+        function apply_upfront_fee(loan_amount_base, upfront_fee_pct, finance_upfront_fee) {
+          const base = clampNonNegative(loan_amount_base);
+          const feePct = clampNonNegative(upfront_fee_pct);
+          const upfront_fee = base * feePct;
+          const financed = Boolean(finance_upfront_fee);
+          const principal_0 = financed ? base + upfront_fee : base;
+          const cash_at_close_upfront_fee = financed ? 0 : upfront_fee;
 
-        document.getElementById("monthlyPayment").textContent = formatCurrency(monthlyPayment || 0);
-        document.getElementById("totalInterest").textContent = formatCurrency(totalInterest || 0);
-        document.getElementById("totalCost").textContent = formatCurrency(totalPaid || 0);
+          return {
+            principal_0,
+            upfront_fee,
+            cash_at_close_upfront_fee,
+          };
+        }
 
-        const summary = `For a ${formatCurrency(loanAmount)} loan at ${interestRate}% APR over ${termYears} years, your monthly payment is approximately ${formatCurrency(monthlyPayment || 0)}. You would pay about ${formatCurrency(totalInterest || 0)} in interest, for a total cost of ${formatCurrency(totalPaid || 0)}.`;
-        document.getElementById("summaryText").innerHTML = summary.replace(/\$(\d+)/g, '<strong>$$1</strong>');
-      };
+        function normalize_property_tax(property_tax_input, home_value) {
+          const hv = clampNonNegative(home_value);
+          const input = clampNonNegative(property_tax_input);
 
-      const resetForm = () => {
-        document.getElementById("purchasePrice").value = 450000;
-        document.getElementById("downPayment").value = 90000;
-        document.getElementById("interestRate").value = 6.75;
-        document.getElementById("termYears").value = 30;
-        calculate();
-      };
-
-      document.getElementById("calculateBtn").addEventListener("click", calculate);
-      document.getElementById("resetBtn").addEventListener("click", resetForm);
-
-      const inputs = ["purchasePrice", "downPayment", "interestRate", "termYears"];
-      inputs.forEach((id) => {
-        const input = document.getElementById(id);
-        input.addEventListener("change", calculate);
-        input.addEventListener("keyup", (event) => {
-          if (event.key === "Enter") {
-            calculate();
+          if (input <= 20) {
+            return {
+              property_tax_yearly: hv * (input / 100),
+              property_tax_mode: "percent",
+            };
           }
-        });
-      });
 
-      calculate();
+          return {
+            property_tax_yearly: input,
+            property_tax_mode: "absolute",
+          };
+        }
+
+        function monthly_p_and_i(principal_0, rate_apr, term_years) {
+          const principal = clampNonNegative(principal_0);
+          const termYears = clampNonNegative(term_years);
+          const n = Math.max(Math.round(termYears * MONTHS_IN_YEAR), 0);
+
+          if (n === 0 || principal === 0) {
+            return 0;
+          }
+
+          const yearlyRate = clampNonNegative(rate_apr);
+          const i_m = yearlyRate / MONTHS_IN_YEAR;
+
+          if (i_m === 0) {
+            return principal / n;
+          }
+
+          const factor = Math.pow(1 + i_m, n);
+          if (!Number.isFinite(factor) || Math.abs(factor - 1) < ZERO_TOLERANCE) {
+            return principal / n;
+          }
+
+          return (principal * i_m * factor) / (factor - 1);
+        }
+
+        function monthly_mi_conventional(principal_t, home_value, pmi_pct) {
+          const hv = clampNonNegative(home_value);
+          if (hv === 0) {
+            return 0;
+          }
+
+          const principal = clampNonNegative(principal_t);
+          const ltv = principal / hv;
+          if (ltv <= 0.8 + ZERO_TOLERANCE) {
+            return 0;
+          }
+
+          return principal * (clampNonNegative(pmi_pct) / MONTHS_IN_YEAR);
+        }
+
+        function monthly_mi_fha(principal_t, annual_mi_pct) {
+          return clampNonNegative(principal_t) * (clampNonNegative(annual_mi_pct) / MONTHS_IN_YEAR);
+        }
+
+        function monthly_mi_usda(principal_t, annual_mi_pct) {
+          return clampNonNegative(principal_t) * (clampNonNegative(annual_mi_pct) / MONTHS_IN_YEAR);
+        }
+
+        function monthly_mi_va() {
+          return 0;
+        }
+
+        const createStartDate = (start_month, start_year) =>
+          new Date(normalizeYear(start_year), normalizeMonth(start_month) - 1, 1);
+
+        const advanceOneMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 1);
+
+        function amortize_monthly(
+          principal_0,
+          i_m,
+          n,
+          start_month,
+          start_year,
+          tax_monthly,
+          ins_monthly,
+          hoa_monthly,
+          monthly_mi_fn,
+          home_value,
+          p_and_i,
+          extra_principal_monthly = 0,
+          extra_start_month_index = 0
+        ) {
+          const schedule = [];
+          const totals = {
+            interest: 0,
+            tax: 0,
+            ins: 0,
+            hoa: 0,
+            mi: 0,
+            principal: 0,
+            extra_principal: 0,
+            payments: 0,
+          };
+
+          let principal = clampNonNegative(principal_0);
+          let currentDate = createStartDate(start_month, start_year);
+          const totalPeriods = Math.max(Math.round(toNumber(n)), 0);
+          const extraStartIndex = Math.max(Math.round(toNumber(extra_start_month_index)), 0);
+          const taxMonthly = clampNonNegative(tax_monthly);
+          const insMonthly = clampNonNegative(ins_monthly);
+          const hoaMonthly = clampNonNegative(hoa_monthly);
+          const extraMonthly = clampNonNegative(extra_principal_monthly);
+
+          for (let t = 0; t < totalPeriods && principal > ZERO_TOLERANCE; t += 1) {
+            const interest = principal * clampNonNegative(i_m);
+            const scheduledPrincipalCandidate = Math.max(p_and_i - interest, 0);
+            const principal_scheduled = Math.min(scheduledPrincipalCandidate, principal);
+
+            const wantsExtra = t >= extraStartIndex ? extraMonthly : 0;
+            const extra_remaining_capacity = Math.max(principal - principal_scheduled, 0);
+            const extra_principal = Math.min(wantsExtra, extra_remaining_capacity);
+
+            const mi = clampNonNegative(monthly_mi_fn(principal, home_value));
+            const tax = taxMonthly;
+            const ins = insMonthly;
+            const hoa = hoaMonthly;
+
+            const principal_reduction = Math.min(principal_scheduled + extra_principal, principal);
+            const actual_p_and_i = interest + Math.max(principal_reduction - extra_principal, 0);
+            const total_payment = actual_p_and_i + mi + tax + ins + hoa + extra_principal;
+            const closing_balance = clampNonNegative(principal - principal_reduction);
+
+            totals.interest += interest;
+            totals.tax += tax;
+            totals.ins += ins;
+            totals.hoa += hoa;
+            totals.mi += mi;
+            totals.principal += principal_reduction;
+            totals.extra_principal += extra_principal;
+            totals.payments += total_payment;
+
+            schedule.push({
+              index: t,
+              date: {
+                year: currentDate.getFullYear(),
+                month: currentDate.getMonth() + 1,
+              },
+              opening_balance: principal,
+              p_and_i: actual_p_and_i,
+              interest,
+              principal_scheduled: Math.max(principal_reduction - extra_principal, 0),
+              extra_principal,
+              mi,
+              tax,
+              ins,
+              hoa,
+              total_payment,
+              closing_balance,
+            });
+
+            principal = closing_balance;
+            currentDate = advanceOneMonth(currentDate);
+
+            if (principal <= ZERO_TOLERANCE) {
+              principal = 0;
+              break;
+            }
+          }
+
+          const payoff_date = schedule.length
+            ? schedule[schedule.length - 1].date
+            : {
+                year: normalizeYear(start_year),
+                month: normalizeMonth(start_month),
+              };
+
+          return { schedule, payoff_date, totals };
+        }
+
+        function summarize_outputs(schedule, totals) {
+          return {
+            total_interest: totals.interest,
+            total_tax: totals.tax,
+            total_ins: totals.ins,
+            total_hoa: totals.hoa,
+            total_mi: totals.mi,
+            total_of_payments: totals.payments,
+            total_principal: totals.principal,
+            total_extra_principal: totals.extra_principal,
+            payments_made: schedule.length,
+          };
+        }
+
+        function calculate_mortgage(params) {
+          const {
+            loan_type,
+            home_value,
+            down_payment_value,
+            down_payment_pct,
+            rate_apr,
+            term_years,
+            start_month,
+            start_year,
+            property_tax_input,
+            homeowners_insurance_yearly,
+            hoa_monthly,
+            upfront_fee_pct,
+            annual_mi_pct,
+            finance_upfront_fee,
+            extra_principal_monthly,
+            extra_start_month_index,
+            pmi_pct,
+          } = params;
+
+          const baseLoan = compute_base_loan_amount(home_value, down_payment_value, down_payment_pct);
+          const feeResult = apply_upfront_fee(
+            baseLoan.loan_amount_base,
+            clampNonNegative(upfront_fee_pct),
+            finance_upfront_fee
+          );
+          const taxInfo = normalize_property_tax(property_tax_input, home_value);
+
+          const tax_monthly = taxInfo.property_tax_yearly / MONTHS_IN_YEAR;
+          const ins_monthly = clampNonNegative(homeowners_insurance_yearly) / MONTHS_IN_YEAR;
+          const hoa = clampNonNegative(hoa_monthly);
+          const n = Math.max(Math.round(clampNonNegative(term_years) * MONTHS_IN_YEAR), 0);
+          const i_m = clampNonNegative(rate_apr) / MONTHS_IN_YEAR;
+          const p_and_i = monthly_p_and_i(feeResult.principal_0, rate_apr, term_years);
+
+          const loanType = typeof loan_type === "string" ? loan_type : "conventional";
+          const pmiPct = clampNonNegative(pmi_pct);
+          const annualMiPct = clampNonNegative(annual_mi_pct);
+
+          let monthly_mi_fn;
+          switch (loanType) {
+            case "FHA":
+              monthly_mi_fn = (principal) => monthly_mi_fha(principal, annualMiPct);
+              break;
+            case "VA":
+              monthly_mi_fn = () => monthly_mi_va();
+              break;
+            case "USDA":
+              monthly_mi_fn = (principal) => monthly_mi_usda(principal, annualMiPct);
+              break;
+            case "conventional":
+            default:
+              monthly_mi_fn = (principal, hv) => monthly_mi_conventional(principal, hv ?? home_value, pmiPct);
+              break;
+          }
+
+          const amortization = amortize_monthly(
+            feeResult.principal_0,
+            i_m,
+            n,
+            start_month,
+            start_year,
+            tax_monthly,
+            ins_monthly,
+            hoa,
+            (principal, hv) => monthly_mi_fn(principal, hv ?? home_value),
+            home_value,
+            p_and_i,
+            extra_principal_monthly,
+            extra_start_month_index
+          );
+
+          const totalsSummary = summarize_outputs(amortization.schedule, amortization.totals);
+          const monthly_mi_initial = monthly_mi_fn(feeResult.principal_0, home_value);
+          const total_monthly_0 =
+            p_and_i + tax_monthly + ins_monthly + hoa + monthly_mi_initial;
+
+          return {
+            inputs: {
+              loan_type: loanType,
+              home_value: clampNonNegative(home_value),
+              down_payment_value: baseLoan.down_payment_value,
+              down_payment_pct: baseLoan.down_payment_pct,
+              rate_apr: clampNonNegative(rate_apr),
+              term_years: clampNonNegative(term_years),
+              start_month: normalizeMonth(start_month),
+              start_year: normalizeYear(start_year),
+              property_tax_input: clampNonNegative(property_tax_input),
+              homeowners_insurance_yearly: clampNonNegative(homeowners_insurance_yearly),
+              hoa_monthly: hoa,
+              upfront_fee_pct: clampNonNegative(upfront_fee_pct),
+              annual_mi_pct: annualMiPct,
+              finance_upfront_fee: Boolean(finance_upfront_fee),
+              extra_principal_monthly: clampNonNegative(extra_principal_monthly),
+              extra_start_month_index: Math.max(Math.round(toNumber(extra_start_month_index)), 0),
+              pmi_pct: pmiPct,
+            },
+            derived: {
+              loan_amount_base: baseLoan.loan_amount_base,
+              principal_0: feeResult.principal_0,
+              upfront_fee: feeResult.upfront_fee,
+              cash_at_close_upfront_fee: feeResult.cash_at_close_upfront_fee,
+              property_tax_yearly: taxInfo.property_tax_yearly,
+              property_tax_mode: taxInfo.property_tax_mode,
+              tax_monthly,
+              ins_monthly,
+              hoa_monthly: hoa,
+              p_and_i,
+              monthly_mi_initial,
+              total_monthly_0,
+            },
+            payoff_date: amortization.payoff_date,
+            totals: totalsSummary,
+            schedule: amortization.schedule,
+          };
+        }
+
+        const mortgageCalculator = Object.freeze({
+          compute_base_loan_amount,
+          apply_upfront_fee,
+          normalize_property_tax,
+          monthly_p_and_i,
+          monthly_mi_conventional,
+          monthly_mi_fha,
+          monthly_mi_usda,
+          monthly_mi_va,
+          amortize_monthly,
+          summarize_outputs,
+          calculate_mortgage,
+        });
+
+        globalThis.mortgageCalculator = mortgageCalculator;
+      })();
     </script>
   </body>
 </html>
