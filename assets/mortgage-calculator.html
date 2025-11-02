@@ -44,16 +44,16 @@
       }
 
       .section-title {
-        font-size: 13px;
-        letter-spacing: 0.08em;
-        color: rgba(226, 232, 240, 0.62);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        color: rgba(226, 232, 240, 0.48);
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
 
       .grid {
         display: grid;
-        gap: 16px;
+        gap: 20px;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
@@ -61,8 +61,10 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
-        font-size: 13px;
-        color: rgba(226, 232, 240, 0.86);
+        font-size: 12px;
+        color: rgba(226, 232, 240, 0.68);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
       .percent-field {
@@ -70,28 +72,29 @@
       }
 
       .percent-field input[type="number"] {
-        padding-right: 42px;
+        padding-right: 32px;
       }
 
       .percent-field::after {
         content: "%";
         position: absolute;
-        right: 14px;
+        right: 4px;
         top: 34px;
-        font-size: 13px;
-        color: rgba(226, 232, 240, 0.7);
+        font-size: 12px;
+        color: rgba(226, 232, 240, 0.5);
         pointer-events: none;
       }
 
       input[type="number"],
       select {
-        border-radius: 12px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        background: rgba(11, 18, 32, 0.6);
+        border: none;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 0;
+        background: transparent;
         color: #f9fafb;
         font-size: 16px;
-        padding: 10px 12px;
-        transition: border 0.2s ease, box-shadow 0.2s ease;
+        padding: 8px 4px;
+        transition: border-color 0.2s ease, color 0.2s ease;
       }
 
       input[type="checkbox"] {
@@ -102,54 +105,25 @@
       input:focus,
       select:focus {
         outline: none;
-        border-color: #38bdf8;
-        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35);
+        border-bottom-color: #38bdf8;
+        color: #f9fafb;
       }
 
       .checkbox-row {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        background: rgba(11, 18, 32, 0.6);
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      button {
-        flex: 1 1 220px;
-        border: none;
-        border-radius: 14px;
-        padding: 12px 18px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        background: linear-gradient(130deg, #38bdf8, #6366f1);
-        color: #0b1120;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-
-      button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 14px 36px rgba(99, 102, 241, 0.35);
-      }
-
-      button.secondary {
-        background: rgba(148, 163, 184, 0.12);
-        color: rgba(226, 232, 240, 0.85);
-        box-shadow: none;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        background: rgba(11, 18, 32, 0.35);
       }
 
       .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 16px;
+        row-gap: 20px;
       }
 
       .result-card {
@@ -162,20 +136,79 @@
       }
 
       .result-card .label {
-        font-size: 12px;
-        letter-spacing: 0.08em;
+        font-size: 11px;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(226, 232, 240, 0.68);
+        color: rgba(226, 232, 240, 0.5);
       }
 
       .result-card .value {
-        font-size: 26px;
-        font-weight: 600;
+        font-size: 20px;
+        font-weight: 500;
       }
 
       .result-card .hint {
         font-size: 13px;
-        color: rgba(226, 232, 240, 0.7);
+        color: rgba(226, 232, 240, 0.5);
+      }
+
+      .result-card.primary {
+        grid-column: 1 / -1;
+        padding: 26px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(17, 24, 39, 0.85));
+        border: 1px solid rgba(37, 99, 235, 0.35);
+        box-shadow: 0 18px 48px rgba(30, 64, 175, 0.3);
+      }
+
+      .result-card.primary .label {
+        color: rgba(226, 232, 240, 0.78);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+      }
+
+      .result-card.primary .value {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .result-card.secondary {
+        background: rgba(11, 18, 32, 0.5);
+        border-color: rgba(148, 163, 184, 0.15);
+        padding: 16px;
+      }
+
+      .result-card.secondary .value,
+      .result-card.secondary .hint {
+        font-size: 13px;
+        font-weight: 400;
+      }
+
+      .result-card.secondary .value {
+        color: rgba(226, 232, 240, 0.8);
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 12px;
+        color: rgba(226, 232, 240, 0.5);
+        gap: 12px;
+      }
+
+      .actions button {
+        background: none;
+        border: none;
+        color: inherit;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      #calculateBtn {
+        display: none;
       }
 
       .summary {
@@ -237,21 +270,20 @@
         color: rgba(226, 232, 240, 0.6);
       }
 
-      @keyframes pulse {
+      @keyframes glow {
         0% {
-          transform: scale(1);
+          box-shadow: 0 0 0 rgba(56, 189, 248, 0);
         }
-        50% {
-          transform: scale(1.05);
-          box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        40% {
+          box-shadow: 0 0 48px rgba(56, 189, 248, 0.45);
         }
         100% {
-          transform: scale(1);
+          box-shadow: 0 0 0 rgba(56, 189, 248, 0);
         }
       }
 
-      .pulse-animate {
-        animation: pulse 0.4s ease-in-out;
+      .glow-animate {
+        animation: glow 1s ease-in-out;
       }
 
       @media (max-width: 560px) {
@@ -370,28 +402,28 @@
       </details>
 
       <div class="actions">
-        <button id="calculateBtn">Recalculate</button>
+        <span>Updates automatically as you edit.</span>
         <button class="secondary" id="resetBtn" type="button">Reset defaults</button>
       </div>
 
       <section>
         <div class="cards">
-          <div class="result-card">
+          <div class="result-card primary" id="monthlyPaymentCard">
             <span class="label">Monthly payment (month 0)</span>
             <span class="value" id="total_monthly_0">$0</span>
             <span class="hint">Includes P&I, MI, taxes, insurance, HOA (excludes extra principal).</span>
           </div>
-          <div class="result-card">
+          <div class="result-card secondary">
             <span class="label">Scheduled principal & interest</span>
             <span class="value" id="p_and_i">$0</span>
             <span class="hint">Level payment before extra principal or add-ons.</span>
           </div>
-          <div class="result-card">
+          <div class="result-card secondary">
             <span class="label">Total interest over loan</span>
             <span class="value" id="total_interest">$0</span>
             <span class="hint" id="interest_hint"></span>
           </div>
-          <div class="result-card">
+          <div class="result-card secondary">
             <span class="label">Estimated payoff date</span>
             <span class="value" id="payoff_date">—</span>
             <span class="hint" id="term_hint"></span>
@@ -909,6 +941,7 @@
           schedulePreview: $("schedulePreview"),
           scheduleNote: $("scheduleNote"),
         };
+        const monthlyPaymentCard = $("monthlyPaymentCard");
 
         const setDefaults = (preset = baseDefaults) => {
           Object.entries(preset).forEach(([key, value]) => {
@@ -971,9 +1004,11 @@
 
           const monthlyPaymentEl = outputs.total_monthly_0;
           monthlyPaymentEl.textContent = formatCurrency(derived.total_monthly_0);
-          monthlyPaymentEl.classList.remove("pulse-animate");
-          void monthlyPaymentEl.offsetWidth;
-          monthlyPaymentEl.classList.add("pulse-animate");
+          if (monthlyPaymentCard) {
+            monthlyPaymentCard.classList.remove("glow-animate");
+            void monthlyPaymentCard.offsetWidth;
+            monthlyPaymentCard.classList.add("glow-animate");
+          }
           outputs.p_and_i.textContent = formatCurrency(derived.p_and_i);
           outputs.total_interest.textContent = formatCurrency(totals.total_interest);
           outputs.payoff_date.textContent = payoffLabel;
@@ -1048,12 +1083,19 @@
           renderSummary(calc);
         };
 
-        $("calculateBtn").addEventListener("click", calculateAndRender);
-        $("resetBtn").addEventListener("click", () => {
-          setDefaults(baseDefaults);
-          mergeProgramDefaults();
-          calculateAndRender();
-        });
+        const resetButton = $("resetBtn");
+        if (resetButton) {
+          resetButton.addEventListener("click", () => {
+            setDefaults(baseDefaults);
+            mergeProgramDefaults();
+            calculateAndRender();
+          });
+        }
+
+        const recalcButton = $("calculateBtn");
+        if (recalcButton) {
+          recalcButton.addEventListener("click", calculateAndRender);
+        }
 
         inputs.loan_type.addEventListener("change", () => {
           mergeProgramDefaults();
