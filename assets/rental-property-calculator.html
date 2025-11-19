@@ -1972,6 +1972,9 @@
                     <div class="metric"><span class="label">Total Principal Paid</span><span class="value" id="out_total_principal_paid">—</span></div>
                   </div>
                 </section>
+                <div class="button-row">
+                  <button type="button" class="cta-button secondary" id="showAmortizationBtn">View Year-by-Year Breakdown →</button>
+                </div>
               </div>
             </div>
         </div>
@@ -4226,6 +4229,7 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
         const amortizationView = document.getElementById('amortizationView');
         const showBreakdownBtn = document.getElementById('showBreakdownBtn');
         const showSummaryBtn = document.getElementById('showSummaryBtn');
+        const showAmortizationBtn = document.getElementById('showAmortizationBtn');
         const showAmortizationSummaryBtn = document.getElementById('showAmortizationSummaryBtn');
 
         const showView = (viewToShow) => {
@@ -4237,6 +4241,7 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
         };
 
         if (showBreakdownBtn) showBreakdownBtn.addEventListener('click', () => showView('breakdownView'));
+        if (showAmortizationBtn) showAmortizationBtn.addEventListener('click', () => showView('amortizationView'));
         if (showSummaryBtn) showSummaryBtn.addEventListener('click', () => showView('summaryView'));
         if (showAmortizationSummaryBtn) showAmortizationSummaryBtn.addEventListener('click', () => showView('summaryView'));
 
