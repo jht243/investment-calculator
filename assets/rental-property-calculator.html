@@ -3777,9 +3777,8 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
         });
 
         // ---------- Persisted user inputs (72h) via Apps SDK widgetState with localStorage fallback ----------
-        const PERSIST_KEY = "rpc_user_inputs_state_v1";
+        const PERSIST_KEY = "rpc_user_inputs_state_v2"; // Changed key to invalidate old blank state
         const PERSIST_TTL_MS = 72 * 60 * 60 * 1000;
-        const STATE_VERSION = 2; // Increment to invalidate old saved states
 
         const PERSIST_INPUT_IDS = [
           // Income
@@ -3810,7 +3809,6 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
             inputsObj[id] = String(el.value ?? "");
           });
           const state = {
-            version: STATE_VERSION,
             savedAt: Date.now(),
             inputs: inputsObj,
             toggles: {
@@ -3825,40 +3823,31 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
         const saveUserInputsState = () => {
           try {
             const state = getInputsState();
-            // Apps SDK widgetState (scoped to this widget instance only)
+            // Apps SDK widgetState
             const base = (window?.openai?.widgetState) ? { ...window.openai.widgetState } : {};
             if (window?.openai?.setWidgetState) {
               window.openai.setWidgetState({ ...base, rentalInputsState: state });
             }
-            // No localStorage fallback: each new prompt = fresh widget = empty widgetState by design
+            // Fallback localStorage
+            try { localStorage.setItem(PERSIST_KEY, JSON.stringify(state)); } catch(_) {}
           } catch(_) { /* no-op */ }
         };
 
         const loadUserInputsState = () => {
-          // Only read from Apps SDK widgetState (scoped to this widget instance)
-          // Each new prompt creates a fresh widget with empty widgetState
           let state = null;
           try { state = window?.openai?.widgetState?.rentalInputsState || null; } catch(_) { state = null; }
+          if (!state) {
+            try { state = JSON.parse(localStorage.getItem(PERSIST_KEY) || 'null'); } catch(_) { state = null; }
+          }
           if (!state || !state.savedAt || (Date.now() - state.savedAt) > PERSIST_TTL_MS) return null;
-          // Invalidate old state versions (before blank-state fix)
-          if (!state.version || state.version < STATE_VERSION) return null;
           return state;
         };
 
         const hydrateInputsFromState = () => {
           const state = loadUserInputsState();
           if (!state) return false;
-
-          const entries = Object.entries(state.inputs || {});
-          const hasMeaningfulInput = entries.some(([, val]) => {
-            const s = String(val ?? '').trim();
-            return s !== '';
-          });
-          // If everything saved was blank, treat as no prior state so defaults can apply
-          if (!hasMeaningfulInput) return false;
-
           // Fill inputs
-          entries.forEach(([id, val]) => {
+          Object.entries(state.inputs || {}).forEach(([id, val]) => {
             const el = document.getElementById(id);
             if (!el) return;
             el.value = String(val);
@@ -3893,7 +3882,7 @@ if (outputs.term_hint) outputs.term_hint.textContent = `Original term ${normaliz
               window.openai.setWidgetState(base);
             }
           } catch(_) {}
-          // No localStorage to clear
+          try { localStorage.removeItem(PERSIST_KEY); } catch(_) {}
         };
 
         loadCarouselIndex();
