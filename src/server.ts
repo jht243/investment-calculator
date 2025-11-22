@@ -30,7 +30,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 
-type MortgageWidget = {
+type AutoLoanWidget = {
   id: string;
   title: string;
   templateUri: string;
@@ -273,11 +273,11 @@ function computeSummary(args: any) {
     principalAuto = Math.max(0, baseToFinance + financedExtras);
   }
 
-  const hv = autoPrice != null ? autoPrice : (typeof args.home_value === "number" && args.home_value > 0 ? args.home_value : null);
-  const dpv = autoPrice != null ? downPaymentValAuto : (typeof args.down_payment_value === "number" && args.down_payment_value >= 0 ? args.down_payment_value : 0);
-  const apr = ratePctAuto != null ? ratePctAuto : (typeof args.rate_apr === "number" && args.rate_apr > 0 ? args.rate_apr : null);
-  const years = loanMonths != null ? (loanMonths / 12) : (typeof args.term_years === "number" && args.term_years > 0 ? args.term_years : null);
-  const principal = principalAuto != null ? principalAuto : (hv != null ? Math.max(0, hv - dpv) : null);
+  const hv = autoPrice != null ? autoPrice : null;
+  const dpv = downPaymentValAuto;
+  const apr = ratePctAuto;
+  const years = loanMonths != null ? (loanMonths / 12) : null;
+  const principal = principalAuto;
   if (principal == null || apr == null || years == null) {
     return {
       loan_amount: principal,
@@ -300,64 +300,16 @@ function computeSummary(args: any) {
   }
   const totalPaid = m * n;
   const totalInterest = totalPaid - principal;
-  let startMonth = args.start_month && args.start_month >= 1 && args.start_month <= 12 ? args.start_month : null;
-  let startYear = typeof args.start_year === "number" && args.start_year > 1900 ? args.start_year : null;
   const now = new Date();
-  if (!startMonth || !startYear) {
-    startMonth = now.getMonth() + 1;
-    startYear = now.getFullYear();
-  }
-  const payoff = new Date(startYear, (startMonth - 1) + n, 1);
+  const payoff = new Date(now.setMonth(now.getMonth() + n));
   const payoffDate = `${payoff.getFullYear()}-${String(payoff.getMonth() + 1).padStart(2, "0")}`;
-  let pmiEndIndex: number | null = null;
-  const pmiThreshold = hv * 0.8;
-  if (principal > 0) {
-    let bal = principal;
-    for (let i = 1; i <= n; i++) {
-      const interestPortion = r === 0 ? 0 : bal * r;
-      const principalPortion = Math.min(bal, m - interestPortion);
-      bal = Math.max(0, bal - principalPortion);
-      const ltvAmount = bal;
-      if (pmiEndIndex === null && ltvAmount <= pmiThreshold) {
-        pmiEndIndex = i;
-        break;
-      }
-    }
-  }
-  let biweekly: any = null;
-  try {
-    const periodsPerYear = 26;
-    const i = (apr / 100) / periodsPerYear;
-    const paymentBiweekly = m / 2;
-    let nbi = null as null | number;
-    if (i === 0) {
-      nbi = principal / paymentBiweekly;
-    } else {
-      const denom = paymentBiweekly - principal * i;
-      if (denom > 0) {
-        nbi = Math.log(paymentBiweekly / denom) / Math.log(1 + i);
-      }
-    }
-    if (nbi && nbi > 0 && Number.isFinite(nbi)) {
-      const interestBi = paymentBiweekly * nbi - principal;
-      const monthsBi = nbi / periodsPerYear * 12;
-      const monthsSaved = Math.max(0, n - monthsBi);
-      biweekly = {
-        months_to_payoff: Math.round(monthsBi),
-        interest_paid: Math.max(0, interestBi),
-        savings_interest: Math.max(0, totalInterest - interestBi),
-        months_saved: Math.round(monthsSaved),
-      };
-    }
-  } catch {}
+
   return {
     loan_amount: Math.round(principal),
     monthly_payment_pi: Math.round(m * 100) / 100,
     months_to_payoff: n,
     payoff_date: payoffDate,
     lifetime_interest: Math.round(totalInterest * 100) / 100,
-    pmi_end_month_index: pmiEndIndex,
-    biweekly,
   };
 }
 
@@ -405,12 +357,11 @@ function readWidgetHtml(componentName: string): string {
 
   return htmlContents;
 }
-
 // Use git commit hash for deterministic cache-busting across deploys
 // Added timestamp suffix to force cache invalidation for width fix
 const VERSION = (process.env.RENDER_GIT_COMMIT?.slice(0, 7) || Date.now().toString()) + '-' + Date.now();
 
-function widgetMeta(widget: MortgageWidget, bustCache: boolean = false) {
+function widgetMeta(widget: AutoLoanWidget, bustCache: boolean = false) {
   const templateUri = bustCache
     ? `ui://widget/auto-loan-calculator.html?v=${VERSION}`
     : widget.templateUri;
@@ -418,39 +369,41 @@ function widgetMeta(widget: MortgageWidget, bustCache: boolean = false) {
   return {
     "openai/outputTemplate": templateUri,
     "openai/widgetDescription":
-      "Auto Loan Calculator widget for analyzing auto loans. Enter purchase, financing, and expenses to calculate return on investment: ROI, cash-on-cash return, internal rate of return (IRR), capitalization rate (cap rate), net operating income (NOI), mortgage P&I, annual cash flow, equity, and a 20-year investment summary including profit when sold. Includes Year-1 KPIs, an expense donut, and a year-by-year breakdown.",
+      "Auto Loan Calculator for analyzing vehicle loans. Enter purchase price, down payment, and financing details to see a full amortization schedule, total interest paid, and monthly payment breakdowns.",
     "openai/componentDescriptions": {
-      "rate-indicator": "Header indicator for auto loan analysis showing today’s mortgage rate reference to contextualize ROI and cash-on-cash return; includes a refresh control for current rates.",
-      "rate-badge": "Badge showing the most recent mortgage rate reference to inform auto loan returns (cash-on-cash, IRR, cap rate); updates when refreshed.",
-      "manual-refresh-button": "Refresh to pull a new mortgage rate reference so auto loan ROI, cash-on-cash return, and IRR reflect current rates.",
-      "loan-input-form": "Auto loan financing inputs—loan program, down payment, interest rate, and term—used to compute mortgage P&I for the auto loan calculator and drive cash flow/NOI.",
-      "monthly-summary-card": "Year-1 auto loan summary showing income after expenses and monthly/annual cash flow to support ROI analysis.",
-      "quick-metrics": "Auto loan KPIs including cap rate, cash-on-cash return, NOI, and mortgage P&I totals for quick insight.",
-      "breakdown-chart": "Auto loan expense donut showing operating expenses and mix to explain NOI and cash flow.",
-      "amortization-section": "20-year investment summary for auto loans: income, expenses, cash flow, equity, cash if sold, and IRR at the chosen horizon.",
-      "notification-cta": "Optional call-to-action for rate-drop updates to revisit auto loan returns when interest rates move.",
+      "rate-indicator": "Header indicator showing a relevant auto loan interest rate for market context; includes a refresh control.",
+      "rate-badge": "Badge showing a recent auto loan interest rate reference; updates when refreshed.",
+      "manual-refresh-button": "Refresh to pull a new auto loan interest rate reference.",
+      "loan-input-form": "Auto loan financing inputs—vehicle price, down payment, interest rate, and term—used to compute the monthly payment and total interest.",
+      "monthly-summary-card": "A summary of the calculated auto loan, including monthly payment and total loan amount.",
+      "quick-metrics": "Key auto loan metrics including total principal, interest, and total payments.",
+      "breakdown-chart": "A chart visualizing the breakdown of principal vs. interest over the life of the loan.",
+      "amortization-section": "A year-by-year and month-by-month amortization schedule showing the loan balance over time.",
+      "notification-cta": "Optional call-to-action for rate-drop updates to revisit auto loan terms when interest rates move.",
     },
     "openai/widgetKeywords": [
       "auto loan calculator",
-      "ROI on auto loan",
-      "calculate return on auto loan",
-      "auto loan cash on cash return",
-      "auto loan IRR",
-      "investment property cap rate",
-      "auto loan NOI",
-      "auto loan mortgage P&I",
-      "auto loan returns",
+      "car payment calculator",
       "auto loan analysis",
-      "20 year auto loan projections",
-      "auto loan profit when sold",
-      "auto loan equity growth",
+      "auto loan monthly payment",
+      "auto loan total interest",
+      "auto loan amortization schedule",
+    ],
+    "openai/sampleConversations": [
+      { "user": "Calculate my auto loan payment for a $45,000 car.", "assistant": "Here is the auto loan calculator with your inputs applied." },
+      { "user": "What is my total interest paid on a $30k loan at 5% for 60 months?", "assistant": "I’ll compute the total interest paid over the life of the loan." }
+    ],
+    "openai/starterPrompts": [
+      "Show an auto loan calculator.",
+      "Analyze my auto loan.",
+      "Calculate my car payment.",
     ],
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": {
       connect_domains: [
         "https://api.stlouisfed.org",
-        "https://mortgage-calculator-open-ai.onrender.com",
-        "http://localhost:8000"
+        "https://auto-calculator.onrender.com",
+        "http://localhost:8010"
       ],
       resource_domains: [],
     },
@@ -460,34 +413,34 @@ function widgetMeta(widget: MortgageWidget, bustCache: boolean = false) {
     "openai/widgetAccessible": true,
     "openai/resultCanProduceWidget": true,
     "openai/starterPrompts": [
-      "Show an auto loan calculator.",
-      "Analyze the return of a car loan.",
-      "Calculate cashflow on this auto loan.",
+      "Show mean auto loan calculator.",
+      "Deteremine the monthly payment of an auto loan.",
+      "How much does a new car cost to finance?",
       "Analyze a car loan: purchase $30,000, 20% down, 6.25% APR, monthly expenses $500, over 5 years.",
-      "Show me the ROI on a $25,000 car loan with 25% down, monthly expenses $400, over 5 years.",
+      "Can I afford to finance a new car?",
     ],
     "openai/sampleConversations": [
-      { "user": "Calculate cash-on-cash return and IRR for a car loan with $30k purchase, 15% down, 6.25% for 5y, monthly expenses $500.", "assistant": "Here are the auto loan metrics: ROI, cash-on-cash return, IRR, cap rate, NOI, P&I totals, and a 20-year investment summary including equity and profit when sold. Year-1 KPIs and the expense donut are included." },
-      { "user": "How does 3% vs 4% appreciation affect profit when sold and IRR?", "assistant": "I’ll compute two scenarios and compare 20-year ROI, IRR, cash-on-cash return, cap rate, NOI, annual cash flow, equity, and profit when sold." }
+      { "user": "Calculate the monthly payment for a $35,000 car with $5,000 down over 72 months at 6.5%.", "assistant": "Here is the auto loan calculator with your inputs. You can see the monthly payment, total interest, and a full amortization schedule." },
+      { "user": "Compare a 48-month vs a 60-month loan on a $25,000 car.", "assistant": "I can help with that. Here is the calculator pre-filled for the 48-month term. You can adjust the term to 60 months to see the difference in payment and total interest." }
     ],
   } as const;
 }
 
-const widgets: MortgageWidget[] = [
+const widgets: AutoLoanWidget[] = [
   {
     id: "auto-loan-calculator",
-    title: "Auto Loan Calculator — calculate ROI, cash-on-cash return, IRR, cap rate, NOI, and 20-year projections for auto loans",
+    title: "Auto Loan Calculator — calculate monthly payments, total interest, and view amortization schedules for vehicle loans",
     templateUri: `ui://widget/auto-loan-calculator.html?v=${VERSION}`,
     invoking:
-      "Opening the Auto Loan Calculator with inputs for purchase, financing, income, and expenses to compute ROI, cash-on-cash return, IRR, cap rate, NOI, cash flow, and 20-year projections...",
+      "Opening the Auto Loan Calculator...",
     invoked:
-      "Here is the Auto Loan Calculator with Year-1 KPIs, an expense donut, and a 20-year investment summary (ROI, cash-on-cash return, IRR, cap rate, NOI, cash flow, equity, and profit when sold).",
+      "Here is the Auto Loan Calculator. You can adjust the inputs to see different loan scenarios.",
     html: readWidgetHtml("auto-loan-calculator"),
   },
 ];
 
-const widgetsById = new Map<string, MortgageWidget>();
-const widgetsByUri = new Map<string, MortgageWidget>();
+const widgetsById = new Map<string, AutoLoanWidget>();
+const widgetsByUri = new Map<string, AutoLoanWidget>();
 
 widgets.forEach((widget) => {
   widgetsById.set(widget.id, widget);
@@ -497,39 +450,8 @@ widgets.forEach((widget) => {
 const toolInputSchema = {
   type: "object",
   properties: {
-    loan_type: {
-      type: "string",
-      enum: ["conventional", "FHA", "VA", "USDA"],
-      description: "Loan program type. Choose one of: conventional, FHA, VA, USDA. Natural language hints: 'FHA loan', 'VA mortgage'.",
-      examples: ["conventional", "FHA"],
-    },
-    home_value: {
-      type: "number",
-      description: "Home purchase price (a.k.a. home price, house price, property price, purchase price, list price). Extract dollar amounts like '$500,000', '500k', '0.5m'.",
-      examples: [500000, 350000, 875000],
-    },
-    down_payment_value: {
-      type: "number",
-      description: "Down payment in dollars (not percent). If the user says '20% down' and home_value is known, compute value = home_value * 0.20. Accept '$25,000 down', '25k down'.",
-      examples: [100000, 25000, 90000],
-    },
-    rate_apr: {
-      type: "number",
-      description: "Interest rate APR as a percentage number, e.g., 6.5 for 6.5%. Extract from phrasing like 'rate 5.75%', 'APR 6.2', 'at 6%'.",
-      examples: [6.5, 5.75, 6.2],
-    },
-    term_years: {
-      type: "number",
-      description: "Loan term in years. Extract from phrases like '30-year fixed', '15 yr', '20 year'.",
-      examples: [30, 15, 20],
-    },
-    zip_code: {
-      type: "string",
-      description: "Optional ZIP/postal code. Prefer 5-digit US ZIP if present in the user text.",
-      examples: ["94110", "11215"],
-    },
-    // Auto-loan specific inputs
     auto_price: { type: "number", description: "Vehicle price (e.g., 50000)." },
+    down_payment_value: { type: "number", description: "Down payment in dollars (not percent)." },
     loan_term_months: { type: "number", description: "Loan term in months (e.g., 60)." },
     interest_rate_pct: { type: "number", description: "APR as percent (e.g., 5 for 5%)." },
     cash_incentives: { type: "number", description: "Cash rebates/incentives applied to price." },
@@ -539,56 +461,14 @@ const toolInputSchema = {
     sales_tax_pct: { type: "number", description: "Sales tax percent applied to taxable base." },
     title_fees: { type: "number", description: "Title/registration/other fees in dollars." },
     include_taxes_fees: { type: "boolean", description: "If true, include taxes and fees in the financed amount." },
-    // Rental-specific inputs (accepted from prompts for widget hydration)
-    purchase_price: { type: "number", description: "Rental property purchase price (e.g., $700,000)." },
-    closing_cost: { type: "number", description: "Estimated closing costs in dollars." },
-    monthly_rent: { type: "number", description: "Total monthly rent for the property (all units)." },
-    other_monthly_income: { type: "number", description: "Other recurring monthly income (parking, laundry)." },
-    vacancy_rate_pct: { type: "number", description: "Vacancy rate as a percent number (e.g., 5 for 5%)." },
-    exp_property_tax_annual: { type: "number", description: "Annual property taxes in dollars." },
-    exp_insurance_annual: { type: "number", description: "Annual homeowners insurance in dollars." },
-    exp_hoa_annual: { type: "number", description: "Annual HOA dues in dollars." },
-    exp_maintenance_annual: { type: "number", description: "Annual maintenance cost in dollars." },
-    exp_other_annual: { type: "number", description: "Annual other operating costs in dollars." },
-    down_payment_pct: { type: "number", description: "Down payment percent (e.g., 20 for 20%)." },
-    loan_term_years: { type: "number", description: "Loan term in years (e.g., 30)." },
-    monthly_rent_increase_pct: { type: "number", description: "Annual rent increase percent." },
-    other_monthly_income_increase_pct: { type: "number", description: "Annual other income increase percent." },
-    exp_property_tax_increase_pct: { type: "number", description: "Annual tax increase percent." },
-    exp_insurance_increase_pct: { type: "number", description: "Annual insurance increase percent." },
-    exp_hoa_increase_pct: { type: "number", description: "Annual HOA increase percent." },
-    exp_maintenance_increase_pct: { type: "number", description: "Annual maintenance increase percent." },
-    exp_other_increase_pct: { type: "number", description: "Annual other cost increase percent." },
-    holding_length_years: { type: "number", description: "Holding period in years for the investment summary." },
-    cost_to_sell_pct: { type: "number", description: "Percent cost to sell at exit (e.g., 6)." },
-    value_appreciation_pct: { type: "number", description: "Annual property appreciation percent (e.g., 3)." },
-    sell_price: { type: "number", description: "Explicit sell price if known (overrides appreciation)." },
   },
   required: [],
   additionalProperties: false,
 } as const;
 
 const toolInputParser = z.object({
-  loan_type: z.enum(["conventional", "FHA", "VA", "USDA"]).optional(),
-  home_value: z.number().optional(),
-  down_payment_value: z.number().optional(),
-  rate_apr: z.number().optional(),
-  term_years: z.number().optional(),
-  zip_code: z.string().optional(),
-  credit_score: z.enum(["760+", "720-759", "680-719", "640-679", "600-639", "<600"]).optional(),
-  property_tax_input: z.number().optional(),
-  homeowners_insurance_yearly: z.number().optional(),
-  hoa_monthly: z.number().optional(),
-  pmi_pct: z.number().optional(),
-  annual_mi_pct: z.number().optional(),
-  upfront_fee_pct: z.number().optional(),
-  finance_upfront_fee: z.boolean().optional(),
-  start_month: z.number().min(1).max(12).optional(),
-  start_year: z.number().optional(),
-  extra_principal_monthly: z.number().optional(),
-  extra_start_month_index: z.number().optional(),
-  // Auto-loan specific (preferred)
   auto_price: z.number().optional(),
+  down_payment_value: z.number().optional(),
   loan_term_months: z.number().optional(),
   interest_rate_pct: z.number().optional(),
   cash_incentives: z.number().optional(),
@@ -598,37 +478,12 @@ const toolInputParser = z.object({
   sales_tax_pct: z.number().optional(),
   title_fees: z.number().optional(),
   include_taxes_fees: z.boolean().optional(),
-
-  // Rental-specific fields (optional for hydration; retained for backward-compat)
-  purchase_price: z.number().optional(),
-  closing_cost: z.number().optional(),
-  monthly_rent: z.number().optional(),
-  other_monthly_income: z.number().optional(),
-  vacancy_rate_pct: z.number().optional(),
-  exp_property_tax_annual: z.number().optional(),
-  exp_insurance_annual: z.number().optional(),
-  exp_hoa_annual: z.number().optional(),
-  exp_maintenance_annual: z.number().optional(),
-  exp_other_annual: z.number().optional(),
-  down_payment_pct: z.number().optional(),
-  loan_term_years: z.number().optional(),
-  monthly_rent_increase_pct: z.number().optional(),
-  other_monthly_income_increase_pct: z.number().optional(),
-  exp_property_tax_increase_pct: z.number().optional(),
-  exp_insurance_increase_pct: z.number().optional(),
-  exp_hoa_increase_pct: z.number().optional(),
-  exp_maintenance_increase_pct: z.number().optional(),
-  exp_other_increase_pct: z.number().optional(),
-  holding_length_years: z.number().optional(),
-  cost_to_sell_pct: z.number().optional(),
-  value_appreciation_pct: z.number().optional(),
-  sell_price: z.number().optional(),
 });
 
 const tools: Tool[] = widgets.map((widget) => ({
   name: widget.id,
   description:
-    "Use this for auto loan analysis. The calculator opens with sensible default values and does NOT require explicit numbers to run—users can adjust inputs interactively in the widget. If the user provides specific values (purchase price, loan term, interest rate, etc.), pass them to pre-populate the calculator. Calculates return on investment: ROI, cash-on-cash return, internal rate of return (IRR), capitalization rate (cap rate), net operating income (NOI), mortgage P&I totals, annual cash flow, equity, and a 20-year investment summary including profit when sold.",
+    "Use this for auto loan analysis. The calculator opens with sensible default values and does NOT require explicit numbers to run—users can adjust inputs interactively in the widget. If the user provides specific values (vehicle price, loan term, interest rate, etc.), pass them to pre-populate the calculator. It calculates the monthly payment, total interest, and provides a full amortization schedule.",
   inputSchema: toolInputSchema,
   outputSchema: {
     type: "object",
@@ -636,24 +491,10 @@ const tools: Tool[] = widgets.map((widget) => ({
       ready: { type: "boolean" },
       timestamp: { type: "string" },
       currentRate: { type: ["number", "null"] },
-      loan_type: { type: "string" },
-      home_value: { type: "number" },
+      auto_price: { type: "number" },
       down_payment_value: { type: "number" },
-      rate_apr: { type: "number" },
-      term_years: { type: "number" },
-      zip_code: { type: "string" },
-      credit_score: { type: "string" },
-      property_tax_input: { type: "number" },
-      homeowners_insurance_yearly: { type: "number" },
-      hoa_monthly: { type: "number" },
-      pmi_pct: { type: "number" },
-      annual_mi_pct: { type: "number" },
-      upfront_fee_pct: { type: "number" },
-      finance_upfront_fee: { type: "boolean" },
-      start_month: { type: "number" },
-      start_year: { type: "number" },
-      extra_principal_monthly: { type: "number" },
-      extra_start_month_index: { type: "number" },
+      interest_rate_pct: { type: "number" },
+      loan_term_months: { type: "number" },
       summary: {
         type: "object",
         properties: {
@@ -662,16 +503,6 @@ const tools: Tool[] = widgets.map((widget) => ({
           months_to_payoff: { type: ["number", "null"] },
           payoff_date: { type: ["string", "null"] },
           lifetime_interest: { type: ["number", "null"] },
-          pmi_end_month_index: { type: ["number", "null"] },
-          biweekly: {
-            type: ["object", "null"],
-            properties: {
-              months_to_payoff: { type: ["number", "null"] },
-              interest_paid: { type: ["number", "null"] },
-              savings_interest: { type: ["number", "null"] },
-              months_saved: { type: ["number", "null"] },
-            },
-          },
         },
       },
       suggested_followups: {
@@ -697,7 +528,7 @@ const resources: Resource[] = widgets.map((widget) => ({
   uri: widget.templateUri,
   name: widget.title,
   description:
-    "HTML template for the Auto Loan Calculator widget. Presents inputs for purchase, financing, and expenses, with Year-1 KPIs, expense donut, and a 20-year investment summary showing ROI, cash-on-cash return, IRR, cap rate, NOI, cash flow, equity, and profit when sold.",
+    "HTML template for the Auto Loan Calculator widget.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
@@ -706,18 +537,18 @@ const resourceTemplates: ResourceTemplate[] = widgets.map((widget) => ({
   uriTemplate: widget.templateUri,
   name: widget.title,
   description:
-    "Template descriptor for the Auto Loan Calculator widget that analyzes auto loans. Includes inputs for purchase, financing, and operating expenses, plus Year-1 KPIs, an expense donut, and a 20-year investment summary including ROI, cash-on-cash return, IRR, cap rate, NOI, cash flow, equity, and profit when sold.",
+    "Template descriptor for the Auto Loan Calculator widget.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
 
-function createMortgageCalculatorServer(): Server {
+function createAutoLoanCalculatorServer(): Server {
   const server = new Server(
     {
       name: "auto-loan-calculator",
       version: "0.1.0",
       description:
-        "Auto Loan Calculator is a comprehensive app for analyzing auto loans. It calculates return on investment including cash-on-cash return, IRR, cap rate, NOI, mortgage P&I totals, annual cash flow, equity growth, and a 20-year investment summary with profit when sold. It opens with sensible defaults and supports general prompts like ‘show an auto loan calculator’.",
+        "Auto Loan Calculator is a comprehensive app for analyzing vehicle loans. It calculates monthly payments, total interest, and provides a full amortization schedule. It opens with sensible defaults and supports general prompts like ‘show an auto loan calculator’.",
     },
     {
       capabilities: {
@@ -856,132 +687,101 @@ function createMortgageCalculatorServer(): Server {
             meta["openai/requestText"],
           ];
           const userText = candidates.find((t) => typeof t === "string" && t.trim().length > 0) || "";
-          if (args.home_value === undefined || args.home_value === null) {
-            if (userText) {
-              const parseAmountToNumber = (s: string): number | null => {
-                const lower = s.toLowerCase().replace(/[,$\s]/g, "").trim();
-                const m = lower.match(/^(\d+(?:\.\d+)?)(m)$/);
-                const k = lower.match(/^(\d+(?:\.\d+)?)(k)$/);
-                if (m) return Math.round(parseFloat(m[1]) * 1_000_000);
-                if (k) return Math.round(parseFloat(k[1]) * 1_000);
-                const n = Number(lower.replace(/[^0-9.]/g, ""));
-                return Number.isFinite(n) ? Math.round(n) : null;
-              };
 
-              // 1) Targeted pattern allowing determiners between preposition and number (e.g., "on a 500,000 home")
-              const targeted = userText.match(/(?:home|house|property|mortgage)\b[^\d$]{0,40}?\$?([\d,.]+\s*[kKmM]?)/i)
-                || userText.match(/\$\s*([\d,.]+\s*[kKmM]?)/i)
-                || userText.match(/([\d,.]+\s*[kKmM]?)\s*(?:home|house|property|mortgage)\b/i);
+          const parseAmountToNumber = (s: string): number | null => {
+            const lower = s.toLowerCase().replace(/[,$\s]/g, "").trim();
+            const k = lower.match(/(\d+(?:\.\d+)?)(k)$/);
+            if (k) return Math.round(parseFloat(k[1]) * 1_000);
+            const n = Number(lower.replace(/[^0-9.]/g, ""));
+            return Number.isFinite(n) ? Math.round(n) : null;
+          };
 
-              const tryAssign = (raw: string | null | undefined) => {
-                if (!raw) return false;
-                const parsed = parseAmountToNumber(raw);
-                if (parsed && parsed >= 50_000 && parsed <= 100_000_000) {
-                  args.home_value = parsed;
-                  console.log("[Inference] home_value inferred from user text", { home_value: parsed, source: userText });
-                  return true;
-                }
-                return false;
-              };
-
-              let assigned = false;
-              if (targeted && targeted[1]) {
-                assigned = tryAssign(targeted[1]);
-              }
-
-              // 2) Fallback: scan for any plausible amount near keywords within a small window
-              if (!assigned) {
-                const keywordRe = /(home|house|property|mortgage)/i;
-                const amountRe = /\$?\b(\d{1,3}(?:[.,]\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?\s*[kKmM]?)\b/g;
-                let match: RegExpExecArray | null;
-                while ((match = amountRe.exec(userText)) !== null) {
-                  const start = Math.max(0, match.index - 40);
-                  const end = Math.min(userText.length, amountRe.lastIndex + 40);
-                  const windowText = userText.slice(start, end);
-                  if (keywordRe.test(windowText)) {
-                    if (tryAssign(match[1])) { assigned = true; break; }
-                  }
+          // Infer auto_price
+          if (args.auto_price === undefined) {
+            const priceKeywords = /(?:car|auto|vehicle|loan|price|cost|costs)\b/i;
+            const priceRe = /\$?([\d,.]+\s*[kK]?)\$?/g;
+            let match: RegExpExecArray | null;
+            while ((match = priceRe.exec(userText)) !== null) {
+              const windowStart = Math.max(0, match.index - 40);
+              const windowEnd = Math.min(userText.length, priceRe.lastIndex + 40);
+              const windowText = userText.slice(windowStart, windowEnd);
+              if (priceKeywords.test(windowText)) {
+                const parsed = parseAmountToNumber(match[1]);
+                if (parsed && parsed >= 1000 && parsed <= 500000) {
+                  args.auto_price = parsed;
+                  console.log("[Inference] auto_price inferred from user text", { auto_price: parsed, source: userText });
+                  break;
                 }
               }
             }
           }
-          if ((args.term_years === undefined || args.term_years === null) && userText) {
-            const tm = userText.match(/\b(\d{1,2})\s*[- ]?(?:year|yr|y)\b/i) || userText.match(/\b(10|15|20|25|30)\s*[- ]?(?:fixed|mortgage)\b/i);
-            if (tm && tm[1]) {
-              const ty = parseInt(tm[1], 10);
-              if (ty >= 5 && ty <= 40) {
-                args.term_years = ty;
+
+          // Infer down_payment_value
+          if (args.down_payment_value === undefined) {
+            const dpRe = /\$?([\d,.]+)\s*(?:down|dp)\b/i;
+            const dpMatch = userText.match(dpRe);
+            if (dpMatch && dpMatch[1]) {
+              const n = parseAmountToNumber(dpMatch[1]);
+              if (n !== null && n >= 0) {
+                args.down_payment_value = n;
               }
             }
           }
-          if ((args.rate_apr === undefined || args.rate_apr === null) && userText) {
-            const rm = userText.match(/\b(\d{1,2}(?:\.\d+)?)\s*%\b/i) || userText.match(/\b(?:rate|apr|at)\s*(\d{1,2}(?:\.\d+)?)\b/i);
-            if (rm && rm[1]) {
-              const rv = parseFloat(rm[1]);
-              if (rv > 0 && rv < 25) {
-                args.rate_apr = rv;
-              }
-            }
-          }
-          if ((args.zip_code === undefined || args.zip_code === null) && userText) {
-            const zm = userText.match(/\b(\d{5})\b/);
-            if (zm && zm[1]) {
-              args.zip_code = zm[1];
-            }
-          }
-          if ((args.down_payment_value === undefined || args.down_payment_value === null) && userText) {
-            let dpm = userText.match(/\$\s*([\d,.]+)\s*(?:down|dp)\b/i);
-            if (dpm && dpm[1]) {
-              const n = Number(dpm[1].replace(/[^0-9.]/g, ""));
-              if (Number.isFinite(n) && n >= 0) {
-                args.down_payment_value = Math.round(n);
+
+          // Infer loan_term_months
+          if (args.loan_term_months === undefined) {
+            const termMatch = userText.match(/\b(\d{1,3})\s*[- ]?(?:month|mo)\b/i);
+            if (termMatch && termMatch[1]) {
+              const months = parseInt(termMatch[1], 10);
+              if (months >= 12 && months <= 120) {
+                args.loan_term_months = months;
               }
             } else {
-              const ppm = userText.match(/\b(\d{1,2}(?:\.\d+)?)\s*%\s*(?:down|dp|down\s*payment)\b/i) || userText.match(/\b(?:down|dp|down\s*payment)[^\d%]{0,20}(\d{1,2}(?:\.\d+)?)\s*%\b/i);
-              if (ppm && ppm[1] && typeof args.home_value === "number" && args.home_value > 0) {
-                const pct = parseFloat(ppm[1]);
-                if (pct >= 0 && pct <= 100) {
-                  args.down_payment_value = Math.round(args.home_value * (pct / 100));
+              const yearMatch = userText.match(/\b(\d{1,2})\s*[- ]?(?:year|yr)\b/i);
+              if (yearMatch && yearMatch[1]) {
+                const years = parseInt(yearMatch[1], 10);
+                if (years >= 1 && years <= 10) {
+                  args.loan_term_months = years * 12;
                 }
               }
             }
           }
 
-          // Rental-focused inference and mapping
-          // Map home_value -> purchase_price if explicit purchase_price wasn't provided
-          if ((args as any).purchase_price == null && typeof args.home_value === "number" && args.home_value > 0) {
-            (args as any).purchase_price = args.home_value;
-          }
-          // Infer monthly_rent if user mentions "rent $X"
-          if ((args as any).monthly_rent == null && userText) {
-            const rentMatch = userText.match(/rent[^\d$]{0,15}\$?([\d,.]+)\b/i) || userText.match(/\$\s*([\d,.]+)\b[^\n]{0,20}\brent\b/i);
-            if (rentMatch && rentMatch[1]) {
-              const rn = Number(rentMatch[1].replace(/[^0-9.]/g, ""));
-              if (Number.isFinite(rn) && rn >= 0) {
-                (args as any).monthly_rent = Math.round(rn);
+          // Infer interest_rate_pct
+          if (args.interest_rate_pct === undefined) {
+            const rateMatch = userText.match(/\b(\d{1,2}(?:\.\d+)?)\s*%/i) || userText.match(/\b(?:rate|apr|at)\s*(\d{1,2}(?:\.\d+)?)\b/i);
+            if (rateMatch && rateMatch[1]) {
+              const rate = parseFloat(rateMatch[1]);
+              if (rate > 0 && rate < 30) {
+                args.interest_rate_pct = rate;
               }
             }
           }
-          // Compute down_payment_pct from value if possible
-          if ((args as any).down_payment_pct == null && typeof args.home_value === "number" && args.home_value > 0 && typeof args.down_payment_value === "number") {
-            const pct = (args.down_payment_value / args.home_value) * 100;
-            if (Number.isFinite(pct)) {
-              (args as any).down_payment_pct = Math.round(pct * 100) / 100;
-            }
-          }
+
         } catch (e) {
           console.warn("Parameter inference from meta failed", e);
         }
 
+
         const responseTime = Date.now() - startTime;
 
         // Infer likely user query from parameters
-        const inferredQuery = [];
-        if (args.home_value) inferredQuery.push(`home value: $${args.home_value.toLocaleString()}`);
-        if (args.down_payment_value) inferredQuery.push(`down payment: $${args.down_payment_value.toLocaleString()}`);
-        if (args.loan_type) inferredQuery.push(`loan type: ${args.loan_type}`);
-        if (args.term_years) inferredQuery.push(`${args.term_years}-year term`);
-        if (args.rate_apr) inferredQuery.push(`${args.rate_apr}% APR`);
+        const inferredQuery = [] as string[];
+        if (args.auto_price) {
+          inferredQuery.push(`auto price: $${args.auto_price.toLocaleString()}`);
+        }
+        if (args.down_payment_value) {
+          inferredQuery.push(`down payment: $${args.down_payment_value.toLocaleString()}`);
+        }
+        if (args.loan_term_months) {
+          inferredQuery.push(`${args.loan_term_months}-month term`);
+        }
+        if (args.interest_rate_pct) {
+          inferredQuery.push(`${args.interest_rate_pct}% APR`);
+        }
+        if (args.state) {
+          inferredQuery.push(`state: ${args.state}`);
+        }
 
         logAnalytics("tool_call_success", {
           toolName: request.params.name,
@@ -1005,34 +805,18 @@ function createMortgageCalculatorServer(): Server {
         const widgetMetadata = widgetMeta(widget, false);
         console.log(`[MCP] Tool called: ${request.params.name}, returning templateUri: ${(widgetMetadata as any)["openai/outputTemplate"]}`);
 
-        // Build structured content once so we can log it and return it
+        // Build structured content once so we can log it and return it.
+        // For the auto-loan calculator, expose only the fields that are
+        // actually relevant to auto loans so ChatGPT sees a clean API.
         const structured = {
           ready: true,
           timestamp: new Date().toISOString(),
           currentRate: fredRateCache?.payload?.ratePercent ?? null,
-          // Flatten parsed parameters directly into structuredContent
-          loan_type: args.loan_type,
-          home_value: args.home_value,
+          // Auto-loan specific parameters
+          auto_price: args.auto_price,
           down_payment_value: args.down_payment_value,
-          rate_apr: args.rate_apr,
-          term_years: args.term_years,
-          zip_code: args.zip_code,
-          credit_score: args.credit_score,
-          property_tax_input: args.property_tax_input,
-          homeowners_insurance_yearly: args.homeowners_insurance_yearly,
-          hoa_monthly: args.hoa_monthly,
-          pmi_pct: args.pmi_pct,
-          annual_mi_pct: args.annual_mi_pct,
-          upfront_fee_pct: args.upfront_fee_pct,
-          finance_upfront_fee: args.finance_upfront_fee,
-          start_month: args.start_month,
-          start_year: args.start_year,
-          extra_principal_monthly: args.extra_principal_monthly,
-          extra_start_month_index: args.extra_start_month_index,
-          // Auto-loan specific parameters (with fallbacks from legacy mortgage-style fields)
-          auto_price: args.auto_price ?? args.home_value ?? null,
-          loan_term_months: args.loan_term_months ?? (args.term_years ? args.term_years * 12 : undefined),
-          interest_rate_pct: args.interest_rate_pct ?? args.rate_apr ?? undefined,
+          interest_rate_pct: args.interest_rate_pct,
+          loan_term_months: args.loan_term_months,
           cash_incentives: args.cash_incentives,
           trade_in_value: args.trade_in_value,
           trade_in_owed: args.trade_in_owed,
@@ -1040,35 +824,12 @@ function createMortgageCalculatorServer(): Server {
           sales_tax_pct: args.sales_tax_pct,
           title_fees: args.title_fees,
           include_taxes_fees: args.include_taxes_fees,
-          // Rental-specific parameters passed through for widget hydration
-          purchase_price: (args as any).purchase_price,
-          closing_cost: (args as any).closing_cost,
-          monthly_rent: (args as any).monthly_rent,
-          other_monthly_income: (args as any).other_monthly_income,
-          vacancy_rate_pct: (args as any).vacancy_rate_pct,
-          exp_property_tax_annual: (args as any).exp_property_tax_annual,
-          exp_insurance_annual: (args as any).exp_insurance_annual,
-          exp_hoa_annual: (args as any).exp_hoa_annual,
-          exp_maintenance_annual: (args as any).exp_maintenance_annual,
-          exp_other_annual: (args as any).exp_other_annual,
-          down_payment_pct: (args as any).down_payment_pct,
-          loan_term_years: (args as any).loan_term_years,
-          monthly_rent_increase_pct: (args as any).monthly_rent_increase_pct,
-          other_monthly_income_increase_pct: (args as any).other_monthly_income_increase_pct,
-          exp_property_tax_increase_pct: (args as any).exp_property_tax_increase_pct,
-          exp_insurance_increase_pct: (args as any).exp_insurance_increase_pct,
-          exp_hoa_increase_pct: (args as any).exp_hoa_increase_pct,
-          exp_maintenance_increase_pct: (args as any).exp_maintenance_increase_pct,
-          exp_other_increase_pct: (args as any).exp_other_increase_pct,
-          holding_length_years: (args as any).holding_length_years,
-          cost_to_sell_pct: (args as any).cost_to_sell_pct,
-          value_appreciation_pct: (args as any).value_appreciation_pct,
-          sell_price: (args as any).sell_price,
+          // Summary + follow-ups for natural language UX
           summary: computeSummary(args),
           suggested_followups: [
             "Help me reduce my monthly payment",
-            "Compare 15 vs 30 year for my inputs",
-            "What if property taxes are 1.2%?",
+            "Compare 36 vs 60 month loan for my inputs",
+            "What if I put more money down?",
           ],
         } as const;
 
@@ -1872,7 +1633,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
 
 async function handleSseRequest(res: ServerResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const server = createMortgageCalculatorServer();
+  const server = createAutoLoanCalculatorServer();
   const transport = new SSEServerTransport(postPath, res);
   const sessionId = transport.sessionId;
 
