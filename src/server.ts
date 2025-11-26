@@ -336,6 +336,10 @@ function widgetMeta(widget: BmiHealthWidget, bustCache: boolean = false) {
         "http://localhost:8010",
         "https://challenges.cloudflare.com"
       ],
+      script_src_domains: [
+        "https://body-health-calculator.onrender.com",
+        "https://challenges.cloudflare.com"
+      ],
       resource_domains: [],
     },
     "openai/widgetDomain": "https://chatgpt.com",
