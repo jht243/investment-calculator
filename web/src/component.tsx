@@ -10,7 +10,8 @@ import {
   Loader,
   Mail,
   MessageSquare,
-  HelpCircle
+  HelpCircle,
+  ArrowRight
 } from "lucide-react";
 import { 
   AreaChart, 
@@ -312,6 +313,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
             setSubscribeMessage(data.error || "Failed to subscribe.");
         }
     } catch (e) {
+        console.error("Subscribe error:", e);
         setSubscribeStatus("error");
         setSubscribeMessage("Network error. Please try again.");
     }
@@ -345,6 +347,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
             setFeedbackStatus("error");
         }
     } catch (e) {
+        console.error("Feedback error:", e);
         setFeedbackStatus("error");
     }
   };
@@ -400,6 +403,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
     let savingsNum = parseFloat(savings);
     
     if (isNaN(currentAgeNum) || isNaN(retirementAgeNum) || isNaN(incomeNum) || isNaN(savingsNum)) {
+      console.warn("Calculation skipped due to invalid inputs:", { currentAge, retirementAge, income, savings });
       return;
     }
 
@@ -420,14 +424,15 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
     // Annual shortfall at retirement (inflated)
     const annualShortfallAtRetire = annualShortfallToday * Math.pow(1 + infl, yearsPre);
     
-    // Need: Present value of all retirement expenses (lump sum at retirement that can fund expenses)
+    // Need: Present value of all retirement expenses
     // Use a fixed 4% safe withdrawal rate assumption - independent of investment strategy choice
+    // Assuming Start-of-Year withdrawals (Need money at beginning of period)
     const safeWithdrawalRate = 0.04;
     let neededAtRetirement = 0;
     for (let i = 0; i < yearsPost; i++) {
         // Each year's expense discounted back to retirement age using fixed rate
         const yearlyExpense = annualShortfallAtRetire * Math.pow(1 + infl, i);
-        neededAtRetirement += yearlyExpense / Math.pow(1 + safeWithdrawalRate, i + 1);
+        neededAtRetirement += yearlyExpense / Math.pow(1 + safeWithdrawalRate, i);
     }
 
     // 2. Required Contribution Calculation
@@ -554,7 +559,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
   }, [currentCalc.values]);
 
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [resultView, setResultView] = useState<"graph" | "summary">("graph");
+  const [resultView, setResultView] = useState<"graph" | "summary" | "tips">("graph");
 
   const toggleMode = (field: "contributionMode" | "budgetMode") => {
     const current = currentCalc.values[field];
@@ -779,6 +784,107 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
     const newDetails = { ...incomeDetails, socialSecurity: String(estimated) };
     setIncomeDetails(newDetails);
     updateIncomeTotal(newDetails);
+  };
+
+  const generateTips = () => {
+    if (!currentCalc.result) return [];
+    
+    const tips = [];
+    const { have, need, monthlyContribNeeded, currentMonthlyContrib } = currentCalc.result;
+    const shortfall = need - have;
+    const incomeNum = parseFloat(income);
+    
+    // 1. The Gap (Always first if exists)
+    if (shortfall > 0) {
+        tips.push({
+            title: "Increase Monthly Savings",
+            desc: `You are saving $${currentMonthlyContrib.toLocaleString()}/mo. To reach your goal, aim for $${monthlyContribNeeded.toLocaleString()}/mo (+$${(monthlyContribNeeded - currentMonthlyContrib).toLocaleString()}).`,
+            icon: "💰",
+            priority: "high"
+        });
+    }
+
+    // 2. Savings Rate (Target 15% or 20%)
+    if (incomeNum > 0) {
+        const currentRate = (currentMonthlyContrib * 12) / incomeNum;
+        const targetRate = 0.15; // 15%
+        if (currentRate < targetRate) {
+            const targetMonthly = Math.round((incomeNum * targetRate) / 12);
+            tips.push({
+                title: "Boost Your Savings Rate",
+                desc: `Your savings rate is ${(currentRate * 100).toFixed(1)}%. Experts recommend 15% ($${targetMonthly.toLocaleString()}/mo) for a secure retirement.`,
+                icon: "📈",
+                priority: "high"
+            });
+        }
+    }
+
+    // 3. Budget Check (Target 80% replacement ratio logic)
+    const budgetNum = parseFloat(budget);
+    if (incomeNum > 0 && (budgetNum * 12) > (incomeNum * 0.85)) {
+         const targetBudget = Math.round((incomeNum * 0.8) / 12);
+         tips.push({
+            title: "Review Retirement Budget",
+            desc: `Your planned spending ($${budgetNum.toLocaleString()}/mo) is high relative to your income. Reducing it to ~$${targetBudget.toLocaleString()}/mo would drastically lower your savings target.`,
+            icon: "📉",
+            priority: "medium"
+        });
+    }
+    
+    // 4. Investment Strategy Check
+    if (shortfall > 0 && (preRetireRate === "4" || preRetireRate === "6")) {
+         tips.push({
+            title: "Optimize Asset Allocation",
+            desc: "Your 4-6% return assumption is conservative. A balanced portfolio (60/40 stocks/bonds) historically returns ~7-8% over long periods.",
+            icon: "📊",
+            priority: "medium"
+        });
+    }
+
+    // 5. Delay Retirement Check
+    if (shortfall > 0 && parseInt(retirementAge) < 67) {
+         tips.push({
+            title: "Consider Delaying Retirement",
+            desc: `Retiring at ${parseInt(retirementAge) + 2} instead of ${retirementAge} gives your money 2 more years to grow and reduces the withdrawal period.`,
+            icon: "⏳",
+            priority: "medium"
+        });
+    }
+
+    // Fillers to ensure 3 tips
+    const fillerTips = [
+        {
+            title: "Maximize Tax Advantages",
+            desc: `Ensure you are contributing at least enough to get any employer 401(k) match (often free money!).`,
+            icon: "🏛️",
+            priority: "low"
+        },
+        {
+            title: "Emergency Fund",
+            desc: `Before aggressive investing, ensure you have 3-6 months of expenses ($${(budgetNum * 3).toLocaleString()} - $${(budgetNum * 6).toLocaleString()}) in cash.`,
+            icon: "🛡️",
+            priority: "low"
+        },
+        {
+            title: "Debt Management",
+            desc: "Pay off high-interest debt (>7%) before increasing retirement contributions further.",
+            icon: "💳",
+            priority: "low"
+        }
+    ];
+
+    // Add fillers if we have space
+    let fillerIndex = 0;
+    while (tips.length < 3 && fillerIndex < fillerTips.length) {
+        // Avoid duplicates if logic is similar (simple check here - titles are unique enough)
+        const isDuplicate = tips.some(t => t.title === fillerTips[fillerIndex].title);
+        if (!isDuplicate) {
+             tips.push(fillerTips[fillerIndex]);
+        }
+        fillerIndex++;
+    }
+    
+    return tips;
   };
 
   const styles = {
@@ -1264,18 +1370,33 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
             <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 24, gap: 16}}>
                 <div style={{flex: 1}}>
                     <div style={{fontSize: 14, color: COLORS.textMain, marginBottom: 4}}>What you'll have</div>
-                    <div style={{fontSize: 28, fontWeight: 800, color: COLORS.textMain}}>${currentCalc.result.have.toLocaleString()}</div>
+                    {(() => {
+                        const have = currentCalc.result.have;
+                        const need = currentCalc.result.need;
+                        const ratio = need > 0 ? have / need : 1;
+                        
+                        let color = COLORS.primary; // Green
+                        let message = "You're on track!";
+                        
+                        if (ratio < 0.8) {
+                            color = COLORS.red;
+                            message = "You're falling short.";
+                        } else if (ratio < 1.0) {
+                            color = COLORS.yellow;
+                            message = "You're getting close.";
+                        }
+
+                        return (
+                            <>
+                                <div style={{fontSize: 28, fontWeight: 800, color: color}}>${have.toLocaleString()}</div>
+                                <div style={{fontSize: 14, fontWeight: 600, color: color, marginTop: 4}}>{message}</div>
+                            </>
+                        );
+                    })()}
                 </div>
                 <div style={{flex: 1, borderLeft: `1px solid ${COLORS.border}`, paddingLeft: 16}}>
                     <div style={{fontSize: 14, color: COLORS.textMain, marginBottom: 4}}>What you'll need</div>
                     <div style={{fontSize: 28, fontWeight: 800, color: COLORS.textMain}}>${currentCalc.result.need.toLocaleString()}</div>
-                </div>
-            </div>
-
-            <div style={{marginBottom: 16}}>
-                <div style={{display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', color: COLORS.blue, fontSize: 12, fontWeight: 600}}>
-                    <HelpCircle size={14} />
-                    How did we calculate your results?
                 </div>
             </div>
 
@@ -1289,9 +1410,13 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
                     style={{padding: '8px 16px', borderBottom: resultView === 'summary' ? `2px solid ${COLORS.primary}` : 'none', fontWeight: 700, color: resultView === 'summary' ? COLORS.primary : COLORS.textSecondary, cursor: 'pointer', fontSize: 12, letterSpacing: 1}}
                     onClick={() => setResultView('summary')}
                 >SUMMARY VIEW</div>
+                <div 
+                    style={{padding: '8px 16px', borderBottom: resultView === 'tips' ? `2px solid ${COLORS.primary}` : 'none', fontWeight: 700, color: resultView === 'tips' ? COLORS.primary : COLORS.textSecondary, cursor: 'pointer', fontSize: 12, letterSpacing: 1}}
+                    onClick={() => setResultView('tips')}
+                >TIPS</div>
             </div>
 
-            {resultView === 'graph' ? (
+            {resultView === 'graph' && (
                 <div style={{height: 300, width: '100%', fontSize: 12}}>
                     <ResponsiveContainer>
                         <AreaChart data={currentCalc.result.graphData} margin={{top: 10, right: 10, left: -20, bottom: 0}}>
@@ -1348,47 +1473,101 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
                         </div>
                     </div>
                 </div>
-            ) : (
+            )}
+
+            {resultView === 'summary' && (
                 <div style={styles.list}>
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16}}>
-                        <div style={{fontWeight: 700, color: COLORS.textSecondary, fontSize: 12}}>Current retirement plan</div>
-                        <div style={{fontWeight: 700, color: COLORS.textSecondary, fontSize: 12}}>Target retirement plan</div>
+                    <div style={{marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12}}>
+                        <div style={{fontWeight: 800, color: COLORS.textMain, fontSize: 16}}>Plan Analysis</div>
+                        <div style={{fontSize: 13, color: COLORS.textSecondary}}>Comparison of your current trajectory vs. your goals</div>
                     </div>
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16}}>
-                        {/* Current Column */}
-                        <div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Total retirement savings</span>
-                                <span style={{fontWeight: 700, color: COLORS.primary, fontSize: 14}}>${currentCalc.result.have.toLocaleString()}</span>
+
+                    {/* Row 1: Contribution */}
+                    <div style={{marginBottom: 24}}>
+                        <div style={{fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8}}>Monthly Contributions</div>
+                        <div style={{display: 'flex', alignItems: 'center', gap: 12, backgroundColor: 'white', padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)"}}>
+                            <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Current Contribution</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: COLORS.textMain}}>${currentCalc.result.currentMonthlyContrib.toLocaleString()}</div>
                             </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Monthly contribution</span>
-                                <span style={{fontWeight: 700, color: COLORS.primary, fontSize: 14}}>${currentCalc.result.currentMonthlyContrib.toLocaleString()}</span>
-                            </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Age savings runs out</span>
-                                <span style={{fontWeight: 700, color: currentCalc.result.runOutAgeCurrent < parseInt(currentCalc.values.lifeExpectancy) ? COLORS.red : COLORS.primary, fontSize: 14}}>
-                                    {currentCalc.result.runOutAgeCurrent >= parseInt(currentCalc.values.lifeExpectancy) ? `${currentCalc.result.runOutAgeCurrent}+` : currentCalc.result.runOutAgeCurrent}
-                                </span>
+                            <div style={{color: COLORS.textSecondary, opacity: 0.5}}><ArrowRight size={24} /></div>
+                             <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Required Contribution</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: COLORS.blue}}>${currentCalc.result.monthlyContribNeeded.toLocaleString()}</div>
                             </div>
                         </div>
-                        {/* Target Column */}
-                        <div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Total retirement savings</span>
-                                <span style={{fontWeight: 700, color: COLORS.primary, fontSize: 14}}>${currentCalc.result.need.toLocaleString()}</span>
+                        {(() => {
+                            const diff = currentCalc.result.monthlyContribNeeded - currentCalc.result.currentMonthlyContrib;
+                            if (diff > 0) {
+                                return (
+                                    <div style={{fontSize: 13, color: COLORS.textSecondary, marginTop: 8, paddingLeft: 4, display: 'flex', gap: 6}}>
+                                        <span>💡</span>
+                                        <span>To meet your goal, increase contributions by <span style={{fontWeight: 700, color: COLORS.textMain}}>${diff.toLocaleString()}</span> /mo.</span>
+                                    </div>
+                                );
+                            } else {
+                                return (
+                                    <div style={{fontSize: 13, color: COLORS.primary, marginTop: 8, paddingLeft: 4, fontWeight: 600, display: 'flex', gap: 6}}>
+                                        <span>✅</span>
+                                        <span>You are contributing enough to meet your goal!</span>
+                                    </div>
+                                );
+                            }
+                        })()}
+                    </div>
+
+                    {/* Row 2: Total Savings */}
+                     <div style={{marginBottom: 24}}>
+                        <div style={{fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8}}>Total Savings at Retirement</div>
+                        <div style={{display: 'flex', alignItems: 'center', gap: 12, backgroundColor: 'white', padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)"}}>
+                            <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Projected Outcome</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: COLORS.textMain}}>${currentCalc.result.have.toLocaleString()}</div>
                             </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Monthly contribution</span>
-                                <span style={{fontWeight: 700, color: COLORS.primary, fontSize: 14}}>${currentCalc.result.monthlyContribNeeded.toLocaleString()}</span>
-                            </div>
-                            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px dashed #E5E7EB', paddingBottom: 8}}>
-                                <span style={{fontSize: 14, color: COLORS.textSecondary}}>Age savings runs out</span>
-                                <span style={{fontWeight: 700, color: currentCalc.result.runOutAgeIdeal >= parseInt(currentCalc.values.lifeExpectancy) ? COLORS.primary : COLORS.red, fontSize: 14}}>
-                                    {currentCalc.result.runOutAgeIdeal >= parseInt(currentCalc.values.lifeExpectancy) ? `${currentCalc.result.runOutAgeIdeal}+` : currentCalc.result.runOutAgeIdeal}
-                                </span>
+                            <div style={{color: COLORS.textSecondary, opacity: 0.5}}><ArrowRight size={24} /></div>
+                             <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Retirement Goal</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: COLORS.blue}}>${currentCalc.result.need.toLocaleString()}</div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Row 3: Run Out Age */}
+                     <div>
+                        <div style={{fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8}}>Sustainability</div>
+                        <div style={{display: 'flex', alignItems: 'center', gap: 12, backgroundColor: 'white', padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)"}}>
+                            <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Funds last until</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: currentCalc.result.runOutAgeCurrent < parseInt(currentCalc.values.lifeExpectancy) ? COLORS.red : COLORS.primary}}>Age {currentCalc.result.runOutAgeCurrent}</div>
+                            </div>
+                            <div style={{color: COLORS.textSecondary, opacity: 0.5}}><ArrowRight size={24} /></div>
+                             <div style={{flex: 1}}>
+                                <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500}}>Target Duration</div>
+                                <div style={{fontSize: 18, fontWeight: 800, color: COLORS.blue}}>Age {currentCalc.values.lifeExpectancy}+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {resultView === 'tips' && (
+                <div style={styles.list}>
+                    <div style={{marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12}}>
+                        <div style={{fontWeight: 800, color: COLORS.textMain, fontSize: 16}}>Personalized Recommendations</div>
+                        <div style={{fontSize: 13, color: COLORS.textSecondary}}>Actionable steps to improve your retirement outlook</div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: 16}}>
+                        {generateTips().map((tip, idx) => (
+                            <div key={idx} style={{backgroundColor: 'white', padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)", display: 'flex', gap: 16}}>
+                                <div style={{fontSize: 24, backgroundColor: COLORS.inputBg, width: 48, height: 48, borderRadius: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0}}>
+                                    {tip.icon}
+                                </div>
+                                <div>
+                                    <div style={{fontSize: 14, fontWeight: 700, color: COLORS.textMain, marginBottom: 4}}>{tip.title}</div>
+                                    <div style={{fontSize: 13, color: COLORS.textSecondary, lineHeight: 1.5}}>{tip.desc}</div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )}

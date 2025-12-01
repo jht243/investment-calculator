@@ -28,9 +28,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.development.js
+// node_modules/react/cjs/react.development.js
 var require_react_development = __commonJS({
-  "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react.development.js"(exports, module) {
+  "node_modules/react/cjs/react.development.js"(exports, module) {
     "use strict";
     if (true) {
       (function() {
@@ -1902,9 +1902,9 @@ var require_react_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react@18.3.1/node_modules/react/index.js
+// node_modules/react/index.js
 var require_react = __commonJS({
-  "node_modules/.pnpm/react@18.3.1/node_modules/react/index.js"(exports, module) {
+  "node_modules/react/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -1914,9 +1914,9 @@ var require_react = __commonJS({
   }
 });
 
-// node_modules/.pnpm/scheduler@0.23.2/node_modules/scheduler/cjs/scheduler.development.js
+// node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
-  "node_modules/.pnpm/scheduler@0.23.2/node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+  "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -2364,9 +2364,9 @@ var require_scheduler_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/scheduler@0.23.2/node_modules/scheduler/index.js
+// node_modules/scheduler/index.js
 var require_scheduler = __commonJS({
-  "node_modules/.pnpm/scheduler@0.23.2/node_modules/scheduler/index.js"(exports, module) {
+  "node_modules/scheduler/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -2376,9 +2376,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/cjs/react-dom.development.js
+// node_modules/react-dom/cjs/react-dom.development.js
 var require_react_dom_development = __commonJS({
-  "node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+  "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -23482,9 +23482,9 @@ var require_react_dom_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js
+// node_modules/react-dom/index.js
 var require_react_dom = __commonJS({
-  "node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js"(exports, module) {
+  "node_modules/react-dom/index.js"(exports, module) {
     "use strict";
     if (false) {
       checkDCE();
@@ -23495,9 +23495,9 @@ var require_react_dom = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js
+// node_modules/react-dom/client.js
 var require_client = __commonJS({
-  "node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js"(exports) {
+  "node_modules/react-dom/client.js"(exports) {
     "use strict";
     var m = require_react_dom();
     if (false) {
@@ -23526,9 +23526,9 @@ var require_client = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js
+// node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js
 var require_isUnsafeProperty = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js"(exports) {
+  "node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isUnsafeProperty(key) {
@@ -23538,9 +23538,9 @@ var require_isUnsafeProperty = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js
+// node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js
 var require_isDeepKey = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/isDeepKey.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isDeepKey(key) {
@@ -23558,9 +23558,9 @@ var require_isDeepKey = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/toKey.js
+// node_modules/es-toolkit/dist/compat/_internal/toKey.js
 var require_toKey = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/toKey.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/toKey.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function toKey(value) {
@@ -23576,9 +23576,9 @@ var require_toKey = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toString.js
+// node_modules/es-toolkit/dist/compat/util/toString.js
 var require_toString = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toString.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/toString.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function toString(value) {
@@ -23601,9 +23601,9 @@ var require_toString = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toPath.js
+// node_modules/es-toolkit/dist/compat/util/toPath.js
 var require_toPath = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toPath.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/toPath.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var toString = require_toString();
@@ -23677,9 +23677,9 @@ var require_toPath = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/get.js
+// node_modules/es-toolkit/dist/compat/object/get.js
 var require_get = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/get.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/object/get.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isUnsafeProperty = require_isUnsafeProperty();
@@ -23759,16 +23759,16 @@ var require_get = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/get.js
+// node_modules/es-toolkit/compat/get.js
 var require_get2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/get.js"(exports, module) {
+  "node_modules/es-toolkit/compat/get.js"(exports, module) {
     module.exports = require_get().get;
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/uniqBy.js
+// node_modules/es-toolkit/dist/array/uniqBy.js
 var require_uniqBy = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/uniqBy.js"(exports) {
+  "node_modules/es-toolkit/dist/array/uniqBy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function uniqBy2(arr, mapper) {
@@ -23786,9 +23786,9 @@ var require_uniqBy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/function/identity.js
+// node_modules/es-toolkit/dist/function/identity.js
 var require_identity = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/function/identity.js"(exports) {
+  "node_modules/es-toolkit/dist/function/identity.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function identity4(x2) {
@@ -23798,9 +23798,9 @@ var require_identity = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isLength.js
+// node_modules/es-toolkit/dist/predicate/isLength.js
 var require_isLength = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isLength.js"(exports) {
+  "node_modules/es-toolkit/dist/predicate/isLength.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isLength(value) {
@@ -23810,9 +23810,9 @@ var require_isLength = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js
+// node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js
 var require_isArrayLike = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isArrayLike.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isLength = require_isLength();
@@ -23823,9 +23823,9 @@ var require_isArrayLike = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js
+// node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js
 var require_isObjectLike = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isObjectLike.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isObjectLike(value) {
@@ -23835,9 +23835,9 @@ var require_isObjectLike = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js
+// node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js
 var require_isArrayLikeObject = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isArrayLikeObject.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isArrayLike = require_isArrayLike();
@@ -23849,9 +23849,9 @@ var require_isArrayLikeObject = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/property.js
+// node_modules/es-toolkit/dist/compat/object/property.js
 var require_property = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/property.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/object/property.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var get5 = require_get();
@@ -23864,9 +23864,9 @@ var require_property = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isObject.js
+// node_modules/es-toolkit/dist/compat/predicate/isObject.js
 var require_isObject = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isObject.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isObject.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isObject(value) {
@@ -23876,9 +23876,9 @@ var require_isObject = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isPrimitive.js
+// node_modules/es-toolkit/dist/predicate/isPrimitive.js
 var require_isPrimitive = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isPrimitive.js"(exports) {
+  "node_modules/es-toolkit/dist/predicate/isPrimitive.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isPrimitive(value) {
@@ -23888,9 +23888,9 @@ var require_isPrimitive = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/eq.js
+// node_modules/es-toolkit/dist/compat/util/eq.js
 var require_eq = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/eq.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/eq.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function eq(value, other) {
@@ -23900,9 +23900,9 @@ var require_eq = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js
+// node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js
 var require_isMatchWith = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isMatchWith.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isObject = require_isObject();
@@ -24055,9 +24055,9 @@ var require_isMatchWith = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isMatch.js
+// node_modules/es-toolkit/dist/compat/predicate/isMatch.js
 var require_isMatch = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isMatch.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isMatch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isMatchWith = require_isMatchWith();
@@ -24068,9 +24068,9 @@ var require_isMatch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/getSymbols.js
+// node_modules/es-toolkit/dist/compat/_internal/getSymbols.js
 var require_getSymbols = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/getSymbols.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/getSymbols.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function getSymbols(object) {
@@ -24080,9 +24080,9 @@ var require_getSymbols = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/getTag.js
+// node_modules/es-toolkit/dist/compat/_internal/getTag.js
 var require_getTag = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/getTag.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/getTag.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function getTag(value) {
@@ -24095,9 +24095,9 @@ var require_getTag = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/tags.js
+// node_modules/es-toolkit/dist/compat/_internal/tags.js
 var require_tags = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/tags.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/tags.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var regexpTag = "[object RegExp]";
@@ -24155,9 +24155,9 @@ var require_tags = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isTypedArray.js
+// node_modules/es-toolkit/dist/predicate/isTypedArray.js
 var require_isTypedArray = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/predicate/isTypedArray.js"(exports) {
+  "node_modules/es-toolkit/dist/predicate/isTypedArray.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isTypedArray(x2) {
@@ -24167,9 +24167,9 @@ var require_isTypedArray = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/object/cloneDeepWith.js
+// node_modules/es-toolkit/dist/object/cloneDeepWith.js
 var require_cloneDeepWith = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/object/cloneDeepWith.js"(exports) {
+  "node_modules/es-toolkit/dist/object/cloneDeepWith.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var getSymbols = require_getSymbols();
@@ -24346,9 +24346,9 @@ var require_cloneDeepWith = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/object/cloneDeep.js
+// node_modules/es-toolkit/dist/object/cloneDeep.js
 var require_cloneDeep = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/object/cloneDeep.js"(exports) {
+  "node_modules/es-toolkit/dist/object/cloneDeep.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var cloneDeepWith = require_cloneDeepWith();
@@ -24359,9 +24359,9 @@ var require_cloneDeep = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/matches.js
+// node_modules/es-toolkit/dist/compat/predicate/matches.js
 var require_matches = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/matches.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/matches.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isMatch = require_isMatch();
@@ -24376,9 +24376,9 @@ var require_matches = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js
+// node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js
 var require_cloneDeepWith2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/object/cloneDeepWith.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var cloneDeepWith$1 = require_cloneDeepWith();
@@ -24417,9 +24417,9 @@ var require_cloneDeepWith2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/cloneDeep.js
+// node_modules/es-toolkit/dist/compat/object/cloneDeep.js
 var require_cloneDeep2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/cloneDeep.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/object/cloneDeep.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var cloneDeepWith = require_cloneDeepWith2();
@@ -24430,9 +24430,9 @@ var require_cloneDeep2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isIndex.js
+// node_modules/es-toolkit/dist/compat/_internal/isIndex.js
 var require_isIndex = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isIndex.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/isIndex.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var IS_UNSIGNED_INTEGER = /^(?:0|[1-9]\d*)$/;
@@ -24453,9 +24453,9 @@ var require_isIndex = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArguments.js
+// node_modules/es-toolkit/dist/compat/predicate/isArguments.js
 var require_isArguments = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isArguments.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isArguments.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var getTag = require_getTag();
@@ -24466,9 +24466,9 @@ var require_isArguments = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/has.js
+// node_modules/es-toolkit/dist/compat/object/has.js
 var require_has = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/object/has.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/object/has.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isDeepKey = require_isDeepKey();
@@ -24504,9 +24504,9 @@ var require_has = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js
+// node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js
 var require_matchesProperty = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/matchesProperty.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isMatch = require_isMatch();
@@ -24543,9 +24543,9 @@ var require_matchesProperty = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/iteratee.js
+// node_modules/es-toolkit/dist/compat/util/iteratee.js
 var require_iteratee = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/iteratee.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/iteratee.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var identity4 = require_identity();
@@ -24577,9 +24577,9 @@ var require_iteratee = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/uniqBy.js
+// node_modules/es-toolkit/dist/compat/array/uniqBy.js
 var require_uniqBy2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/uniqBy.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/array/uniqBy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var uniqBy$1 = require_uniqBy();
@@ -24596,16 +24596,16 @@ var require_uniqBy2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/uniqBy.js
+// node_modules/es-toolkit/compat/uniqBy.js
 var require_uniqBy3 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/uniqBy.js"(exports, module) {
+  "node_modules/es-toolkit/compat/uniqBy.js"(exports, module) {
     module.exports = require_uniqBy2().uniqBy;
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
 var require_use_sync_external_store_shim_development = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
     "use strict";
     (function() {
       function is4(x2, y2) {
@@ -24667,9 +24667,9 @@ var require_use_sync_external_store_shim_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/shim/index.js
+// node_modules/use-sync-external-store/shim/index.js
 var require_shim = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/shim/index.js"(exports, module) {
+  "node_modules/use-sync-external-store/shim/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24679,9 +24679,9 @@ var require_shim = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
 var require_with_selector_development = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
     "use strict";
     (function() {
       function is4(x2, y2) {
@@ -24746,9 +24746,9 @@ var require_with_selector_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/shim/with-selector.js
+// node_modules/use-sync-external-store/shim/with-selector.js
 var require_with_selector = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/shim/with-selector.js"(exports, module) {
+  "node_modules/use-sync-external-store/shim/with-selector.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24758,9 +24758,9 @@ var require_with_selector = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/compareValues.js
+// node_modules/es-toolkit/dist/compat/_internal/compareValues.js
 var require_compareValues = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/compareValues.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/compareValues.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function getPriority(a) {
@@ -24798,9 +24798,9 @@ var require_compareValues = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isSymbol.js
+// node_modules/es-toolkit/dist/compat/predicate/isSymbol.js
 var require_isSymbol = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/predicate/isSymbol.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/predicate/isSymbol.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function isSymbol(value) {
@@ -24810,9 +24810,9 @@ var require_isSymbol = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isKey.js
+// node_modules/es-toolkit/dist/compat/_internal/isKey.js
 var require_isKey = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isKey.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/isKey.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isSymbol = require_isSymbol();
@@ -24831,9 +24831,9 @@ var require_isKey = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/orderBy.js
+// node_modules/es-toolkit/dist/compat/array/orderBy.js
 var require_orderBy = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/orderBy.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/array/orderBy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var compareValues = require_compareValues();
@@ -24912,9 +24912,9 @@ var require_orderBy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/flatten.js
+// node_modules/es-toolkit/dist/array/flatten.js
 var require_flatten = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/flatten.js"(exports) {
+  "node_modules/es-toolkit/dist/array/flatten.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function flatten(arr, depth = 1) {
@@ -24937,9 +24937,9 @@ var require_flatten = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js
+// node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js
 var require_isIterateeCall = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/isIterateeCall.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isIndex = require_isIndex();
@@ -24959,9 +24959,9 @@ var require_isIterateeCall = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/sortBy.js
+// node_modules/es-toolkit/dist/compat/array/sortBy.js
 var require_sortBy = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/sortBy.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/array/sortBy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var orderBy = require_orderBy();
@@ -24980,16 +24980,16 @@ var require_sortBy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/sortBy.js
+// node_modules/es-toolkit/compat/sortBy.js
 var require_sortBy2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/sortBy.js"(exports, module) {
+  "node_modules/es-toolkit/compat/sortBy.js"(exports, module) {
     module.exports = require_sortBy().sortBy;
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/function/debounce.js
+// node_modules/es-toolkit/dist/function/debounce.js
 var require_debounce = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/function/debounce.js"(exports) {
+  "node_modules/es-toolkit/dist/function/debounce.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function debounce(func, debounceMs, { signal, edges } = {}) {
@@ -25056,9 +25056,9 @@ var require_debounce = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/function/debounce.js
+// node_modules/es-toolkit/dist/compat/function/debounce.js
 var require_debounce2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/function/debounce.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/function/debounce.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var debounce$1 = require_debounce();
@@ -25108,9 +25108,9 @@ var require_debounce2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/function/throttle.js
+// node_modules/es-toolkit/dist/compat/function/throttle.js
 var require_throttle = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/function/throttle.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/function/throttle.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var debounce = require_debounce2();
@@ -25126,16 +25126,16 @@ var require_throttle = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/throttle.js
+// node_modules/es-toolkit/compat/throttle.js
 var require_throttle2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/throttle.js"(exports, module) {
+  "node_modules/es-toolkit/compat/throttle.js"(exports, module) {
     module.exports = require_throttle().throttle;
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toNumber.js
+// node_modules/es-toolkit/dist/compat/util/toNumber.js
 var require_toNumber = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toNumber.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/toNumber.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isSymbol = require_isSymbol();
@@ -25149,9 +25149,9 @@ var require_toNumber = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toFinite.js
+// node_modules/es-toolkit/dist/compat/util/toFinite.js
 var require_toFinite = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/util/toFinite.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/util/toFinite.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var toNumber = require_toNumber();
@@ -25170,9 +25170,9 @@ var require_toFinite = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/math/range.js
+// node_modules/es-toolkit/dist/compat/math/range.js
 var require_range = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/math/range.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/math/range.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var isIterateeCall = require_isIterateeCall();
@@ -25201,16 +25201,16 @@ var require_range = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/range.js
+// node_modules/es-toolkit/compat/range.js
 var require_range2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/range.js"(exports, module) {
+  "node_modules/es-toolkit/compat/range.js"(exports, module) {
     module.exports = require_range().range;
   }
 });
 
-// node_modules/.pnpm/decimal.js-light@2.5.1/node_modules/decimal.js-light/decimal.js
+// node_modules/decimal.js-light/decimal.js
 var require_decimal = __commonJS({
-  "node_modules/.pnpm/decimal.js-light@2.5.1/node_modules/decimal.js-light/decimal.js"(exports, module) {
+  "node_modules/decimal.js-light/decimal.js"(exports, module) {
     (function(globalScope) {
       "use strict";
       var MAX_DIGITS = 1e9, Decimal3 = {
@@ -26194,9 +26194,9 @@ var require_decimal = __commonJS({
   }
 });
 
-// node_modules/.pnpm/eventemitter3@5.0.1/node_modules/eventemitter3/index.js
+// node_modules/eventemitter3/index.js
 var require_eventemitter3 = __commonJS({
-  "node_modules/.pnpm/eventemitter3@5.0.1/node_modules/eventemitter3/index.js"(exports, module) {
+  "node_modules/eventemitter3/index.js"(exports, module) {
     "use strict";
     var has3 = Object.prototype.hasOwnProperty;
     var prefix = "~";
@@ -26356,9 +26356,9 @@ var require_eventemitter3 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/last.js
+// node_modules/es-toolkit/dist/array/last.js
 var require_last = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/array/last.js"(exports) {
+  "node_modules/es-toolkit/dist/array/last.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function last2(arr) {
@@ -26368,9 +26368,9 @@ var require_last = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/toArray.js
+// node_modules/es-toolkit/dist/compat/_internal/toArray.js
 var require_toArray = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/_internal/toArray.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/_internal/toArray.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     function toArray(value) {
@@ -26380,9 +26380,9 @@ var require_toArray = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/last.js
+// node_modules/es-toolkit/dist/compat/array/last.js
 var require_last2 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/dist/compat/array/last.js"(exports) {
+  "node_modules/es-toolkit/dist/compat/array/last.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var last$1 = require_last();
@@ -26398,16 +26398,16 @@ var require_last2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/last.js
+// node_modules/es-toolkit/compat/last.js
 var require_last3 = __commonJS({
-  "node_modules/.pnpm/es-toolkit@1.42.0/node_modules/es-toolkit/compat/last.js"(exports, module) {
+  "node_modules/es-toolkit/compat/last.js"(exports, module) {
     module.exports = require_last2().last;
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js
 var require_use_sync_external_store_with_selector_development = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js"(exports) {
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js"(exports) {
     "use strict";
     (function() {
       function is4(x2, y2) {
@@ -26472,9 +26472,9 @@ var require_use_sync_external_store_with_selector_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/with-selector.js
+// node_modules/use-sync-external-store/with-selector.js
 var require_with_selector2 = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.6.0_react@18.3.1/node_modules/use-sync-external-store/with-selector.js"(exports, module) {
+  "node_modules/use-sync-external-store/with-selector.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -26484,9 +26484,9 @@ var require_with_selector2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react-jsx-runtime.development.js
+// node_modules/react/cjs/react-jsx-runtime.development.js
 var require_react_jsx_runtime_development = __commonJS({
-  "node_modules/.pnpm/react@18.3.1/node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+  "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -27377,9 +27377,9 @@ var require_react_jsx_runtime_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-runtime.js
+// node_modules/react/jsx-runtime.js
 var require_jsx_runtime = __commonJS({
-  "node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-runtime.js"(exports, module) {
+  "node_modules/react/jsx-runtime.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -27396,10 +27396,10 @@ var import_client = __toESM(require_client(), 1);
 // src/component.tsx
 var import_react52 = __toESM(require_react(), 1);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/createLucideIcon.js
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
 var import_react2 = __toESM(require_react());
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/shared/src/utils.js
+// node_modules/lucide-react/dist/esm/shared/src/utils.js
 var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 var toCamelCase = (string) => string.replace(
   /^([A-Z])|[\s-_]+(\w)/g,
@@ -27420,10 +27420,10 @@ var hasA11yProp = (props) => {
   }
 };
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/Icon.js
+// node_modules/lucide-react/dist/esm/Icon.js
 var import_react = __toESM(require_react());
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/defaultAttributes.js
+// node_modules/lucide-react/dist/esm/defaultAttributes.js
 var defaultAttributes = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
@@ -27436,7 +27436,7 @@ var defaultAttributes = {
   strokeLinejoin: "round"
 };
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/Icon.js
+// node_modules/lucide-react/dist/esm/Icon.js
 var Icon = (0, import_react.forwardRef)(
   ({
     color: color2 = "currentColor",
@@ -27467,7 +27467,7 @@ var Icon = (0, import_react.forwardRef)(
   )
 );
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/createLucideIcon.js
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
 var createLucideIcon = (iconName, iconNode) => {
   const Component = (0, import_react2.forwardRef)(
     ({ className, ...props }, ref) => (0, import_react2.createElement)(Icon, {
@@ -27485,19 +27485,18 @@ var createLucideIcon = (iconName, iconNode) => {
   return Component;
 };
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/chevron-down.js
-var __iconNode = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-var ChevronDown = createLucideIcon("chevron-down", __iconNode);
-
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/circle-question-mark.js
-var __iconNode2 = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3", key: "1u773s" }],
-  ["path", { d: "M12 17h.01", key: "p32p05" }]
+// node_modules/lucide-react/dist/esm/icons/arrow-right.js
+var __iconNode = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-var CircleQuestionMark = createLucideIcon("circle-question-mark", __iconNode2);
+var ArrowRight = createLucideIcon("arrow-right", __iconNode);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/heart.js
+// node_modules/lucide-react/dist/esm/icons/chevron-down.js
+var __iconNode2 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+var ChevronDown = createLucideIcon("chevron-down", __iconNode2);
+
+// node_modules/lucide-react/dist/esm/icons/heart.js
 var __iconNode3 = [
   [
     "path",
@@ -27509,7 +27508,7 @@ var __iconNode3 = [
 ];
 var Heart = createLucideIcon("heart", __iconNode3);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/loader.js
+// node_modules/lucide-react/dist/esm/icons/loader.js
 var __iconNode4 = [
   ["path", { d: "M12 2v4", key: "3427ic" }],
   ["path", { d: "m16.2 7.8 2.9-2.9", key: "r700ao" }],
@@ -27522,14 +27521,14 @@ var __iconNode4 = [
 ];
 var Loader = createLucideIcon("loader", __iconNode4);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/mail.js
+// node_modules/lucide-react/dist/esm/icons/mail.js
 var __iconNode5 = [
   ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
   ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
 ];
 var Mail = createLucideIcon("mail", __iconNode5);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/message-square.js
+// node_modules/lucide-react/dist/esm/icons/message-square.js
 var __iconNode6 = [
   [
     "path",
@@ -27541,11 +27540,11 @@ var __iconNode6 = [
 ];
 var MessageSquare = createLucideIcon("message-square", __iconNode6);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/minus.js
+// node_modules/lucide-react/dist/esm/icons/minus.js
 var __iconNode7 = [["path", { d: "M5 12h14", key: "1ays0h" }]];
 var Minus = createLucideIcon("minus", __iconNode7);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/play.js
+// node_modules/lucide-react/dist/esm/icons/play.js
 var __iconNode8 = [
   [
     "path",
@@ -27557,14 +27556,14 @@ var __iconNode8 = [
 ];
 var Play = createLucideIcon("play", __iconNode8);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/plus.js
+// node_modules/lucide-react/dist/esm/icons/plus.js
 var __iconNode9 = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ];
 var Plus = createLucideIcon("plus", __iconNode9);
 
-// node_modules/.pnpm/lucide-react@0.554.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/printer.js
+// node_modules/lucide-react/dist/esm/icons/printer.js
 var __iconNode10 = [
   [
     "path",
@@ -27578,11 +27577,18 @@ var __iconNode10 = [
 ];
 var Printer = createLucideIcon("printer", __iconNode10);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/Surface.js
+// node_modules/lucide-react/dist/esm/icons/rotate-ccw.js
+var __iconNode11 = [
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+];
+var RotateCcw = createLucideIcon("rotate-ccw", __iconNode11);
+
+// node_modules/recharts/es6/container/Surface.js
 var React = __toESM(require_react());
 var import_react5 = __toESM(require_react());
 
-// node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs
+// node_modules/clsx/dist/clsx.mjs
 function r(e) {
   var t, f, n = "";
   if ("string" == typeof e || "number" == typeof e) n += e;
@@ -27597,10 +27603,10 @@ function clsx() {
   return n;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/svgPropertiesAndEvents.js
+// node_modules/recharts/es6/util/svgPropertiesAndEvents.js
 var import_react4 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/excludeEventProps.js
+// node_modules/recharts/es6/util/excludeEventProps.js
 var EventKeys = ["dangerouslySetInnerHTML", "onCopy", "onCopyCapture", "onCut", "onCutCapture", "onPaste", "onPasteCapture", "onCompositionEnd", "onCompositionEndCapture", "onCompositionStart", "onCompositionStartCapture", "onCompositionUpdate", "onCompositionUpdateCapture", "onFocus", "onFocusCapture", "onBlur", "onBlurCapture", "onChange", "onChangeCapture", "onBeforeInput", "onBeforeInputCapture", "onInput", "onInputCapture", "onReset", "onResetCapture", "onSubmit", "onSubmitCapture", "onInvalid", "onInvalidCapture", "onLoad", "onLoadCapture", "onError", "onErrorCapture", "onKeyDown", "onKeyDownCapture", "onKeyPress", "onKeyPressCapture", "onKeyUp", "onKeyUpCapture", "onAbort", "onAbortCapture", "onCanPlay", "onCanPlayCapture", "onCanPlayThrough", "onCanPlayThroughCapture", "onDurationChange", "onDurationChangeCapture", "onEmptied", "onEmptiedCapture", "onEncrypted", "onEncryptedCapture", "onEnded", "onEndedCapture", "onLoadedData", "onLoadedDataCapture", "onLoadedMetadata", "onLoadedMetadataCapture", "onLoadStart", "onLoadStartCapture", "onPause", "onPauseCapture", "onPlay", "onPlayCapture", "onPlaying", "onPlayingCapture", "onProgress", "onProgressCapture", "onRateChange", "onRateChangeCapture", "onSeeked", "onSeekedCapture", "onSeeking", "onSeekingCapture", "onStalled", "onStalledCapture", "onSuspend", "onSuspendCapture", "onTimeUpdate", "onTimeUpdateCapture", "onVolumeChange", "onVolumeChangeCapture", "onWaiting", "onWaitingCapture", "onAuxClick", "onAuxClickCapture", "onClick", "onClickCapture", "onContextMenu", "onContextMenuCapture", "onDoubleClick", "onDoubleClickCapture", "onDrag", "onDragCapture", "onDragEnd", "onDragEndCapture", "onDragEnter", "onDragEnterCapture", "onDragExit", "onDragExitCapture", "onDragLeave", "onDragLeaveCapture", "onDragOver", "onDragOverCapture", "onDragStart", "onDragStartCapture", "onDrop", "onDropCapture", "onMouseDown", "onMouseDownCapture", "onMouseEnter", "onMouseLeave", "onMouseMove", "onMouseMoveCapture", "onMouseOut", "onMouseOutCapture", "onMouseOver", "onMouseOverCapture", "onMouseUp", "onMouseUpCapture", "onSelect", "onSelectCapture", "onTouchCancel", "onTouchCancelCapture", "onTouchEnd", "onTouchEndCapture", "onTouchMove", "onTouchMoveCapture", "onTouchStart", "onTouchStartCapture", "onPointerDown", "onPointerDownCapture", "onPointerMove", "onPointerMoveCapture", "onPointerUp", "onPointerUpCapture", "onPointerCancel", "onPointerCancelCapture", "onPointerEnter", "onPointerEnterCapture", "onPointerLeave", "onPointerLeaveCapture", "onPointerOver", "onPointerOverCapture", "onPointerOut", "onPointerOutCapture", "onGotPointerCapture", "onGotPointerCaptureCapture", "onLostPointerCapture", "onLostPointerCaptureCapture", "onScroll", "onScrollCapture", "onWheel", "onWheelCapture", "onAnimationStart", "onAnimationStartCapture", "onAnimationEnd", "onAnimationEndCapture", "onAnimationIteration", "onAnimationIterationCapture", "onTransitionEnd", "onTransitionEndCapture"];
 function isEventKey(key) {
   if (typeof key !== "string") {
@@ -27610,7 +27616,7 @@ function isEventKey(key) {
   return allowedEventKeys.includes(key);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/svgPropertiesNoEvents.js
+// node_modules/recharts/es6/util/svgPropertiesNoEvents.js
 var import_react3 = __toESM(require_react());
 var SVGElementPropKeys = [
   "aria-activedescendant",
@@ -27960,7 +27966,7 @@ function svgPropertiesNoEventsFromUnknown(input) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/svgPropertiesAndEvents.js
+// node_modules/recharts/es6/util/svgPropertiesAndEvents.js
 function svgPropertiesAndEvents(obj) {
   var result = {};
   for (var key in obj) {
@@ -27985,7 +27991,7 @@ function svgPropertiesAndEventsFromUnknown(input) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/Surface.js
+// node_modules/recharts/es6/container/Surface.js
 var _excluded = ["children", "width", "height", "viewBox", "className", "style", "title", "desc"];
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n) {
@@ -28042,7 +28048,7 @@ var Surface = /* @__PURE__ */ (0, import_react5.forwardRef)((props, ref) => {
   }), /* @__PURE__ */ React.createElement("title", null, title), /* @__PURE__ */ React.createElement("desc", null, desc), children);
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/Layer.js
+// node_modules/recharts/es6/container/Layer.js
 var React2 = __toESM(require_react());
 var _excluded2 = ["children", "className"];
 function _extends2() {
@@ -28085,18 +28091,18 @@ var Layer = /* @__PURE__ */ React2.forwardRef((props, ref) => {
   }), children);
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/legendPortalContext.js
+// node_modules/recharts/es6/context/legendPortalContext.js
 var import_react6 = __toESM(require_react());
 var LegendPortalContext = /* @__PURE__ */ (0, import_react6.createContext)(null);
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/constant.js
+// node_modules/d3-shape/src/constant.js
 function constant_default(x2) {
   return function constant() {
     return x2;
   };
 }
 
-// node_modules/.pnpm/d3-path@3.1.0/node_modules/d3-path/src/path.js
+// node_modules/d3-path/src/path.js
 var pi = Math.PI;
 var tau = 2 * pi;
 var epsilon = 1e-6;
@@ -28190,7 +28196,7 @@ function path() {
 }
 path.prototype = Path.prototype;
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/path.js
+// node_modules/d3-shape/src/path.js
 function withPath(shape) {
   let digits = 3;
   shape.digits = function(_) {
@@ -28207,13 +28213,13 @@ function withPath(shape) {
   return () => new Path(digits);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/array.js
+// node_modules/d3-shape/src/array.js
 var slice = Array.prototype.slice;
 function array_default(x2) {
   return typeof x2 === "object" && "length" in x2 ? x2 : Array.from(x2);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/linear.js
+// node_modules/d3-shape/src/curve/linear.js
 function Linear(context) {
   this._context = context;
 }
@@ -28250,7 +28256,7 @@ function linear_default(context) {
   return new Linear(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/point.js
+// node_modules/d3-shape/src/point.js
 function x(p) {
   return p[0];
 }
@@ -28258,7 +28264,7 @@ function y(p) {
   return p[1];
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/line.js
+// node_modules/d3-shape/src/line.js
 function line_default(x2, y2) {
   var defined2 = constant_default(true), context = null, curve = linear_default, output = null, path2 = withPath(line);
   x2 = typeof x2 === "function" ? x2 : x2 === void 0 ? x : constant_default(x2);
@@ -28293,7 +28299,7 @@ function line_default(x2, y2) {
   return line;
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/area.js
+// node_modules/d3-shape/src/area.js
 function area_default(x0, y0, y1) {
   var x1 = null, defined2 = constant_default(true), context = null, curve = linear_default, output = null, path2 = withPath(area);
   x0 = typeof x0 === "function" ? x0 : x0 === void 0 ? x : constant_default(+x0);
@@ -28367,7 +28373,7 @@ function area_default(x0, y0, y1) {
   return area;
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/bump.js
+// node_modules/d3-shape/src/curve/bump.js
 var Bump = class {
   constructor(context, x2) {
     this._context = context;
@@ -28413,11 +28419,11 @@ function bumpY(context) {
   return new Bump(context, false);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/noop.js
+// node_modules/d3-shape/src/noop.js
 function noop_default() {
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/basis.js
+// node_modules/d3-shape/src/curve/basis.js
 function point(that, x2, y2) {
   that._context.bezierCurveTo(
     (2 * that._x0 + that._x1) / 3,
@@ -28478,7 +28484,7 @@ function basis_default(context) {
   return new Basis(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/basisClosed.js
+// node_modules/d3-shape/src/curve/basisClosed.js
 function BasisClosed(context) {
   this._context = context;
 }
@@ -28538,7 +28544,7 @@ function basisClosed_default(context) {
   return new BasisClosed(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/basisOpen.js
+// node_modules/d3-shape/src/curve/basisOpen.js
 function BasisOpen(context) {
   this._context = context;
 }
@@ -28585,7 +28591,7 @@ function basisOpen_default(context) {
   return new BasisOpen(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/linearClosed.js
+// node_modules/d3-shape/src/curve/linearClosed.js
 function LinearClosed(context) {
   this._context = context;
 }
@@ -28608,7 +28614,7 @@ function linearClosed_default(context) {
   return new LinearClosed(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/monotone.js
+// node_modules/d3-shape/src/curve/monotone.js
 function sign(x2) {
   return x2 < 0 ? -1 : 1;
 }
@@ -28705,7 +28711,7 @@ function monotoneY(context) {
   return new MonotoneY(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/natural.js
+// node_modules/d3-shape/src/curve/natural.js
 function Natural(context) {
   this._context = context;
 }
@@ -28758,7 +28764,7 @@ function natural_default(context) {
   return new Natural(context);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/curve/step.js
+// node_modules/d3-shape/src/curve/step.js
 function Step(context, t) {
   this._context = context;
   this._t = t;
@@ -28813,7 +28819,7 @@ function stepAfter(context) {
   return new Step(context, 1);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/offset/none.js
+// node_modules/d3-shape/src/offset/none.js
 function none_default(series, order) {
   if (!((n = series.length) > 1)) return;
   for (var i = 1, j, s0, s1 = series[order[0]], n, m = s1.length; i < n; ++i) {
@@ -28824,14 +28830,14 @@ function none_default(series, order) {
   }
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/order/none.js
+// node_modules/d3-shape/src/order/none.js
 function none_default2(series) {
   var n = series.length, o = new Array(n);
   while (--n >= 0) o[n] = n;
   return o;
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/stack.js
+// node_modules/d3-shape/src/stack.js
 function stackValue(d, key) {
   return d[key];
 }
@@ -28870,7 +28876,7 @@ function stack_default() {
   return stack;
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/offset/expand.js
+// node_modules/d3-shape/src/offset/expand.js
 function expand_default(series, order) {
   if (!((n = series.length) > 0)) return;
   for (var i, n, j = 0, m = series[0].length, y2; j < m; ++j) {
@@ -28880,7 +28886,7 @@ function expand_default(series, order) {
   none_default(series, order);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/offset/silhouette.js
+// node_modules/d3-shape/src/offset/silhouette.js
 function silhouette_default(series, order) {
   if (!((n = series.length) > 0)) return;
   for (var j = 0, s0 = series[order[0]], n, m = s0.length; j < m; ++j) {
@@ -28890,7 +28896,7 @@ function silhouette_default(series, order) {
   none_default(series, order);
 }
 
-// node_modules/.pnpm/d3-shape@3.2.0/node_modules/d3-shape/src/offset/wiggle.js
+// node_modules/d3-shape/src/offset/wiggle.js
 function wiggle_default(series, order) {
   if (!((n = series.length) > 0) || !((m = (s0 = series[order[0]]).length) > 0)) return;
   for (var y2 = 0, j = 1, s0, m, n; j < m; ++j) {
@@ -28909,7 +28915,7 @@ function wiggle_default(series, order) {
   none_default(series, order);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/DataUtils.js
+// node_modules/recharts/es6/util/DataUtils.js
 var import_get = __toESM(require_get2());
 var mathSign = (value) => {
   if (value === 0) {
@@ -28997,7 +29003,7 @@ function isNotNil(value) {
 function noop() {
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/types.js
+// node_modules/recharts/es6/util/types.js
 var import_react7 = __toESM(require_react());
 var isPolarCoordinate = (c) => {
   return "radius" in c && "startAngle" in c && "endAngle" in c;
@@ -29040,7 +29046,7 @@ var adaptEventsOfChild = (props, data, index) => {
   return out;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/resolveDefaultProps.js
+// node_modules/recharts/es6/util/resolveDefaultProps.js
 function ownKeys(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -29092,7 +29098,7 @@ function resolveDefaultProps(realProps, defaultProps) {
   return withDefaults;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/payload/getUniqPayload.js
+// node_modules/recharts/es6/util/payload/getUniqPayload.js
 var import_uniqBy = __toESM(require_uniqBy3());
 function getUniqPayload(payload, option, defaultUniqBy2) {
   if (option === true) {
@@ -29104,15 +29110,15 @@ function getUniqPayload(payload, option, defaultUniqBy2) {
   return payload;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/hooks.js
+// node_modules/recharts/es6/state/hooks.js
 var import_with_selector = __toESM(require_with_selector());
 var import_react9 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/RechartsReduxContext.js
+// node_modules/recharts/es6/state/RechartsReduxContext.js
 var import_react8 = __toESM(require_react());
 var RechartsReduxContext = /* @__PURE__ */ (0, import_react8.createContext)(null);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/hooks.js
+// node_modules/recharts/es6/state/hooks.js
 var noopDispatch = (a) => a;
 var useAppDispatch = () => {
   var context = (0, import_react9.useContext)(RechartsReduxContext);
@@ -29130,7 +29136,7 @@ function useAppSelector(selector) {
   return (0, import_with_selector.useSyncExternalStoreWithSelector)(context ? context.subscription.addNestedSub : addNestedSubNoop, context ? context.store.getState : noop2, context ? context.store.getState : noop2, context ? selector : noop2, refEquality);
 }
 
-// node_modules/.pnpm/reselect@5.1.1/node_modules/reselect/dist/reselect.mjs
+// node_modules/reselect/dist/reselect.mjs
 var runIdentityFunctionCheck = (resultFunc, inputSelectorsResults, outputSelectorResult) => {
   if (inputSelectorsResults.length === 1 && inputSelectorsResults[0] === outputSelectorResult) {
     let isInputSameAsOutput = false;
@@ -29444,7 +29450,7 @@ var createStructuredSelector = Object.assign(
   { withTypes: () => createStructuredSelector }
 );
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/legendSelectors.js
+// node_modules/recharts/es6/state/selectors/legendSelectors.js
 var import_sortBy = __toESM(require_sortBy2());
 var selectLegendSettings = (state) => state.legend.settings;
 var selectLegendSize = (state) => state.legend.size;
@@ -29457,7 +29463,7 @@ var selectLegendPayload = createSelector([selectAllLegendPayload2DArray, selectL
   return itemSorter ? (0, import_sortBy.default)(flat, itemSorter) : flat;
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/useElementOffset.js
+// node_modules/recharts/es6/util/useElementOffset.js
 var import_react10 = __toESM(require_react());
 var EPS = 1;
 function useElementOffset() {
@@ -29494,10 +29500,10 @@ function useElementOffset() {
   return [lastBoundingBox, updateBoundingBox];
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/chartLayoutContext.js
+// node_modules/recharts/es6/context/chartLayoutContext.js
 var import_react13 = __toESM(require_react());
 
-// node_modules/.pnpm/redux@5.0.1/node_modules/redux/dist/redux.mjs
+// node_modules/redux/dist/redux.mjs
 var $$observable = /* @__PURE__ */ (() => typeof Symbol === "function" && Symbol.observable || "@@observable")();
 var symbol_observable_default = $$observable;
 var randomString = () => Math.random().toString(36).substring(7).split("").join(".");
@@ -29834,7 +29840,7 @@ function isAction(action) {
   return isPlainObject(action) && "type" in action && typeof action.type === "string";
 }
 
-// node_modules/.pnpm/immer@11.0.1/node_modules/immer/dist/immer.mjs
+// node_modules/@reduxjs/toolkit/node_modules/immer/dist/immer.mjs
 var NOTHING = Symbol.for("immer-nothing");
 var DRAFTABLE = Symbol.for("immer-draftable");
 var DRAFT_STATE = Symbol.for("immer-state");
@@ -30630,7 +30636,7 @@ function currentImpl(value) {
 var immer = new Immer2();
 var produce = immer.produce;
 
-// node_modules/.pnpm/redux-thunk@3.1.0_redux@5.0.1/node_modules/redux-thunk/dist/redux-thunk.mjs
+// node_modules/redux-thunk/dist/redux-thunk.mjs
 function createThunkMiddleware(extraArgument) {
   const middleware = ({ dispatch, getState }) => (next) => (action) => {
     if (typeof action === "function") {
@@ -30643,7 +30649,7 @@ function createThunkMiddleware(extraArgument) {
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
 
-// node_modules/.pnpm/@reduxjs+toolkit@2.11.0_react-redux@9.2.0_@types+react@18.3.27_react@18.3.1_redux@5.0.1__react@18.3.1/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs
+// node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs
 var composeWithDevTools = typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : function() {
   if (arguments.length === 0) return void 0;
   if (typeof arguments[0] === "object") return compose;
@@ -32216,7 +32222,7 @@ var createListenerMiddleware = (middlewareOptions = {}) => {
 };
 var ORIGINAL_STATE = Symbol.for("rtk-state-proxy-original");
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/layoutSlice.js
+// node_modules/recharts/es6/state/layoutSlice.js
 var initialState = {
   layoutType: "horizontal",
   width: 0,
@@ -32260,11 +32266,11 @@ var {
 } = chartLayoutSlice.actions;
 var chartLayoutReducer = chartLayoutSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/ChartUtils.js
+// node_modules/recharts/es6/util/ChartUtils.js
 var import_sortBy2 = __toESM(require_sortBy2());
 var import_get2 = __toESM(require_get2());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/getSliced.js
+// node_modules/recharts/es6/util/getSliced.js
 function getSliced(arr, startIndex, endIndex) {
   if (!Array.isArray(arr)) {
     return arr;
@@ -32275,7 +32281,7 @@ function getSliced(arr, startIndex, endIndex) {
   return arr;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/ChartUtils.js
+// node_modules/recharts/es6/util/ChartUtils.js
 function ownKeys2(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -32617,13 +32623,13 @@ var calculatePolarTooltipPos = (rangeObj, layout) => {
   return rangeObj.radius;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/containerSelectors.js
+// node_modules/recharts/es6/state/selectors/containerSelectors.js
 var selectChartWidth = (state) => state.layout.width;
 var selectChartHeight = (state) => state.layout.height;
 var selectContainerScale = (state) => state.layout.scale;
 var selectMargin = (state) => state.layout.margin;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectAllAxes.js
+// node_modules/recharts/es6/state/selectors/selectAllAxes.js
 var selectAllXAxes = createSelector((state) => state.cartesianAxis.xAxis, (xAxisMap) => {
   return Object.values(xAxisMap);
 });
@@ -32631,12 +32637,12 @@ var selectAllYAxes = createSelector((state) => state.cartesianAxis.yAxis, (yAxis
   return Object.values(yAxisMap);
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/Constants.js
+// node_modules/recharts/es6/util/Constants.js
 var DATA_ITEM_INDEX_ATTRIBUTE_NAME = "data-recharts-item-index";
 var DATA_ITEM_DATAKEY_ATTRIBUTE_NAME = "data-recharts-item-data-key";
 var DEFAULT_Y_AXIS_WIDTH = 60;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectChartOffsetInternal.js
+// node_modules/recharts/es6/state/selectors/selectChartOffsetInternal.js
 function ownKeys3(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -32750,13 +32756,13 @@ var selectAxisViewBox = createSelector(selectChartWidth, selectChartHeight, (wid
   height
 }));
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/PanoramaContext.js
+// node_modules/recharts/es6/context/PanoramaContext.js
 var React3 = __toESM(require_react());
 var import_react11 = __toESM(require_react());
 var PanoramaContext = /* @__PURE__ */ (0, import_react11.createContext)(null);
 var useIsPanorama = () => (0, import_react11.useContext)(PanoramaContext) != null;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/brushSelectors.js
+// node_modules/recharts/es6/state/selectors/brushSelectors.js
 var selectBrushSettings = (state) => state.brush;
 var selectBrushDimensions = createSelector([selectBrushSettings, selectChartOffsetInternal, selectMargin], (brushSettings, offset, margin) => ({
   height: brushSettings.height,
@@ -32765,12 +32771,12 @@ var selectBrushDimensions = createSelector([selectBrushSettings, selectChartOffs
   width: isNumber(brushSettings.width) ? brushSettings.width : offset.width
 }));
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/ResponsiveContainer.js
+// node_modules/recharts/es6/component/ResponsiveContainer.js
 var React4 = __toESM(require_react());
 var import_react12 = __toESM(require_react());
 var import_throttle = __toESM(require_throttle2());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/LogUtils.js
+// node_modules/recharts/es6/util/LogUtils.js
 var isDev = true;
 var warn = function warn2(condition, format2) {
   for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -32791,7 +32797,7 @@ var warn = function warn2(condition, format2) {
   }
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/responsiveContainerUtils.js
+// node_modules/recharts/es6/component/responsiveContainerUtils.js
 var calculateChartDimensions = (containerWidth, containerHeight, props) => {
   var {
     width = "100%",
@@ -32870,7 +32876,7 @@ function getDefaultWidthAndHeight(_ref2) {
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/isWellBehavedNumber.js
+// node_modules/recharts/es6/util/isWellBehavedNumber.js
 function isWellBehavedNumber(n) {
   return Number.isFinite(n);
 }
@@ -32878,7 +32884,7 @@ function isPositiveNumber(n) {
   return typeof n === "number" && n > 0 && Number.isFinite(n);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/ResponsiveContainer.js
+// node_modules/recharts/es6/component/ResponsiveContainer.js
 function _extends3() {
   return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -33096,7 +33102,7 @@ var ResponsiveContainer = /* @__PURE__ */ (0, import_react12.forwardRef)((props,
   }));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/chartLayoutContext.js
+// node_modules/recharts/es6/context/chartLayoutContext.js
 function cartesianViewBoxToTrapezoid(box) {
   if (!box) {
     return void 0;
@@ -33183,7 +33189,7 @@ var ReportChartSize = (props) => {
   return null;
 };
 
-// node_modules/.pnpm/immer@10.2.0/node_modules/immer/dist/immer.mjs
+// node_modules/immer/dist/immer.mjs
 var NOTHING2 = Symbol.for("immer-nothing");
 var DRAFTABLE2 = Symbol.for("immer-draftable");
 var DRAFT_STATE2 = Symbol.for("immer-state");
@@ -33910,7 +33916,7 @@ function castDraft(value) {
   return value;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/legendSlice.js
+// node_modules/recharts/es6/state/legendSlice.js
 var initialState2 = {
   settings: {
     layout: "horizontal",
@@ -33977,12 +33983,12 @@ var {
 } = legendSlice.actions;
 var legendReducer = legendSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Tooltip.js
+// node_modules/recharts/es6/component/Tooltip.js
 var React12 = __toESM(require_react());
 var import_react24 = __toESM(require_react());
 var import_react_dom2 = __toESM(require_react_dom());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/DefaultTooltipContent.js
+// node_modules/recharts/es6/component/DefaultTooltipContent.js
 var React5 = __toESM(require_react());
 var import_sortBy3 = __toESM(require_sortBy2());
 function _extends4() {
@@ -34134,11 +34140,11 @@ var DefaultTooltipContent = (props) => {
   }, /* @__PURE__ */ React5.isValidElement(finalLabel) ? finalLabel : "".concat(finalLabel)), renderContent2());
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/TooltipBoundingBox.js
+// node_modules/recharts/es6/component/TooltipBoundingBox.js
 var React6 = __toESM(require_react());
 var import_react14 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/tooltip/translate.js
+// node_modules/recharts/es6/util/tooltip/translate.js
 var CSS_CLASS_PREFIX = "recharts-tooltip-wrapper";
 var TOOLTIP_HIDDEN = {
   visibility: "hidden"
@@ -34261,7 +34267,7 @@ function getTooltipTranslate(_ref4) {
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/TooltipBoundingBox.js
+// node_modules/recharts/es6/component/TooltipBoundingBox.js
 function ownKeys6(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -34400,17 +34406,17 @@ var TooltipBoundingBox = class extends import_react14.PureComponent {
   }
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/accessibilityContext.js
+// node_modules/recharts/es6/context/accessibilityContext.js
 var useAccessibilityLayer = () => {
   var _useAppSelector;
   return (_useAppSelector = useAppSelector((state) => state.rootProps.accessibilityLayer)) !== null && _useAppSelector !== void 0 ? _useAppSelector : true;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Cursor.js
+// node_modules/recharts/es6/component/Cursor.js
 var React11 = __toESM(require_react());
 var import_react21 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Curve.js
+// node_modules/recharts/es6/shape/Curve.js
 var React7 = __toESM(require_react());
 function _extends5() {
   return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
@@ -34540,7 +34546,7 @@ var Curve = (props) => {
   }));
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Cross.js
+// node_modules/recharts/es6/shape/Cross.js
 var React8 = __toESM(require_react());
 var _excluded3 = ["x", "y", "top", "left", "width", "height", "className"];
 function _extends6() {
@@ -34638,7 +34644,7 @@ var Cross = (_ref2) => {
   }));
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/cursor/getCursorRectangle.js
+// node_modules/recharts/es6/util/cursor/getCursorRectangle.js
 function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSize) {
   var halfSize = tooltipAxisBandSize / 2;
   return {
@@ -34651,14 +34657,14 @@ function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSiz
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Rectangle.js
+// node_modules/recharts/es6/shape/Rectangle.js
 var React9 = __toESM(require_react());
 var import_react18 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/JavascriptAnimate.js
+// node_modules/recharts/es6/animation/JavascriptAnimate.js
 var import_react16 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/util.js
+// node_modules/recharts/es6/animation/util.js
 function ownKeys9(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -34704,7 +34710,7 @@ var mapObject = (fn, obj) => Object.keys(obj).reduce((res, key) => _objectSpread
   [key]: fn(key, obj[key])
 }), {});
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/configUpdate.js
+// node_modules/recharts/es6/animation/configUpdate.js
 function ownKeys10(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -34848,7 +34854,7 @@ var configUpdate_default = (from2, to2, easing, duration, render, timeoutControl
   return easing.isStepper === true ? createStepperUpdate(from2, to2, easing, interKeys, render, timeoutController) : createTimingUpdate(from2, to2, easing, duration, interKeys, render, timeoutController);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/easing.js
+// node_modules/recharts/es6/animation/easing.js
 var ACCURACY = 1e-4;
 var cubicBezierFactor = (c1, c2) => [0, 3 * c1, 3 * c2 - 6 * c1, 3 * c1 - 3 * c2 + 1];
 var evaluatePolynomial = (params, t) => params.map((param, i) => param * t ** i).reduce((pre, curr) => pre + curr);
@@ -34968,10 +34974,10 @@ var configEasing = (easing) => {
   return null;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/useAnimationManager.js
+// node_modules/recharts/es6/animation/useAnimationManager.js
 var import_react15 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/AnimationManager.js
+// node_modules/recharts/es6/animation/AnimationManager.js
 function createAnimateManager(timeoutController) {
   var currStyle;
   var handleChange = () => null;
@@ -35029,7 +35035,7 @@ function createAnimateManager(timeoutController) {
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/timeoutController.js
+// node_modules/recharts/es6/animation/timeoutController.js
 var RequestAnimationFrameTimeoutController = class {
   setTimeout(callback) {
     var delay = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
@@ -35051,26 +35057,26 @@ var RequestAnimationFrameTimeoutController = class {
   }
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/createDefaultAnimationManager.js
+// node_modules/recharts/es6/animation/createDefaultAnimationManager.js
 function createDefaultAnimationManager() {
   return createAnimateManager(new RequestAnimationFrameTimeoutController());
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/useAnimationManager.js
+// node_modules/recharts/es6/animation/useAnimationManager.js
 var AnimationManagerContext = /* @__PURE__ */ (0, import_react15.createContext)(createDefaultAnimationManager);
 function useAnimationManager(animationId, animationManagerFromProps) {
   var contextAnimationManager = (0, import_react15.useContext)(AnimationManagerContext);
   return (0, import_react15.useMemo)(() => animationManagerFromProps !== null && animationManagerFromProps !== void 0 ? animationManagerFromProps : contextAnimationManager(animationId), [animationId, animationManagerFromProps, contextAnimationManager]);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/Global.js
+// node_modules/recharts/es6/util/Global.js
 var parseIsSsrByDefault = () => !(typeof window !== "undefined" && window.document && Boolean(window.document.createElement) && window.setTimeout);
 var Global = {
   devToolsEnabled: false,
   isSsr: parseIsSsrByDefault()
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/animation/JavascriptAnimate.js
+// node_modules/recharts/es6/animation/JavascriptAnimate.js
 var defaultJavascriptAnimateProps = {
   begin: 0,
   duration: 1e3,
@@ -35129,7 +35135,7 @@ function JavascriptAnimate(outsideProps) {
   return children(style.t);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/useAnimationId.js
+// node_modules/recharts/es6/util/useAnimationId.js
 var import_react17 = __toESM(require_react());
 function useAnimationId(input) {
   var prefix = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "animation-";
@@ -35142,7 +35148,7 @@ function useAnimationId(input) {
   return animationId.current;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Rectangle.js
+// node_modules/recharts/es6/shape/Rectangle.js
 var _excluded4 = ["radius"];
 var _excluded22 = ["radius"];
 function ownKeys11(e, r2) {
@@ -35371,7 +35377,7 @@ var Rectangle = (rectangleProps) => {
   });
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/PolarUtils.js
+// node_modules/recharts/es6/util/PolarUtils.js
 var import_react19 = __toESM(require_react());
 function ownKeys12(e, r2) {
   var t = Object.keys(e);
@@ -35550,7 +35556,7 @@ var inRangeOfSector = (_ref5, viewBox) => {
   return null;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/cursor/getRadialCursorPoints.js
+// node_modules/recharts/es6/util/cursor/getRadialCursorPoints.js
 function getRadialCursorPoints(activeCoordinate) {
   var {
     cx,
@@ -35571,7 +35577,7 @@ function getRadialCursorPoints(activeCoordinate) {
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Sector.js
+// node_modules/recharts/es6/shape/Sector.js
 var React10 = __toESM(require_react());
 function _extends8() {
   return _extends8 = Object.assign ? Object.assign.bind() : function(n) {
@@ -35788,7 +35794,7 @@ var Sector = (sectorProps) => {
   }));
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/cursor/getCursorPoints.js
+// node_modules/recharts/es6/util/cursor/getCursorPoints.js
 function getCursorPoints(layout, activeCoordinate, offset) {
   if (layout === "horizontal") {
     return [{
@@ -35832,10 +35838,10 @@ function getCursorPoints(layout, activeCoordinate, offset) {
   return void 0;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/axisSelectors.js
+// node_modules/recharts/es6/state/selectors/axisSelectors.js
 var import_range2 = __toESM(require_range2());
 
-// node_modules/.pnpm/victory-vendor@37.3.6/node_modules/victory-vendor/es/d3-scale.js
+// node_modules/victory-vendor/es/d3-scale.js
 var d3_scale_exports = {};
 __export(d3_scale_exports, {
   scaleBand: () => band,
@@ -35868,17 +35874,17 @@ __export(d3_scale_exports, {
   tickFormat: () => tickFormat
 });
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/ascending.js
+// node_modules/d3-array/src/ascending.js
 function ascending(a, b) {
   return a == null || b == null ? NaN : a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/descending.js
+// node_modules/d3-array/src/descending.js
 function descending(a, b) {
   return a == null || b == null ? NaN : b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/bisector.js
+// node_modules/d3-array/src/bisector.js
 function bisector(f) {
   let compare1, compare2, delta;
   if (f.length !== 2) {
@@ -35922,7 +35928,7 @@ function zero() {
   return 0;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/number.js
+// node_modules/d3-array/src/number.js
 function number(x2) {
   return x2 === null ? NaN : +x2;
 }
@@ -35943,14 +35949,14 @@ function* numbers(values, valueof) {
   }
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/bisect.js
+// node_modules/d3-array/src/bisect.js
 var ascendingBisect = bisector(ascending);
 var bisectRight = ascendingBisect.right;
 var bisectLeft = ascendingBisect.left;
 var bisectCenter = bisector(number).center;
 var bisect_default = bisectRight;
 
-// node_modules/.pnpm/internmap@2.0.3/node_modules/internmap/src/index.js
+// node_modules/internmap/src/index.js
 var InternMap = class extends Map {
   constructor(entries, key = keyof) {
     super();
@@ -35992,7 +35998,7 @@ function keyof(value) {
   return value !== null && typeof value === "object" ? value.valueOf() : value;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/sort.js
+// node_modules/d3-array/src/sort.js
 function compareDefined(compare = ascending) {
   if (compare === ascending) return ascendingDefined;
   if (typeof compare !== "function") throw new TypeError("compare is not a function");
@@ -36006,7 +36012,7 @@ function ascendingDefined(a, b) {
   return (a == null || !(a >= a)) - (b == null || !(b >= b)) || (a < b ? -1 : a > b ? 1 : 0);
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/ticks.js
+// node_modules/d3-array/src/ticks.js
 var e10 = Math.sqrt(50);
 var e5 = Math.sqrt(10);
 var e2 = Math.sqrt(2);
@@ -36056,7 +36062,7 @@ function tickStep(start, stop, count) {
   return (reverse2 ? -1 : 1) * (inc < 0 ? 1 / -inc : inc);
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/max.js
+// node_modules/d3-array/src/max.js
 function max(values, valueof) {
   let max2;
   if (valueof === void 0) {
@@ -36076,7 +36082,7 @@ function max(values, valueof) {
   return max2;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/min.js
+// node_modules/d3-array/src/min.js
 function min(values, valueof) {
   let min2;
   if (valueof === void 0) {
@@ -36096,7 +36102,7 @@ function min(values, valueof) {
   return min2;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/quickselect.js
+// node_modules/d3-array/src/quickselect.js
 function quickselect(array, k, left = 0, right = Infinity, compare) {
   k = Math.floor(k);
   left = Math.floor(Math.max(0, left));
@@ -36137,7 +36143,7 @@ function swap(array, i, j) {
   array[j] = t;
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/quantile.js
+// node_modules/d3-array/src/quantile.js
 function quantile(values, p, valueof) {
   values = Float64Array.from(numbers(values, valueof));
   if (!(n = values.length) || isNaN(p = +p)) return;
@@ -36154,7 +36160,7 @@ function quantileSorted(values, p, valueof = number) {
   return value0 + (value1 - value0) * (i - i0);
 }
 
-// node_modules/.pnpm/d3-array@3.2.4/node_modules/d3-array/src/range.js
+// node_modules/d3-array/src/range.js
 function range(start, stop, step) {
   start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
   var i = -1, n = Math.max(0, Math.ceil((stop - start) / step)) | 0, range4 = new Array(n);
@@ -36164,7 +36170,7 @@ function range(start, stop, step) {
   return range4;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/init.js
+// node_modules/d3-scale/src/init.js
 function initRange(domain, range4) {
   switch (arguments.length) {
     case 0:
@@ -36197,7 +36203,7 @@ function initInterpolator(domain, interpolator) {
   return this;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/ordinal.js
+// node_modules/d3-scale/src/ordinal.js
 var implicit = Symbol("implicit");
 function ordinal() {
   var index = new InternMap(), domain = [], range4 = [], unknown = implicit;
@@ -36231,7 +36237,7 @@ function ordinal() {
   return scale;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/band.js
+// node_modules/d3-scale/src/band.js
 function band() {
   var scale = ordinal().unknown(void 0), domain = scale.domain, ordinalRange = scale.range, r0 = 0, r1 = 1, step, bandwidth, round = false, paddingInner = 0, paddingOuter = 0, align = 0.5;
   delete scale.unknown;
@@ -36296,7 +36302,7 @@ function point3() {
   return pointish(band.apply(null, arguments).paddingInner(1));
 }
 
-// node_modules/.pnpm/d3-color@3.1.0/node_modules/d3-color/src/define.js
+// node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -36307,7 +36313,7 @@ function extend(parent, definition) {
   return prototype;
 }
 
-// node_modules/.pnpm/d3-color@3.1.0/node_modules/d3-color/src/color.js
+// node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -36644,7 +36650,7 @@ function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/basis.js
+// node_modules/d3-interpolate/src/basis.js
 function basis(t12, v0, v1, v2, v3) {
   var t2 = t12 * t12, t3 = t2 * t12;
   return ((1 - 3 * t12 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t12 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
@@ -36657,7 +36663,7 @@ function basis_default2(values) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/basisClosed.js
+// node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default2(values) {
   var n = values.length;
   return function(t) {
@@ -36666,10 +36672,10 @@ function basisClosed_default2(values) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/constant.js
+// node_modules/d3-interpolate/src/constant.js
 var constant_default2 = (x2) => () => x2;
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/color.js
+// node_modules/d3-interpolate/src/color.js
 function linear(a, d) {
   return function(t) {
     return a + t * d;
@@ -36690,7 +36696,7 @@ function nogamma(a, b) {
   return d ? linear(a, d) : constant_default2(isNaN(a) ? b : a);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/rgb.js
+// node_modules/d3-interpolate/src/rgb.js
 var rgb_default = function rgbGamma(y2) {
   var color2 = gamma(y2);
   function rgb2(start, end) {
@@ -36730,7 +36736,7 @@ function rgbSpline(spline) {
 var rgbBasis = rgbSpline(basis_default2);
 var rgbBasisClosed = rgbSpline(basisClosed_default2);
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/numberArray.js
+// node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a, b) {
   if (!b) b = [];
   var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
@@ -36743,7 +36749,7 @@ function isNumberArray(x2) {
   return ArrayBuffer.isView(x2) && !(x2 instanceof DataView);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/array.js
+// node_modules/d3-interpolate/src/array.js
 function genericArray(a, b) {
   var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x2 = new Array(na), c = new Array(nb), i;
   for (i = 0; i < na; ++i) x2[i] = value_default(a[i], b[i]);
@@ -36754,7 +36760,7 @@ function genericArray(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/date.js
+// node_modules/d3-interpolate/src/date.js
 function date_default(a, b) {
   var d = /* @__PURE__ */ new Date();
   return a = +a, b = +b, function(t) {
@@ -36762,14 +36768,14 @@ function date_default(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/number.js
+// node_modules/d3-interpolate/src/number.js
 function number_default(a, b) {
   return a = +a, b = +b, function(t) {
     return a * (1 - t) + b * t;
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/object.js
+// node_modules/d3-interpolate/src/object.js
 function object_default(a, b) {
   var i = {}, c = {}, k;
   if (a === null || typeof a !== "object") a = {};
@@ -36787,7 +36793,7 @@ function object_default(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/string.js
+// node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero2(b) {
@@ -36829,20 +36835,20 @@ function string_default(a, b) {
   });
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/value.js
+// node_modules/d3-interpolate/src/value.js
 function value_default(a, b) {
   var t = typeof b, c;
   return b == null || t === "boolean" ? constant_default2(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/round.js
+// node_modules/d3-interpolate/src/round.js
 function round_default(a, b) {
   return a = +a, b = +b, function(t) {
     return Math.round(a * (1 - t) + b * t);
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/piecewise.js
+// node_modules/d3-interpolate/src/piecewise.js
 function piecewise(interpolate2, values) {
   if (values === void 0) values = interpolate2, interpolate2 = value_default;
   var i = 0, n = values.length - 1, v = values[0], I = new Array(n < 0 ? 0 : n);
@@ -36853,19 +36859,19 @@ function piecewise(interpolate2, values) {
   };
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/constant.js
+// node_modules/d3-scale/src/constant.js
 function constants(x2) {
   return function() {
     return x2;
   };
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/number.js
+// node_modules/d3-scale/src/number.js
 function number2(x2) {
   return +x2;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/continuous.js
+// node_modules/d3-scale/src/continuous.js
 var unit = [0, 1];
 function identity(x2) {
   return x2;
@@ -36950,7 +36956,7 @@ function continuous() {
   return transformer()(identity, identity);
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatDecimal.js
+// node_modules/d3-format/src/formatDecimal.js
 function formatDecimal_default(x2) {
   return Math.abs(x2 = Math.round(x2)) >= 1e21 ? x2.toLocaleString("en").replace(/,/g, "") : x2.toString(10);
 }
@@ -36963,12 +36969,12 @@ function formatDecimalParts(x2, p) {
   ];
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/exponent.js
+// node_modules/d3-format/src/exponent.js
 function exponent_default(x2) {
   return x2 = formatDecimalParts(Math.abs(x2)), x2 ? x2[1] : NaN;
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatGroup.js
+// node_modules/d3-format/src/formatGroup.js
 function formatGroup_default(grouping, thousands) {
   return function(value, width) {
     var i = value.length, t = [], j = 0, g = grouping[0], length = 0;
@@ -36982,7 +36988,7 @@ function formatGroup_default(grouping, thousands) {
   };
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatNumerals.js
+// node_modules/d3-format/src/formatNumerals.js
 function formatNumerals_default(numerals) {
   return function(value) {
     return value.replace(/[0-9]/g, function(i) {
@@ -36991,7 +36997,7 @@ function formatNumerals_default(numerals) {
   };
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatSpecifier.js
+// node_modules/d3-format/src/formatSpecifier.js
 var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
 function formatSpecifier(specifier) {
   if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
@@ -37026,7 +37032,7 @@ FormatSpecifier.prototype.toString = function() {
   return this.fill + this.align + this.sign + this.symbol + (this.zero ? "0" : "") + (this.width === void 0 ? "" : Math.max(1, this.width | 0)) + (this.comma ? "," : "") + (this.precision === void 0 ? "" : "." + Math.max(0, this.precision | 0)) + (this.trim ? "~" : "") + this.type;
 };
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatTrim.js
+// node_modules/d3-format/src/formatTrim.js
 function formatTrim_default(s) {
   out: for (var n = s.length, i = 1, i0 = -1, i1; i < n; ++i) {
     switch (s[i]) {
@@ -37046,7 +37052,7 @@ function formatTrim_default(s) {
   return i0 > 0 ? s.slice(0, i0) + s.slice(i1 + 1) : s;
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatPrefixAuto.js
+// node_modules/d3-format/src/formatPrefixAuto.js
 var prefixExponent;
 function formatPrefixAuto_default(x2, p) {
   var d = formatDecimalParts(x2, p);
@@ -37055,7 +37061,7 @@ function formatPrefixAuto_default(x2, p) {
   return i === n ? coefficient : i > n ? coefficient + new Array(i - n + 1).join("0") : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i) : "0." + new Array(1 - i).join("0") + formatDecimalParts(x2, Math.max(0, p + i - 1))[0];
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatRounded.js
+// node_modules/d3-format/src/formatRounded.js
 function formatRounded_default(x2, p) {
   var d = formatDecimalParts(x2, p);
   if (!d) return x2 + "";
@@ -37063,7 +37069,7 @@ function formatRounded_default(x2, p) {
   return exponent < 0 ? "0." + new Array(-exponent).join("0") + coefficient : coefficient.length > exponent + 1 ? coefficient.slice(0, exponent + 1) + "." + coefficient.slice(exponent + 1) : coefficient + new Array(exponent - coefficient.length + 2).join("0");
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/formatTypes.js
+// node_modules/d3-format/src/formatTypes.js
 var formatTypes_default = {
   "%": (x2, p) => (x2 * 100).toFixed(p),
   "b": (x2) => Math.round(x2).toString(2),
@@ -37080,12 +37086,12 @@ var formatTypes_default = {
   "x": (x2) => Math.round(x2).toString(16)
 };
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/identity.js
+// node_modules/d3-format/src/identity.js
 function identity_default(x2) {
   return x2;
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/locale.js
+// node_modules/d3-format/src/locale.js
 var map = Array.prototype.map;
 var prefixes = ["y", "z", "a", "f", "p", "n", "\xB5", "m", "", "k", "M", "G", "T", "P", "E", "Z", "Y"];
 function locale_default(locale3) {
@@ -37159,7 +37165,7 @@ function locale_default(locale3) {
   };
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/defaultLocale.js
+// node_modules/d3-format/src/defaultLocale.js
 var locale;
 var format;
 var formatPrefix;
@@ -37175,23 +37181,23 @@ function defaultLocale(definition) {
   return locale;
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/precisionFixed.js
+// node_modules/d3-format/src/precisionFixed.js
 function precisionFixed_default(step) {
   return Math.max(0, -exponent_default(Math.abs(step)));
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/precisionPrefix.js
+// node_modules/d3-format/src/precisionPrefix.js
 function precisionPrefix_default(step, value) {
   return Math.max(0, Math.max(-8, Math.min(8, Math.floor(exponent_default(value) / 3))) * 3 - exponent_default(Math.abs(step)));
 }
 
-// node_modules/.pnpm/d3-format@3.1.0/node_modules/d3-format/src/precisionRound.js
+// node_modules/d3-format/src/precisionRound.js
 function precisionRound_default(step, max2) {
   step = Math.abs(step), max2 = Math.abs(max2) - step;
   return Math.max(0, exponent_default(max2) - exponent_default(step)) + 1;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/tickFormat.js
+// node_modules/d3-scale/src/tickFormat.js
 function tickFormat(start, stop, count, specifier) {
   var step = tickStep(start, stop, count), precision;
   specifier = formatSpecifier(specifier == null ? ",f" : specifier);
@@ -37218,7 +37224,7 @@ function tickFormat(start, stop, count, specifier) {
   return format(specifier);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/linear.js
+// node_modules/d3-scale/src/linear.js
 function linearish(scale) {
   var domain = scale.domain;
   scale.ticks = function(count) {
@@ -37273,7 +37279,7 @@ function linear2() {
   return linearish(scale);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/identity.js
+// node_modules/d3-scale/src/identity.js
 function identity2(domain) {
   var unknown;
   function scale(x2) {
@@ -37293,7 +37299,7 @@ function identity2(domain) {
   return linearish(scale);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/nice.js
+// node_modules/d3-scale/src/nice.js
 function nice(domain, interval) {
   domain = domain.slice();
   var i0 = 0, i1 = domain.length - 1, x0 = domain[i0], x1 = domain[i1], t;
@@ -37306,7 +37312,7 @@ function nice(domain, interval) {
   return domain;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/log.js
+// node_modules/d3-scale/src/log.js
 function transformLog(x2) {
   return Math.log(x2);
 }
@@ -37419,7 +37425,7 @@ function log() {
   return scale;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/symlog.js
+// node_modules/d3-scale/src/symlog.js
 function transformSymlog(c) {
   return function(x2) {
     return Math.sign(x2) * Math.log1p(Math.abs(x2 / c));
@@ -37445,7 +37451,7 @@ function symlog() {
   return initRange.apply(scale, arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/pow.js
+// node_modules/d3-scale/src/pow.js
 function transformPow(exponent) {
   return function(x2) {
     return x2 < 0 ? -Math.pow(-x2, exponent) : Math.pow(x2, exponent);
@@ -37479,7 +37485,7 @@ function sqrt() {
   return pow.apply(null, arguments).exponent(0.5);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/radial.js
+// node_modules/d3-scale/src/radial.js
 function square(x2) {
   return Math.sign(x2) * x2 * x2;
 }
@@ -37520,7 +37526,7 @@ function radial() {
   return linearish(scale);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/quantile.js
+// node_modules/d3-scale/src/quantile.js
 function quantile2() {
   var domain = [], range4 = [], thresholds = [], unknown;
   function rescale() {
@@ -37561,7 +37567,7 @@ function quantile2() {
   return initRange.apply(scale, arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/quantize.js
+// node_modules/d3-scale/src/quantize.js
 function quantize() {
   var x0 = 0, x1 = 1, n = 1, domain = [0.5], range4 = [0, 1], unknown;
   function scale(x2) {
@@ -37595,7 +37601,7 @@ function quantize() {
   return initRange.apply(linearish(scale), arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/threshold.js
+// node_modules/d3-scale/src/threshold.js
 function threshold() {
   var domain = [0.5], range4 = [0, 1], unknown, n = 1;
   function scale(x2) {
@@ -37620,7 +37626,7 @@ function threshold() {
   return initRange.apply(scale, arguments);
 }
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/interval.js
+// node_modules/d3-time/src/interval.js
 var t0 = /* @__PURE__ */ new Date();
 var t1 = /* @__PURE__ */ new Date();
 function timeInterval(floori, offseti, count, field) {
@@ -37681,7 +37687,7 @@ function timeInterval(floori, offseti, count, field) {
   return interval;
 }
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/millisecond.js
+// node_modules/d3-time/src/millisecond.js
 var millisecond = timeInterval(() => {
 }, (date2, step) => {
   date2.setTime(+date2 + step);
@@ -37702,7 +37708,7 @@ millisecond.every = (k) => {
 };
 var milliseconds = millisecond.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/duration.js
+// node_modules/d3-time/src/duration.js
 var durationSecond = 1e3;
 var durationMinute = durationSecond * 60;
 var durationHour = durationMinute * 60;
@@ -37711,7 +37717,7 @@ var durationWeek = durationDay * 7;
 var durationMonth = durationDay * 30;
 var durationYear = durationDay * 365;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/second.js
+// node_modules/d3-time/src/second.js
 var second = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds());
 }, (date2, step) => {
@@ -37723,7 +37729,7 @@ var second = timeInterval((date2) => {
 });
 var seconds = second.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/minute.js
+// node_modules/d3-time/src/minute.js
 var timeMinute = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds() - date2.getSeconds() * durationSecond);
 }, (date2, step) => {
@@ -37745,7 +37751,7 @@ var utcMinute = timeInterval((date2) => {
 });
 var utcMinutes = utcMinute.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/hour.js
+// node_modules/d3-time/src/hour.js
 var timeHour = timeInterval((date2) => {
   date2.setTime(date2 - date2.getMilliseconds() - date2.getSeconds() * durationSecond - date2.getMinutes() * durationMinute);
 }, (date2, step) => {
@@ -37767,7 +37773,7 @@ var utcHour = timeInterval((date2) => {
 });
 var utcHours = utcHour.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/day.js
+// node_modules/d3-time/src/day.js
 var timeDay = timeInterval(
   (date2) => date2.setHours(0, 0, 0, 0),
   (date2, step) => date2.setDate(date2.getDate() + step),
@@ -37796,7 +37802,7 @@ var unixDay = timeInterval((date2) => {
 });
 var unixDays = unixDay.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/week.js
+// node_modules/d3-time/src/week.js
 function timeWeekday(i) {
   return timeInterval((date2) => {
     date2.setDate(date2.getDate() - (date2.getDay() + 7 - i) % 7);
@@ -37846,7 +37852,7 @@ var utcThursdays = utcThursday.range;
 var utcFridays = utcFriday.range;
 var utcSaturdays = utcSaturday.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/month.js
+// node_modules/d3-time/src/month.js
 var timeMonth = timeInterval((date2) => {
   date2.setDate(1);
   date2.setHours(0, 0, 0, 0);
@@ -37870,7 +37876,7 @@ var utcMonth = timeInterval((date2) => {
 });
 var utcMonths = utcMonth.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/year.js
+// node_modules/d3-time/src/year.js
 var timeYear = timeInterval((date2) => {
   date2.setMonth(0, 1);
   date2.setHours(0, 0, 0, 0);
@@ -37912,7 +37918,7 @@ utcYear.every = (k) => {
 };
 var utcYears = utcYear.range;
 
-// node_modules/.pnpm/d3-time@3.1.0/node_modules/d3-time/src/ticks.js
+// node_modules/d3-time/src/ticks.js
 function ticker(year, month, week, day, hour, minute) {
   const tickIntervals = [
     [second, 1, durationSecond],
@@ -37954,7 +37960,7 @@ function ticker(year, month, week, day, hour, minute) {
 var [utcTicks, utcTickInterval] = ticker(utcYear, utcMonth, utcSunday, unixDay, utcHour, utcMinute);
 var [timeTicks, timeTickInterval] = ticker(timeYear, timeMonth, timeSunday, timeDay, timeHour, timeMinute);
 
-// node_modules/.pnpm/d3-time-format@4.1.0/node_modules/d3-time-format/src/locale.js
+// node_modules/d3-time-format/src/locale.js
 function localDate(d) {
   if (0 <= d.y && d.y < 100) {
     var date2 = new Date(-1, d.m, d.d, d.H, d.M, d.S, d.L);
@@ -38495,7 +38501,7 @@ function formatUnixTimestampSeconds(d) {
   return Math.floor(+d / 1e3);
 }
 
-// node_modules/.pnpm/d3-time-format@4.1.0/node_modules/d3-time-format/src/defaultLocale.js
+// node_modules/d3-time-format/src/defaultLocale.js
 var locale2;
 var timeFormat;
 var timeParse;
@@ -38520,7 +38526,7 @@ function defaultLocale2(definition) {
   return locale2;
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/time.js
+// node_modules/d3-scale/src/time.js
 function date(t) {
   return new Date(t);
 }
@@ -38560,12 +38566,12 @@ function time() {
   return initRange.apply(calendar(timeTicks, timeTickInterval, timeYear, timeMonth, timeSunday, timeDay, timeHour, timeMinute, second, timeFormat).domain([new Date(2e3, 0, 1), new Date(2e3, 0, 2)]), arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/utcTime.js
+// node_modules/d3-scale/src/utcTime.js
 function utcTime() {
   return initRange.apply(calendar(utcTicks, utcTickInterval, utcYear, utcMonth, utcSunday, utcDay, utcHour, utcMinute, second, utcFormat).domain([Date.UTC(2e3, 0, 1), Date.UTC(2e3, 0, 2)]), arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/sequential.js
+// node_modules/d3-scale/src/sequential.js
 function transformer2() {
   var x0 = 0, x1 = 1, t02, t12, k10, transform, interpolator = identity, clamp = false, unknown;
   function scale(x2) {
@@ -38631,7 +38637,7 @@ function sequentialSqrt() {
   return sequentialPow.apply(null, arguments).exponent(0.5);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/sequentialQuantile.js
+// node_modules/d3-scale/src/sequentialQuantile.js
 function sequentialQuantile() {
   var domain = [], interpolator = identity;
   function scale(x2) {
@@ -38659,7 +38665,7 @@ function sequentialQuantile() {
   return initInterpolator.apply(scale, arguments);
 }
 
-// node_modules/.pnpm/d3-scale@4.0.2/node_modules/d3-scale/src/diverging.js
+// node_modules/d3-scale/src/diverging.js
 function transformer3() {
   var x0 = 0, x1 = 0.5, x2 = 1, s = 1, t02, t12, t2, k10, k21, interpolator = identity, transform, clamp = false, unknown;
   function scale(x3) {
@@ -38722,7 +38728,7 @@ function divergingSqrt() {
   return divergingPow.apply(null, arguments).exponent(0.5);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/dataSelectors.js
+// node_modules/recharts/es6/state/selectors/dataSelectors.js
 var selectChartDataWithIndexes = (state) => state.chartData;
 var selectChartDataAndAlwaysIgnoreIndexes = createSelector([selectChartDataWithIndexes], (dataState) => {
   var dataEndIndex = dataState.chartData != null ? dataState.chartData.length - 1 : 0;
@@ -38740,7 +38746,7 @@ var selectChartDataWithIndexesIfNotInPanorama = (state, _unused1, _unused2, isPa
   return selectChartDataWithIndexes(state);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/isDomainSpecifiedByUser.js
+// node_modules/recharts/es6/util/isDomainSpecifiedByUser.js
 function isWellFormedNumberDomain(v) {
   if (Array.isArray(v) && v.length === 2) {
     var [min2, max2] = v;
@@ -38858,10 +38864,10 @@ function parseNumericalUserDomain(userDomain, dataDomain, allowDataOverflow) {
   return void 0;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/scale/getNiceTickValues.js
+// node_modules/recharts/es6/util/scale/getNiceTickValues.js
 var import_decimal2 = __toESM(require_decimal());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/scale/util/utils.js
+// node_modules/recharts/es6/util/scale/util/utils.js
 var identity3 = (i) => i;
 var PLACE_HOLDER = {
   "@@functional/placeholder": true
@@ -38929,7 +38935,7 @@ var reverse = (arr) => {
   return arr.split("").reverse().join("");
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/scale/util/arithmetic.js
+// node_modules/recharts/es6/util/scale/util/arithmetic.js
 var import_decimal = __toESM(require_decimal());
 function getDigitCount(value) {
   var result;
@@ -38952,7 +38958,7 @@ function rangeStep(start, end, step) {
   return result;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/scale/getNiceTickValues.js
+// node_modules/recharts/es6/util/scale/getNiceTickValues.js
 var getValidInterval = (_ref2) => {
   var [min2, max2] = _ref2;
   var [validMin, validMax] = [min2, max2];
@@ -39066,7 +39072,7 @@ var getTickValuesFixedDomain = function getTickValuesFixedDomain2(_ref3, tickCou
   return min2 > max2 ? reverse(values) : values;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/rootPropsSelectors.js
+// node_modules/recharts/es6/state/selectors/rootPropsSelectors.js
 var selectBarCategoryGap = (state) => state.rootProps.barCategoryGap;
 var selectStackOffsetType = (state) => state.rootProps.stackOffset;
 var selectReverseStackOrder = (state) => state.rootProps.reverseStackOrder;
@@ -39076,7 +39082,7 @@ var selectSyncMethod = (state) => state.rootProps.syncMethod;
 var selectEventEmitter = (state) => state.options.eventEmitter;
 var selectChartBaseValue = (state) => state.rootProps.baseValue;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/zIndex/DefaultZIndexes.js
+// node_modules/recharts/es6/zIndex/DefaultZIndexes.js
 var DefaultZIndexes = {
   /**
    * CartesianGrid and PolarGrid
@@ -39145,7 +39151,7 @@ var DefaultZIndexes = {
   label: 2e3
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/polar/defaultPolarAngleAxisProps.js
+// node_modules/recharts/es6/polar/defaultPolarAngleAxisProps.js
 var defaultPolarAngleAxisProps = {
   allowDecimals: false,
   allowDuplicatedCategory: true,
@@ -39165,7 +39171,7 @@ var defaultPolarAngleAxisProps = {
   zIndex: DefaultZIndexes.axis
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/polar/defaultPolarRadiusAxisProps.js
+// node_modules/recharts/es6/polar/defaultPolarRadiusAxisProps.js
 var defaultPolarRadiusAxisProps = {
   allowDataOverflow: false,
   allowDecimals: false,
@@ -39185,7 +39191,7 @@ var defaultPolarRadiusAxisProps = {
   zIndex: DefaultZIndexes.axis
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineAxisRangeWithReverse.js
+// node_modules/recharts/es6/state/selectors/combiners/combineAxisRangeWithReverse.js
 var combineAxisRangeWithReverse = (axisSettings, axisRange) => {
   if (!axisSettings || !axisRange) {
     return void 0;
@@ -39196,7 +39202,7 @@ var combineAxisRangeWithReverse = (axisSettings, axisRange) => {
   return axisRange;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/polarAxisSelectors.js
+// node_modules/recharts/es6/state/selectors/polarAxisSelectors.js
 var implicitAngleAxis = {
   allowDataOverflow: false,
   allowDecimals: false,
@@ -39339,18 +39345,18 @@ var selectPolarViewBox = createSelector([selectChartLayout, selectPolarOptions, 
   };
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/pickAxisType.js
+// node_modules/recharts/es6/state/selectors/pickAxisType.js
 var pickAxisType = (_state, axisType) => axisType;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/pickAxisId.js
+// node_modules/recharts/es6/state/selectors/pickAxisId.js
 var pickAxisId = (_state, _axisType, axisId) => axisId;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/stacks/getStackSeriesIdentifier.js
+// node_modules/recharts/es6/util/stacks/getStackSeriesIdentifier.js
 function getStackSeriesIdentifier(graphicalItem) {
   return graphicalItem === null || graphicalItem === void 0 ? void 0 : graphicalItem.id;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineDisplayedStackedData.js
+// node_modules/recharts/es6/state/selectors/combiners/combineDisplayedStackedData.js
 function combineDisplayedStackedData(stackedGraphicalItems, _ref2, tooltipAxisSettings) {
   var {
     chartData = []
@@ -39385,12 +39391,12 @@ function combineDisplayedStackedData(stackedGraphicalItems, _ref2, tooltipAxisSe
   return Array.from(knownItemsByDataKey.values());
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/types/StackedGraphicalItem.js
+// node_modules/recharts/es6/state/types/StackedGraphicalItem.js
 function isStacked(graphicalItem) {
   return graphicalItem.stackId != null && graphicalItem.dataKey != null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/numberDomainEqualityCheck.js
+// node_modules/recharts/es6/state/selectors/numberDomainEqualityCheck.js
 var numberDomainEqualityCheck = (a, b) => {
   if (a === b) {
     return true;
@@ -39401,7 +39407,7 @@ var numberDomainEqualityCheck = (a, b) => {
   return a[0] === b[0] && a[1] === b[1];
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/arrayEqualityCheck.js
+// node_modules/recharts/es6/state/selectors/arrayEqualityCheck.js
 function emptyArraysAreEqualCheck(a, b) {
   if (Array.isArray(a) && Array.isArray(b) && a.length === 0 && b.length === 0) {
     return true;
@@ -39420,7 +39426,7 @@ function arrayContentsAreEqualCheck(a, b) {
   return false;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipAxisType.js
+// node_modules/recharts/es6/state/selectors/selectTooltipAxisType.js
 var selectTooltipAxisType = (state) => {
   var layout = selectChartLayout(state);
   if (layout === "horizontal") {
@@ -39435,10 +39441,10 @@ var selectTooltipAxisType = (state) => {
   return "radiusAxis";
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipAxisId.js
+// node_modules/recharts/es6/state/selectors/selectTooltipAxisId.js
 var selectTooltipAxisId = (state) => state.tooltip.settings.axisId;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/axisSelectors.js
+// node_modules/recharts/es6/state/selectors/axisSelectors.js
 function ownKeys13(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -40545,7 +40551,7 @@ var selectChartDirection = createSelector([selectChartLayout, selectAllXAxes, se
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipEventType.js
+// node_modules/recharts/es6/state/selectors/selectTooltipEventType.js
 var selectDefaultTooltipEventType = (state) => state.options.defaultTooltipEventType;
 var selectValidateTooltipEventTypes = (state) => state.options.validateTooltipEventTypes;
 function combineTooltipEventType(shared, defaultTooltipEventType, validateTooltipEventTypes) {
@@ -40567,7 +40573,7 @@ function useTooltipEventType(shared) {
   return useAppSelector((state) => selectTooltipEventType(state, shared));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineActiveLabel.js
+// node_modules/recharts/es6/state/selectors/combiners/combineActiveLabel.js
 var combineActiveLabel = (tooltipTicks, activeIndex) => {
   var _tooltipTicks$n;
   var n = Number(activeIndex);
@@ -40577,10 +40583,10 @@ var combineActiveLabel = (tooltipTicks, activeIndex) => {
   return n >= 0 ? tooltipTicks === null || tooltipTicks === void 0 || (_tooltipTicks$n = tooltipTicks[n]) === null || _tooltipTicks$n === void 0 ? void 0 : _tooltipTicks$n.value : void 0;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipSettings.js
+// node_modules/recharts/es6/state/selectors/selectTooltipSettings.js
 var selectTooltipSettings = (state) => state.tooltip.settings;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/tooltipSlice.js
+// node_modules/recharts/es6/state/tooltipSlice.js
 var noInteraction = {
   active: false,
   index: null,
@@ -40719,7 +40725,7 @@ var {
 } = tooltipSlice.actions;
 var tooltipReducer = tooltipSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineTooltipInteractionState.js
+// node_modules/recharts/es6/state/selectors/combiners/combineTooltipInteractionState.js
 function ownKeys14(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -40811,7 +40817,7 @@ var combineTooltipInteractionState = (tooltipState, tooltipEventType, trigger, d
   });
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineActiveTooltipIndex.js
+// node_modules/recharts/es6/state/selectors/combiners/combineActiveTooltipIndex.js
 function toFiniteNumber(value) {
   if (typeof value === "number") {
     return Number.isFinite(value) ? value : void 0;
@@ -40872,7 +40878,7 @@ var combineActiveTooltipIndex = (tooltipInteraction, chartData, axisDataKey, dom
   return String(clampedIndex);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineCoordinateForDefaultIndex.js
+// node_modules/recharts/es6/state/selectors/combiners/combineCoordinateForDefaultIndex.js
 var combineCoordinateForDefaultIndex = (width, height, layout, offset, tooltipTicks, defaultIndex, tooltipConfigurations, tooltipPayloadSearcher) => {
   if (defaultIndex == null || tooltipPayloadSearcher == null) {
     return void 0;
@@ -40902,7 +40908,7 @@ var combineCoordinateForDefaultIndex = (width, height, layout, offset, tooltipTi
   }
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayloadConfigurations.js
+// node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayloadConfigurations.js
 var combineTooltipPayloadConfigurations = (tooltipState, tooltipEventType, trigger, defaultIndex) => {
   if (tooltipEventType === "axis") {
     return tooltipState.tooltipItemPayloads;
@@ -40925,13 +40931,13 @@ var combineTooltipPayloadConfigurations = (tooltipState, tooltipEventType, trigg
   });
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipPayloadSearcher.js
+// node_modules/recharts/es6/state/selectors/selectTooltipPayloadSearcher.js
 var selectTooltipPayloadSearcher = (state) => state.options.tooltipPayloadSearcher;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectTooltipState.js
+// node_modules/recharts/es6/state/selectors/selectTooltipState.js
 var selectTooltipState = (state) => state.tooltip;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayload.js
+// node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayload.js
 function ownKeys15(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -41059,7 +41065,7 @@ var combineTooltipPayload = (tooltipPayloadConfigurations, activeIndex, chartDat
   }, init);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/tooltipSelectors.js
+// node_modules/recharts/es6/state/selectors/tooltipSelectors.js
 var selectTooltipAxisRealScaleType = createSelector([selectTooltipAxis, selectChartLayout, selectHasBar, selectChartName, selectTooltipAxisType], combineRealScaleType);
 var selectAllUnfilteredGraphicalItems = createSelector([(state) => state.graphicalItems.cartesianItems, (state) => state.graphicalItems.polarItems], (cartesianItems, polarItems) => [...cartesianItems, ...polarItems]);
 var selectTooltipAxisPredicate = createSelector([selectTooltipAxisType, selectTooltipAxisId], itemAxisPredicate);
@@ -41176,7 +41182,7 @@ var selectActiveTooltipDataPoints = createSelector([selectActiveTooltipPayload],
   return Array.from(new Set(dataPoints));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/useTooltipAxis.js
+// node_modules/recharts/es6/context/useTooltipAxis.js
 function ownKeys16(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -41228,10 +41234,10 @@ var useTooltipAxisBandSize = () => {
   }), tooltipTicks);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectors.js
+// node_modules/recharts/es6/state/selectors/selectors.js
 var import_sortBy4 = __toESM(require_sortBy2());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/getActiveCoordinate.js
+// node_modules/recharts/es6/util/getActiveCoordinate.js
 function ownKeys17(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -41391,7 +41397,7 @@ var calculateActiveTickIndex = (coordinate, ticks2, unsortedTicks, axisType, ran
   return index;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectors.js
+// node_modules/recharts/es6/state/selectors/selectors.js
 var useChartName = () => {
   return useAppSelector(selectChartName);
 };
@@ -41472,11 +41478,11 @@ var combineActiveProps = (chartEvent, layout, polarViewBox, tooltipAxisType, too
   return combineActivePolarProps(chartEvent, layout, polarViewBox, tooltipAxisType, tooltipAxisRange, tooltipTicks, orderedTooltipTicks);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/zIndex/ZIndexLayer.js
+// node_modules/recharts/es6/zIndex/ZIndexLayer.js
 var import_react20 = __toESM(require_react());
 var import_react_dom = __toESM(require_react_dom());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/zIndex/zIndexSelectors.js
+// node_modules/recharts/es6/zIndex/zIndexSelectors.js
 var selectZIndexPortalId = createSelector((state) => state.zIndex.zIndexMap, (_, zIndex) => zIndex, (_, _zIndex, isPanorama) => isPanorama, (zIndexMap, zIndex, isPanorama) => {
   if (zIndex == null) {
     return void 0;
@@ -41500,7 +41506,7 @@ var selectAllRegisteredZIndexes = createSelector((state) => state.zIndex.zIndexM
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/zIndexSlice.js
+// node_modules/recharts/es6/state/zIndexSlice.js
 function ownKeys18(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -41636,7 +41642,7 @@ var {
 } = zIndexSlice.actions;
 var zIndexReducer = zIndexSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/zIndex/ZIndexLayer.js
+// node_modules/recharts/es6/zIndex/ZIndexLayer.js
 function ZIndexLayer(_ref2) {
   var {
     zIndex,
@@ -41673,7 +41679,7 @@ function ZIndexLayer(_ref2) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Cursor.js
+// node_modules/recharts/es6/component/Cursor.js
 function _extends9() {
   return _extends9 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -41818,24 +41824,24 @@ function Cursor(props) {
   }));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/tooltipPortalContext.js
+// node_modules/recharts/es6/context/tooltipPortalContext.js
 var import_react22 = __toESM(require_react());
 var TooltipPortalContext = /* @__PURE__ */ (0, import_react22.createContext)(null);
 var useTooltipPortal = () => (0, import_react22.useContext)(TooltipPortalContext);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
+// node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
 var import_react23 = __toESM(require_react());
 
-// node_modules/.pnpm/eventemitter3@5.0.1/node_modules/eventemitter3/index.mjs
+// node_modules/eventemitter3/index.mjs
 var import_index = __toESM(require_eventemitter3(), 1);
 var eventemitter3_default = import_index.default;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/Events.js
+// node_modules/recharts/es6/util/Events.js
 var eventCenter = new eventemitter3_default();
 var TOOLTIP_SYNC_EVENT = "recharts.syncEvent.tooltip";
 var BRUSH_SYNC_EVENT = "recharts.syncEvent.brush";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/optionsSlice.js
+// node_modules/recharts/es6/state/optionsSlice.js
 function arrayTooltipSearcher(data, strIndex) {
   if (!strIndex) return void 0;
   var numIndex = Number.parseInt(strIndex, 10);
@@ -41866,12 +41872,12 @@ var {
   createEventEmitter
 } = optionsSlice.actions;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/synchronisation/syncSelectors.js
+// node_modules/recharts/es6/synchronisation/syncSelectors.js
 function selectSynchronisedTooltipState(state) {
   return state.tooltip.syncInteraction;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/chartDataSlice.js
+// node_modules/recharts/es6/state/chartDataSlice.js
 var initialChartDataState = {
   chartData: void 0,
   computedData: void 0,
@@ -41917,7 +41923,7 @@ var {
 } = chartDataSlice.actions;
 var chartDataReducer = chartDataSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
+// node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
 var _excluded5 = ["x", "y"];
 function ownKeys20(e, r2) {
   var t = Object.keys(e);
@@ -42143,7 +42149,7 @@ function useTooltipChartSynchronisation(tooltipEventType, trigger, activeCoordin
   }, [isReceivingSynchronisation, activeCoordinate, activeDataKey, activeIndex, activeLabel, eventEmitterSymbol, syncId, syncMethod, isTooltipActive, viewBox]);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Tooltip.js
+// node_modules/recharts/es6/component/Tooltip.js
 function ownKeys21(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -42317,11 +42323,11 @@ function Tooltip(outsideProps) {
   }));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Text.js
+// node_modules/recharts/es6/component/Text.js
 var React13 = __toESM(require_react());
 var import_react25 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/LRUCache.js
+// node_modules/recharts/es6/util/LRUCache.js
 function _defineProperty22(e, r2, t) {
   return (r2 = _toPropertyKey22(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
@@ -42371,7 +42377,7 @@ var LRUCache = class {
   }
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/DOMUtils.js
+// node_modules/recharts/es6/util/DOMUtils.js
 function ownKeys22(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -42479,7 +42485,7 @@ var getStringSize = function getStringSize2(text) {
   return result;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/ReduceCSSCalc.js
+// node_modules/recharts/es6/util/ReduceCSSCalc.js
 var MULTIPLY_OR_DIVIDE_REGEX = /(-?\d+(?:\.\d+)?[a-zA-Z%]*)([*/])(-?\d+(?:\.\d+)?[a-zA-Z%]*)/;
 var ADD_OR_SUBTRACT_REGEX = /(-?\d+(?:\.\d+)?[a-zA-Z%]*)([+-])(-?\d+(?:\.\d+)?[a-zA-Z%]*)/;
 var CSS_LENGTH_UNIT_REGEX = /^px|cm|vh|vw|em|rem|%|mm|in|pt|pc|ex|ch|vmin|vmax|Q$/;
@@ -42612,7 +42618,7 @@ function reduceCSSCalc(expression) {
   return result;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Text.js
+// node_modules/recharts/es6/component/Text.js
 var _excluded6 = ["x", "y", "lineHeight", "capHeight", "fill", "scaleToFit", "textAnchor", "verticalAnchor"];
 var _excluded23 = ["dx", "dy", "angle", "className", "breakAll"];
 function _extends10() {
@@ -42888,7 +42894,7 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
 });
 Text.displayName = "Text";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Label.js
+// node_modules/recharts/es6/component/Label.js
 var React14 = __toESM(require_react());
 var import_react26 = __toESM(require_react());
 var _excluded7 = ["labelRef"];
@@ -43405,7 +43411,7 @@ function CartesianLabelFromLabelProp(_ref3) {
   return parseLabel(label, viewBox, labelRef) || null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/LabelList.js
+// node_modules/recharts/es6/component/LabelList.js
 var React15 = __toESM(require_react());
 var import_react27 = __toESM(require_react());
 var import_last = __toESM(require_last3());
@@ -43524,7 +43530,7 @@ function LabelListFromLabelProp(_ref2) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/shape/Dot.js
+// node_modules/recharts/es6/shape/Dot.js
 var React16 = __toESM(require_react());
 function _extends13() {
   return _extends13 = Object.assign ? Object.assign.bind() : function(n) {
@@ -43554,7 +43560,7 @@ var Dot = (props) => {
   return null;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/polarAxisSlice.js
+// node_modules/recharts/es6/state/polarAxisSlice.js
 var initialState6 = {
   radiusAxis: {},
   angleAxis: {}
@@ -43585,7 +43591,7 @@ var {
 } = polarAxisSlice.actions;
 var polarAxisReducer = polarAxisSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/ReactUtils.js
+// node_modules/recharts/es6/util/ReactUtils.js
 var import_react28 = __toESM(require_react());
 var isClipDot = (dot) => {
   if (dot && typeof dot === "object" && "clipDot" in dot) {
@@ -43594,7 +43600,7 @@ var isClipDot = (dot) => {
   return true;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/SetTooltipEntrySettings.js
+// node_modules/recharts/es6/state/SetTooltipEntrySettings.js
 var import_react29 = __toESM(require_react());
 function SetTooltipEntrySettings(_ref2) {
   var {
@@ -43628,7 +43634,7 @@ function SetTooltipEntrySettings(_ref2) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/SetLegendPayload.js
+// node_modules/recharts/es6/state/SetLegendPayload.js
 var import_react30 = __toESM(require_react());
 function SetLegendPayload(_ref2) {
   var {
@@ -43662,11 +43668,11 @@ function SetLegendPayload(_ref2) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/RegisterGraphicalItemId.js
+// node_modules/recharts/es6/context/RegisterGraphicalItemId.js
 var React18 = __toESM(require_react());
 var import_react31 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/useId.js
+// node_modules/recharts/es6/util/useId.js
 var React17 = __toESM(require_react());
 var _ref;
 var useIdFallback = () => {
@@ -43675,7 +43681,7 @@ var useIdFallback = () => {
 };
 var useId = (_ref = React17["useId".toString()]) !== null && _ref !== void 0 ? _ref : useIdFallback;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/useUniqueId.js
+// node_modules/recharts/es6/util/useUniqueId.js
 function useUniqueId(prefix, customId) {
   var generatedId = useId();
   if (customId) {
@@ -43684,7 +43690,7 @@ function useUniqueId(prefix, customId) {
   return prefix ? "".concat(prefix, "-").concat(generatedId) : generatedId;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/RegisterGraphicalItemId.js
+// node_modules/recharts/es6/context/RegisterGraphicalItemId.js
 var GraphicalItemIdContext = /* @__PURE__ */ (0, import_react31.createContext)(void 0);
 var RegisterGraphicalItemId = (_ref2) => {
   var {
@@ -43698,10 +43704,10 @@ var RegisterGraphicalItemId = (_ref2) => {
   }, children(resolvedId));
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/SetGraphicalItem.js
+// node_modules/recharts/es6/state/SetGraphicalItem.js
 var import_react32 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/graphicalItemsSlice.js
+// node_modules/recharts/es6/state/graphicalItemsSlice.js
 var initialState7 = {
   cartesianItems: [],
   polarItems: []
@@ -43764,7 +43770,7 @@ var {
 } = graphicalItemsSlice.actions;
 var graphicalItemsReducer = graphicalItemsSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/SetGraphicalItem.js
+// node_modules/recharts/es6/state/SetGraphicalItem.js
 var SetCartesianGraphicalItemImpl = (props) => {
   var dispatch = useAppDispatch();
   var prevPropsRef = (0, import_react32.useRef)(null);
@@ -43791,7 +43797,7 @@ var SetCartesianGraphicalItemImpl = (props) => {
 };
 var SetCartesianGraphicalItem = /* @__PURE__ */ (0, import_react32.memo)(SetCartesianGraphicalItemImpl);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/Dots.js
+// node_modules/recharts/es6/component/Dots.js
 var React19 = __toESM(require_react());
 var import_react33 = __toESM(require_react());
 var _excluded9 = ["points"];
@@ -43937,11 +43943,11 @@ function Dots(_ref3) {
   }, layerProps), dots));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/ActivePoints.js
+// node_modules/recharts/es6/component/ActivePoints.js
 var React20 = __toESM(require_react());
 var import_react34 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/cartesianAxisSlice.js
+// node_modules/recharts/es6/state/cartesianAxisSlice.js
 function ownKeys25(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -44104,7 +44110,7 @@ var {
 } = cartesianAxisSlice.actions;
 var cartesianAxisReducer = cartesianAxisSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectChartOffset.js
+// node_modules/recharts/es6/state/selectors/selectChartOffset.js
 var selectChartOffset = createSelector([selectChartOffsetInternal], (offsetInternal) => {
   return {
     top: offsetInternal.top,
@@ -44114,7 +44120,7 @@ var selectChartOffset = createSelector([selectChartOffsetInternal], (offsetInter
   };
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectPlotArea.js
+// node_modules/recharts/es6/state/selectors/selectPlotArea.js
 var selectPlotArea = createSelector([selectChartOffset, selectChartWidth, selectChartHeight], (offset, chartWidth, chartHeight) => {
   if (!offset || chartWidth == null || chartHeight == null) {
     return void 0;
@@ -44127,7 +44133,7 @@ var selectPlotArea = createSelector([selectChartOffset, selectChartWidth, select
   };
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/hooks.js
+// node_modules/recharts/es6/hooks.js
 var usePlotArea = () => {
   return useAppSelector(selectPlotArea);
 };
@@ -44135,7 +44141,7 @@ var useActiveTooltipDataPoints = () => {
   return useAppSelector(selectActiveTooltipDataPoints);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/component/ActivePoints.js
+// node_modules/recharts/es6/component/ActivePoints.js
 function ownKeys26(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -44242,7 +44248,7 @@ function ActivePoints(_ref2) {
   }));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/errorBarSlice.js
+// node_modules/recharts/es6/state/errorBarSlice.js
 var initialState9 = {};
 var errorBarSlice = createSlice({
   name: "errorBars",
@@ -44286,7 +44292,7 @@ var {
 } = errorBarSlice.actions;
 var errorBarReducer = errorBarSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/GraphicalItemClipPath.js
+// node_modules/recharts/es6/cartesian/GraphicalItemClipPath.js
 var React21 = __toESM(require_react());
 function useNeedsClip(xAxisId, yAxisId) {
   var _xAxis$allowDataOverf, _yAxis$allowDataOverf;
@@ -44332,7 +44338,7 @@ function GraphicalItemClipPath(_ref2) {
   }));
 }
 
-// node_modules/.pnpm/react-redux@9.2.0_@types+react@18.3.27_react@18.3.1_redux@5.0.1/node_modules/react-redux/dist/react-redux.mjs
+// node_modules/react-redux/dist/react-redux.mjs
 var React22 = __toESM(require_react(), 1);
 var import_with_selector2 = __toESM(require_with_selector2(), 1);
 var REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref");
@@ -44575,7 +44581,7 @@ function Provider(providerProps) {
 }
 var Provider_default = Provider;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/propsAreEqual.js
+// node_modules/recharts/es6/util/propsAreEqual.js
 var propsToShallowCompare = /* @__PURE__ */ new Set(["axisLine", "tickLine", "activeBar", "activeDot", "activeLabel", "activeShape", "allowEscapeViewBox", "background", "cursor", "dot", "label", "line", "margin", "padding", "position", "shape", "style", "tick", "wrapperStyle"]);
 function sameValueZero(x2, y2) {
   if (x2 == null && y2 == null) {
@@ -44603,7 +44609,7 @@ function propsAreEqual(prevProps, nextProps) {
   return true;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/context/chartDataContext.js
+// node_modules/recharts/es6/context/chartDataContext.js
 var import_react35 = __toESM(require_react());
 var ChartDataContextProvider = (props) => {
   var {
@@ -44624,7 +44630,7 @@ var ChartDataContextProvider = (props) => {
   return null;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/brushSlice.js
+// node_modules/recharts/es6/state/brushSlice.js
 var initialState10 = {
   x: 0,
   y: 0,
@@ -44654,7 +44660,7 @@ var {
 } = brushSlice.actions;
 var brushReducer = brushSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/CartesianUtils.js
+// node_modules/recharts/es6/util/CartesianUtils.js
 function ownKeys27(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -44794,7 +44800,7 @@ var getAngledRectangleWidth = function getAngledRectangleWidth2(_ref5) {
   return Math.abs(angledWidth);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/referenceElementsSlice.js
+// node_modules/recharts/es6/state/referenceElementsSlice.js
 var initialState11 = {
   dots: [],
   areas: [],
@@ -44843,7 +44849,7 @@ var {
 } = referenceElementsSlice.actions;
 var referenceElementsReducer = referenceElementsSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/ClipPathProvider.js
+// node_modules/recharts/es6/container/ClipPathProvider.js
 var React23 = __toESM(require_react());
 var import_react36 = __toESM(require_react());
 var ClipPathIdContext = /* @__PURE__ */ (0, import_react36.createContext)(void 0);
@@ -44877,7 +44883,7 @@ var useClipPathId = () => {
   return (0, import_react36.useContext)(ClipPathIdContext);
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/ReferenceDot.js
+// node_modules/recharts/es6/cartesian/ReferenceDot.js
 var React24 = __toESM(require_react());
 var import_react37 = __toESM(require_react());
 function ownKeys28(e, r2) {
@@ -45050,12 +45056,12 @@ function ReferenceDot(outsideProps) {
 }
 ReferenceDot.displayName = "ReferenceDot";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/CartesianAxis.js
+// node_modules/recharts/es6/cartesian/CartesianAxis.js
 var React25 = __toESM(require_react());
 var import_react38 = __toESM(require_react());
 var import_get3 = __toESM(require_get2());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/getEveryNthWithCondition.js
+// node_modules/recharts/es6/util/getEveryNthWithCondition.js
 function getEveryNthWithCondition(array, n) {
   if (n < 1) {
     return [];
@@ -45070,7 +45076,7 @@ function getEveryNthWithCondition(array, n) {
   return result;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/TickUtils.js
+// node_modules/recharts/es6/util/TickUtils.js
 function getAngledTickWidth(contentSize, unitSize, angle) {
   var size = {
     width: contentSize.width + unitSize.width,
@@ -45108,7 +45114,7 @@ function getNumberIntervalTicks(ticks2, interval) {
   return getEveryNthWithCondition(ticks2, interval + 1);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/getEquidistantTicks.js
+// node_modules/recharts/es6/cartesian/getEquidistantTicks.js
 function getEquidistantTicks(sign2, boundaries, getTickSize, ticks2, minTickGap) {
   var result = (ticks2 || []).slice();
   var {
@@ -45152,7 +45158,7 @@ function getEquidistantTicks(sign2, boundaries, getTickSize, ticks2, minTickGap)
   return [];
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/getTicks.js
+// node_modules/recharts/es6/cartesian/getTicks.js
 function ownKeys29(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -45344,7 +45350,7 @@ function getTicks(props, fontSize, letterSpacing) {
   return candidates.filter((entry) => entry.isShow);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/YAxisUtils.js
+// node_modules/recharts/es6/util/YAxisUtils.js
 var getCalculatedYAxisWidth = (_ref2) => {
   var {
     ticks: ticks2,
@@ -45372,7 +45378,7 @@ var getCalculatedYAxisWidth = (_ref2) => {
   return 0;
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/CartesianAxis.js
+// node_modules/recharts/es6/cartesian/CartesianAxis.js
 var _excluded10 = ["axisLine", "width", "height", "className", "hide", "ticks", "axisType"];
 function _objectWithoutProperties10(e, t) {
   if (null == e) return {};
@@ -45797,7 +45803,7 @@ var CartesianAxis = /* @__PURE__ */ React25.forwardRef((outsideProps, ref) => {
 });
 CartesianAxis.displayName = "CartesianAxis";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/CartesianGrid.js
+// node_modules/recharts/es6/cartesian/CartesianGrid.js
 var React26 = __toESM(require_react());
 var _excluded11 = ["x1", "y1", "x2", "y2", "key"];
 var _excluded25 = ["offset"];
@@ -46220,7 +46226,7 @@ function CartesianGrid(props) {
 }
 CartesianGrid.displayName = "CartesianGrid";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/getRadiusAndStrokeWidthFromDot.js
+// node_modules/recharts/es6/util/getRadiusAndStrokeWidthFromDot.js
 function getRadiusAndStrokeWidthFromDot(dot) {
   var props = svgPropertiesNoEventsFromUnknown(dot);
   var defaultR = 3;
@@ -46249,11 +46255,11 @@ function getRadiusAndStrokeWidthFromDot(dot) {
   };
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/Area.js
+// node_modules/recharts/es6/cartesian/Area.js
 var React27 = __toESM(require_react());
 var import_react39 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/areaSelectors.js
+// node_modules/recharts/es6/state/selectors/areaSelectors.js
 var selectXAxisWithScale = (state, xAxisId, _yAxisId, isPanorama) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
 var selectXAxisTicks = (state, xAxisId, _yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
 var selectYAxisWithScale = (state, _xAxisId, yAxisId, isPanorama) => selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
@@ -46329,7 +46335,7 @@ var selectArea = createSelector([selectChartLayout, selectXAxisWithScale, select
   });
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/Area.js
+// node_modules/recharts/es6/cartesian/Area.js
 var _excluded12 = ["id"];
 var _excluded26 = ["activeDot", "animationBegin", "animationDuration", "animationEasing", "connectNulls", "dot", "fill", "fillOpacity", "hide", "isAnimationActive", "legendType", "stroke", "xAxisId", "yAxisId"];
 function _extends18() {
@@ -47090,11 +47096,11 @@ function AreaFn(outsideProps) {
 var Area = /* @__PURE__ */ React27.memo(AreaFn, propsAreEqual);
 Area.displayName = "Area";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/XAxis.js
+// node_modules/recharts/es6/cartesian/XAxis.js
 var React28 = __toESM(require_react());
 var import_react40 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/axisPropsAreEqual.js
+// node_modules/recharts/es6/util/axisPropsAreEqual.js
 var _excluded13 = ["domain", "range"];
 var _excluded27 = ["domain", "range"];
 function _objectWithoutProperties13(e, t) {
@@ -47145,7 +47151,7 @@ function axisPropsAreEqual(prevProps, nextProps) {
   return propsAreEqual(prevRest, nextRest);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/XAxis.js
+// node_modules/recharts/es6/cartesian/XAxis.js
 var _excluded14 = ["dangerouslySetInnerHTML", "ticks"];
 var _excluded28 = ["id"];
 function _extends19() {
@@ -47289,7 +47295,7 @@ var XAxisSettingsDispatcher = (outsideProps) => {
 var XAxis = /* @__PURE__ */ React28.memo(XAxisSettingsDispatcher, axisPropsAreEqual);
 XAxis.displayName = "XAxis";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/cartesian/YAxis.js
+// node_modules/recharts/es6/cartesian/YAxis.js
 var React29 = __toESM(require_react());
 var import_react41 = __toESM(require_react());
 var _excluded15 = ["dangerouslySetInnerHTML", "ticks"];
@@ -47474,19 +47480,19 @@ var YAxisSettingsDispatcher = (outsideProps) => {
 var YAxis = /* @__PURE__ */ React29.memo(YAxisSettingsDispatcher, axisPropsAreEqual);
 YAxis.displayName = "YAxis";
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/CartesianChart.js
+// node_modules/recharts/es6/chart/CartesianChart.js
 var React35 = __toESM(require_react());
 var import_react50 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/RechartsStoreProvider.js
+// node_modules/recharts/es6/state/RechartsStoreProvider.js
 var React30 = __toESM(require_react());
 var import_react42 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/selectActivePropsFromChartPointer.js
+// node_modules/recharts/es6/state/selectors/selectActivePropsFromChartPointer.js
 var pickChartPointer = (_state, chartPointer) => chartPointer;
 var selectActivePropsFromChartPointer = createSelector([pickChartPointer, selectChartLayout, selectPolarViewBox, selectTooltipAxisType, selectTooltipAxisRangeWithReverse, selectTooltipAxisTicks, selectOrderedTooltipTicks, selectChartOffsetInternal], combineActiveProps);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/getChartPointer.js
+// node_modules/recharts/es6/util/getChartPointer.js
 var getChartPointer = (event) => {
   var rect = event.currentTarget.getBoundingClientRect();
   var scaleX = rect.width / event.currentTarget.offsetWidth;
@@ -47507,7 +47513,7 @@ var getChartPointer = (event) => {
   };
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/mouseEventsMiddleware.js
+// node_modules/recharts/es6/state/mouseEventsMiddleware.js
 var mouseClickAction = createAction("mouseClick");
 var mouseClickMiddleware = createListenerMiddleware();
 mouseClickMiddleware.startListening({
@@ -47555,7 +47561,7 @@ mouseMoveMiddleware.startListening({
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/reduxDevtoolsJsonStringifyReplacer.js
+// node_modules/recharts/es6/state/reduxDevtoolsJsonStringifyReplacer.js
 function reduxDevtoolsJsonStringifyReplacer(key, value) {
   if (value instanceof HTMLElement) {
     return "HTMLElement <".concat(value.tagName, ' class="').concat(value.className, '">');
@@ -47569,7 +47575,7 @@ function reduxDevtoolsJsonStringifyReplacer(key, value) {
   return value;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/rootPropsSlice.js
+// node_modules/recharts/es6/state/rootPropsSlice.js
 var initialState12 = {
   accessibilityLayer: true,
   barCategoryGap: "10%",
@@ -47608,7 +47614,7 @@ var {
   updateOptions
 } = rootPropsSlice.actions;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/polarOptionsSlice.js
+// node_modules/recharts/es6/state/polarOptionsSlice.js
 var polarOptionsSlice = createSlice({
   name: "polarOptions",
   initialState: null,
@@ -47623,7 +47629,7 @@ var {
 } = polarOptionsSlice.actions;
 var polarOptionsReducer = polarOptionsSlice.reducer;
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/keyboardEventsMiddleware.js
+// node_modules/recharts/es6/state/keyboardEventsMiddleware.js
 var keyDownAction = createAction("keyDown");
 var focusAction = createAction("focus");
 var keyboardEventsMiddleware = createListenerMiddleware();
@@ -47701,7 +47707,7 @@ keyboardEventsMiddleware.startListening({
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/externalEventsMiddleware.js
+// node_modules/recharts/es6/state/externalEventsMiddleware.js
 var externalEventAction = createAction("externalEvent");
 var externalEventsMiddleware = createListenerMiddleware();
 var rafIdMap = /* @__PURE__ */ new Map();
@@ -47741,7 +47747,7 @@ externalEventsMiddleware.startListening({
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/selectors/touchSelectors.js
+// node_modules/recharts/es6/state/selectors/touchSelectors.js
 var selectAllTooltipPayloadConfiguration = createSelector([selectTooltipState], (tooltipState) => tooltipState.tooltipItemPayloads);
 var selectTooltipCoordinate = createSelector([selectAllTooltipPayloadConfiguration, selectTooltipPayloadSearcher, (_state, tooltipIndex, _dataKey) => tooltipIndex, (_state, _tooltipIndex, dataKey) => dataKey], (allTooltipConfigurations, tooltipPayloadSearcher, tooltipIndex, dataKey) => {
   var mostRelevantTooltipConfiguration = allTooltipConfigurations.find((tooltipConfiguration) => {
@@ -47760,7 +47766,7 @@ var selectTooltipCoordinate = createSelector([selectAllTooltipPayloadConfigurati
   return maybePosition;
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/touchEventsMiddleware.js
+// node_modules/recharts/es6/state/touchEventsMiddleware.js
 var touchEventAction = createAction("touchMove");
 var touchEventMiddleware = createListenerMiddleware();
 touchEventMiddleware.startListening({
@@ -47807,7 +47813,7 @@ touchEventMiddleware.startListening({
   }
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/store.js
+// node_modules/recharts/es6/state/store.js
 var rootReducer = combineReducers({
   brush: brushReducer,
   cartesianAxis: cartesianAxisReducer,
@@ -47864,7 +47870,7 @@ var createRechartsStore = function createRechartsStore2(preloadedState) {
   });
 };
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/RechartsStoreProvider.js
+// node_modules/recharts/es6/state/RechartsStoreProvider.js
 function RechartsStoreProvider(_ref2) {
   var {
     preloadedState,
@@ -47886,7 +47892,7 @@ function RechartsStoreProvider(_ref2) {
   }, children);
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/ReportMainChartProps.js
+// node_modules/recharts/es6/state/ReportMainChartProps.js
 var import_react43 = __toESM(require_react());
 function ReportMainChartPropsImpl(_ref2) {
   var {
@@ -47905,7 +47911,7 @@ function ReportMainChartPropsImpl(_ref2) {
 }
 var ReportMainChartProps = /* @__PURE__ */ (0, import_react43.memo)(ReportMainChartPropsImpl, propsAreEqual);
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/state/ReportChartProps.js
+// node_modules/recharts/es6/state/ReportChartProps.js
 var import_react44 = __toESM(require_react());
 function ReportChartProps(props) {
   var dispatch = useAppDispatch();
@@ -47915,15 +47921,15 @@ function ReportChartProps(props) {
   return null;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/CategoricalChart.js
+// node_modules/recharts/es6/chart/CategoricalChart.js
 var React34 = __toESM(require_react());
 var import_react49 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/RootSurface.js
+// node_modules/recharts/es6/container/RootSurface.js
 var React32 = __toESM(require_react());
 var import_react46 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/zIndex/ZIndexPortal.js
+// node_modules/recharts/es6/zIndex/ZIndexPortal.js
 var React31 = __toESM(require_react());
 var import_react45 = __toESM(require_react());
 function ZIndexSvgPortal(_ref2) {
@@ -47974,7 +47980,7 @@ function AllZIndexPortals(_ref2) {
   })));
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/container/RootSurface.js
+// node_modules/recharts/es6/container/RootSurface.js
 var _excluded16 = ["children"];
 function _objectWithoutProperties16(e, t) {
   if (null == e) return {};
@@ -48092,11 +48098,11 @@ var RootSurface = /* @__PURE__ */ (0, import_react46.forwardRef)((_ref2, ref) =>
   }, children));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/RechartsWrapper.js
+// node_modules/recharts/es6/chart/RechartsWrapper.js
 var React33 = __toESM(require_react());
 var import_react48 = __toESM(require_react());
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/util/useReportScale.js
+// node_modules/recharts/es6/util/useReportScale.js
 var import_react47 = __toESM(require_react());
 function useReportScale() {
   var dispatch = useAppDispatch();
@@ -48115,7 +48121,7 @@ function useReportScale() {
   return setRef;
 }
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/RechartsWrapper.js
+// node_modules/recharts/es6/chart/RechartsWrapper.js
 function ownKeys33(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -48457,7 +48463,7 @@ var RechartsWrapper = /* @__PURE__ */ (0, import_react48.forwardRef)((props, ref
   }, /* @__PURE__ */ React33.createElement(EventSynchronizer, null), children)));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/CategoricalChart.js
+// node_modules/recharts/es6/chart/CategoricalChart.js
 var _excluded17 = ["width", "height", "responsive", "children", "className", "style", "compact", "title", "desc"];
 function _objectWithoutProperties17(e, t) {
   if (null == e) return {};
@@ -48525,7 +48531,7 @@ var CategoricalChart = /* @__PURE__ */ (0, import_react49.forwardRef)((props, re
   }, /* @__PURE__ */ React34.createElement(ClipPathProvider, null, children)));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/CartesianChart.js
+// node_modules/recharts/es6/chart/CartesianChart.js
 function _extends23() {
   return _extends23 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
@@ -48596,7 +48602,7 @@ var CartesianChart = /* @__PURE__ */ (0, import_react50.forwardRef)(function Car
   })));
 });
 
-// node_modules/.pnpm/recharts@3.5.1_@types+react@18.3.27_react-dom@18.3.1_react@18.3.1__react-is@19.2.0_react@18.3.1_redux@5.0.1/node_modules/recharts/es6/chart/AreaChart.js
+// node_modules/recharts/es6/chart/AreaChart.js
 var React36 = __toESM(require_react());
 var import_react51 = __toESM(require_react());
 var allowedTooltipTypes = ["axis"];
@@ -48846,6 +48852,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         setSubscribeMessage(data.error || "Failed to subscribe.");
       }
     } catch (e) {
+      console.error("Subscribe error:", e);
       setSubscribeStatus("error");
       setSubscribeMessage("Network error. Please try again.");
     }
@@ -48876,6 +48883,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         setFeedbackStatus("error");
       }
     } catch (e) {
+      console.error("Feedback error:", e);
       setFeedbackStatus("error");
     }
   };
@@ -48936,6 +48944,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
     const incomeNum = parseFloat(income);
     let savingsNum = parseFloat(savings);
     if (isNaN(currentAgeNum) || isNaN(retirementAgeNum) || isNaN(incomeNum) || isNaN(savingsNum)) {
+      console.warn("Calculation skipped due to invalid inputs:", { currentAge, retirementAge, income, savings });
       return;
     }
     const preRate = parseFloat(preRetireRate) / 100;
@@ -48947,13 +48956,12 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
     const monthlyShortfallToday = Math.max(0, parseFloat(budget) - parseFloat(otherIncome));
     const annualShortfallToday = monthlyShortfallToday * 12;
     const annualShortfallAtRetire = annualShortfallToday * Math.pow(1 + infl, yearsPre);
+    const safeWithdrawalRate = 0.04;
     let neededAtRetirement = 0;
-    let balance = 0;
     for (let i = 0; i < yearsPost; i++) {
-      const payout = annualShortfallAtRetire * Math.pow(1 + infl, yearsPost - 1 - i);
-      balance = (balance + payout) / (1 + postRate);
+      const yearlyExpense = annualShortfallAtRetire * Math.pow(1 + infl, i);
+      neededAtRetirement += yearlyExpense / Math.pow(1 + safeWithdrawalRate, i);
     }
-    neededAtRetirement = balance;
     const fvSavings = savingsNum * Math.pow(1 + preRate, yearsPre);
     const gap = neededAtRetirement - fvSavings;
     let initialAnnualContribNeeded = 0;
@@ -48964,39 +48972,56 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
     if (accumFactor > 0) {
       initialAnnualContribNeeded = gap / accumFactor;
     }
+    let annualContrib = parseFloat(contributions);
+    if (contributionMode === "%") {
+      annualContrib = incomeNum * (parseFloat(contributions) / 100);
+    } else {
+      annualContrib = annualContrib * 12;
+    }
+    const fvInitial = savingsNum * Math.pow(1 + preRate, yearsPre);
+    let fvContributions = 0;
+    if (contributionMode === "$") {
+      fvContributions = annualContrib * (Math.pow(1 + preRate, yearsPre) - 1) / preRate;
+    } else {
+      if (Math.abs(preRate - incIncrease) < 1e-4) {
+        fvContributions = annualContrib * yearsPre * Math.pow(1 + preRate, yearsPre - 1);
+      } else {
+        fvContributions = annualContrib * (Math.pow(1 + preRate, yearsPre) - Math.pow(1 + incIncrease, yearsPre)) / (preRate - incIncrease);
+      }
+    }
+    const whatYouHave = Math.round(fvInitial + fvContributions);
     const graphData = [];
     let simCurrent = savingsNum;
     let simIdeal = savingsNum;
     let simSalary = incomeNum;
-    let simCurrentContrib = parseFloat(contributions);
-    if (contributionMode === "%") simCurrentContrib = simSalary / 12 * (simCurrentContrib / 100);
-    simCurrentContrib *= 12;
+    let simCurrentContrib = annualContrib;
     let simIdealContrib = Math.max(0, initialAnnualContribNeeded);
     let runOutAgeCurrent = null;
     let runOutAgeIdeal = null;
     const totalYears = lifeExpectancyNum - currentAgeNum;
     for (let yr = 0; yr <= totalYears; yr++) {
       const age = currentAgeNum + yr;
-      const isRetired = age >= retirementAgeNum;
+      const isRetired = age > retirementAgeNum;
       graphData.push({
         age,
         current: Math.round(simCurrent),
         recommended: Math.round(simIdeal)
       });
       if (isRetired) {
-        const payout = annualShortfallAtRetire * Math.pow(1 + infl, age - retirementAgeNum);
+        const yearsIntoRetirement = age - retirementAgeNum;
+        const payout = annualShortfallAtRetire * Math.pow(1 + infl, yearsIntoRetirement - 1);
         if (simCurrent > 0) {
           simCurrent = simCurrent * (1 + postRate) - payout;
           if (simCurrent < 0) {
             simCurrent = 0;
-            runOutAgeCurrent = age;
+            if (!runOutAgeCurrent) runOutAgeCurrent = age;
           }
         }
         if (simIdeal > 0) {
           simIdeal = simIdeal * (1 + postRate) - payout;
           if (simIdeal < 0) {
             simIdeal = 0;
-            runOutAgeIdeal = age;
+            if (!runOutAgeIdeal) runOutAgeIdeal = age;
           }
         }
       } else {
@@ -49009,7 +49034,6 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         simIdealContrib *= 1 + incIncrease;
       }
     }
-    const whatYouHave = graphData.find((d) => d.age === retirementAgeNum)?.current || 0;
     const whatYouNeed = neededAtRetirement;
     updateResult({
       have: Math.round(whatYouHave),
@@ -49083,33 +49107,79 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       return next;
     });
   };
-  const [showQuiz, setShowQuiz] = (0, import_react52.useState)(false);
-  const [quizStep, setQuizStep] = (0, import_react52.useState)(0);
-  const [quizAnswers, setQuizAnswers] = (0, import_react52.useState)({
-    kids: 0,
-    college: "no",
-    // no, partial, full
-    travel: "moderate"
-    // low, moderate, high
-  });
-  const handleQuizComplete = () => {
-    let currentContrib = parseFloat(contributions);
-    if (quizAnswers.college === "full") {
-      currentContrib = Math.max(0, currentContrib - quizAnswers.kids * 500);
-    } else if (quizAnswers.college === "partial") {
-      currentContrib = Math.max(0, currentContrib - quizAnswers.kids * 200);
+  const resetToDefaults = () => {
+    setCalculators((prev) => {
+      const next = { ...prev };
+      next[calculatorType] = {
+        values: {
+          ...DEFAULT_VALUES,
+          preRetireRate: "7",
+          // Moderate investment strategy
+          postRetireRate: "5"
+        },
+        touched: {},
+        result: null
+      };
+      return next;
+    });
+    setTravelPlan("moderate");
+    setFamilyPlan("none");
+    setHelpWithCollege(false);
+    setSavingsDetails({ savings: "", checking: "", crypto: "", retirement: "", stockPortfolio: "" });
+    setIncomeDetails({ socialSecurity: "", realEstate: "", trust: "", investments: "", other: "" });
+  };
+  const [travelPlan, setTravelPlan] = (0, import_react52.useState)("moderate");
+  const [familyPlan, setFamilyPlan] = (0, import_react52.useState)("none");
+  const [helpWithCollege, setHelpWithCollege] = (0, import_react52.useState)(false);
+  const getTravelCost = (plan) => {
+    if (plan === "low") return 200;
+    if (plan === "moderate") return 800;
+    return 2500;
+  };
+  const handleTravelPlanChange = (newPlan) => {
+    const oldCost = getTravelCost(travelPlan);
+    const newCost = getTravelCost(newPlan);
+    const diff = newCost - oldCost;
+    const currentBudget = parseFloat(budget) || 0;
+    const newBudget = Math.max(0, currentBudget + diff);
+    setTravelPlan(newPlan);
+    updateVal("budget", String(Math.round(newBudget)));
+  };
+  const getFamilyCost = (plan) => {
+    if (plan === "none") return 0;
+    if (plan === "small") return 300;
+    return 600;
+  };
+  const getCollegeContribReduction = (plan) => {
+    if (plan === "none") return 0;
+    if (plan === "small") return 400;
+    return 800;
+  };
+  const handleFamilyPlanChange = (newPlan) => {
+    const oldCost = getFamilyCost(familyPlan);
+    const newCost = getFamilyCost(newPlan);
+    const budgetDiff = newCost - oldCost;
+    const currentBudget = parseFloat(budget) || 0;
+    const newBudget = Math.max(0, currentBudget + budgetDiff);
+    if (helpWithCollege) {
+      const oldReduction = getCollegeContribReduction(familyPlan);
+      const newReduction = getCollegeContribReduction(newPlan);
+      const contribDiff = newReduction - oldReduction;
+      const currentContrib = parseFloat(contributions) || 0;
+      updateVal("contributions", String(Math.max(0, Math.round(currentContrib - contribDiff))));
     }
-    updateVal("contributions", String(currentContrib));
-    let baseBudget = parseFloat(budget);
-    let travelCost = 0;
-    if (quizAnswers.travel === "low") travelCost = 200;
-    else if (quizAnswers.travel === "moderate") travelCost = 800;
-    else if (quizAnswers.travel === "high") travelCost = 2500;
-    if (quizAnswers.kids > 0) travelCost += 200;
-    const newBudget = Math.round(baseBudget + travelCost);
-    updateVal("budget", String(newBudget));
-    setShowQuiz(false);
-    setQuizStep(0);
+    setFamilyPlan(newPlan);
+    updateVal("budget", String(Math.round(newBudget)));
+  };
+  const handleCollegeToggle = (checked) => {
+    const reduction = getCollegeContribReduction(familyPlan);
+    const currentContrib = parseFloat(contributions) || 0;
+    if (checked) {
+      updateVal("contributions", String(Math.max(0, Math.round(currentContrib - reduction))));
+    } else {
+      updateVal("contributions", String(Math.round(currentContrib + reduction)));
+    }
+    setHelpWithCollege(checked);
   };
   const applySmartBudget = () => {
     const incomeNum = parseFloat(income);
@@ -49117,6 +49187,142 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       const suggested = Math.round(incomeNum * 0.75 / 12);
       updateVal("budget", String(suggested));
     }
+  };
+  const [savingsDetails, setSavingsDetails] = (0, import_react52.useState)({
+    savings: "",
+    checking: "",
+    crypto: "",
+    retirement: "",
+    stockPortfolio: ""
+  });
+  const [showSavingsModal, setShowSavingsModal] = (0, import_react52.useState)(false);
+  const [incomeDetails, setIncomeDetails] = (0, import_react52.useState)({
+    socialSecurity: "",
+    realEstate: "",
+    trust: "",
+    investments: "",
+    other: ""
+  });
+  const [showIncomeModal, setShowIncomeModal] = (0, import_react52.useState)(false);
+  const updateSavingsTotal = (details) => {
+    const total = [
+      details.savings,
+      details.checking,
+      details.crypto,
+      details.retirement,
+      details.stockPortfolio
+    ].reduce((acc, val) => acc + (parseFloat(val) || 0), 0);
+    updateVal("savings", String(total));
+  };
+  const handleSavingsDetailChange = (field, value) => {
+    const newDetails = { ...savingsDetails, [field]: value };
+    setSavingsDetails(newDetails);
+    updateSavingsTotal(newDetails);
+  };
+  const updateIncomeTotal = (details) => {
+    const total = [
+      details.socialSecurity,
+      details.realEstate,
+      details.trust,
+      details.investments,
+      details.other
+    ].reduce((acc, val) => acc + (parseFloat(val) || 0), 0);
+    updateVal("otherIncome", String(total));
+  };
+  const handleIncomeDetailChange = (field, value) => {
+    const newDetails = { ...incomeDetails, [field]: value };
+    setIncomeDetails(newDetails);
+    updateIncomeTotal(newDetails);
+  };
+  const handleEstimateSocialSecurity = () => {
+    const annualIncome = parseFloat(income) || 0;
+    const estimated = Math.min(Math.round(annualIncome * 0.4 / 12), 3800);
+    const newDetails = { ...incomeDetails, socialSecurity: String(estimated) };
+    setIncomeDetails(newDetails);
+    updateIncomeTotal(newDetails);
+  };
+  const generateTips = () => {
+    if (!currentCalc.result) return [];
+    const tips = [];
+    const { have, need, monthlyContribNeeded, currentMonthlyContrib } = currentCalc.result;
+    const shortfall = need - have;
+    const incomeNum = parseFloat(income);
+    if (shortfall > 0) {
+      tips.push({
+        title: "Increase Monthly Savings",
+        desc: `You are saving $${currentMonthlyContrib.toLocaleString()}/mo. To reach your goal, aim for $${monthlyContribNeeded.toLocaleString()}/mo (+$${(monthlyContribNeeded - currentMonthlyContrib).toLocaleString()}).`,
+        icon: "\u{1F4B0}",
+        priority: "high"
+      });
+    }
+    if (incomeNum > 0) {
+      const currentRate = currentMonthlyContrib * 12 / incomeNum;
+      const targetRate = 0.15;
+      if (currentRate < targetRate) {
+        const targetMonthly = Math.round(incomeNum * targetRate / 12);
+        tips.push({
+          title: "Boost Your Savings Rate",
+          desc: `Your savings rate is ${(currentRate * 100).toFixed(1)}%. Experts recommend 15% ($${targetMonthly.toLocaleString()}/mo) for a secure retirement.`,
+          icon: "\u{1F4C8}",
+          priority: "high"
+        });
+      }
+    }
+    const budgetNum = parseFloat(budget);
+    if (incomeNum > 0 && budgetNum * 12 > incomeNum * 0.85) {
+      const targetBudget = Math.round(incomeNum * 0.8 / 12);
+      tips.push({
+        title: "Review Retirement Budget",
+        desc: `Your planned spending ($${budgetNum.toLocaleString()}/mo) is high relative to your income. Reducing it to ~$${targetBudget.toLocaleString()}/mo would drastically lower your savings target.`,
+        icon: "\u{1F4C9}",
+        priority: "medium"
+      });
+    }
+    if (shortfall > 0 && (preRetireRate === "4" || preRetireRate === "6")) {
+      tips.push({
+        title: "Optimize Asset Allocation",
+        desc: "Your 4-6% return assumption is conservative. A balanced portfolio (60/40 stocks/bonds) historically returns ~7-8% over long periods.",
+        icon: "\u{1F4CA}",
+        priority: "medium"
+      });
+    }
+    if (shortfall > 0 && parseInt(retirementAge) < 67) {
+      tips.push({
+        title: "Consider Delaying Retirement",
+        desc: `Retiring at ${parseInt(retirementAge) + 2} instead of ${retirementAge} gives your money 2 more years to grow and reduces the withdrawal period.`,
+        icon: "\u23F3",
+        priority: "medium"
+      });
+    }
+    const fillerTips = [
+      {
+        title: "Maximize Tax Advantages",
+        desc: `Ensure you are contributing at least enough to get any employer 401(k) match (often free money!).`,
+        icon: "\u{1F3DB}\uFE0F",
+        priority: "low"
+      },
+      {
+        title: "Emergency Fund",
+        desc: `Before aggressive investing, ensure you have 3-6 months of expenses ($${(budgetNum * 3).toLocaleString()} - $${(budgetNum * 6).toLocaleString()}) in cash.`,
+        icon: "\u{1F6E1}\uFE0F",
+        priority: "low"
+      },
+      {
+        title: "Debt Management",
+        desc: "Pay off high-interest debt (>7%) before increasing retirement contributions further.",
+        icon: "\u{1F4B3}",
+        priority: "low"
+      }
+    ];
+    let fillerIndex = 0;
+    while (tips.length < 3 && fillerIndex < fillerTips.length) {
+      const isDuplicate = tips.some((t) => t.title === fillerTips[fillerIndex].title);
+      if (!isDuplicate) {
+        tips.push(fillerTips[fillerIndex]);
+      }
+      fillerIndex++;
+    }
+    return tips;
   };
   const styles = {
     container: {
@@ -49157,13 +49363,22 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
     column: {
       flex: 1,
       display: "flex",
-      flexDirection: "column",
-      gap: "8px"
+      flexDirection: "column"
     },
     label: {
       fontWeight: 600,
       color: COLORS.textMain,
-      fontSize: "15px"
+      fontSize: "15px",
+      marginBottom: "0px"
+    },
+    subheaderLabel: {
+      fontSize: "12px",
+      color: COLORS.textSecondary,
+      fontWeight: 400,
+      marginTop: "0px",
+      marginBottom: "8px",
+      lineHeight: "1.3",
+      maxWidth: "90%"
     },
     toggleContainer: {
       display: "flex",
@@ -49317,23 +49532,6 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       alignItems: "center",
       marginBottom: "10px"
     },
-    quizButton: {
-      width: "100%",
-      backgroundColor: COLORS.accentLight,
-      color: COLORS.primaryDark,
-      border: `1px solid ${COLORS.primary}`,
-      padding: "12px",
-      borderRadius: "12px",
-      fontSize: "14px",
-      fontWeight: 700,
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "8px",
-      marginBottom: "24px",
-      transition: "all 0.2s"
-    },
     strategyBtn: (active) => ({
       flex: 1,
       padding: "8px",
@@ -49371,15 +49569,12 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheader, children: "Plan your financial future." }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.quizButton, onClick: () => setShowQuiz(true), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageSquare, { size: 18 }),
-      "Get More Accurate Results"
-    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.card, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.sectionTitle, children: "Retirement details" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Current age" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Age you are now" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49392,6 +49587,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Annual pre-tax income" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Your yearly earnings before tax" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49408,6 +49604,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Current retirement savings" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Total amount saved for retirement" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49418,10 +49615,19 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
               step: 1e3,
               prefix: "$"
             }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "div",
+            {
+              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
+              onClick: () => setShowSavingsModal(true),
+              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "+ Add Details" })
+            }
           )
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Other retirement income" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Other Monthly Retirement Income" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Monthly income from other sources" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49431,6 +49637,14 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
               max: 1e5,
               step: 100,
               prefix: "$"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "div",
+            {
+              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
+              onClick: () => setShowIncomeModal(true),
+              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "+ Add Details" })
             }
           )
         ] })
@@ -49458,6 +49672,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
               )
             ] })
           ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Amount you save each month" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49493,6 +49708,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
               )
             ] })
           ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Estimated monthly spending" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
@@ -49527,7 +49743,35 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         }
       ),
       showAdvanced && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Retirement age" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Age you plan to retire" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              NumberControl,
+              {
+                value: retirementAge,
+                onChange: (v) => updateVal("retirementAge", v),
+                min: parseInt(currentAge) + 1,
+                max: 100
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Life expectancy" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Estimated age of lifespan" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              NumberControl,
+              {
+                value: lifeExpectancy,
+                onChange: (v) => updateVal("lifeExpectancy", v),
+                min: parseInt(retirementAge) + 1,
+                max: 120
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16, marginTop: 16 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Investment Strategy" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(preRetireRate === "4" && postRetireRate === "3"), onClick: () => handleInvestmentStrategy("conservative"), children: [
@@ -49544,86 +49788,50 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Retirement age" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: retirementAge,
-                onChange: (v) => updateVal("retirementAge", v),
-                min: parseInt(currentAge) + 1,
-                max: 100
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Life expectancy" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: lifeExpectancy,
-                onChange: (v) => updateVal("lifeExpectancy", v),
-                min: parseInt(retirementAge) + 1,
-                max: 120
-              }
-            )
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Post-Retirement Travel Plans" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "low"), onClick: () => handleTravelPlanChange("low"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Conservative" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Local trips" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "moderate"), onClick: () => handleTravelPlanChange("moderate"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Moderate" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "1-2 trips/year" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "high"), onClick: () => handleTravelPlanChange("high"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Aggressive" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Frequent travel" })
+            ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Pre-retirement rate of return" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: preRetireRate,
-                onChange: (v) => updateVal("preRetireRate", v),
-                min: 0,
-                max: 15,
-                suffix: "%"
-              }
-            )
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Family Plans" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8, marginBottom: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "none"), onClick: () => handleFamilyPlanChange("none"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "No Family" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "No children" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "small"), onClick: () => handleFamilyPlanChange("small"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Small Family" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "1-2 children" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "large"), onClick: () => handleFamilyPlanChange("large"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Large Family" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "3+ children" })
+            ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Post-retirement rate of return" }),
+          familyPlan !== "none" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 13, color: COLORS.textSecondary }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
+              "input",
               {
-                value: postRetireRate,
-                onChange: (v) => updateVal("postRetireRate", v),
-                min: 0,
-                max: 15,
-                suffix: "%"
+                type: "checkbox",
+                checked: helpWithCollege,
+                onChange: (e) => handleCollegeToggle(e.target.checked),
+                style: { width: 16, height: 16, accentColor: COLORS.primary }
               }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Inflation rate" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: inflation,
-                onChange: (v) => updateVal("inflation", v),
-                min: 0,
-                max: 10,
-                suffix: "%"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Annual income increase" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: incomeIncrease,
-                onChange: (v) => updateVal("incomeIncrease", v),
-                min: 0,
-                max: 10,
-                suffix: "%"
-              }
-            )
+            ),
+            "Check here if you plan to help with college tuition"
           ] })
         ] })
       ] }),
@@ -49640,10 +49848,27 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 24, gap: 16 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textMain, marginBottom: 4 }, children: "What you'll have" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: COLORS.textMain }, children: [
-            "$",
-            currentCalc.result.have.toLocaleString()
-          ] })
+          (() => {
+            const have = currentCalc.result.have;
+            const need = currentCalc.result.need;
+            const ratio = need > 0 ? have / need : 1;
+            let color2 = COLORS.primary;
+            let message = "You're on track!";
+            if (ratio < 0.8) {
+              color2 = COLORS.red;
+              message = "You're falling short.";
+            } else if (ratio < 1) {
+              color2 = COLORS.yellow;
+              message = "You're getting close.";
+            }
+            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: color2 }, children: [
+                "$",
+                have.toLocaleString()
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: color2, marginTop: 4 }, children: message })
+            ] });
+          })()
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1, borderLeft: `1px solid ${COLORS.border}`, paddingLeft: 16 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textMain, marginBottom: 4 }, children: "What you'll need" }),
@@ -49653,10 +49878,6 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginBottom: 16 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, cursor: "pointer", color: COLORS.blue, fontSize: 12, fontWeight: 600 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleQuestionMark, { size: 14 }),
-        "How did we calculate your results?"
-      ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", borderBottom: `1px solid ${COLORS.border}`, marginBottom: 24 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "div",
@@ -49673,9 +49894,17 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
             onClick: () => setResultView("summary"),
             children: "SUMMARY VIEW"
           }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "div",
+          {
+            style: { padding: "8px 16px", borderBottom: resultView === "tips" ? `2px solid ${COLORS.primary}` : "none", fontWeight: 700, color: resultView === "tips" ? COLORS.primary : COLORS.textSecondary, cursor: "pointer", fontSize: 12, letterSpacing: 1 },
+            onClick: () => setResultView("tips"),
+            children: "TIPS"
+          }
         )
       ] }),
-      resultView === "graph" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { height: 300, width: "100%", fontSize: 12 }, children: [
+      resultView === "graph" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { height: 300, width: "100%", fontSize: 12 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResponsiveContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AreaChart, { data: currentCalc.result.graphData, margin: { top: 10, right: 10, left: -20, bottom: 0 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("linearGradient", { id: "colorCurrent", x1: "0", y1: "0", x2: "0", y2: "1", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "5%", stopColor: COLORS.primary, stopOpacity: 0.1 }),
@@ -49740,56 +49969,114 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: 12 }, children: "Current path" })
           ] })
         ] })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.list, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 700, color: COLORS.textSecondary, fontSize: 12 }, children: "Current retirement plan" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 700, color: COLORS.textSecondary, fontSize: 12 }, children: "Target retirement plan" })
+      ] }),
+      resultView === "summary" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.list, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 800, color: COLORS.textMain, fontSize: 16 }, children: "Plan Analysis" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary }, children: "Comparison of your current trajectory vs. your goals" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Total retirement savings" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.primary, fontSize: 14 }, children: [
-                "$",
-                currentCalc.result.have.toLocaleString()
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Monthly contribution" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.primary, fontSize: 14 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Monthly Contributions" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Current Contribution" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.textMain }, children: [
                 "$",
                 currentCalc.result.currentMonthlyContrib.toLocaleString()
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Age savings runs out" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, color: currentCalc.result.runOutAgeCurrent < parseInt(currentCalc.values.lifeExpectancy) ? COLORS.red : COLORS.primary, fontSize: 14 }, children: currentCalc.result.runOutAgeCurrent >= parseInt(currentCalc.values.lifeExpectancy) ? `${currentCalc.result.runOutAgeCurrent}+` : currentCalc.result.runOutAgeCurrent })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Total retirement savings" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.primary, fontSize: 14 }, children: [
-                "$",
-                currentCalc.result.need.toLocaleString()
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Monthly contribution" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.primary, fontSize: 14 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Required Contribution" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
                 "$",
                 currentCalc.result.monthlyContribNeeded.toLocaleString()
               ] })
+            ] })
+          ] }),
+          (() => {
+            const diff = currentCalc.result.monthlyContribNeeded - currentCalc.result.currentMonthlyContrib;
+            if (diff > 0) {
+              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 13, color: COLORS.textSecondary, marginTop: 8, paddingLeft: 4, display: "flex", gap: 6 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u{1F4A1}" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+                  "To meet your goal, increase contributions by ",
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.textMain }, children: [
+                    "$",
+                    diff.toLocaleString()
+                  ] }),
+                  " /mo."
+                ] })
+              ] });
+            } else {
+              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 13, color: COLORS.primary, marginTop: 8, paddingLeft: 4, fontWeight: 600, display: "flex", gap: 6 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u2705" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "You are contributing enough to meet your goal!" })
+              ] });
+            }
+          })()
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Total Savings at Retirement" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Projected Outcome" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.textMain }, children: [
+                "$",
+                currentCalc.result.have.toLocaleString()
+              ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 8, borderBottom: "1px dashed #E5E7EB", paddingBottom: 8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Age savings runs out" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700, color: currentCalc.result.runOutAgeIdeal >= parseInt(currentCalc.values.lifeExpectancy) ? COLORS.primary : COLORS.red, fontSize: 14 }, children: currentCalc.result.runOutAgeIdeal >= parseInt(currentCalc.values.lifeExpectancy) ? `${currentCalc.result.runOutAgeIdeal}+` : currentCalc.result.runOutAgeIdeal })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Retirement Goal" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
+                "$",
+                currentCalc.result.need.toLocaleString()
+              ] })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Sustainability" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Funds last until" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: currentCalc.result.runOutAgeCurrent < parseInt(currentCalc.values.lifeExpectancy) ? COLORS.red : COLORS.primary }, children: [
+                "Age ",
+                currentCalc.result.runOutAgeCurrent
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Target Duration" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
+                "Age ",
+                currentCalc.values.lifeExpectancy,
+                "+"
+              ] })
             ] })
           ] })
         ] })
+      ] }),
+      resultView === "tips" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.list, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 800, color: COLORS.textMain, fontSize: 16 }, children: "Personalized Recommendations" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary }, children: "Actionable steps to improve your retirement outlook" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: generateTips().map((tip, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)", display: "flex", gap: 16 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 24, backgroundColor: COLORS.inputBg, width: 48, height: 48, borderRadius: 24, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: tip.icon }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 700, color: COLORS.textMain, marginBottom: 4 }, children: tip.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary, lineHeight: 1.5 }, children: tip.desc })
+          ] })
+        ] }, idx)) })
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.footer, className: "no-print", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, onClick: resetToDefaults, className: "btn-press", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { size: 16 }),
+        " Reset"
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, className: "btn-press", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heart, { size: 16 }),
         " Donate"
@@ -49830,103 +50117,136 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
         )
       ] })
     ] }) }),
-    showQuiz && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowQuiz(false), children: "\u2715" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24, textAlign: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 20, fontWeight: 800, color: COLORS.textMain, marginBottom: 8 }, children: "Personalize Your Plan" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Answer a few questions to refine your retirement inputs." })
-      ] }),
-      quizStep === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 16, fontWeight: 600, color: COLORS.textMain, marginBottom: 16 }, children: "1. Do you plan to have a family?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "How many children?" }),
+    showSavingsModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowSavingsModal(false), children: "\u2715" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginBottom: 24, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 20, fontWeight: 800, color: COLORS.textMain, marginBottom: 8 }, children: "Retirement Savings Breakdown" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Savings Account" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
-              value: String(quizAnswers.kids),
-              onChange: (v) => setQuizAnswers({ ...quizAnswers, kids: parseInt(v) }),
-              min: 0,
-              max: 10
+              value: savingsDetails.savings,
+              onChange: (v) => handleSavingsDetailChange("savings", v),
+              prefix: "$"
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: 24, display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.subscribeBtn, onClick: () => setQuizStep(1), children: "Next \u2192" }) })
-      ] }),
-      quizStep === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 16, fontWeight: 600, color: COLORS.textMain, marginBottom: 16 }, children: "2. College Plans" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textSecondary, marginBottom: 16 }, children: "Do you plan to pay for your children's college education?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Checking Account" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "button",
+            NumberControl,
             {
-              style: styles.strategyBtn(quizAnswers.college === "no"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, college: "no" }),
-              children: "No / They will take loans"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "button",
-            {
-              style: styles.strategyBtn(quizAnswers.college === "partial"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, college: "partial" }),
-              children: "Partial Support"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "button",
-            {
-              style: styles.strategyBtn(quizAnswers.college === "full"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, college: "full" }),
-              children: "Full Support"
+              value: savingsDetails.checking,
+              onChange: (v) => handleSavingsDetailChange("checking", v),
+              prefix: "$"
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: 24, display: "flex", justifyContent: "space-between" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: { ...styles.subscribeBtn, background: "transparent", color: COLORS.textSecondary }, onClick: () => setQuizStep(0), children: "\u2190 Back" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.subscribeBtn, onClick: () => setQuizStep(2), children: "Next \u2192" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Stock Portfolio" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: savingsDetails.stockPortfolio,
+              onChange: (v) => handleSavingsDetailChange("stockPortfolio", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Crypto Accounts" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: savingsDetails.crypto,
+              onChange: (v) => handleSavingsDetailChange("crypto", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "401k / Retirement Accounts" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: savingsDetails.retirement,
+              onChange: (v) => handleSavingsDetailChange("retirement", v),
+              prefix: "$"
+            }
+          )
         ] })
+      ] })
+    ] }) }),
+    showIncomeModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowIncomeModal(false), children: "\u2715" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24, textAlign: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 20, fontWeight: 800, color: COLORS.textMain, marginBottom: 8 }, children: "Other Monthly Retirement Income" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Enter monthly income amounts" })
       ] }),
-      quizStep === 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 16, fontWeight: 600, color: COLORS.textMain, marginBottom: 16 }, children: "3. Retirement Lifestyle" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textSecondary, marginBottom: 16 }, children: "How do you envision your travel plans?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "button",
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Social Security Payment" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
             {
-              style: styles.strategyBtn(quizAnswers.travel === "low"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, travel: "low" }),
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Start Local" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, fontWeight: 400, opacity: 0.8 }, children: "Low cost, mostly local trips" })
-              ]
+              value: incomeDetails.socialSecurity,
+              onChange: (v) => handleIncomeDetailChange("socialSecurity", v),
+              prefix: "$"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "button",
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "div",
             {
-              style: styles.strategyBtn(quizAnswers.travel === "moderate"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, travel: "moderate" }),
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Explorer" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, fontWeight: 400, opacity: 0.8 }, children: "1-2 major trips per year" })
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "button",
-            {
-              style: styles.strategyBtn(quizAnswers.travel === "high"),
-              onClick: () => setQuizAnswers({ ...quizAnswers, travel: "high" }),
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Globetrotter" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, fontWeight: 400, opacity: 0.8 }, children: "Frequent international travel" })
-              ]
+              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
+              onClick: handleEstimateSocialSecurity,
+              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u{1FA84} Estimate" })
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: 24, display: "flex", justifyContent: "space-between" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: { ...styles.subscribeBtn, background: "transparent", color: COLORS.textSecondary }, onClick: () => setQuizStep(1), children: "\u2190 Back" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.subscribeBtn, onClick: handleQuizComplete, children: "Apply to Calculator" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Real Estate" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: incomeDetails.realEstate,
+              onChange: (v) => handleIncomeDetailChange("realEstate", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Trust Fund" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: incomeDetails.trust,
+              onChange: (v) => handleIncomeDetailChange("trust", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Investment Funds" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: incomeDetails.investments,
+              onChange: (v) => handleIncomeDetailChange("investments", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Other" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: incomeDetails.other,
+              onChange: (v) => handleIncomeDetailChange("other", v),
+              prefix: "$"
+            }
+          )
         ] })
       ] })
     ] }) }),
@@ -50230,7 +50550,7 @@ lucide-react/dist/esm/createLucideIcon.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/chevron-down.js:
+lucide-react/dist/esm/icons/arrow-right.js:
   (**
    * @license lucide-react v0.554.0 - ISC
    *
@@ -50238,7 +50558,7 @@ lucide-react/dist/esm/icons/chevron-down.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/circle-question-mark.js:
+lucide-react/dist/esm/icons/chevron-down.js:
   (**
    * @license lucide-react v0.554.0 - ISC
    *
@@ -50303,6 +50623,14 @@ lucide-react/dist/esm/icons/plus.js:
    *)
 
 lucide-react/dist/esm/icons/printer.js:
+  (**
+   * @license lucide-react v0.554.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
+   *)
+
+lucide-react/dist/esm/icons/rotate-ccw.js:
   (**
    * @license lucide-react v0.554.0 - ISC
    *
