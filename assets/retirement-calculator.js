@@ -48795,6 +48795,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
   const [turnstileToken, setTurnstileToken] = (0, import_react52.useState)(null);
   const [subscribeStatus, setSubscribeStatus] = (0, import_react52.useState)("idle");
   const [subscribeMessage, setSubscribeMessage] = (0, import_react52.useState)("");
+  const [personalNotes, setPersonalNotes] = (0, import_react52.useState)("");
   const [showFeedbackModal, setShowFeedbackModal] = (0, import_react52.useState)(false);
   const [feedbackText, setFeedbackText] = (0, import_react52.useState)("");
   const [feedbackStatus, setFeedbackStatus] = (0, import_react52.useState)("idle");
@@ -48951,9 +48952,37 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
     const postRate = parseFloat(postRetireRate) / 100;
     const infl = parseFloat(inflation) / 100;
     const incIncrease = parseFloat(incomeIncrease) / 100;
+    const noteText = personalNotes.toLowerCase();
+    let budgetAdj = 0;
+    let savingsAdj = 0;
+    if (noteText.includes("inherit") || noteText.includes("gift") || noteText.includes("sell")) {
+      const matches2 = noteText.matchAll(/[\$]?([0-9,]+)/g);
+      let maxVal = 0;
+      for (const match of matches2) {
+        const val = parseFloat(match[1].replace(/,/g, ""));
+        if (val > maxVal) maxVal = val;
+      }
+      if (maxVal > 0) savingsAdj += maxVal;
+    }
+    if (noteText.includes("wife") || noteText.includes("husband") || noteText.includes("spouse") || noteText.includes("sick") || noteText.includes("care") || noteText.includes("disabled") || noteText.includes("support") || noteText.includes("mother") || noteText.includes("father")) {
+      budgetAdj += 1500 * 12;
+    }
+    if (noteText.includes("debt") || noteText.includes("loan") || noteText.includes("owe")) {
+      const matches2 = noteText.matchAll(/[\$]?([0-9,]+)/g);
+      let maxVal = 0;
+      for (const match of matches2) {
+        const val = parseFloat(match[1].replace(/,/g, ""));
+        if (val > maxVal) maxVal = val;
+      }
+      if (maxVal > 0) {
+        savingsAdj -= maxVal;
+      } else {
+        budgetAdj += 500 * 12;
+      }
+    }
     const yearsPre = retirementAgeNum - currentAgeNum;
     const yearsPost = lifeExpectancyNum - retirementAgeNum;
-    const annualExpensesToday = parseFloat(budget) * 12;
+    const annualExpensesToday = parseFloat(budget) * 12 + budgetAdj;
     const annualIncomeToday = parseFloat(otherIncome) * 12;
     const monthlyShortfallToday = Math.max(0, parseFloat(budget) - parseFloat(otherIncome));
     const annualShortfallToday = monthlyShortfallToday * 12;
@@ -49001,7 +49030,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       }
     }
     const whatYouHaveLiquid = Math.round(fvInitial + fvContributions);
-    const totalWealthAtRetirement = whatYouHaveLiquid + incomeValueAtRetirement;
+    const totalWealthAtRetirement = whatYouHaveLiquid + incomeValueAtRetirement + savingsAdj;
     const graphData = [];
     let simCurrent = savingsNum;
     let simIdeal = savingsNum;
@@ -49063,7 +49092,7 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
   };
   (0, import_react52.useEffect)(() => {
     calculate2();
-  }, [currentCalc.values]);
+  }, [currentCalc.values, personalNotes]);
   const [showAdvanced, setShowAdvanced] = (0, import_react52.useState)(false);
   const [resultView, setResultView] = (0, import_react52.useState)("graph");
   const toggleMode = (field) => {
@@ -49819,6 +49848,30 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
             ),
             "Check here if you plan to help with college tuition"
           ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16, borderTop: `1px dashed ${COLORS.border}`, paddingTop: 16 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Additional Notes" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 8 }, children: `Tell us anything else (e.g. "I will inherit $50,000", "I support my sick mother"). We'll try to adjust your plan.` }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "textarea",
+            {
+              value: personalNotes,
+              onChange: (e) => setPersonalNotes(e.target.value),
+              placeholder: "Type here...",
+              style: {
+                width: "100%",
+                height: "80px",
+                padding: "12px",
+                borderRadius: "12px",
+                border: `1px solid ${COLORS.border}`,
+                fontSize: "14px",
+                fontFamily: "inherit",
+                marginBottom: "8px",
+                resize: "vertical",
+                backgroundColor: COLORS.card
+              }
+            }
+          )
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.buttonRow, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-press", style: styles.calcButton, onClick: calculate2, disabled: isAnalyzing, children: isAnalyzing ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Loader, { size: 20, className: "spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [

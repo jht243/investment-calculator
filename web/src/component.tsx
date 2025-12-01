@@ -250,6 +250,9 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
   const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [subscribeMessage, setSubscribeMessage] = useState("");
 
+  // Personal Notes State
+  const [personalNotes, setPersonalNotes] = useState("");
+
   // Feedback State
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedbackText, setFeedbackText] = useState("");
@@ -413,13 +416,70 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
     const infl = parseFloat(inflation) / 100;
     const incIncrease = parseFloat(incomeIncrease) / 100;
     
+    // Parse Personal Notes for adjustments (non-destructive)
+    const noteText = personalNotes.toLowerCase();
+    let budgetAdj = 0; // Annual adjustment to expenses
+    let incomeAdj = 0; // Annual adjustment to income
+    let savingsAdj = 0; // Lump sum adjustment to final wealth
+    
+    // 1. Sentence-based analysis
+    const sentences = noteText.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    
+    for (const sentence of sentences) {
+        const amountMatch = sentence.match(/[\$]?([0-9,]+)/);
+        if (amountMatch) {
+            const amount = parseFloat(amountMatch[1].replace(/,/g, ''));
+            if (!isNaN(amount) && amount > 0) {
+                const isMonthly = sentence.includes("month") || sentence.includes("/mo");
+                const multiplier = isMonthly ? 12 : 1;
+                const isRecurring = isMonthly || sentence.includes("year") || sentence.includes("annual");
+
+                if (isRecurring) {
+                    // Income Streams
+                    if (sentence.includes("pension") || sentence.includes("social security") || sentence.includes("annuity") || 
+                        sentence.includes("earn") || sentence.includes("salary") || sentence.includes("rent") || sentence.includes("income")) {
+                        incomeAdj += amount * multiplier;
+                    }
+                    // Budget Reductions
+                    else if (sentence.includes("save") || sentence.includes("cut") || sentence.includes("reduce") || sentence.includes("lower")) {
+                        budgetAdj -= amount * multiplier;
+                    }
+                    // Budget Increases (Default for recurring costs)
+                    else {
+                        budgetAdj += amount * multiplier;
+                    }
+                } else {
+                    // One-time Positive
+                    if (sentence.includes("inherit") || sentence.includes("gift") || sentence.includes("sell") || 
+                        sentence.includes("windfall") || sentence.includes("bonus") || sentence.includes("profit")) {
+                        savingsAdj += amount;
+                    }
+                    // One-time Negative
+                    else if (sentence.includes("debt") || sentence.includes("loan") || sentence.includes("owe") || 
+                             sentence.includes("cost") || sentence.includes("buy") || sentence.includes("purchase") || 
+                             sentence.includes("spend") || sentence.includes("pay") || sentence.includes("college") || 
+                             sentence.includes("wedding") || sentence.includes("renovation") || sentence.includes("surgery")) {
+                        savingsAdj -= amount;
+                    }
+                }
+            }
+        }
+    }
+    
+    // 2. Global keyword analysis for recurring budget impacts (fallback)
+    if (noteText.includes("wife") || noteText.includes("husband") || noteText.includes("spouse") || 
+        noteText.includes("sick") || noteText.includes("care") || noteText.includes("disabled") || 
+        noteText.includes("support") || noteText.includes("mother") || noteText.includes("father")) {
+        budgetAdj += (1500 * 12); 
+    }
+
     // 1. Calculate "What you'll need" at Retirement Age (Gross Need)
     const yearsPre = retirementAgeNum - currentAgeNum;
     const yearsPost = lifeExpectancyNum - retirementAgeNum;
     
     // Gross expenses and income in retirement (annual)
-    const annualExpensesToday = parseFloat(budget) * 12;
-    const annualIncomeToday = parseFloat(otherIncome) * 12;
+    const annualExpensesToday = (parseFloat(budget) * 12) + budgetAdj;
+    const annualIncomeToday = (parseFloat(otherIncome) * 12) + incomeAdj;
     
     // Monthly shortfall logic for graph/gap analysis
     const monthlyShortfallToday = Math.max(0, parseFloat(budget) - parseFloat(otherIncome));
@@ -495,7 +555,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
     const whatYouHaveLiquid = Math.round(fvInitial + fvContributions);
     
     // Summary "Have" includes income value to compare against Gross Need
-    const totalWealthAtRetirement = whatYouHaveLiquid + incomeValueAtRetirement;
+    const totalWealthAtRetirement = whatYouHaveLiquid + incomeValueAtRetirement + savingsAdj;
     
     // 4. Generate Graph Data for visualization
     const graphData = [];
@@ -578,7 +638,7 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
 
   useEffect(() => {
     calculate();
-  }, [currentCalc.values]);
+  }, [currentCalc.values, personalNotes]);
 
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [resultView, setResultView] = useState<"graph" | "summary" | "tips">("graph");
@@ -1364,6 +1424,30 @@ export default function RetirementCalculatorHelloWorld({ initialData }: { initia
                             Check here if you plan to help with college tuition
                         </label>
                     )}
+                </div>
+
+                <div style={{marginBottom: 16, borderTop: `1px dashed ${COLORS.border}`, paddingTop: 16}}>
+                    <div style={{fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8}}>Additional Notes</div>
+                    <div style={{fontSize: 12, color: COLORS.textSecondary, marginBottom: 8}}>
+                        Tell us anything else (e.g. "I will inherit $50,000", "I support my sick mother"). We'll try to adjust your plan.
+                    </div>
+                    <textarea 
+                        value={personalNotes}
+                        onChange={(e) => setPersonalNotes(e.target.value)}
+                        placeholder="Type here..."
+                        style={{
+                            width: "100%", 
+                            height: "80px", 
+                            padding: "12px", 
+                            borderRadius: "12px", 
+                            border: `1px solid ${COLORS.border}`, 
+                            fontSize: "14px", 
+                            fontFamily: "inherit",
+                            marginBottom: "8px",
+                            resize: "vertical",
+                            backgroundColor: COLORS.card
+                        }}
+                    />
                 </div>
             </>
         )}
