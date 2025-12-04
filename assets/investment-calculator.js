@@ -48887,6 +48887,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
   const turnstileRef = (0, import_react52.useRef)(null);
   const [turnstileToken, setTurnstileToken] = (0, import_react52.useState)("");
   const [showSubscribeModal, setShowSubscribeModal] = (0, import_react52.useState)(false);
+  const [modalSource, setModalSource] = (0, import_react52.useState)("top");
   const [showFeedbackModal, setShowFeedbackModal] = (0, import_react52.useState)(false);
   const [feedbackText, setFeedbackText] = (0, import_react52.useState)("");
   const [feedbackStatus, setFeedbackStatus] = (0, import_react52.useState)("idle");
@@ -49306,6 +49307,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
           style: styles.subscribeBtn,
           onClick: () => {
             setShowSubscribeBanner(false);
+            setModalSource("top");
             setShowSubscribeModal(true);
           },
           children: [
@@ -49331,16 +49333,19 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       bottom: 0,
       backgroundColor: "rgba(0,0,0,0.5)",
       display: "flex",
-      alignItems: "center",
+      alignItems: modalSource === "top" ? "flex-start" : "flex-end",
       justifyContent: "center",
-      zIndex: 1e3
+      zIndex: 1e3,
+      paddingTop: modalSource === "top" ? "120px" : 0,
+      paddingBottom: modalSource === "bottom" ? "120px" : 0
     }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
       backgroundColor: "white",
       borderRadius: "16px",
       padding: "24px",
       width: "90%",
       maxWidth: "400px",
-      position: "relative"
+      position: "relative",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.15)"
     }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "button",
@@ -49396,16 +49401,18 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       bottom: 0,
       backgroundColor: "rgba(0,0,0,0.5)",
       display: "flex",
-      alignItems: "center",
+      alignItems: "flex-end",
       justifyContent: "center",
-      zIndex: 1e3
+      zIndex: 1e3,
+      paddingBottom: "120px"
     }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
       backgroundColor: "white",
       borderRadius: "16px",
       padding: "24px",
       width: "90%",
       maxWidth: "400px",
-      position: "relative"
+      position: "relative",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.15)"
     }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "button",
@@ -49724,7 +49731,10 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       ] });
     })(),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.actionsContainer, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => setShowSubscribeModal(true), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => {
+        setModalSource("bottom");
+        setShowSubscribeModal(true);
+      }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { size: 16 }),
         "Subscribe"
       ] }),

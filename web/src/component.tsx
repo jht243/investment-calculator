@@ -261,6 +261,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
   
   // Modal states
   const [showSubscribeModal, setShowSubscribeModal] = useState(false);
+  const [modalSource, setModalSource] = useState<"top" | "bottom">("top");
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackStatus, setFeedbackStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -729,6 +730,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
             style={styles.subscribeBtn}
             onClick={() => {
                 setShowSubscribeBanner(false);
+                setModalSource("top");
                 setShowSubscribeModal(true);
             }}
           >
@@ -751,9 +753,11 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
             top: 0, left: 0, right: 0, bottom: 0,
             backgroundColor: "rgba(0,0,0,0.5)",
             display: "flex",
-            alignItems: "center",
+            alignItems: modalSource === "top" ? "flex-start" : "flex-end",
             justifyContent: "center",
-            zIndex: 1000
+            zIndex: 1000,
+            paddingTop: modalSource === "top" ? "120px" : 0,
+            paddingBottom: modalSource === "bottom" ? "120px" : 0
         }}>
           <div style={{
               backgroundColor: "white",
@@ -761,7 +765,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
               padding: "24px",
               width: "90%",
               maxWidth: "400px",
-              position: "relative"
+              position: "relative",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15)"
           }}>
             <button 
                 style={{...styles.closeBtn, position: "absolute", top: "12px", right: "12px"}}
@@ -826,9 +831,10 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
             top: 0, left: 0, right: 0, bottom: 0,
             backgroundColor: "rgba(0,0,0,0.5)",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-end",
             justifyContent: "center",
-            zIndex: 1000
+            zIndex: 1000,
+            paddingBottom: "120px"
         }}>
           <div style={{
               backgroundColor: "white",
@@ -836,7 +842,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
               padding: "24px",
               width: "90%",
               maxWidth: "400px",
-              position: "relative"
+              position: "relative",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15)"
           }}>
             <button 
                 style={{...styles.closeBtn, position: "absolute", top: "12px", right: "12px"}}
@@ -1159,7 +1166,10 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
       })()}
 
       <div style={styles.actionsContainer}>
-        <button className="action-btn" style={styles.actionBtn} onClick={() => setShowSubscribeModal(true)}>
+        <button className="action-btn" style={styles.actionBtn} onClick={() => {
+            setModalSource("bottom");
+            setShowSubscribeModal(true);
+        }}>
             <Mail size={16} />
             Subscribe
         </button>
