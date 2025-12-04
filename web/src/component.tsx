@@ -167,7 +167,10 @@ const STORAGE_EXPIRY_HOURS = 72;
 const loadSavedValues = (): CalculatorValues | null => {
     try {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return null;
+        if (!saved) {
+            console.log("[InvestmentCalculator] No saved values found in localStorage");
+            return null;
+        }
         
         const parsed = JSON.parse(saved);
         const savedAt = parsed._savedAt;
@@ -176,6 +179,7 @@ const loadSavedValues = (): CalculatorValues | null => {
         if (savedAt) {
             const hoursSinceSave = (Date.now() - savedAt) / (1000 * 60 * 60);
             if (hoursSinceSave > STORAGE_EXPIRY_HOURS) {
+                console.log("[InvestmentCalculator] Saved values expired, clearing");
                 localStorage.removeItem(STORAGE_KEY);
                 return null;
             }
@@ -183,8 +187,10 @@ const loadSavedValues = (): CalculatorValues | null => {
         
         // Return values without the _savedAt field
         const { _savedAt, ...values } = parsed;
+        console.log("[InvestmentCalculator] Loaded saved values:", values);
         return values as CalculatorValues;
     } catch (e) {
+        console.error("[InvestmentCalculator] Failed to load saved values:", e);
         return null;
     }
 };
@@ -192,6 +198,7 @@ const loadSavedValues = (): CalculatorValues | null => {
 // Save values to localStorage
 const saveValues = (values: CalculatorValues) => {
     try {
+        console.log("[InvestmentCalculator] Saving values:", values);
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
             ...values,
             _savedAt: Date.now()
@@ -273,9 +280,13 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         if (widgetId) (window as any).turnstile.remove(widgetId);
 
         try {
+            console.log("[InvestmentCalculator] Rendering Turnstile widget");
             (window as any).turnstile.render(turnstileRef.current, {
                 sitekey: (window as any).TURNSTILE_SITE_KEY,
-                callback: (token: string) => setTurnstileToken(token),
+                callback: (token: string) => {
+                    console.log("[InvestmentCalculator] Turnstile verified, token received");
+                    setTurnstileToken(token);
+                },
                 appearance: 'interaction-only'
             });
         } catch (e) {
@@ -285,6 +296,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
   }, [showSubscribeModal]);
 
   const handleSubscribe = async () => {
+    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail, hasToken: !!turnstileToken });
     if (!subscribeEmail || !subscribeEmail.includes("@")) {
       setSubscribeStatus("error");
       setSubscribeMessage("Please enter a valid email address");
@@ -311,6 +323,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
       });
       
       const data = await response.json();
+      console.log("[InvestmentCalculator] Subscribe response:", data);
+      
       if (response.ok && data.success) {
         setSubscribeStatus("success");
         setSubscribeMessage(data.message || "Successfully subscribed!");
@@ -324,12 +338,14 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         setSubscribeMessage(data.error || "Failed to subscribe");
       }
     } catch (err) {
+      console.error("[InvestmentCalculator] Subscribe error:", err);
       setSubscribeStatus("error");
       setSubscribeMessage("Failed to subscribe. Please try again.");
     }
   };
 
   const handleFeedback = async () => {
+    console.log("[InvestmentCalculator] Handle feedback called");
     if (!feedbackText.trim()) {
       setFeedbackStatus("error");
       return;
@@ -346,6 +362,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         })
       });
       
+      console.log("[InvestmentCalculator] Feedback response status:", response.status);
+      
       if (response.ok) {
         setFeedbackStatus("success");
         setTimeout(() => {
@@ -357,16 +375,19 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         setFeedbackStatus("error");
       }
     } catch (err) {
+      console.error("[InvestmentCalculator] Feedback error:", err);
       setFeedbackStatus("error");
     }
   };
 
   const updateVal = (field: keyof CalculatorValues, val: string) => {
+    // console.log(`[InvestmentCalculator] Updating field ${field} to ${val}`);
     setValues(prev => ({ ...prev, [field]: val }));
   };
 
   useEffect(() => {
     if (initialData) {
+        console.log("[InvestmentCalculator] Hydrating with initialData:", initialData);
         // Basic hydration if relevant fields exist
         const newValues = { ...values };
         if (initialData.current_balance) newValues.currentBalance = String(initialData.current_balance);

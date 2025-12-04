@@ -48819,24 +48819,31 @@ var STORAGE_EXPIRY_HOURS = 72;
 var loadSavedValues = () => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return null;
+    if (!saved) {
+      console.log("[InvestmentCalculator] No saved values found in localStorage");
+      return null;
+    }
     const parsed = JSON.parse(saved);
     const savedAt = parsed._savedAt;
     if (savedAt) {
       const hoursSinceSave = (Date.now() - savedAt) / (1e3 * 60 * 60);
       if (hoursSinceSave > STORAGE_EXPIRY_HOURS) {
+        console.log("[InvestmentCalculator] Saved values expired, clearing");
         localStorage.removeItem(STORAGE_KEY);
         return null;
       }
     }
     const { _savedAt, ...values } = parsed;
+    console.log("[InvestmentCalculator] Loaded saved values:", values);
     return values;
   } catch (e) {
+    console.error("[InvestmentCalculator] Failed to load saved values:", e);
     return null;
   }
 };
 var saveValues = (values) => {
   try {
+    console.log("[InvestmentCalculator] Saving values:", values);
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       ...values,
       _savedAt: Date.now()
@@ -48896,9 +48903,13 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       const widgetId = turnstileRef.current.getAttribute("data-turnstile-id");
       if (widgetId) window.turnstile.remove(widgetId);
       try {
+        console.log("[InvestmentCalculator] Rendering Turnstile widget");
         window.turnstile.render(turnstileRef.current, {
           sitekey: window.TURNSTILE_SITE_KEY,
-          callback: (token) => setTurnstileToken(token),
+          callback: (token) => {
+            console.log("[InvestmentCalculator] Turnstile verified, token received");
+            setTurnstileToken(token);
+          },
           appearance: "interaction-only"
         });
       } catch (e) {
@@ -48907,6 +48918,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
     }
   }, [showSubscribeModal]);
   const handleSubscribe = async () => {
+    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail, hasToken: !!turnstileToken });
     if (!subscribeEmail || !subscribeEmail.includes("@")) {
       setSubscribeStatus("error");
       setSubscribeMessage("Please enter a valid email address");
@@ -48930,6 +48942,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         })
       });
       const data = await response.json();
+      console.log("[InvestmentCalculator] Subscribe response:", data);
       if (response.ok && data.success) {
         setSubscribeStatus("success");
         setSubscribeMessage(data.message || "Successfully subscribed!");
@@ -48943,11 +48956,13 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         setSubscribeMessage(data.error || "Failed to subscribe");
       }
     } catch (err) {
+      console.error("[InvestmentCalculator] Subscribe error:", err);
       setSubscribeStatus("error");
       setSubscribeMessage("Failed to subscribe. Please try again.");
     }
   };
   const handleFeedback = async () => {
+    console.log("[InvestmentCalculator] Handle feedback called");
     if (!feedbackText.trim()) {
       setFeedbackStatus("error");
       return;
@@ -48962,6 +48977,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
           data: { feedback: feedbackText, source: "investment-calculator" }
         })
       });
+      console.log("[InvestmentCalculator] Feedback response status:", response.status);
       if (response.ok) {
         setFeedbackStatus("success");
         setTimeout(() => {
@@ -48973,6 +48989,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         setFeedbackStatus("error");
       }
     } catch (err) {
+      console.error("[InvestmentCalculator] Feedback error:", err);
       setFeedbackStatus("error");
     }
   };
@@ -48981,6 +48998,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
   };
   (0, import_react52.useEffect)(() => {
     if (initialData2) {
+      console.log("[InvestmentCalculator] Hydrating with initialData:", initialData2);
       const newValues = { ...values };
       if (initialData2.current_balance) newValues.currentBalance = String(initialData2.current_balance);
       if (initialData2.monthly_contribution) newValues.monthlyContribution = String(initialData2.monthly_contribution);
