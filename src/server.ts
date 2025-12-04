@@ -125,29 +125,39 @@ function classifyDevice(userAgent?: string | null): string {
 }
 
 function computeSummary(args: any) {
-  const currentAge = Number(args.current_age);
-  const income = Number(args.annual_pre_tax_income);
-  const savings = Number(args.current_retirement_savings);
+  const currentBalance = Number(args.current_balance) || 0;
+  const monthlyContribution = Number(args.monthly_contribution) || 0;
+  const targetAmount = Number(args.target_amount) || 0;
+  const timeHorizon = Number(args.time_horizon) || 20;
+  const rateOfReturn = Number(args.rate_of_return) || 6;
+
+  // Calculate future value using compound interest formula
+  // FV = PV*(1+r)^n + PMT*(((1+r)^n - 1)/r)
+  const r = (rateOfReturn / 100) / 12; // Monthly rate
+  const n = timeHorizon * 12; // Total months
   
-  if (!currentAge || !income || !savings) {
-    return {
-      retirement_score: null,
-      retirement_status: null,
-      projected_savings: null,
-    };
+  const futureValue = currentBalance * Math.pow(1 + r, n) + 
+                      monthlyContribution * (Math.pow(1 + r, n) - 1) / r;
+  
+  const totalContributions = currentBalance + (monthlyContribution * n);
+  const totalGrowth = futureValue - totalContributions;
+  
+  // Determine investment readiness status
+  let investmentStatus = "Getting Started";
+  if (targetAmount > 0) {
+    const progressPercent = (futureValue / targetAmount) * 100;
+    if (progressPercent >= 100) investmentStatus = "On Track";
+    else if (progressPercent >= 75) investmentStatus = "Almost There";
+    else if (progressPercent >= 50) investmentStatus = "Making Progress";
+  } else if (futureValue > 100000) {
+    investmentStatus = "Building Wealth";
   }
 
-  // Simple heuristic for summary
-  const retirementScore = savings / income;
-  
-  let retirementStatus = "Needs Attention";
-  if (retirementScore > 1.0) retirementStatus = "On Track";
-  else if (retirementScore > 0.5) retirementStatus = "Getting There";
-
   return {
-    retirement_score: Math.round(retirementScore * 10) / 10,
-    retirement_status: retirementStatus,
-    projected_savings: null // Placeholder
+    future_value: Math.round(futureValue),
+    total_contributions: Math.round(totalContributions),
+    total_growth: Math.round(totalGrowth),
+    investment_status: investmentStatus,
   };
 }
 
@@ -208,33 +218,34 @@ function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = fal
   return {
     "openai/outputTemplate": templateUri,
     "openai/widgetDescription":
-      "A comprehensive investment calculator for investment planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
+      "A comprehensive investment growth calculator for planning your financial future. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
     "openai/componentDescriptions": {
-      "metrics-form": "Input form for income, savings, and age.",
-      "retirement-card": "Card displaying the calculated investment growth.",
-      "projected-savings-card": "Card showing the estimated projected savings.",
+      "investment-form": "Input form for current balance, monthly contribution, and time horizon.",
+      "growth-chart": "Stacked bar chart showing investment growth breakdown over time.",
+      "results-card": "Card displaying calculated investment projections and growth metrics.",
     },
     "openai/widgetKeywords": [
-      "retirement",
-      "planning",
-      "income",
+      "investment",
+      "calculator",
       "savings",
-      "investment calculator",
-      "finance",
-      "investment"
+      "compound interest",
+      "financial planning",
+      "investment growth",
+      "wealth building",
+      "portfolio"
     ],
     "openai/sampleConversations": [
-      { "user": "Calculate my investment growth", "assistant": "Here is the Investment Calculator. You can enter your income, savings, and age when ready, or I can help calculate if you provide them." },
-      { "user": "Calculate my investments, I am 35 years old, make $100,000, and have $50,000 in savings.", "assistant": "I can help with that. Here is your investment calculation." },
-      { "user": "What is my projected savings if I'm 40 years old, make $80,000, and have $30,000 in savings?", "assistant": "I've estimated your projected savings based on your income, savings, and age." },
+      { "user": "Calculate my investment growth", "assistant": "Here is the Investment Calculator. You can enter your current savings, monthly contribution, and time horizon, or I can help calculate if you provide them." },
+      { "user": "I have $10,000 saved and want to invest $500 per month for 20 years", "assistant": "I've calculated your projected investment growth based on your starting balance of $10,000 and monthly contributions of $500 over 20 years." },
+      { "user": "How much will I have if I invest $1000 per month?", "assistant": "Here's your investment projection based on $1,000 monthly contributions. You can adjust the time horizon and starting balance as needed." },
+      { "user": "I want to reach $1,000,000. How much should I save monthly?", "assistant": "I can help you figure out the monthly contribution needed to reach your $1,000,000 goal." }
     ],
     "openai/starterPrompts": [
-      "Calculate My Investments",
-      "Retirement Planning",
-      "Income Calculator",
-      "Savings Calculator",
-      "Investment Calculator",
-      "Finance Calculator",
+      "Calculate My Investment Growth",
+      "How Much Should I Save Monthly?",
+      "Compound Interest Calculator",
+      "Investment Planning",
+      "Savings Goal Calculator"
     ],
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": {
@@ -261,12 +272,12 @@ function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = fal
 const widgets: InvestmentCalculatorWidget[] = [
   {
     id: "investment-calculator",
-    title: "Investment Calculator — analyze investment growth",
+    title: "Investment Calculator — project your investment growth",
     templateUri: `ui://widget/investment-calculator.html?v=${VERSION}`,
     invoking:
       "Opening the Investment Calculator...",
     invoked:
-      "Here is the Investment Calculator. Enter your income, savings, and age to calculate your investment metrics.",
+      "Here is the Investment Calculator. Enter your current savings, monthly contribution, and time horizon to see your projected growth.",
     html: readWidgetHtml("investment-calculator"),
   },
 ];
@@ -282,18 +293,12 @@ widgets.forEach((widget) => {
 const toolInputSchema = {
   type: "object",
   properties: {
-    current_age: { type: "number", description: "Current age of the user." },
-    annual_pre_tax_income: { type: "number", description: "Annual pre-tax income." },
-    current_retirement_savings: { type: "number", description: "Total current retirement savings." },
-    monthly_contributions: { type: "number", description: "Monthly contribution amount." },
-    monthly_budget_in_retirement: { type: "number", description: "Estimated monthly budget needed in retirement." },
-    other_retirement_income: { type: "number", description: "Other monthly retirement income." },
-    retirement_age: { type: "number", description: "Target retirement age." },
-    life_expectancy: { type: "number", description: "Estimated life expectancy." },
-    pre_retirement_rate_of_return: { type: "number", description: "Expected annual rate of return before retirement." },
-    post_retirement_rate_of_return: { type: "number", description: "Expected annual rate of return after retirement." },
-    inflation_rate: { type: "number", description: "Expected annual inflation rate." },
-    annual_income_increase: { type: "number", description: "Expected annual income increase." }
+    current_balance: { type: "number", description: "Current savings or starting investment balance in dollars." },
+    monthly_contribution: { type: "number", description: "Monthly contribution amount in dollars." },
+    target_amount: { type: "number", description: "Target investment goal amount in dollars." },
+    time_horizon: { type: "number", description: "Investment time horizon in years." },
+    rate_of_return: { type: "number", description: "Expected annual rate of return as a percentage (e.g., 6 for 6%)." },
+    investment_strategy: { type: "string", description: "Investment strategy: conservative (3%), moderate (6%), or aggressive (9%).", enum: ["conservative", "moderate", "aggressive"] }
   },
   required: [],
   additionalProperties: false,
@@ -301,41 +306,37 @@ const toolInputSchema = {
 } as const;
 
 const toolInputParser = z.object({
-  current_age: z.number().optional(),
-  annual_pre_tax_income: z.number().optional(),
-  current_retirement_savings: z.number().optional(),
-  monthly_contributions: z.number().optional(),
-  monthly_budget_in_retirement: z.number().optional(),
-  other_retirement_income: z.number().optional(),
-  retirement_age: z.number().optional(),
-  life_expectancy: z.number().optional(),
-  pre_retirement_rate_of_return: z.number().optional(),
-  post_retirement_rate_of_return: z.number().optional(),
-  inflation_rate: z.number().optional(),
-  annual_income_increase: z.number().optional(),
+  current_balance: z.number().optional(),
+  monthly_contribution: z.number().optional(),
+  target_amount: z.number().optional(),
+  time_horizon: z.number().optional(),
+  rate_of_return: z.number().optional(),
+  investment_strategy: z.enum(["conservative", "moderate", "aggressive"]).optional(),
 });
 
 const tools: Tool[] = widgets.map((widget) => ({
   name: widget.id,
   description:
-    "Use this for Investment planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
+    "Use this for investment growth calculations and financial planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
   inputSchema: toolInputSchema,
   outputSchema: {
     type: "object",
     properties: {
       ready: { type: "boolean" },
       timestamp: { type: "string" },
-      current_age: { type: "number" },
-      annual_pre_tax_income: { type: "number" },
-      current_retirement_savings: { type: "number" },
-      retirement_score: { type: "number" },
+      current_balance: { type: "number" },
+      monthly_contribution: { type: "number" },
+      target_amount: { type: "number" },
+      time_horizon: { type: "number" },
+      rate_of_return: { type: "number" },
       input_source: { type: "string", enum: ["user", "default"] },
       summary: {
         type: "object",
         properties: {
-          retirement_score: { type: ["number", "null"] },
-          retirement_status: { type: ["string", "null"] },
-          projected_savings: { type: ["number", "null"] },
+          future_value: { type: ["number", "null"] },
+          total_contributions: { type: ["number", "null"] },
+          total_growth: { type: ["number", "null"] },
+          investment_status: { type: ["string", "null"] },
         },
       },
       suggested_followups: {
@@ -362,7 +363,7 @@ const resources: Resource[] = widgets.map((widget) => ({
   uri: widget.templateUri,
   name: widget.title,
   description:
-    "HTML template for the Investment, Planning, Income, and Asset Allocation Investment Calculator widget.",
+    "HTML template for the Investment Growth Calculator widget - calculate compound interest and project savings growth.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
@@ -371,7 +372,7 @@ const resourceTemplates: ResourceTemplate[] = widgets.map((widget) => ({
   uriTemplate: widget.templateUri,
   name: widget.title,
   description:
-    "Template descriptor for the Investment, Planning, Income, and Asset Allocation Investment Calculator widget.",
+    "Template descriptor for the Investment Growth Calculator widget - calculate compound interest and project savings growth.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
@@ -506,24 +507,45 @@ function createInvestmentCalculatorServer(): Server {
             const lower = s.toLowerCase().replace(/[,$\s]/g, "").trim();
             const k = lower.match(/(\d+(?:\.\d+)?)(k)$/);
             if (k) return Math.round(parseFloat(k[1]) * 1_000);
+            const m = lower.match(/(\d+(?:\.\d+)?)(m|million)$/);
+            if (m) return Math.round(parseFloat(m[1]) * 1_000_000);
             const n = Number(lower.replace(/[^0-9.]/g, ""));
             return Number.isFinite(n) ? Math.round(n) : null;
           };
 
-          // Infer age and income from user text
-          if (args.current_age === undefined) {
-             // Basic regex for age
-             const ageMatch = userText.match(/\b(\d{1,3})\s*(?:yo|years|year old)\b/i);
-             if (ageMatch) {
-               const age = parseInt(ageMatch[1], 10);
-               if (age > 0 && age < 120) args.current_age = age;
+          // Infer current balance / savings from user text
+          if (args.current_balance === undefined) {
+             const balanceMatch = userText.match(/(?:have|saved|starting|balance|with)\s*\$?(\d+(?:,\d{3})*(?:\.\d+)?k?)/i);
+             if (balanceMatch) {
+               const amount = parseAmountToNumber(balanceMatch[1]);
+               if (amount && amount > 0) args.current_balance = amount;
              }
           }
           
-          if (args.annual_pre_tax_income === undefined) {
-             const incomeMatch = userText.match(/make\s*\$?(\d+(?:,\d{3})*(?:\.\d+)?)/i);
-             if (incomeMatch) {
-                args.annual_pre_tax_income = parseFloat(incomeMatch[1].replace(/,/g, ''));
+          // Infer monthly contribution
+          if (args.monthly_contribution === undefined) {
+             const monthlyMatch = userText.match(/(?:invest|save|contribute|put in)\s*\$?(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:per month|monthly|\/month|a month)/i);
+             if (monthlyMatch) {
+                const amount = parseAmountToNumber(monthlyMatch[1]);
+                if (amount && amount > 0) args.monthly_contribution = amount;
+             }
+          }
+
+          // Infer target amount / goal
+          if (args.target_amount === undefined) {
+             const targetMatch = userText.match(/(?:reach|goal|target|need|want)\s*\$?(\d+(?:,\d{3})*(?:\.\d+)?(?:k|m|million)?)/i);
+             if (targetMatch) {
+                const amount = parseAmountToNumber(targetMatch[1]);
+                if (amount && amount > 0) args.target_amount = amount;
+             }
+          }
+
+          // Infer time horizon (years)
+          if (args.time_horizon === undefined) {
+             const yearsMatch = userText.match(/(?:for|over|in)\s*(\d+)\s*(?:years?|yrs?)/i);
+             if (yearsMatch) {
+                const years = parseInt(yearsMatch[1], 10);
+                if (years > 0 && years < 100) args.time_horizon = years;
              }
           }
 
@@ -539,14 +561,15 @@ function createInvestmentCalculatorServer(): Server {
 
         // Infer likely user query from parameters
         const inferredQuery = [] as string[];
-        if (args.current_age) inferredQuery.push(`age: ${args.current_age}`);
-        if (args.annual_pre_tax_income) inferredQuery.push(`income: ${args.annual_pre_tax_income}`);
-        if (args.current_retirement_savings) inferredQuery.push(`savings: ${args.current_retirement_savings}`);
+        if (args.current_balance) inferredQuery.push(`balance: $${args.current_balance.toLocaleString()}`);
+        if (args.monthly_contribution) inferredQuery.push(`monthly: $${args.monthly_contribution.toLocaleString()}`);
+        if (args.target_amount) inferredQuery.push(`goal: $${args.target_amount.toLocaleString()}`);
+        if (args.time_horizon) inferredQuery.push(`years: ${args.time_horizon}`);
 
         logAnalytics("tool_call_success", {
           toolName: request.params.name,
           params: args,
-          inferredQuery: inferredQuery.length > 0 ? inferredQuery.join(", ") : "Retirement Calculator",
+          inferredQuery: inferredQuery.length > 0 ? inferredQuery.join(", ") : "Investment Calculator",
           responseTime,
 
           device: deviceCategory,
@@ -567,7 +590,7 @@ function createInvestmentCalculatorServer(): Server {
         console.log(`[MCP] Tool called: ${request.params.name}, returning templateUri: ${(widgetMetadata as any)["openai/outputTemplate"]}`);
 
         // Build structured content once so we can log it and return it.
-        // For the retirement calculator, expose fields relevant to Retirement/Asset Allocation
+        // For the investment calculator, expose fields relevant to investment growth projections
         const structured = {
           ready: true,
           timestamp: new Date().toISOString(),
@@ -576,9 +599,9 @@ function createInvestmentCalculatorServer(): Server {
           // Summary + follow-ups for natural language UX
           summary: computeSummary(args),
           suggested_followups: [
-            "Will I have enough to retire?",
-            "How much more should I save?",
-            "What if I retire later?"
+            "How much will I have in 10 years?",
+            "What if I increase my monthly contribution?",
+            "How long until I reach my goal?"
           ],
         } as const;
 
@@ -602,7 +625,7 @@ function createInvestmentCalculatorServer(): Server {
         // Log success analytics
         try {
           // Check for "empty" result - when no main calculation inputs are provided
-          const hasMainInputs = args.annual_pre_tax_income || args.current_retirement_savings || args.current_age;
+          const hasMainInputs = args.current_balance || args.monthly_contribution || args.target_amount || args.time_horizon;
           
           if (!hasMainInputs) {
              logAnalytics("tool_call_empty", {
@@ -623,8 +646,8 @@ function createInvestmentCalculatorServer(): Server {
         } catch {}
 
         // Construct text content for the transcript
-        const summaryText = structured.summary?.retirement_status
-          ? `Retirement Status: ${structured.summary.retirement_status} (Score: ${structured.summary.retirement_score}).`
+        const summaryText = structured.summary?.investment_status
+          ? `Investment Status: ${structured.summary.investment_status}. Projected Value: $${structured.summary.future_value?.toLocaleString()}.`
           : "Please enter your details in the calculator widget.";
 
         return {
@@ -812,7 +835,7 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
       : "N/A";
 
   const paramUsage: Record<string, number> = {};
-  const retirementStatusDist: Record<string, number> = {};
+  const investmentStatusDist: Record<string, number> = {};
   
   successLogs.forEach((log) => {
     if (log.params) {
@@ -822,9 +845,9 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
         }
       });
     }
-    if (log.structuredContent?.summary?.retirement_status) {
-       const cat = log.structuredContent.summary.retirement_status;
-       retirementStatusDist[cat] = (retirementStatusDist[cat] || 0) + 1;
+    if (log.structuredContent?.summary?.investment_status) {
+       const cat = log.structuredContent.summary.investment_status;
+       investmentStatusDist[cat] = (investmentStatusDist[cat] || 0) + 1;
     }
   });
   
@@ -834,47 +857,48 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
     widgetInteractions[humanName] = (widgetInteractions[humanName] || 0) + 1;
   });
   
-  // Age distribution from calculations
-  const ageDistribution: Record<string, number> = {};
+  // Balance distribution from calculations
+  const balanceDistribution: Record<string, number> = {};
   successLogs.forEach((log) => {
-    if (log.params?.current_age) {
-      const age = log.params.current_age;
+    if (log.params?.current_balance) {
+      const balance = log.params.current_balance;
       let bucket = "Unknown";
-      if (age < 30) bucket = "Under 30";
-      else if (age < 40) bucket = "30-39";
-      else if (age < 50) bucket = "40-49";
-      else if (age < 60) bucket = "50-59";
-      else bucket = "60+";
-      ageDistribution[bucket] = (ageDistribution[bucket] || 0) + 1;
+      if (balance < 10000) bucket = "Under $10k";
+      else if (balance < 50000) bucket = "$10k-$50k";
+      else if (balance < 100000) bucket = "$50k-$100k";
+      else if (balance < 500000) bucket = "$100k-$500k";
+      else bucket = "$500k+";
+      balanceDistribution[bucket] = (balanceDistribution[bucket] || 0) + 1;
     }
   });
 
-  // Income distribution from calculations
-  const incomeDistribution: Record<string, number> = {};
+  // Monthly contribution distribution
+  const contributionDistribution: Record<string, number> = {};
   successLogs.forEach((log) => {
-    if (log.params?.annual_pre_tax_income) {
-      const income = log.params.annual_pre_tax_income;
+    if (log.params?.monthly_contribution) {
+      const contribution = log.params.monthly_contribution;
       let bucket = "Unknown";
-      if (income < 50000) bucket = "Under $50k";
-      else if (income < 100000) bucket = "$50k-$100k";
-      else if (income < 150000) bucket = "$100k-$150k";
-      else if (income < 200000) bucket = "$150k-$200k";
-      else bucket = "$200k+";
-      incomeDistribution[bucket] = (incomeDistribution[bucket] || 0) + 1;
+      if (contribution < 100) bucket = "Under $100";
+      else if (contribution < 500) bucket = "$100-$500";
+      else if (contribution < 1000) bucket = "$500-$1,000";
+      else if (contribution < 2000) bucket = "$1,000-$2,000";
+      else bucket = "$2,000+";
+      contributionDistribution[bucket] = (contributionDistribution[bucket] || 0) + 1;
     }
   });
 
-  // Retirement age targets
-  const retirementAgeTargets: Record<string, number> = {};
+  // Time horizon distribution
+  const timeHorizonDist: Record<string, number> = {};
   successLogs.forEach((log) => {
-    if (log.params?.retirement_age) {
-      const age = log.params.retirement_age;
+    if (log.params?.time_horizon) {
+      const years = log.params.time_horizon;
       let bucket = "Unknown";
-      if (age < 60) bucket = "Before 60";
-      else if (age < 65) bucket = "60-64";
-      else if (age < 70) bucket = "65-69";
-      else bucket = "70+";
-      retirementAgeTargets[bucket] = (retirementAgeTargets[bucket] || 0) + 1;
+      if (years < 5) bucket = "Under 5 years";
+      else if (years < 10) bucket = "5-10 years";
+      else if (years < 20) bucket = "10-20 years";
+      else if (years < 30) bucket = "20-30 years";
+      else bucket = "30+ years";
+      timeHorizonDist[bucket] = (timeHorizonDist[bucket] || 0) + 1;
     }
   });
 
@@ -902,7 +926,7 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Retirement Calculator Analytics</title>
+  <title>Investment Calculator Analytics</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 20px; }
@@ -929,7 +953,7 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
 </head>
 <body>
   <div class="container">
-    <h1>📊 Retirement Calculator Analytics</h1>
+    <h1>📊 Investment Calculator Analytics</h1>
     <p class="subtitle">Last 7 days • Auto-refresh every 60s</p>
     
     <div class="grid">
@@ -987,12 +1011,12 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
 
     <div class="grid" style="margin-bottom: 20px;">
       <div class="card">
-        <h2>Retirement Status Categories</h2>
+        <h2>Investment Status Categories</h2>
         <table>
           <thead><tr><th>Category</th><th>Count</th></tr></thead>
           <tbody>
-            ${Object.entries(retirementStatusDist).length > 0 ? Object.entries(retirementStatusDist)
-              .sort((a, b) => b[1] - a[1])
+            ${Object.entries(investmentStatusDist).length > 0 ? Object.entries(investmentStatusDist)
+              .sort((a, b) => (b[1] as number) - (a[1] as number))
               .map(
                 ([cat, count]) => `
               <tr>
@@ -1050,16 +1074,16 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
 
     <div class="grid" style="margin-bottom: 20px;">
       <div class="card">
-        <h2>User Age Distribution</h2>
+        <h2>Starting Balance Distribution</h2>
         <table>
-          <thead><tr><th>Age Range</th><th>Users</th></tr></thead>
+          <thead><tr><th>Balance Range</th><th>Users</th></tr></thead>
           <tbody>
-            ${Object.entries(ageDistribution).length > 0 ? Object.entries(ageDistribution)
-              .sort((a, b) => b[1] - a[1])
+            ${Object.entries(balanceDistribution).length > 0 ? Object.entries(balanceDistribution)
+              .sort((a, b) => (b[1] as number) - (a[1] as number))
               .map(
-                ([age, count]) => `
+                ([balance, count]) => `
               <tr>
-                <td>${age}</td>
+                <td>${balance}</td>
                 <td>${count}</td>
               </tr>
             `
@@ -1070,16 +1094,16 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
       </div>
       
       <div class="card">
-        <h2>Income Distribution</h2>
+        <h2>Monthly Contribution Distribution</h2>
         <table>
-          <thead><tr><th>Income Range</th><th>Users</th></tr></thead>
+          <thead><tr><th>Contribution Range</th><th>Users</th></tr></thead>
           <tbody>
-            ${Object.entries(incomeDistribution).length > 0 ? Object.entries(incomeDistribution)
-              .sort((a, b) => b[1] - a[1])
+            ${Object.entries(contributionDistribution).length > 0 ? Object.entries(contributionDistribution)
+              .sort((a, b) => (b[1] as number) - (a[1] as number))
               .map(
-                ([income, count]) => `
+                ([contribution, count]) => `
               <tr>
-                <td>${income}</td>
+                <td>${contribution}</td>
                 <td>${count}</td>
               </tr>
             `
@@ -1090,16 +1114,16 @@ function generateAnalyticsDashboard(logs: AnalyticsEvent[], alerts: AlertEntry[]
       </div>
       
       <div class="card">
-        <h2>Target Retirement Age</h2>
+        <h2>Time Horizon Distribution</h2>
         <table>
-          <thead><tr><th>Age Range</th><th>Users</th></tr></thead>
+          <thead><tr><th>Years</th><th>Users</th></tr></thead>
           <tbody>
-            ${Object.entries(retirementAgeTargets).length > 0 ? Object.entries(retirementAgeTargets)
-              .sort((a, b) => b[1] - a[1])
+            ${Object.entries(timeHorizonDist).length > 0 ? Object.entries(timeHorizonDist)
+              .sort((a, b) => (b[1] as number) - (a[1] as number))
               .map(
-                ([age, count]) => `
+                ([years, count]) => `
               <tr>
-                <td>${age}</td>
+                <td>${years}</td>
                 <td>${count}</td>
               </tr>
             `
@@ -1415,8 +1439,8 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
     // Support both old (settlementId/settlementName) and new (topicId/topicName) field names
     const parsed = JSON.parse(body);
     const email = parsed.email;
-    const topicId = parsed.topicId || parsed.settlementId || "retirement-news";
-    const topicName = parsed.topicName || parsed.settlementName || "Retirement Calculator Updates";
+    const topicId = parsed.topicId || parsed.settlementId || "investment-news";
+    const topicName = parsed.topicName || parsed.settlementName || "Investment Calculator Updates";
     const turnstileToken = parsed.turnstileToken;
 
     if (!email || !email.includes("@")) {
@@ -1446,7 +1470,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
       await subscribeToButtondown(email, topicId, topicName);
       res.writeHead(200).end(JSON.stringify({ 
         success: true, 
-        message: "Successfully subscribed! You'll receive retirement planning tips and updates." 
+        message: "Successfully subscribed! You'll receive investment tips and updates." 
       }));
     } catch (subscribeError: any) {
       const rawMessage = String(subscribeError?.message ?? "").trim();
