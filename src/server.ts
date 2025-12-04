@@ -414,7 +414,7 @@ function createInvestmentCalculatorServer(): Server {
       }
 
       // Inject current FRED rate into HTML before sending to ChatGPT
-      // (Logic removed for Retirement calculator)
+      // (Logic removed for Investment calculator)
       let htmlToSend = widget.html;
       
       if (TURNSTILE_SITE_KEY) {
@@ -1641,7 +1641,7 @@ const httpServer = createServer(
     }
 
     // Serve alias for legacy loader path -> our main widget HTML
-    if (req.method === "GET" && (url.pathname === "/assets/retirement-calculator.html" || url.pathname === "/assets/investment-calculator.html")) {
+    if (req.method === "GET" && url.pathname === "/assets/investment-calculator.html") {
       const mainAssetPath = path.join(ASSETS_DIR, "investment-calculator.html");
       if (fs.existsSync(mainAssetPath) && fs.statSync(mainAssetPath).isFile()) {
         res.writeHead(200, {
