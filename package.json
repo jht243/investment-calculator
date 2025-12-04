@@ -1,13 +1,13 @@
 {
-  "name": "retirement-calculator-mcp-node",
+  "name": "investment-calculator-mcp-node",
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "description": "Retirement Calculator — calculate retirement metrics. Analysis of retirement data.",
+  "description": "Investment Calculator — calculate investment growth. Analysis of investment data.",
   "keywords": [
-    "retirement calculator",
+    "investment calculator",
     "financial calculator",
-    "retirement",
+    "investment",
     "finance"
   ],
   "scripts": {

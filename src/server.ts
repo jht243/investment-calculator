@@ -30,7 +30,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 
-type RetirementCalculatorWidget = {
+type InvestmentCalculatorWidget = {
   id: string;
   title: string;
   templateUri: string;
@@ -200,18 +200,18 @@ function readWidgetHtml(componentName: string): string {
 // Added timestamp suffix to force cache invalidation for width fix
 const VERSION = (process.env.RENDER_GIT_COMMIT?.slice(0, 7) || Date.now().toString()) + '-' + Date.now();
 
-function widgetMeta(widget: RetirementCalculatorWidget, bustCache: boolean = false) {
+function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = false) {
   const templateUri = bustCache
-    ? `ui://widget/retirement-calculator.html?v=${VERSION}`
+    ? `ui://widget/investment-calculator.html?v=${VERSION}`
     : widget.templateUri;
 
   return {
     "openai/outputTemplate": templateUri,
     "openai/widgetDescription":
-      "A comprehensive retirement calculator for Retirement planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
+      "A comprehensive investment calculator for investment planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
     "openai/componentDescriptions": {
       "metrics-form": "Input form for income, savings, and age.",
-      "retirement-card": "Card displaying the calculated Retirement and retirement category.",
+      "retirement-card": "Card displaying the calculated investment growth.",
       "projected-savings-card": "Card showing the estimated projected savings.",
     },
     "openai/widgetKeywords": [
@@ -219,39 +219,38 @@ function widgetMeta(widget: RetirementCalculatorWidget, bustCache: boolean = fal
       "planning",
       "income",
       "savings",
-      "retirement calculator",
+      "investment calculator",
       "finance",
       "investment"
     ],
     "openai/sampleConversations": [
-      { "user": "Calculate my Retirement", "assistant": "Here is the Retirement Calculator. You can enter your income, savings, and age when ready, or I can help calculate if you provide them." },
-      { "user": "Calculate my Retirement, I am 35 years old, make $100,000, and have $50,000 in savings.", "assistant": "I can help with that. Here is your Retirement calculation." },
+      { "user": "Calculate my investment growth", "assistant": "Here is the Investment Calculator. You can enter your income, savings, and age when ready, or I can help calculate if you provide them." },
+      { "user": "Calculate my investments, I am 35 years old, make $100,000, and have $50,000 in savings.", "assistant": "I can help with that. Here is your investment calculation." },
       { "user": "What is my projected savings if I'm 40 years old, make $80,000, and have $30,000 in savings?", "assistant": "I've estimated your projected savings based on your income, savings, and age." },
     ],
     "openai/starterPrompts": [
-      "Calculate My Retirement",
+      "Calculate My Investments",
       "Retirement Planning",
       "Income Calculator",
       "Savings Calculator",
-      "Retirement Calculator",
-      "Finance Calculator",
       "Investment Calculator",
+      "Finance Calculator",
     ],
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": {
       connect_domains: [
         "https://api.stlouisfed.org",
-        "https://retirement-calculator.onrender.com",
+        "https://investment-calculator.onrender.com",
         "http://localhost:8010",
         "https://challenges.cloudflare.com"
       ],
       script_src_domains: [
-        "https://retirement-calculator.onrender.com",
+        "https://investment-calculator.onrender.com",
         "https://challenges.cloudflare.com"
       ],
       resource_domains: [],
     },
-    "openai/widgetDomain": "https://chatgpt.com",
+    "openai/widgetDomain": "https://web-sandbox.oaiusercontent.com",
     "openai/toolInvocation/invoking": widget.invoking,
     "openai/toolInvocation/invoked": widget.invoked,
     "openai/widgetAccessible": true,
@@ -259,21 +258,21 @@ function widgetMeta(widget: RetirementCalculatorWidget, bustCache: boolean = fal
   } as const;
 }
 
-const widgets: RetirementCalculatorWidget[] = [
+const widgets: InvestmentCalculatorWidget[] = [
   {
-    id: "retirement-calculator",
-    title: "Retirement Calculator — analyze retirement and finance",
-    templateUri: `ui://widget/retirement-calculator.html?v=${VERSION}`,
+    id: "investment-calculator",
+    title: "Investment Calculator — analyze investment growth",
+    templateUri: `ui://widget/investment-calculator.html?v=${VERSION}`,
     invoking:
-      "Opening the Retirement Calculator...",
+      "Opening the Investment Calculator...",
     invoked:
-      "Here is the Retirement Calculator. Enter your income, savings, and age to calculate your retirement metrics.",
-    html: readWidgetHtml("retirement-calculator"),
+      "Here is the Investment Calculator. Enter your income, savings, and age to calculate your investment metrics.",
+    html: readWidgetHtml("investment-calculator"),
   },
 ];
 
-const widgetsById = new Map<string, RetirementCalculatorWidget>();
-const widgetsByUri = new Map<string, RetirementCalculatorWidget>();
+const widgetsById = new Map<string, InvestmentCalculatorWidget>();
+const widgetsByUri = new Map<string, InvestmentCalculatorWidget>();
 
 widgets.forEach((widget) => {
   widgetsById.set(widget.id, widget);
@@ -319,7 +318,7 @@ const toolInputParser = z.object({
 const tools: Tool[] = widgets.map((widget) => ({
   name: widget.id,
   description:
-    "Use this for Retirement planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
+    "Use this for Investment planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
   inputSchema: toolInputSchema,
   outputSchema: {
     type: "object",
@@ -349,6 +348,7 @@ const tools: Tool[] = widgets.map((widget) => ({
   securitySchemes: [{ type: "noauth" }],
   _meta: {
     ...widgetMeta(widget),
+    "openai/visibility": "public",
     securitySchemes: [{ type: "noauth" }],
   },
   annotations: {
@@ -362,7 +362,7 @@ const resources: Resource[] = widgets.map((widget) => ({
   uri: widget.templateUri,
   name: widget.title,
   description:
-    "HTML template for the Retirement, Planning, Income, and Asset Allocation Retirement Calculator widget.",
+    "HTML template for the Investment, Planning, Income, and Asset Allocation Investment Calculator widget.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
@@ -371,18 +371,18 @@ const resourceTemplates: ResourceTemplate[] = widgets.map((widget) => ({
   uriTemplate: widget.templateUri,
   name: widget.title,
   description:
-    "Template descriptor for the Retirement, Planning, Income, and Asset Allocation Retirement Calculator widget.",
+    "Template descriptor for the Investment, Planning, Income, and Asset Allocation Investment Calculator widget.",
   mimeType: "text/html+skybridge",
   _meta: widgetMeta(widget),
 }));
 
-function createRetirementCalculatorServer(): Server {
+function createInvestmentCalculatorServer(): Server {
   const server = new Server(
     {
-      name: "retirement-calculator",
+      name: "investment-calculator",
       version: "0.1.0",
       description:
-        "Retirement Calculator is a comprehensive app for analyzing retirement metrics.",
+        "Investment Calculator is a comprehensive app for analyzing investment metrics.",
     },
     {
       capabilities: {
@@ -622,8 +622,13 @@ function createRetirementCalculatorServer(): Server {
           }
         } catch {}
 
+        // Construct text content for the transcript
+        const summaryText = structured.summary?.retirement_status
+          ? `Retirement Status: ${structured.summary.retirement_status} (Score: ${structured.summary.retirement_score}).`
+          : "Please enter your details in the calculator widget.";
+
         return {
-          content: [],
+          content: [{ type: "text", text: summaryText }],
           structuredContent: structured,
           _meta: metaForReturn,
         };
@@ -1499,7 +1504,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
 
 async function handleSseRequest(res: ServerResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const server = createRetirementCalculatorServer();
+  const server = createInvestmentCalculatorServer();
   const transport = new SSEServerTransport(postPath, res);
   const sessionId = transport.sessionId;
 
@@ -1612,8 +1617,8 @@ const httpServer = createServer(
     }
 
     // Serve alias for legacy loader path -> our main widget HTML
-    if (req.method === "GET" && url.pathname === "/assets/retirement-calculator.html") {
-      const mainAssetPath = path.join(ASSETS_DIR, "retirement-calculator.html");
+    if (req.method === "GET" && (url.pathname === "/assets/retirement-calculator.html" || url.pathname === "/assets/investment-calculator.html")) {
+      const mainAssetPath = path.join(ASSETS_DIR, "investment-calculator.html");
       if (fs.existsSync(mainAssetPath) && fs.statSync(mainAssetPath).isFile()) {
         res.writeHead(200, {
           "Content-Type": "text/html",
@@ -1649,7 +1654,7 @@ const httpServer = createServer(
         });
 
         // If serving the main widget HTML, inject the current rate into the badge
-        if (ext === ".html" && path.basename(assetPath) === "retirement-calculator.html") {
+        if (ext === ".html" && path.basename(assetPath) === "investment-calculator.html") {
           try {
             let html = fs.readFileSync(assetPath, "utf8");
             
@@ -1681,7 +1686,7 @@ httpServer.on("clientError", (err: Error, socket) => {
 });
 
 httpServer.listen(port, () => {
-  console.log(`Retirement Calculator MCP server listening on http://localhost:${port}`);
+  console.log(`Investment Calculator MCP server listening on http://localhost:${port}`);
   console.log(`  SSE stream: GET http://localhost:${port}${ssePath}`);
   console.log(
     `  Message post endpoint: POST http://localhost:${port}${postPath}?sessionId=...`

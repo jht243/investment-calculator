@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import RetirementCalculatorHelloWorld from "./component";
+import InvestmentCalculator from "./component";
 
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
@@ -107,13 +107,13 @@ const getHydrationData = (): any => {
   return {};
 };
 
-console.log("[Main] Retirement Calculator main.tsx loading...");
+console.log("[Main] Investment Calculator main.tsx loading...");
 
 // Get initial data
-const container = document.getElementById("retirement-calculator-root");
+const container = document.getElementById("investment-calculator-root");
 
 if (!container) {
-  throw new Error("retirement-calculator-root element not found");
+  throw new Error("investment-calculator-root element not found");
 }
 
 const root = createRoot(container);
@@ -122,7 +122,7 @@ const renderApp = (data: any) => {
   root.render(
     <React.StrictMode>
       <ErrorBoundary>
-        <RetirementCalculatorHelloWorld key={Date.now()} initialData={data} />
+        <InvestmentCalculator key={Date.now()} initialData={data} />
       </ErrorBoundary>
     </React.StrictMode>
   );

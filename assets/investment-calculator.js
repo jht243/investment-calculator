@@ -299,8 +299,8 @@ var require_react_development = __commonJS({
           return refObject;
         }
         var isArrayImpl = Array.isArray;
-        function isArray2(a) {
-          return isArrayImpl(a);
+        function isArray2(a2) {
+          return isArrayImpl(a2);
         }
         function typeName(value) {
           {
@@ -581,7 +581,7 @@ var require_react_development = __commonJS({
           var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
           return newElement;
         }
-        function cloneElement9(element, config, children) {
+        function cloneElement6(element, config, children) {
           if (element === null || element === void 0) {
             throw new Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
           }
@@ -629,7 +629,7 @@ var require_react_development = __commonJS({
           }
           return ReactElement(element.type, key, ref, self2, source, owner, props);
         }
-        function isValidElement16(object) {
+        function isValidElement13(object) {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
         var SEPARATOR = ".";
@@ -690,11 +690,11 @@ var require_react_development = __commonJS({
               if (childKey != null) {
                 escapedChildKey = escapeUserProvidedKey(childKey) + "/";
               }
-              mapIntoArray(mappedChild, array, escapedChildKey, "", function(c) {
-                return c;
+              mapIntoArray(mappedChild, array, escapedChildKey, "", function(c2) {
+                return c2;
               });
             } else if (mappedChild != null) {
-              if (isValidElement16(mappedChild)) {
+              if (isValidElement13(mappedChild)) {
                 {
                   if (mappedChild.key && (!_child || _child.key !== mappedChild.key)) {
                     checkKeyStringCoercion(mappedChild.key);
@@ -776,18 +776,18 @@ var require_react_development = __commonJS({
             forEachFunc.apply(this, arguments);
           }, forEachContext);
         }
-        function toArray(children) {
+        function toArray2(children) {
           return mapChildren(children, function(child) {
             return child;
           }) || [];
         }
         function onlyChild(children) {
-          if (!isValidElement16(children)) {
+          if (!isValidElement13(children)) {
             throw new Error("React.Children.only expected to receive a single React element child.");
           }
           return children;
         }
-        function createContext12(defaultValue) {
+        function createContext13(defaultValue) {
           var context = {
             $$typeof: REACT_CONTEXT_TYPE,
             // As a workaround to support multiple concurrent renderers, we categorize
@@ -1073,7 +1073,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher;
         }
-        function useContext12(Context) {
+        function useContext13(Context) {
           var dispatcher = resolveDispatcher();
           {
             if (Context._context !== void 0) {
@@ -1087,7 +1087,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context);
         }
-        function useState12(initialState13) {
+        function useState13(initialState13) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState13);
         }
@@ -1095,11 +1095,11 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useReducer(reducer, initialArg, init);
         }
-        function useRef15(initialValue) {
+        function useRef18(initialValue) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect15(create, deps) {
+        function useEffect16(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -1115,7 +1115,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useCallback(callback, deps);
         }
-        function useMemo8(create, deps) {
+        function useMemo7(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useMemo(create, deps);
         }
@@ -1224,18 +1224,18 @@ var require_react_development = __commonJS({
           }
         }
         var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
-        var prefix;
+        var prefix2;
         function describeBuiltInComponentFrame(name, source, ownerFn) {
           {
-            if (prefix === void 0) {
+            if (prefix2 === void 0) {
               try {
                 throw Error();
               } catch (x2) {
                 var match = x2.stack.trim().match(/\n( *(at )?)/);
-                prefix = match && match[1] || "";
+                prefix2 = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix2 + name;
           }
         }
         var reentry = false;
@@ -1301,19 +1301,19 @@ var require_react_development = __commonJS({
             if (sample && control && typeof sample.stack === "string") {
               var sampleLines = sample.stack.split("\n");
               var controlLines = control.stack.split("\n");
-              var s = sampleLines.length - 1;
-              var c = controlLines.length - 1;
-              while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                c--;
+              var s2 = sampleLines.length - 1;
+              var c2 = controlLines.length - 1;
+              while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                c2--;
               }
-              for (; s >= 1 && c >= 0; s--, c--) {
-                if (sampleLines[s] !== controlLines[c]) {
-                  if (s !== 1 || c !== 1) {
+              for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                if (sampleLines[s2] !== controlLines[c2]) {
+                  if (s2 !== 1 || c2 !== 1) {
                     do {
-                      s--;
-                      c--;
-                      if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                        var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                      s2--;
+                      c2--;
+                      if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                        var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                         if (fn.displayName && _frame.includes("<anonymous>")) {
                           _frame = _frame.replace("<anonymous>", fn.displayName);
                         }
@@ -1324,7 +1324,7 @@ var require_react_development = __commonJS({
                         }
                         return _frame;
                       }
-                    } while (s >= 1 && c >= 0);
+                    } while (s2 >= 1 && c2 >= 0);
                   }
                   break;
                 }
@@ -1513,11 +1513,11 @@ var require_react_development = __commonJS({
           if (isArray2(node)) {
             for (var i = 0; i < node.length; i++) {
               var child = node[i];
-              if (isValidElement16(child)) {
+              if (isValidElement13(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement16(node)) {
+          } else if (isValidElement13(node)) {
             if (node._store) {
               node._store.validated = true;
             }
@@ -1528,7 +1528,7 @@ var require_react_development = __commonJS({
                 var iterator = iteratorFn.call(node);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement16(step.value)) {
+                  if (isValidElement13(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -1651,7 +1651,7 @@ var require_react_development = __commonJS({
           return validatedFactory;
         }
         function cloneElementWithValidation(element, props, children) {
-          var newElement = cloneElement9.apply(this, arguments);
+          var newElement = cloneElement6.apply(this, arguments);
           for (var i = 2; i < arguments.length; i++) {
             validateChildKeys(arguments[i], newElement.type);
           }
@@ -1855,7 +1855,7 @@ var require_react_development = __commonJS({
           map: mapChildren,
           forEach: forEachChildren,
           count: countChildren,
-          toArray,
+          toArray: toArray2,
           only: onlyChild
         };
         exports.Children = Children2;
@@ -1868,29 +1868,29 @@ var require_react_development = __commonJS({
         exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
         exports.act = act;
         exports.cloneElement = cloneElement$1;
-        exports.createContext = createContext12;
+        exports.createContext = createContext13;
         exports.createElement = createElement$1;
         exports.createFactory = createFactory;
         exports.createRef = createRef;
         exports.forwardRef = forwardRef15;
-        exports.isValidElement = isValidElement16;
+        exports.isValidElement = isValidElement13;
         exports.lazy = lazy;
         exports.memo = memo7;
         exports.startTransition = startTransition;
         exports.unstable_act = act;
         exports.useCallback = useCallback7;
-        exports.useContext = useContext12;
+        exports.useContext = useContext13;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect15;
+        exports.useEffect = useEffect16;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle3;
         exports.useInsertionEffect = useInsertionEffect;
         exports.useLayoutEffect = useLayoutEffect9;
-        exports.useMemo = useMemo8;
+        exports.useMemo = useMemo7;
         exports.useReducer = useReducer;
-        exports.useRef = useRef15;
-        exports.useState = useState12;
+        exports.useRef = useRef18;
+        exports.useState = useState13;
         exports.useSyncExternalStore = useSyncExternalStore2;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -1989,9 +1989,9 @@ var require_scheduler_development = __commonJS({
             }
           }
         }
-        function compare(a, b) {
-          var diff = a.sortIndex - b.sortIndex;
-          return diff !== 0 ? diff : a.id - b.id;
+        function compare(a2, b) {
+          var diff = a2.sortIndex - b.sortIndex;
+          return diff !== 0 ? diff : a2.id - b.id;
         }
         var ImmediatePriority = 1;
         var UserBlockingPriority = 2;
@@ -2437,7 +2437,7 @@ var require_react_dom_development = __commonJS({
         var HostPortal = 4;
         var HostComponent = 5;
         var HostText = 6;
-        var Fragment10 = 7;
+        var Fragment9 = 7;
         var Mode = 8;
         var ContextConsumer = 9;
         var ContextProvider = 10;
@@ -2617,8 +2617,8 @@ var require_react_dom_development = __commonJS({
               if (propertyInfo !== null) {
                 return !propertyInfo.acceptsBooleans;
               } else {
-                var prefix2 = name.toLowerCase().slice(0, 5);
-                return prefix2 !== "data-" && prefix2 !== "aria-";
+                var prefix3 = name.toLowerCase().slice(0, 5);
+                return prefix3 !== "data-" && prefix3 !== "aria-";
               }
             }
             default:
@@ -3290,18 +3290,18 @@ var require_react_dom_development = __commonJS({
           }
         }
         var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
-        var prefix;
+        var prefix2;
         function describeBuiltInComponentFrame(name, source, ownerFn) {
           {
-            if (prefix === void 0) {
+            if (prefix2 === void 0) {
               try {
                 throw Error();
               } catch (x2) {
                 var match = x2.stack.trim().match(/\n( *(at )?)/);
-                prefix = match && match[1] || "";
+                prefix2 = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix2 + name;
           }
         }
         var reentry = false;
@@ -3367,19 +3367,19 @@ var require_react_dom_development = __commonJS({
             if (sample && control && typeof sample.stack === "string") {
               var sampleLines = sample.stack.split("\n");
               var controlLines = control.stack.split("\n");
-              var s = sampleLines.length - 1;
-              var c = controlLines.length - 1;
-              while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                c--;
+              var s2 = sampleLines.length - 1;
+              var c2 = controlLines.length - 1;
+              while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                c2--;
               }
-              for (; s >= 1 && c >= 0; s--, c--) {
-                if (sampleLines[s] !== controlLines[c]) {
-                  if (s !== 1 || c !== 1) {
+              for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                if (sampleLines[s2] !== controlLines[c2]) {
+                  if (s2 !== 1 || c2 !== 1) {
                     do {
-                      s--;
-                      c--;
-                      if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                        var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                      s2--;
+                      c2--;
+                      if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                        var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                         if (fn.displayName && _frame.includes("<anonymous>")) {
                           _frame = _frame.replace("<anonymous>", fn.displayName);
                         }
@@ -3390,7 +3390,7 @@ var require_react_dom_development = __commonJS({
                         }
                         return _frame;
                       }
-                    } while (s >= 1 && c >= 0);
+                    } while (s2 >= 1 && c2 >= 0);
                   }
                   break;
                 }
@@ -3593,7 +3593,7 @@ var require_react_dom_development = __commonJS({
               return "DehydratedFragment";
             case ForwardRef2:
               return getWrappedName$1(type, type.render, "ForwardRef");
-            case Fragment10:
+            case Fragment9:
               return "Fragment";
             case HostComponent:
               return type;
@@ -3756,11 +3756,11 @@ var require_react_dom_development = __commonJS({
           if (node.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
             return;
           }
-          var get6 = descriptor.get, set4 = descriptor.set;
+          var get7 = descriptor.get, set4 = descriptor.set;
           Object.defineProperty(node, valueField, {
             configurable: true,
             get: function() {
-              return get6.call(this);
+              return get7.call(this);
             },
             set: function(value) {
               {
@@ -4024,8 +4024,8 @@ var require_react_dom_development = __commonJS({
           }
         }
         var isArrayImpl = Array.isArray;
-        function isArray2(a) {
-          return isArrayImpl(a);
+        function isArray2(a2) {
+          return isArrayImpl(a2);
         }
         var didWarnValueDefaultValue$1;
         {
@@ -4386,13 +4386,13 @@ var require_react_dom_development = __commonJS({
           strokeOpacity: true,
           strokeWidth: true
         };
-        function prefixKey(prefix2, key) {
-          return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
+        function prefixKey(prefix3, key) {
+          return prefix3 + key.charAt(0).toUpperCase() + key.substring(1);
         }
         var prefixes2 = ["Webkit", "ms", "Moz", "O"];
         Object.keys(isUnitlessNumber).forEach(function(prop) {
-          prefixes2.forEach(function(prefix2) {
-            isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
+          prefixes2.forEach(function(prefix3) {
+            isUnitlessNumber[prefixKey(prefix3, prop)] = isUnitlessNumber[prop];
           });
         });
         function dangerousStyleValue(name, value, isCustomProperty) {
@@ -5479,13 +5479,13 @@ var require_react_dom_development = __commonJS({
             restoreStateIfNeeded();
           }
         }
-        function batchedUpdates(fn, a, b) {
+        function batchedUpdates(fn, a2, b) {
           if (isInsideEventHandler) {
-            return fn(a, b);
+            return fn(a2, b);
           }
           isInsideEventHandler = true;
           try {
-            return batchedUpdatesImpl(fn, a, b);
+            return batchedUpdatesImpl(fn, a2, b);
           } finally {
             isInsideEventHandler = false;
             finishEventHandler();
@@ -5549,7 +5549,7 @@ var require_react_dom_development = __commonJS({
             passiveBrowserEventsSupported = false;
           }
         }
-        function invokeGuardedCallbackProd(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallbackProd(name, func, context, a2, b, c2, d, e, f) {
           var funcArgs = Array.prototype.slice.call(arguments, 3);
           try {
             func.apply(context, funcArgs);
@@ -5561,7 +5561,7 @@ var require_react_dom_development = __commonJS({
         {
           if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
             var fakeNode = document.createElement("react");
-            invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a, b, c, d, e, f) {
+            invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a2, b, c2, d, e, f) {
               if (typeof document === "undefined" || document === null) {
                 throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
               }
@@ -5636,12 +5636,12 @@ var require_react_dom_development = __commonJS({
             caughtError = error2;
           }
         };
-        function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallback(name, func, context, a2, b, c2, d, e, f) {
           hasError = false;
           caughtError = null;
           invokeGuardedCallbackImpl$1.apply(reporter, arguments);
         }
-        function invokeGuardedCallbackAndCatchFirstError(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallbackAndCatchFirstError(name, func, context, a2, b, c2, d, e, f) {
           invokeGuardedCallback.apply(this, arguments);
           if (hasError) {
             var error2 = clearCaughtError();
@@ -5672,7 +5672,7 @@ var require_react_dom_development = __commonJS({
             throw new Error("clearCaughtError was called but no error was captured. This error is likely caused by a bug in React. Please file an issue.");
           }
         }
-        function get5(key) {
+        function get6(key) {
           return key._reactInternals;
         }
         function has3(key) {
@@ -5847,7 +5847,7 @@ var require_react_dom_development = __commonJS({
               instance._warnedAboutRefsInRender = true;
             }
           }
-          var fiber = get5(component);
+          var fiber = get6(component);
           if (!fiber) {
             return false;
           }
@@ -5870,10 +5870,10 @@ var require_react_dom_development = __commonJS({
             }
             return fiber;
           }
-          var a = fiber;
+          var a2 = fiber;
           var b = alternate;
           while (true) {
-            var parentA = a.return;
+            var parentA = a2.return;
             if (parentA === null) {
               break;
             }
@@ -5881,7 +5881,7 @@ var require_react_dom_development = __commonJS({
             if (parentB === null) {
               var nextParent = parentA.return;
               if (nextParent !== null) {
-                a = b = nextParent;
+                a2 = b = nextParent;
                 continue;
               }
               break;
@@ -5889,7 +5889,7 @@ var require_react_dom_development = __commonJS({
             if (parentA.child === parentB.child) {
               var child = parentA.child;
               while (child) {
-                if (child === a) {
+                if (child === a2) {
                   assertIsMounted(parentA);
                   return fiber;
                 }
@@ -5901,23 +5901,23 @@ var require_react_dom_development = __commonJS({
               }
               throw new Error("Unable to find node on an unmounted component.");
             }
-            if (a.return !== b.return) {
-              a = parentA;
+            if (a2.return !== b.return) {
+              a2 = parentA;
               b = parentB;
             } else {
               var didFindChild = false;
               var _child = parentA.child;
               while (_child) {
-                if (_child === a) {
+                if (_child === a2) {
                   didFindChild = true;
-                  a = parentA;
+                  a2 = parentA;
                   b = parentB;
                   break;
                 }
                 if (_child === b) {
                   didFindChild = true;
                   b = parentA;
-                  a = parentB;
+                  a2 = parentB;
                   break;
                 }
                 _child = _child.sibling;
@@ -5925,16 +5925,16 @@ var require_react_dom_development = __commonJS({
               if (!didFindChild) {
                 _child = parentB.child;
                 while (_child) {
-                  if (_child === a) {
+                  if (_child === a2) {
                     didFindChild = true;
-                    a = parentB;
+                    a2 = parentB;
                     b = parentA;
                     break;
                   }
                   if (_child === b) {
                     didFindChild = true;
                     b = parentB;
-                    a = parentA;
+                    a2 = parentA;
                     break;
                   }
                   _child = _child.sibling;
@@ -5944,14 +5944,14 @@ var require_react_dom_development = __commonJS({
                 }
               }
             }
-            if (a.alternate !== b) {
+            if (a2.alternate !== b) {
               throw new Error("Return fibers should always be each others' alternates. This error is likely caused by a bug in React. Please file an issue.");
             }
           }
-          if (a.tag !== HostRoot) {
+          if (a2.tag !== HostRoot) {
             throw new Error("Unable to find node on an unmounted component.");
           }
-          if (a.stateNode.current === a) {
+          if (a2.stateNode.current === a2) {
             return fiber;
           }
           return alternate;
@@ -6808,26 +6808,26 @@ var require_react_dom_development = __commonJS({
         function laneToIndex(lane) {
           return pickArbitraryLaneIndex(lane);
         }
-        function includesSomeLane(a, b) {
-          return (a & b) !== NoLanes;
+        function includesSomeLane(a2, b) {
+          return (a2 & b) !== NoLanes;
         }
         function isSubsetOfLanes(set4, subset) {
           return (set4 & subset) === subset;
         }
-        function mergeLanes(a, b) {
-          return a | b;
+        function mergeLanes(a2, b) {
+          return a2 | b;
         }
         function removeLanes(set4, subset) {
           return set4 & ~subset;
         }
-        function intersectLanes(a, b) {
-          return a & b;
+        function intersectLanes(a2, b) {
+          return a2 & b;
         }
         function laneToLanes(lane) {
           return lane;
         }
-        function higherPriorityLane(a, b) {
-          return a !== NoLane && a < b ? a : b;
+        function higherPriorityLane(a2, b) {
+          return a2 !== NoLane && a2 < b ? a2 : b;
         }
         function createLaneMap(initial) {
           var laneMap = [];
@@ -7004,14 +7004,14 @@ var require_react_dom_development = __commonJS({
             currentUpdatePriority = previousPriority;
           }
         }
-        function higherEventPriority(a, b) {
-          return a !== 0 && a < b ? a : b;
+        function higherEventPriority(a2, b) {
+          return a2 !== 0 && a2 < b ? a2 : b;
         }
-        function lowerEventPriority(a, b) {
-          return a === 0 || a > b ? a : b;
+        function lowerEventPriority(a2, b) {
+          return a2 === 0 || a2 > b ? a2 : b;
         }
-        function isHigherEventPriority(a, b) {
-          return a !== 0 && a < b;
+        function isHigherEventPriority(a2, b) {
+          return a2 !== 0 && a2 < b;
         }
         function lanesToEventPriority(lanes) {
           var lane = getHighestPriorityLane(lanes);
@@ -11976,7 +11976,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           function updateFragment2(returnFiber, current4, fragment, lanes, key) {
-            if (current4 === null || current4.tag !== Fragment10) {
+            if (current4 === null || current4.tag !== Fragment9) {
               var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
               created.return = returnFiber;
               return created;
@@ -12379,7 +12379,7 @@ var require_react_dom_development = __commonJS({
               if (child.key === key) {
                 var elementType = element.type;
                 if (elementType === REACT_FRAGMENT_TYPE) {
-                  if (child.tag === Fragment10) {
+                  if (child.tag === Fragment9) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var existing = useFiber(child, element.props.children);
                     existing.return = returnFiber;
@@ -13180,11 +13180,11 @@ var require_react_dom_development = __commonJS({
         var contextStackCursor$1 = createCursor(NO_CONTEXT);
         var contextFiberStackCursor = createCursor(NO_CONTEXT);
         var rootInstanceStackCursor = createCursor(NO_CONTEXT);
-        function requiredContext(c) {
-          if (c === NO_CONTEXT) {
+        function requiredContext(c2) {
+          if (c2 === NO_CONTEXT) {
             throw new Error("Expected host context to exist. This error is likely caused by a bug in React. Please file an issue.");
           }
-          return c;
+          return c2;
         }
         function getRootHostContainer() {
           var rootInstance = requiredContext(rootInstanceStackCursor.current);
@@ -15360,7 +15360,7 @@ var require_react_dom_development = __commonJS({
         var classComponentUpdater = {
           isMounted,
           enqueueSetState: function(inst, payload, callback) {
-            var fiber = get5(inst);
+            var fiber = get6(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
             var update = createUpdate(eventTime, lane);
@@ -15381,7 +15381,7 @@ var require_react_dom_development = __commonJS({
             }
           },
           enqueueReplaceState: function(inst, payload, callback) {
-            var fiber = get5(inst);
+            var fiber = get6(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
             var update = createUpdate(eventTime, lane);
@@ -15403,7 +15403,7 @@ var require_react_dom_development = __commonJS({
             }
           },
           enqueueForceUpdate: function(inst, callback) {
-            var fiber = get5(inst);
+            var fiber = get6(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
             var update = createUpdate(eventTime, lane);
@@ -17854,7 +17854,7 @@ var require_react_dom_development = __commonJS({
               var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps2(type, _unresolvedProps2);
               return updateForwardRef(current4, workInProgress2, type, _resolvedProps2, renderLanes2);
             }
-            case Fragment10:
+            case Fragment9:
               return updateFragment(current4, workInProgress2, renderLanes2);
             case Mode:
               return updateMode(current4, workInProgress2, renderLanes2);
@@ -18126,7 +18126,7 @@ var require_react_dom_development = __commonJS({
             case SimpleMemoComponent:
             case FunctionComponent:
             case ForwardRef2:
-            case Fragment10:
+            case Fragment9:
             case Mode:
             case Profiler:
             case ContextConsumer:
@@ -20815,11 +20815,11 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function batchedUpdates$1(fn, a) {
+        function batchedUpdates$1(fn, a2) {
           var prevExecutionContext = executionContext;
           executionContext |= BatchedContext;
           try {
-            return fn(a);
+            return fn(a2);
           } finally {
             executionContext = prevExecutionContext;
             if (executionContext === NoContext && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
@@ -20829,13 +20829,13 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function discreteUpdates(fn, a, b, c, d) {
+        function discreteUpdates(fn, a2, b, c2, d) {
           var previousPriority = getCurrentUpdatePriority();
           var prevTransition = ReactCurrentBatchConfig$3.transition;
           try {
             ReactCurrentBatchConfig$3.transition = null;
             setCurrentUpdatePriority(DiscreteEventPriority);
-            return fn(a, b, c, d);
+            return fn(a2, b, c2, d);
           } finally {
             setCurrentUpdatePriority(previousPriority);
             ReactCurrentBatchConfig$3.transition = prevTransition;
@@ -22377,7 +22377,7 @@ var require_react_dom_development = __commonJS({
           return fiber;
         }
         function createFiberFromFragment(elements, mode, lanes, key) {
-          var fiber = createFiber(Fragment10, elements, key, mode);
+          var fiber = createFiber(Fragment9, elements, key, mode);
           fiber.lanes = lanes;
           return fiber;
         }
@@ -22578,7 +22578,7 @@ var require_react_dom_development = __commonJS({
           if (!parentComponent) {
             return emptyContextObject;
           }
-          var fiber = get5(parentComponent);
+          var fiber = get6(parentComponent);
           var parentContext = findCurrentUnmaskedContext(fiber);
           if (fiber.tag === ClassComponent) {
             var Component = fiber.type;
@@ -22590,7 +22590,7 @@ var require_react_dom_development = __commonJS({
         }
         function findHostInstanceWithWarning(component, methodName) {
           {
-            var fiber = get5(component);
+            var fiber = get6(component);
             if (fiber === void 0) {
               if (typeof component.render === "function") {
                 throw new Error("Unable to find node on an unmounted component.");
@@ -23505,18 +23505,18 @@ var require_client = __commonJS({
       exports.hydrateRoot = m.hydrateRoot;
     } else {
       i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-      exports.createRoot = function(c, o) {
+      exports.createRoot = function(c2, o) {
         i.usingClientEntryPoint = true;
         try {
-          return m.createRoot(c, o);
+          return m.createRoot(c2, o);
         } finally {
           i.usingClientEntryPoint = false;
         }
       };
-      exports.hydrateRoot = function(c, h, o) {
+      exports.hydrateRoot = function(c2, h, o) {
         i.usingClientEntryPoint = true;
         try {
-          return m.hydrateRoot(c, h, o);
+          return m.hydrateRoot(c2, h, o);
         } finally {
           i.usingClientEntryPoint = false;
         }
@@ -23686,7 +23686,7 @@ var require_get = __commonJS({
     var isDeepKey = require_isDeepKey();
     var toKey = require_toKey();
     var toPath = require_toPath();
-    function get5(object, path2, defaultValue) {
+    function get6(object, path2, defaultValue) {
       if (object == null) {
         return defaultValue;
       }
@@ -23698,7 +23698,7 @@ var require_get = __commonJS({
           const result = object[path2];
           if (result === void 0) {
             if (isDeepKey.isDeepKey(path2)) {
-              return get5(object, toPath.toPath(path2), defaultValue);
+              return get6(object, toPath.toPath(path2), defaultValue);
             } else {
               return defaultValue;
             }
@@ -23755,7 +23755,7 @@ var require_get = __commonJS({
       }
       return current3;
     }
-    exports.get = get5;
+    exports.get = get6;
   }
 });
 
@@ -23854,10 +23854,10 @@ var require_property = __commonJS({
   "node_modules/es-toolkit/dist/compat/object/property.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-    var get5 = require_get();
+    var get6 = require_get();
     function property(path2) {
       return function(object) {
-        return get5.get(object, path2);
+        return get6.get(object, path2);
       };
     }
     exports.property = property;
@@ -24512,7 +24512,7 @@ var require_matchesProperty = __commonJS({
     var isMatch = require_isMatch();
     var toKey = require_toKey();
     var cloneDeep = require_cloneDeep2();
-    var get5 = require_get();
+    var get6 = require_get();
     var has3 = require_has();
     function matchesProperty(property, source) {
       switch (typeof property) {
@@ -24529,7 +24529,7 @@ var require_matchesProperty = __commonJS({
       }
       source = cloneDeep.cloneDeep(source);
       return function(target) {
-        const result = get5.get(target, property);
+        const result = get6.get(target, property);
         if (result === void 0) {
           return has3.has(target, property);
         }
@@ -24622,7 +24622,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
             "The result of getSnapshot should be cached to avoid an infinite loop"
           ), didWarnUncachedGetSnapshot = true);
         }
-        cachedValue = useState12({
+        cachedValue = useState13({
           inst: { value, getSnapshot }
         });
         var inst = cachedValue[0].inst, forceUpdate = cachedValue[1];
@@ -24634,7 +24634,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
           },
           [subscribe, value, getSnapshot]
         );
-        useEffect15(
+        useEffect16(
           function() {
             checkIfSnapshotChanged(inst) && forceUpdate({ inst });
             return subscribe(function() {
@@ -24660,7 +24660,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
         return getSnapshot();
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React39 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is4, useState12 = React39.useState, useEffect15 = React39.useEffect, useLayoutEffect9 = React39.useLayoutEffect, useDebugValue2 = React39.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+      var React39 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is4, useState13 = React39.useState, useEffect16 = React39.useEffect, useLayoutEffect9 = React39.useLayoutEffect, useDebugValue2 = React39.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
       exports.useSyncExternalStore = void 0 !== React39.useSyncExternalStore ? React39.useSyncExternalStore : shim;
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
     })();
@@ -24688,14 +24688,14 @@ var require_with_selector_development = __commonJS({
         return x2 === y2 && (0 !== x2 || 1 / x2 === 1 / y2) || x2 !== x2 && y2 !== y2;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React39 = require_react(), shim = require_shim(), objectIs = "function" === typeof Object.is ? Object.is : is4, useSyncExternalStore2 = shim.useSyncExternalStore, useRef15 = React39.useRef, useEffect15 = React39.useEffect, useMemo8 = React39.useMemo, useDebugValue2 = React39.useDebugValue;
+      var React39 = require_react(), shim = require_shim(), objectIs = "function" === typeof Object.is ? Object.is : is4, useSyncExternalStore2 = shim.useSyncExternalStore, useRef18 = React39.useRef, useEffect16 = React39.useEffect, useMemo7 = React39.useMemo, useDebugValue2 = React39.useDebugValue;
       exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-        var instRef = useRef15(null);
+        var instRef = useRef18(null);
         if (null === instRef.current) {
           var inst = { hasValue: false, value: null };
           instRef.current = inst;
         } else inst = instRef.current;
-        instRef = useMemo8(
+        instRef = useMemo7(
           function() {
             function memoizedSelector(nextSnapshot) {
               if (!hasMemo) {
@@ -24731,7 +24731,7 @@ var require_with_selector_development = __commonJS({
           [getSnapshot, getServerSnapshot, selector, isEqual]
         );
         var value = useSyncExternalStore2(subscribe, instRef[0], instRef[1]);
-        useEffect15(
+        useEffect16(
           function() {
             inst.hasValue = true;
             inst.value = value;
@@ -24763,30 +24763,30 @@ var require_compareValues = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/compareValues.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-    function getPriority(a) {
-      if (typeof a === "symbol") {
+    function getPriority(a2) {
+      if (typeof a2 === "symbol") {
         return 1;
       }
-      if (a === null) {
+      if (a2 === null) {
         return 2;
       }
-      if (a === void 0) {
+      if (a2 === void 0) {
         return 3;
       }
-      if (a !== a) {
+      if (a2 !== a2) {
         return 4;
       }
       return 0;
     }
-    var compareValues = (a, b, order) => {
-      if (a !== b) {
-        const aPriority = getPriority(a);
+    var compareValues = (a2, b, order) => {
+      if (a2 !== b) {
+        const aPriority = getPriority(a2);
         const bPriority = getPriority(b);
         if (aPriority === bPriority && aPriority === 0) {
-          if (a < b) {
+          if (a2 < b) {
             return order === "desc" ? 1 : -1;
           }
-          if (a > b) {
+          if (a2 > b) {
             return order === "desc" ? -1 : 1;
           }
         }
@@ -24898,9 +24898,9 @@ var require_orderBy = __commonJS({
         original: item,
         criteria: preparedCriteria.map((criterion) => getValueByCriterion(criterion, item))
       }));
-      return preparedCollection.slice().sort((a, b) => {
+      return preparedCollection.slice().sort((a2, b) => {
         for (let i = 0; i < preparedCriteria.length; i++) {
-          const comparedResult = compareValues.compareValues(a.criteria[i], b.criteria[i], orders[i]);
+          const comparedResult = compareValues.compareValues(a2.criteria[i], b.criteria[i], orders[i]);
           if (comparedResult !== 0) {
             return comparedResult;
           }
@@ -25370,37 +25370,37 @@ var require_decimal = __commonJS({
         return z && e > sd ? e : sd;
       };
       P.squareRoot = P.sqrt = function() {
-        var e, n, pr, r2, s, t, wpr, x2 = this, Ctor = x2.constructor;
+        var e, n, pr, r2, s2, t, wpr, x2 = this, Ctor = x2.constructor;
         if (x2.s < 1) {
           if (!x2.s) return new Ctor(0);
           throw Error(decimalError + "NaN");
         }
         e = getBase10Exponent(x2);
         external = false;
-        s = Math.sqrt(+x2);
-        if (s == 0 || s == 1 / 0) {
+        s2 = Math.sqrt(+x2);
+        if (s2 == 0 || s2 == 1 / 0) {
           n = digitsToString(x2.d);
           if ((n.length + e) % 2 == 0) n += "0";
-          s = Math.sqrt(n);
+          s2 = Math.sqrt(n);
           e = mathfloor((e + 1) / 2) - (e < 0 || e % 2);
-          if (s == 1 / 0) {
+          if (s2 == 1 / 0) {
             n = "5e" + e;
           } else {
-            n = s.toExponential();
+            n = s2.toExponential();
             n = n.slice(0, n.indexOf("e") + 1) + e;
           }
           r2 = new Ctor(n);
         } else {
-          r2 = new Ctor(s.toString());
+          r2 = new Ctor(s2.toString());
         }
         pr = Ctor.precision;
-        s = wpr = pr + 3;
+        s2 = wpr = pr + 3;
         for (; ; ) {
           t = r2;
           r2 = t.plus(divide(x2, t, wpr + 2)).times(0.5);
           if (digitsToString(t.d).slice(0, wpr) === (n = digitsToString(r2.d)).slice(0, wpr)) {
             n = n.slice(wpr - 3, wpr + 1);
-            if (s == wpr && n == "4999") {
+            if (s2 == wpr && n == "4999") {
               round(t, pr + 1, 0);
               if (t.times(t).eq(x2)) {
                 r2 = t;
@@ -25416,7 +25416,7 @@ var require_decimal = __commonJS({
         return round(r2, pr);
       };
       P.times = P.mul = function(y2) {
-        var carry, e, i, k, r2, rL, t, xdL, ydL, x2 = this, Ctor = x2.constructor, xd = x2.d, yd = (y2 = new Ctor(y2)).d;
+        var carry, e, i, k2, r2, rL, t, xdL, ydL, x2 = this, Ctor = x2.constructor, xd = x2.d, yd = (y2 = new Ctor(y2)).d;
         if (!x2.s || !y2.s) return new Ctor(0);
         y2.s *= x2.s;
         e = x2.e + y2.e;
@@ -25435,12 +25435,12 @@ var require_decimal = __commonJS({
         for (i = rL; i--; ) r2.push(0);
         for (i = ydL; --i >= 0; ) {
           carry = 0;
-          for (k = xdL + i; k > i; ) {
-            t = r2[k] + yd[i] * xd[k - i - 1] + carry;
-            r2[k--] = t % BASE | 0;
+          for (k2 = xdL + i; k2 > i; ) {
+            t = r2[k2] + yd[i] * xd[k2 - i - 1] + carry;
+            r2[k2--] = t % BASE | 0;
             carry = t / BASE | 0;
           }
-          r2[k] = (r2[k] + carry) % BASE | 0;
+          r2[k2] = (r2[k2] + carry) % BASE | 0;
         }
         for (; !r2[--rL]; ) r2.pop();
         if (carry) ++e;
@@ -25489,7 +25489,7 @@ var require_decimal = __commonJS({
         return +this;
       };
       P.toPower = P.pow = function(y2) {
-        var e, k, pr, r2, sign2, yIsInt, x2 = this, Ctor = x2.constructor, guard = 12, yn = +(y2 = new Ctor(y2));
+        var e, k2, pr, r2, sign2, yIsInt, x2 = this, Ctor = x2.constructor, guard = 12, yn = +(y2 = new Ctor(y2));
         if (!y2.s) return new Ctor(ONE);
         x2 = new Ctor(x2);
         if (!x2.s) {
@@ -25500,29 +25500,29 @@ var require_decimal = __commonJS({
         pr = Ctor.precision;
         if (y2.eq(ONE)) return round(x2, pr);
         e = y2.e;
-        k = y2.d.length - 1;
-        yIsInt = e >= k;
+        k2 = y2.d.length - 1;
+        yIsInt = e >= k2;
         sign2 = x2.s;
         if (!yIsInt) {
           if (sign2 < 0) throw Error(decimalError + "NaN");
-        } else if ((k = yn < 0 ? -yn : yn) <= MAX_SAFE_INTEGER) {
+        } else if ((k2 = yn < 0 ? -yn : yn) <= MAX_SAFE_INTEGER) {
           r2 = new Ctor(ONE);
           e = Math.ceil(pr / LOG_BASE + 4);
           external = false;
           for (; ; ) {
-            if (k % 2) {
+            if (k2 % 2) {
               r2 = r2.times(x2);
               truncate(r2.d, e);
             }
-            k = mathfloor(k / 2);
-            if (k === 0) break;
+            k2 = mathfloor(k2 / 2);
+            if (k2 === 0) break;
             x2 = x2.times(x2);
             truncate(x2.d, e);
           }
           external = true;
           return y2.s < 0 ? new Ctor(ONE).div(r2) : round(r2, pr);
         }
-        sign2 = sign2 < 0 && y2.d[Math.max(e, k)] & 1 ? -1 : 1;
+        sign2 = sign2 < 0 && y2.d[Math.max(e, k2)] & 1 ? -1 : 1;
         x2.s = 1;
         external = false;
         r2 = y2.times(ln(x2, pr + guard));
@@ -25563,17 +25563,17 @@ var require_decimal = __commonJS({
         return toString(x2, e <= Ctor.toExpNeg || e >= Ctor.toExpPos);
       };
       function add(x2, y2) {
-        var carry, d, e, i, k, len, xd, yd, Ctor = x2.constructor, pr = Ctor.precision;
+        var carry, d, e, i, k2, len, xd, yd, Ctor = x2.constructor, pr = Ctor.precision;
         if (!x2.s || !y2.s) {
           if (!y2.s) y2 = new Ctor(x2);
           return external ? round(y2, pr) : y2;
         }
         xd = x2.d;
         yd = y2.d;
-        k = x2.e;
+        k2 = x2.e;
         e = y2.e;
         xd = xd.slice();
-        i = k - e;
+        i = k2 - e;
         if (i) {
           if (i < 0) {
             d = xd;
@@ -25581,11 +25581,11 @@ var require_decimal = __commonJS({
             len = yd.length;
           } else {
             d = yd;
-            e = k;
+            e = k2;
             len = xd.length;
           }
-          k = Math.ceil(pr / LOG_BASE);
-          len = k > len ? k + 1 : len + 1;
+          k2 = Math.ceil(pr / LOG_BASE);
+          len = k2 > len ? k2 + 1 : len + 1;
           if (i > len) {
             i = len;
             d.length = 1;
@@ -25621,19 +25621,19 @@ var require_decimal = __commonJS({
         }
       }
       function digitsToString(d) {
-        var i, k, ws, indexOfLastWord = d.length - 1, str = "", w = d[0];
+        var i, k2, ws, indexOfLastWord = d.length - 1, str = "", w = d[0];
         if (indexOfLastWord > 0) {
           str += w;
           for (i = 1; i < indexOfLastWord; i++) {
             ws = d[i] + "";
-            k = LOG_BASE - ws.length;
-            if (k) str += getZeroString(k);
+            k2 = LOG_BASE - ws.length;
+            if (k2) str += getZeroString(k2);
             str += ws;
           }
           w = d[i];
           ws = w + "";
-          k = LOG_BASE - ws.length;
-          if (k) str += getZeroString(k);
+          k2 = LOG_BASE - ws.length;
+          if (k2) str += getZeroString(k2);
         } else if (w === 0) {
           return "0";
         }
@@ -25641,41 +25641,41 @@ var require_decimal = __commonJS({
         return str + w;
       }
       var divide = /* @__PURE__ */ function() {
-        function multiplyInteger(x2, k) {
+        function multiplyInteger(x2, k2) {
           var temp, carry = 0, i = x2.length;
           for (x2 = x2.slice(); i--; ) {
-            temp = x2[i] * k + carry;
+            temp = x2[i] * k2 + carry;
             x2[i] = temp % BASE | 0;
             carry = temp / BASE | 0;
           }
           if (carry) x2.unshift(carry);
           return x2;
         }
-        function compare(a, b, aL, bL) {
+        function compare(a2, b, aL, bL) {
           var i, r2;
           if (aL != bL) {
             r2 = aL > bL ? 1 : -1;
           } else {
             for (i = r2 = 0; i < aL; i++) {
-              if (a[i] != b[i]) {
-                r2 = a[i] > b[i] ? 1 : -1;
+              if (a2[i] != b[i]) {
+                r2 = a2[i] > b[i] ? 1 : -1;
                 break;
               }
             }
           }
           return r2;
         }
-        function subtract2(a, b, aL) {
+        function subtract2(a2, b, aL) {
           var i = 0;
           for (; aL--; ) {
-            a[aL] -= i;
-            i = a[aL] < b[aL] ? 1 : 0;
-            a[aL] = i * BASE + a[aL] - b[aL];
+            a2[aL] -= i;
+            i = a2[aL] < b[aL] ? 1 : 0;
+            a2[aL] = i * BASE + a2[aL] - b[aL];
           }
-          for (; !a[0] && a.length > 1; ) a.shift();
+          for (; !a2[0] && a2.length > 1; ) a2.shift();
         }
         return function(x2, y2, pr, dp) {
-          var cmp, e, i, k, prod, prodL, q, qd, rem, remL, rem0, sd, t, xi, xL, yd0, yL, yz, Ctor = x2.constructor, sign2 = x2.s == y2.s ? 1 : -1, xd = x2.d, yd = y2.d;
+          var cmp, e, i, k2, prod, prodL, q, qd, rem, remL, rem0, sd, t, xi, xL, yd0, yL, yz, Ctor = x2.constructor, sign2 = x2.s == y2.s ? 1 : -1, xd = x2.d, yd = y2.d;
           if (!x2.s) return new Ctor(x2);
           if (!y2.s) throw Error(decimalError + "Division by zero");
           e = x2.e - y2.e;
@@ -25696,19 +25696,19 @@ var require_decimal = __commonJS({
           sd = sd / LOG_BASE + 2 | 0;
           i = 0;
           if (yL == 1) {
-            k = 0;
+            k2 = 0;
             yd = yd[0];
             sd++;
-            for (; (i < xL || k) && sd--; i++) {
-              t = k * BASE + (xd[i] || 0);
+            for (; (i < xL || k2) && sd--; i++) {
+              t = k2 * BASE + (xd[i] || 0);
               qd[i] = t / yd | 0;
-              k = t % yd | 0;
+              k2 = t % yd | 0;
             }
           } else {
-            k = BASE / (yd[0] + 1) | 0;
-            if (k > 1) {
-              yd = multiplyInteger(yd, k);
-              xd = multiplyInteger(xd, k);
+            k2 = BASE / (yd[0] + 1) | 0;
+            if (k2 > 1) {
+              yd = multiplyInteger(yd, k2);
+              xd = multiplyInteger(xd, k2);
               yL = yd.length;
               xL = xd.length;
             }
@@ -25721,24 +25721,24 @@ var require_decimal = __commonJS({
             yd0 = yd[0];
             if (yd[1] >= BASE / 2) ++yd0;
             do {
-              k = 0;
+              k2 = 0;
               cmp = compare(yd, rem, yL, remL);
               if (cmp < 0) {
                 rem0 = rem[0];
                 if (yL != remL) rem0 = rem0 * BASE + (rem[1] || 0);
-                k = rem0 / yd0 | 0;
-                if (k > 1) {
-                  if (k >= BASE) k = BASE - 1;
-                  prod = multiplyInteger(yd, k);
+                k2 = rem0 / yd0 | 0;
+                if (k2 > 1) {
+                  if (k2 >= BASE) k2 = BASE - 1;
+                  prod = multiplyInteger(yd, k2);
                   prodL = prod.length;
                   remL = rem.length;
                   cmp = compare(prod, rem, prodL, remL);
                   if (cmp == 1) {
-                    k--;
+                    k2--;
                     subtract2(prod, yL < prodL ? yz : yd, prodL);
                   }
                 } else {
-                  if (k == 0) cmp = k = 1;
+                  if (k2 == 0) cmp = k2 = 1;
                   prod = yd.slice();
                 }
                 prodL = prod.length;
@@ -25748,16 +25748,16 @@ var require_decimal = __commonJS({
                   remL = rem.length;
                   cmp = compare(yd, rem, yL, remL);
                   if (cmp < 1) {
-                    k++;
+                    k2++;
                     subtract2(rem, yL < remL ? yz : yd, remL);
                   }
                 }
                 remL = rem.length;
               } else if (cmp === 0) {
-                k++;
+                k2++;
                 rem = [0];
               }
-              qd[i++] = k;
+              qd[i++] = k2;
               if (cmp && rem[0]) {
                 rem[remL++] = xd[xi] || 0;
               } else {
@@ -25772,7 +25772,7 @@ var require_decimal = __commonJS({
         };
       }();
       function exp(x2, sd) {
-        var denominator, guard, pow2, sum, t, wpr, i = 0, k = 0, Ctor = x2.constructor, pr = Ctor.precision;
+        var denominator, guard, pow2, sum, t, wpr, i = 0, k2 = 0, Ctor = x2.constructor, pr = Ctor.precision;
         if (getBase10Exponent(x2) > 16) throw Error(exponentOutOfRange + getBase10Exponent(x2));
         if (!x2.s) return new Ctor(ONE);
         if (sd == null) {
@@ -25784,9 +25784,9 @@ var require_decimal = __commonJS({
         t = new Ctor(0.03125);
         while (x2.abs().gte(0.1)) {
           x2 = x2.times(t);
-          k += 5;
+          k2 += 5;
         }
-        guard = Math.log(mathpow(2, k)) / Math.LN10 * 2 + 5 | 0;
+        guard = Math.log(mathpow(2, k2)) / Math.LN10 * 2 + 5 | 0;
         wpr += guard;
         denominator = pow2 = sum = new Ctor(ONE);
         Ctor.precision = wpr;
@@ -25795,7 +25795,7 @@ var require_decimal = __commonJS({
           denominator = denominator.times(++i);
           t = sum.plus(divide(pow2, denominator, wpr));
           if (digitsToString(t.d).slice(0, wpr) === digitsToString(sum.d).slice(0, wpr)) {
-            while (k--) sum = round(sum.times(sum), wpr);
+            while (k2--) sum = round(sum.times(sum), wpr);
             Ctor.precision = pr;
             return sd == null ? (external = true, round(sum, pr)) : sum;
           }
@@ -25815,13 +25815,13 @@ var require_decimal = __commonJS({
         }
         return round(new Ctor(Ctor.LN10), sd);
       }
-      function getZeroString(k) {
+      function getZeroString(k2) {
         var zs = "";
-        for (; k--; ) zs += "0";
+        for (; k2--; ) zs += "0";
         return zs;
       }
       function ln(y2, sd) {
-        var c, c0, denominator, e, numerator, sum, t, wpr, x2, n = 1, guard = 10, x3 = y2, xd = x3.d, Ctor = x3.constructor, pr = Ctor.precision;
+        var c2, c0, denominator, e, numerator, sum, t, wpr, x2, n = 1, guard = 10, x3 = y2, xd = x3.d, Ctor = x3.constructor, pr = Ctor.precision;
         if (x3.s < 1) throw Error(decimalError + (x3.s ? "NaN" : "-Infinity"));
         if (x3.eq(ONE)) return new Ctor(0);
         if (sd == null) {
@@ -25836,26 +25836,26 @@ var require_decimal = __commonJS({
         }
         wpr += guard;
         Ctor.precision = wpr;
-        c = digitsToString(xd);
-        c0 = c.charAt(0);
+        c2 = digitsToString(xd);
+        c0 = c2.charAt(0);
         e = getBase10Exponent(x3);
         if (Math.abs(e) < 15e14) {
-          while (c0 < 7 && c0 != 1 || c0 == 1 && c.charAt(1) > 3) {
+          while (c0 < 7 && c0 != 1 || c0 == 1 && c2.charAt(1) > 3) {
             x3 = x3.times(y2);
-            c = digitsToString(x3.d);
-            c0 = c.charAt(0);
+            c2 = digitsToString(x3.d);
+            c0 = c2.charAt(0);
             n++;
           }
           e = getBase10Exponent(x3);
           if (c0 > 1) {
-            x3 = new Ctor("0." + c);
+            x3 = new Ctor("0." + c2);
             e++;
           } else {
-            x3 = new Ctor(c0 + "." + c.slice(1));
+            x3 = new Ctor(c0 + "." + c2.slice(1));
           }
         } else {
           t = getLn10(Ctor, wpr + 2, pr).times(e + "");
-          x3 = ln(new Ctor(c0 + "." + c.slice(1)), wpr - guard).plus(t);
+          x3 = ln(new Ctor(c0 + "." + c2.slice(1)), wpr - guard).plus(t);
           Ctor.precision = pr;
           return sd == null ? (external = true, round(x3, pr)) : x3;
         }
@@ -25915,8 +25915,8 @@ var require_decimal = __commonJS({
         return x2;
       }
       function round(x2, sd, rm) {
-        var i, j, k, n, rd, doRound, w, xdi, xd = x2.d;
-        for (n = 1, k = xd[0]; k >= 10; k /= 10) n++;
+        var i, j, k2, n, rd, doRound, w, xdi, xd = x2.d;
+        for (n = 1, k2 = xd[0]; k2 >= 10; k2 /= 10) n++;
         i = sd - n;
         if (i < 0) {
           i += LOG_BASE;
@@ -25924,25 +25924,25 @@ var require_decimal = __commonJS({
           w = xd[xdi = 0];
         } else {
           xdi = Math.ceil((i + 1) / LOG_BASE);
-          k = xd.length;
-          if (xdi >= k) return x2;
-          w = k = xd[xdi];
-          for (n = 1; k >= 10; k /= 10) n++;
+          k2 = xd.length;
+          if (xdi >= k2) return x2;
+          w = k2 = xd[xdi];
+          for (n = 1; k2 >= 10; k2 /= 10) n++;
           i %= LOG_BASE;
           j = i - LOG_BASE + n;
         }
         if (rm !== void 0) {
-          k = mathpow(10, n - j - 1);
-          rd = w / k % 10 | 0;
-          doRound = sd < 0 || xd[xdi + 1] !== void 0 || w % k;
+          k2 = mathpow(10, n - j - 1);
+          rd = w / k2 % 10 | 0;
+          doRound = sd < 0 || xd[xdi + 1] !== void 0 || w % k2;
           doRound = rm < 4 ? (rd || doRound) && (rm == 0 || rm == (x2.s < 0 ? 3 : 2)) : rd > 5 || rd == 5 && (rm == 4 || doRound || rm == 6 && // Check whether the digit to the left of the rounding digit is odd.
           (i > 0 ? j > 0 ? w / mathpow(10, n - j) : 0 : xd[xdi - 1]) % 10 & 1 || rm == (x2.s < 0 ? 8 : 7));
         }
         if (sd < 1 || !xd[0]) {
           if (doRound) {
-            k = getBase10Exponent(x2);
+            k2 = getBase10Exponent(x2);
             xd.length = 1;
-            sd = sd - k - 1;
+            sd = sd - k2 - 1;
             xd[0] = mathpow(10, (LOG_BASE - sd % LOG_BASE) % LOG_BASE);
             x2.e = mathfloor(-sd / LOG_BASE) || 0;
           } else {
@@ -25953,26 +25953,26 @@ var require_decimal = __commonJS({
         }
         if (i == 0) {
           xd.length = xdi;
-          k = 1;
+          k2 = 1;
           xdi--;
         } else {
           xd.length = xdi + 1;
-          k = mathpow(10, LOG_BASE - i);
-          xd[xdi] = j > 0 ? (w / mathpow(10, n - j) % mathpow(10, j) | 0) * k : 0;
+          k2 = mathpow(10, LOG_BASE - i);
+          xd[xdi] = j > 0 ? (w / mathpow(10, n - j) % mathpow(10, j) | 0) * k2 : 0;
         }
         if (doRound) {
           for (; ; ) {
             if (xdi == 0) {
-              if ((xd[0] += k) == BASE) {
+              if ((xd[0] += k2) == BASE) {
                 xd[0] = 1;
                 ++x2.e;
               }
               break;
             } else {
-              xd[xdi] += k;
+              xd[xdi] += k2;
               if (xd[xdi] != BASE) break;
               xd[xdi--] = 0;
-              k = 1;
+              k2 = 1;
             }
           }
         }
@@ -25983,7 +25983,7 @@ var require_decimal = __commonJS({
         return x2;
       }
       function subtract(x2, y2) {
-        var d, e, i, j, k, len, xd, xe, xLTy, yd, Ctor = x2.constructor, pr = Ctor.precision;
+        var d, e, i, j, k2, len, xd, xe, xLTy, yd, Ctor = x2.constructor, pr = Ctor.precision;
         if (!x2.s || !y2.s) {
           if (y2.s) y2.s = -y2.s;
           else y2 = new Ctor(x2);
@@ -25994,12 +25994,12 @@ var require_decimal = __commonJS({
         e = y2.e;
         xe = x2.e;
         xd = xd.slice();
-        k = xe - e;
-        if (k) {
-          xLTy = k < 0;
+        k2 = xe - e;
+        if (k2) {
+          xLTy = k2 < 0;
           if (xLTy) {
             d = xd;
-            k = -k;
+            k2 = -k2;
             len = yd.length;
           } else {
             d = yd;
@@ -26007,12 +26007,12 @@ var require_decimal = __commonJS({
             len = xd.length;
           }
           i = Math.max(Math.ceil(pr / LOG_BASE), len) + 2;
-          if (k > i) {
-            k = i;
+          if (k2 > i) {
+            k2 = i;
             d.length = 1;
           }
           d.reverse();
-          for (i = k; i--; ) d.push(0);
+          for (i = k2; i--; ) d.push(0);
           d.reverse();
         } else {
           i = xd.length;
@@ -26025,7 +26025,7 @@ var require_decimal = __commonJS({
               break;
             }
           }
-          k = 0;
+          k2 = 0;
         }
         if (xLTy) {
           d = xd;
@@ -26035,7 +26035,7 @@ var require_decimal = __commonJS({
         }
         len = xd.length;
         for (i = yd.length - len; i > 0; --i) xd[len++] = 0;
-        for (i = yd.length; i > k; ) {
+        for (i = yd.length; i > k2; ) {
           if (xd[--i] < yd[i]) {
             for (j = i; j && xd[--j] === 0; ) xd[j] = BASE - 1;
             --xd[j];
@@ -26051,25 +26051,25 @@ var require_decimal = __commonJS({
         return external ? round(y2, pr) : y2;
       }
       function toString(x2, isExp, sd) {
-        var k, e = getBase10Exponent(x2), str = digitsToString(x2.d), len = str.length;
+        var k2, e = getBase10Exponent(x2), str = digitsToString(x2.d), len = str.length;
         if (isExp) {
-          if (sd && (k = sd - len) > 0) {
-            str = str.charAt(0) + "." + str.slice(1) + getZeroString(k);
+          if (sd && (k2 = sd - len) > 0) {
+            str = str.charAt(0) + "." + str.slice(1) + getZeroString(k2);
           } else if (len > 1) {
             str = str.charAt(0) + "." + str.slice(1);
           }
           str = str + (e < 0 ? "e" : "e+") + e;
         } else if (e < 0) {
           str = "0." + getZeroString(-e - 1) + str;
-          if (sd && (k = sd - len) > 0) str += getZeroString(k);
+          if (sd && (k2 = sd - len) > 0) str += getZeroString(k2);
         } else if (e >= len) {
           str += getZeroString(e + 1 - len);
-          if (sd && (k = sd - e - 1) > 0) str = str + "." + getZeroString(k);
+          if (sd && (k2 = sd - e - 1) > 0) str = str + "." + getZeroString(k2);
         } else {
-          if ((k = e + 1) < len) str = str.slice(0, k) + "." + str.slice(k);
-          if (sd && (k = sd - len) > 0) {
+          if ((k2 = e + 1) < len) str = str.slice(0, k2) + "." + str.slice(k2);
+          if (sd && (k2 = sd - len) > 0) {
             if (e + 1 === len) str += ".";
-            str += getZeroString(k);
+            str += getZeroString(k2);
           }
         }
         return x2.s < 0 ? "-" + str : str;
@@ -26199,12 +26199,12 @@ var require_eventemitter3 = __commonJS({
   "node_modules/eventemitter3/index.js"(exports, module) {
     "use strict";
     var has3 = Object.prototype.hasOwnProperty;
-    var prefix = "~";
+    var prefix2 = "~";
     function Events() {
     }
     if (Object.create) {
       Events.prototype = /* @__PURE__ */ Object.create(null);
-      if (!new Events().__proto__) prefix = false;
+      if (!new Events().__proto__) prefix2 = false;
     }
     function EE(fn, context, once) {
       this.fn = fn;
@@ -26215,7 +26215,7 @@ var require_eventemitter3 = __commonJS({
       if (typeof fn !== "function") {
         throw new TypeError("The listener must be a function");
       }
-      var listener2 = new EE(fn, context || emitter, once), evt = prefix ? prefix + event : event;
+      var listener2 = new EE(fn, context || emitter, once), evt = prefix2 ? prefix2 + event : event;
       if (!emitter._events[evt]) emitter._events[evt] = listener2, emitter._eventsCount++;
       else if (!emitter._events[evt].fn) emitter._events[evt].push(listener2);
       else emitter._events[evt] = [emitter._events[evt], listener2];
@@ -26233,7 +26233,7 @@ var require_eventemitter3 = __commonJS({
       var names = [], events, name;
       if (this._eventsCount === 0) return names;
       for (name in events = this._events) {
-        if (has3.call(events, name)) names.push(prefix ? name.slice(1) : name);
+        if (has3.call(events, name)) names.push(prefix2 ? name.slice(1) : name);
       }
       if (Object.getOwnPropertySymbols) {
         return names.concat(Object.getOwnPropertySymbols(events));
@@ -26241,7 +26241,7 @@ var require_eventemitter3 = __commonJS({
       return names;
     };
     EventEmitter2.prototype.listeners = function listeners(event) {
-      var evt = prefix ? prefix + event : event, handlers = this._events[evt];
+      var evt = prefix2 ? prefix2 + event : event, handlers = this._events[evt];
       if (!handlers) return [];
       if (handlers.fn) return [handlers.fn];
       for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
@@ -26250,13 +26250,13 @@ var require_eventemitter3 = __commonJS({
       return ee;
     };
     EventEmitter2.prototype.listenerCount = function listenerCount(event) {
-      var evt = prefix ? prefix + event : event, listeners = this._events[evt];
+      var evt = prefix2 ? prefix2 + event : event, listeners = this._events[evt];
       if (!listeners) return 0;
       if (listeners.fn) return 1;
       return listeners.length;
     };
     EventEmitter2.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
-      var evt = prefix ? prefix + event : event;
+      var evt = prefix2 ? prefix2 + event : event;
       if (!this._events[evt]) return false;
       var listeners = this._events[evt], len = arguments.length, args, i;
       if (listeners.fn) {
@@ -26313,7 +26313,7 @@ var require_eventemitter3 = __commonJS({
       return addListener2(this, event, fn, context, true);
     };
     EventEmitter2.prototype.removeListener = function removeListener2(event, fn, context, once) {
-      var evt = prefix ? prefix + event : event;
+      var evt = prefix2 ? prefix2 + event : event;
       if (!this._events[evt]) return this;
       if (!fn) {
         clearEvent(this, evt);
@@ -26338,7 +26338,7 @@ var require_eventemitter3 = __commonJS({
     EventEmitter2.prototype.removeAllListeners = function removeAllListeners(event) {
       var evt;
       if (event) {
-        evt = prefix ? prefix + event : event;
+        evt = prefix2 ? prefix2 + event : event;
         if (this._events[evt]) clearEvent(this, evt);
       } else {
         this._events = new Events();
@@ -26348,7 +26348,7 @@ var require_eventemitter3 = __commonJS({
     };
     EventEmitter2.prototype.off = EventEmitter2.prototype.removeListener;
     EventEmitter2.prototype.addListener = EventEmitter2.prototype.on;
-    EventEmitter2.prefixed = prefix;
+    EventEmitter2.prefixed = prefix2;
     EventEmitter2.EventEmitter = EventEmitter2;
     if ("undefined" !== typeof module) {
       module.exports = EventEmitter2;
@@ -26373,10 +26373,10 @@ var require_toArray = __commonJS({
   "node_modules/es-toolkit/dist/compat/_internal/toArray.js"(exports) {
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-    function toArray(value) {
+    function toArray2(value) {
       return Array.isArray(value) ? value : Array.from(value);
     }
-    exports.toArray = toArray;
+    exports.toArray = toArray2;
   }
 });
 
@@ -26386,13 +26386,13 @@ var require_last2 = __commonJS({
     "use strict";
     Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
     var last$1 = require_last();
-    var toArray = require_toArray();
+    var toArray2 = require_toArray();
     var isArrayLike = require_isArrayLike();
     function last2(array) {
       if (!isArrayLike.isArrayLike(array)) {
         return void 0;
       }
-      return last$1.last(toArray.toArray(array));
+      return last$1.last(toArray2.toArray(array));
     }
     exports.last = last2;
   }
@@ -26405,6 +26405,154 @@ var require_last3 = __commonJS({
   }
 });
 
+// node_modules/react-is/cjs/react-is.development.js
+var require_react_is_development = __commonJS({
+  "node_modules/react-is/cjs/react-is.development.js"(exports) {
+    "use strict";
+    (function() {
+      function typeOf(object) {
+        if ("object" === typeof object && null !== object) {
+          var $$typeof = object.$$typeof;
+          switch ($$typeof) {
+            case REACT_ELEMENT_TYPE:
+              switch (object = object.type, object) {
+                case REACT_FRAGMENT_TYPE:
+                case REACT_PROFILER_TYPE:
+                case REACT_STRICT_MODE_TYPE:
+                case REACT_SUSPENSE_TYPE:
+                case REACT_SUSPENSE_LIST_TYPE:
+                case REACT_VIEW_TRANSITION_TYPE:
+                  return object;
+                default:
+                  switch (object = object && object.$$typeof, object) {
+                    case REACT_CONTEXT_TYPE:
+                    case REACT_FORWARD_REF_TYPE2:
+                    case REACT_LAZY_TYPE:
+                    case REACT_MEMO_TYPE2:
+                      return object;
+                    case REACT_CONSUMER_TYPE:
+                      return object;
+                    default:
+                      return $$typeof;
+                  }
+              }
+            case REACT_PORTAL_TYPE:
+              return $$typeof;
+          }
+        }
+      }
+      var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE2 = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE2 = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_VIEW_TRANSITION_TYPE = Symbol.for("react.view_transition"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference");
+      exports.ContextConsumer = REACT_CONSUMER_TYPE;
+      exports.ContextProvider = REACT_CONTEXT_TYPE;
+      exports.Element = REACT_ELEMENT_TYPE;
+      exports.ForwardRef = REACT_FORWARD_REF_TYPE2;
+      exports.Fragment = REACT_FRAGMENT_TYPE;
+      exports.Lazy = REACT_LAZY_TYPE;
+      exports.Memo = REACT_MEMO_TYPE2;
+      exports.Portal = REACT_PORTAL_TYPE;
+      exports.Profiler = REACT_PROFILER_TYPE;
+      exports.StrictMode = REACT_STRICT_MODE_TYPE;
+      exports.Suspense = REACT_SUSPENSE_TYPE;
+      exports.SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+      exports.isContextConsumer = function(object) {
+        return typeOf(object) === REACT_CONSUMER_TYPE;
+      };
+      exports.isContextProvider = function(object) {
+        return typeOf(object) === REACT_CONTEXT_TYPE;
+      };
+      exports.isElement = function(object) {
+        return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
+      };
+      exports.isForwardRef = function(object) {
+        return typeOf(object) === REACT_FORWARD_REF_TYPE2;
+      };
+      exports.isFragment = function(object) {
+        return typeOf(object) === REACT_FRAGMENT_TYPE;
+      };
+      exports.isLazy = function(object) {
+        return typeOf(object) === REACT_LAZY_TYPE;
+      };
+      exports.isMemo = function(object) {
+        return typeOf(object) === REACT_MEMO_TYPE2;
+      };
+      exports.isPortal = function(object) {
+        return typeOf(object) === REACT_PORTAL_TYPE;
+      };
+      exports.isProfiler = function(object) {
+        return typeOf(object) === REACT_PROFILER_TYPE;
+      };
+      exports.isStrictMode = function(object) {
+        return typeOf(object) === REACT_STRICT_MODE_TYPE;
+      };
+      exports.isSuspense = function(object) {
+        return typeOf(object) === REACT_SUSPENSE_TYPE;
+      };
+      exports.isSuspenseList = function(object) {
+        return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
+      };
+      exports.isValidElementType = function(type) {
+        return "string" === typeof type || "function" === typeof type || type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || "object" === typeof type && null !== type && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE2 || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_CONSUMER_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE2 || type.$$typeof === REACT_CLIENT_REFERENCE || void 0 !== type.getModuleId) ? true : false;
+      };
+      exports.typeOf = typeOf;
+    })();
+  }
+});
+
+// node_modules/react-is/index.js
+var require_react_is = __commonJS({
+  "node_modules/react-is/index.js"(exports, module) {
+    "use strict";
+    if (false) {
+      module.exports = null;
+    } else {
+      module.exports = require_react_is_development();
+    }
+  }
+});
+
+// node_modules/es-toolkit/dist/compat/predicate/isPlainObject.js
+var require_isPlainObject = __commonJS({
+  "node_modules/es-toolkit/dist/compat/predicate/isPlainObject.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+    function isPlainObject5(object) {
+      if (typeof object !== "object") {
+        return false;
+      }
+      if (object == null) {
+        return false;
+      }
+      if (Object.getPrototypeOf(object) === null) {
+        return true;
+      }
+      if (Object.prototype.toString.call(object) !== "[object Object]") {
+        const tag = object[Symbol.toStringTag];
+        if (tag == null) {
+          return false;
+        }
+        const isTagReadonly = !Object.getOwnPropertyDescriptor(object, Symbol.toStringTag)?.writable;
+        if (isTagReadonly) {
+          return false;
+        }
+        return object.toString() === `[object ${tag}]`;
+      }
+      let proto2 = object;
+      while (Object.getPrototypeOf(proto2) !== null) {
+        proto2 = Object.getPrototypeOf(proto2);
+      }
+      return Object.getPrototypeOf(object) === proto2;
+    }
+    exports.isPlainObject = isPlainObject5;
+  }
+});
+
+// node_modules/es-toolkit/compat/isPlainObject.js
+var require_isPlainObject2 = __commonJS({
+  "node_modules/es-toolkit/compat/isPlainObject.js"(exports, module) {
+    module.exports = require_isPlainObject().isPlainObject;
+  }
+});
+
 // node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js
 var require_use_sync_external_store_with_selector_development = __commonJS({
   "node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js"(exports) {
@@ -26414,14 +26562,14 @@ var require_use_sync_external_store_with_selector_development = __commonJS({
         return x2 === y2 && (0 !== x2 || 1 / x2 === 1 / y2) || x2 !== x2 && y2 !== y2;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React39 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is4, useSyncExternalStore2 = React39.useSyncExternalStore, useRef15 = React39.useRef, useEffect15 = React39.useEffect, useMemo8 = React39.useMemo, useDebugValue2 = React39.useDebugValue;
+      var React39 = require_react(), objectIs = "function" === typeof Object.is ? Object.is : is4, useSyncExternalStore2 = React39.useSyncExternalStore, useRef18 = React39.useRef, useEffect16 = React39.useEffect, useMemo7 = React39.useMemo, useDebugValue2 = React39.useDebugValue;
       exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-        var instRef = useRef15(null);
+        var instRef = useRef18(null);
         if (null === instRef.current) {
           var inst = { hasValue: false, value: null };
           instRef.current = inst;
         } else inst = instRef.current;
-        instRef = useMemo8(
+        instRef = useMemo7(
           function() {
             function memoizedSelector(nextSnapshot) {
               if (!hasMemo) {
@@ -26457,7 +26605,7 @@ var require_use_sync_external_store_with_selector_development = __commonJS({
           [getSnapshot, getServerSnapshot, selector, isEqual]
         );
         var value = useSyncExternalStore2(subscribe, instRef[0], instRef[1]);
-        useEffect15(
+        useEffect16(
           function() {
             inst.hasValue = true;
             inst.value = value;
@@ -26720,18 +26868,18 @@ var require_react_jsx_runtime_development = __commonJS({
           }
         }
         var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
-        var prefix;
+        var prefix2;
         function describeBuiltInComponentFrame(name, source, ownerFn) {
           {
-            if (prefix === void 0) {
+            if (prefix2 === void 0) {
               try {
                 throw Error();
               } catch (x2) {
                 var match = x2.stack.trim().match(/\n( *(at )?)/);
-                prefix = match && match[1] || "";
+                prefix2 = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix2 + name;
           }
         }
         var reentry = false;
@@ -26797,19 +26945,19 @@ var require_react_jsx_runtime_development = __commonJS({
             if (sample && control && typeof sample.stack === "string") {
               var sampleLines = sample.stack.split("\n");
               var controlLines = control.stack.split("\n");
-              var s = sampleLines.length - 1;
-              var c = controlLines.length - 1;
-              while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                c--;
+              var s2 = sampleLines.length - 1;
+              var c2 = controlLines.length - 1;
+              while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                c2--;
               }
-              for (; s >= 1 && c >= 0; s--, c--) {
-                if (sampleLines[s] !== controlLines[c]) {
-                  if (s !== 1 || c !== 1) {
+              for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                if (sampleLines[s2] !== controlLines[c2]) {
+                  if (s2 !== 1 || c2 !== 1) {
                     do {
-                      s--;
-                      c--;
-                      if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                        var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                      s2--;
+                      c2--;
+                      if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                        var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                         if (fn.displayName && _frame.includes("<anonymous>")) {
                           _frame = _frame.replace("<anonymous>", fn.displayName);
                         }
@@ -26820,7 +26968,7 @@ var require_react_jsx_runtime_development = __commonJS({
                         }
                         return _frame;
                       }
-                    } while (s >= 1 && c >= 0);
+                    } while (s2 >= 1 && c2 >= 0);
                   }
                   break;
                 }
@@ -26935,8 +27083,8 @@ var require_react_jsx_runtime_development = __commonJS({
           }
         }
         var isArrayImpl = Array.isArray;
-        function isArray2(a) {
-          return isArrayImpl(a);
+        function isArray2(a2) {
+          return isArrayImpl(a2);
         }
         function typeName(value) {
           {
@@ -27145,7 +27293,7 @@ var require_react_jsx_runtime_development = __commonJS({
         {
           propTypesMisspellWarningShown = false;
         }
-        function isValidElement16(object) {
+        function isValidElement13(object) {
           {
             return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
           }
@@ -27212,11 +27360,11 @@ var require_react_jsx_runtime_development = __commonJS({
             if (isArray2(node)) {
               for (var i = 0; i < node.length; i++) {
                 var child = node[i];
-                if (isValidElement16(child)) {
+                if (isValidElement13(child)) {
                   validateExplicitKey(child, parentType);
                 }
               }
-            } else if (isValidElement16(node)) {
+            } else if (isValidElement13(node)) {
               if (node._store) {
                 node._store.validated = true;
               }
@@ -27227,7 +27375,7 @@ var require_react_jsx_runtime_development = __commonJS({
                   var iterator = iteratorFn.call(node);
                   var step;
                   while (!(step = iterator.next()).done) {
-                    if (isValidElement16(step.value)) {
+                    if (isValidElement13(step.value)) {
                       validateExplicitKey(step.value, parentType);
                     }
                   }
@@ -27338,8 +27486,8 @@ var require_react_jsx_runtime_development = __commonJS({
             {
               if (hasOwnProperty.call(props, "key")) {
                 var componentName = getComponentNameFromType(type);
-                var keys = Object.keys(props).filter(function(k) {
-                  return k !== "key";
+                var keys = Object.keys(props).filter(function(k2) {
+                  return k2 !== "key";
                 });
                 var beforeExample = keys.length > 0 ? "{key: someKey, " + keys.join(": ..., ") + ": ...}" : "{key: someKey}";
                 if (!didWarnAboutKeySpread[componentName + beforeExample]) {
@@ -27485,23 +27633,12 @@ var createLucideIcon = (iconName, iconNode) => {
   return Component;
 };
 
-// node_modules/lucide-react/dist/esm/icons/arrow-right.js
-var __iconNode = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
-];
-var ArrowRight = createLucideIcon("arrow-right", __iconNode);
-
 // node_modules/lucide-react/dist/esm/icons/check.js
-var __iconNode2 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-var Check = createLucideIcon("check", __iconNode2);
-
-// node_modules/lucide-react/dist/esm/icons/chevron-down.js
-var __iconNode3 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-var ChevronDown = createLucideIcon("chevron-down", __iconNode3);
+var __iconNode = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+var Check = createLucideIcon("check", __iconNode);
 
 // node_modules/lucide-react/dist/esm/icons/heart.js
-var __iconNode4 = [
+var __iconNode2 = [
   [
     "path",
     {
@@ -27510,30 +27647,17 @@ var __iconNode4 = [
     }
   ]
 ];
-var Heart = createLucideIcon("heart", __iconNode4);
-
-// node_modules/lucide-react/dist/esm/icons/loader.js
-var __iconNode5 = [
-  ["path", { d: "M12 2v4", key: "3427ic" }],
-  ["path", { d: "m16.2 7.8 2.9-2.9", key: "r700ao" }],
-  ["path", { d: "M18 12h4", key: "wj9ykh" }],
-  ["path", { d: "m16.2 16.2 2.9 2.9", key: "1bxg5t" }],
-  ["path", { d: "M12 18v4", key: "jadmvz" }],
-  ["path", { d: "m4.9 19.1 2.9-2.9", key: "bwix9q" }],
-  ["path", { d: "M2 12h4", key: "j09sii" }],
-  ["path", { d: "m4.9 4.9 2.9 2.9", key: "giyufr" }]
-];
-var Loader = createLucideIcon("loader", __iconNode5);
+var Heart = createLucideIcon("heart", __iconNode2);
 
 // node_modules/lucide-react/dist/esm/icons/mail.js
-var __iconNode6 = [
+var __iconNode3 = [
   ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
   ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
 ];
-var Mail = createLucideIcon("mail", __iconNode6);
+var Mail = createLucideIcon("mail", __iconNode3);
 
 // node_modules/lucide-react/dist/esm/icons/message-square.js
-var __iconNode7 = [
+var __iconNode4 = [
   [
     "path",
     {
@@ -27542,33 +27666,21 @@ var __iconNode7 = [
     }
   ]
 ];
-var MessageSquare = createLucideIcon("message-square", __iconNode7);
+var MessageSquare = createLucideIcon("message-square", __iconNode4);
 
 // node_modules/lucide-react/dist/esm/icons/minus.js
-var __iconNode8 = [["path", { d: "M5 12h14", key: "1ays0h" }]];
-var Minus = createLucideIcon("minus", __iconNode8);
-
-// node_modules/lucide-react/dist/esm/icons/play.js
-var __iconNode9 = [
-  [
-    "path",
-    {
-      d: "M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z",
-      key: "10ikf1"
-    }
-  ]
-];
-var Play = createLucideIcon("play", __iconNode9);
+var __iconNode5 = [["path", { d: "M5 12h14", key: "1ays0h" }]];
+var Minus = createLucideIcon("minus", __iconNode5);
 
 // node_modules/lucide-react/dist/esm/icons/plus.js
-var __iconNode10 = [
+var __iconNode6 = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ];
-var Plus = createLucideIcon("plus", __iconNode10);
+var Plus = createLucideIcon("plus", __iconNode6);
 
 // node_modules/lucide-react/dist/esm/icons/printer.js
-var __iconNode11 = [
+var __iconNode7 = [
   [
     "path",
     {
@@ -27579,21 +27691,38 @@ var __iconNode11 = [
   ["path", { d: "M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6", key: "1itne7" }],
   ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
 ];
-var Printer = createLucideIcon("printer", __iconNode11);
+var Printer = createLucideIcon("printer", __iconNode7);
 
-// node_modules/lucide-react/dist/esm/icons/rotate-ccw.js
-var __iconNode12 = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+// node_modules/lucide-react/dist/esm/icons/refresh-cw.js
+var __iconNode8 = [
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
 ];
-var RotateCcw = createLucideIcon("rotate-ccw", __iconNode12);
+var RefreshCw = createLucideIcon("refresh-cw", __iconNode8);
+
+// node_modules/lucide-react/dist/esm/icons/target.js
+var __iconNode9 = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["circle", { cx: "12", cy: "12", r: "6", key: "1vlfrh" }],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }]
+];
+var Target = createLucideIcon("target", __iconNode9);
+
+// node_modules/lucide-react/dist/esm/icons/trending-up.js
+var __iconNode10 = [
+  ["path", { d: "M16 7h6v6", key: "box55l" }],
+  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+];
+var TrendingUp = createLucideIcon("trending-up", __iconNode10);
 
 // node_modules/lucide-react/dist/esm/icons/x.js
-var __iconNode13 = [
+var __iconNode11 = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-var X = createLucideIcon("x", __iconNode13);
+var X = createLucideIcon("x", __iconNode11);
 
 // node_modules/recharts/es6/container/Surface.js
 var React = __toESM(require_react());
@@ -27989,18 +28118,6 @@ function svgPropertiesAndEvents(obj) {
   }
   return result;
 }
-function svgPropertiesAndEventsFromUnknown(input) {
-  if (input == null) {
-    return null;
-  }
-  if (/* @__PURE__ */ (0, import_react4.isValidElement)(input)) {
-    return svgPropertiesAndEvents(input.props);
-  }
-  if (typeof input === "object" && !Array.isArray(input)) {
-    return svgPropertiesAndEvents(input);
-  }
-  return null;
-}
 
 // node_modules/recharts/es6/container/Surface.js
 var _excluded = ["children", "width", "height", "viewBox", "className", "style", "title", "desc"];
@@ -28106,6 +28223,9 @@ var Layer = /* @__PURE__ */ React2.forwardRef((props, ref) => {
 var import_react6 = __toESM(require_react());
 var LegendPortalContext = /* @__PURE__ */ (0, import_react6.createContext)(null);
 
+// node_modules/recharts/es6/shape/Symbols.js
+var React3 = __toESM(require_react());
+
 // node_modules/d3-shape/src/constant.js
 function constant_default(x2) {
   return function constant() {
@@ -28113,11 +28233,19 @@ function constant_default(x2) {
   };
 }
 
-// node_modules/d3-path/src/path.js
+// node_modules/d3-shape/src/math.js
+var cos = Math.cos;
+var sin = Math.sin;
+var sqrt = Math.sqrt;
 var pi = Math.PI;
+var halfPi = pi / 2;
 var tau = 2 * pi;
+
+// node_modules/d3-path/src/path.js
+var pi2 = Math.PI;
+var tau2 = 2 * pi2;
 var epsilon = 1e-6;
-var tauEpsilon = tau - epsilon;
+var tauEpsilon = tau2 - epsilon;
 function append(strings) {
   this._ += strings[0];
   for (let i = 1, n = strings.length; i < n; ++i) {
@@ -28128,11 +28256,11 @@ function appendRound(digits) {
   let d = Math.floor(digits);
   if (!(d >= 0)) throw new Error(`invalid digits: ${digits}`);
   if (d > 15) return append;
-  const k = 10 ** d;
+  const k2 = 10 ** d;
   return function(strings) {
     this._ += strings[0];
     for (let i = 1, n = strings.length; i < n; ++i) {
-      this._ += Math.round(arguments[i] * k) / k + strings[i];
+      this._ += Math.round(arguments[i] * k2) / k2 + strings[i];
     }
   };
 }
@@ -28171,7 +28299,7 @@ var Path = class {
     else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon) || !r2) {
       this._append`L${this._x1 = x1},${this._y1 = y1}`;
     } else {
-      let x20 = x2 - x0, y20 = y2 - y0, l21_2 = x21 * x21 + y21 * y21, l20_2 = x20 * x20 + y20 * y20, l21 = Math.sqrt(l21_2), l01 = Math.sqrt(l01_2), l = r2 * Math.tan((pi - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2), t01 = l / l01, t21 = l / l21;
+      let x20 = x2 - x0, y20 = y2 - y0, l21_2 = x21 * x21 + y21 * y21, l20_2 = x20 * x20 + y20 * y20, l21 = Math.sqrt(l21_2), l01 = Math.sqrt(l01_2), l = r2 * Math.tan((pi2 - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2), t01 = l / l01, t21 = l / l21;
       if (Math.abs(t01 - 1) > epsilon) {
         this._append`L${x1 + t01 * x01},${y1 + t01 * y01}`;
       }
@@ -28188,11 +28316,11 @@ var Path = class {
       this._append`L${x0},${y0}`;
     }
     if (!r2) return;
-    if (da < 0) da = da % tau + tau;
+    if (da < 0) da = da % tau2 + tau2;
     if (da > tauEpsilon) {
       this._append`A${r2},${r2},0,1,${cw},${x2 - dx},${y2 - dy}A${r2},${r2},0,1,${cw},${this._x1 = x0},${this._y1 = y0}`;
     } else if (da > epsilon) {
-      this._append`A${r2},${r2},0,${+(da >= pi)},${cw},${this._x1 = x2 + r2 * Math.cos(a1)},${this._y1 = y2 + r2 * Math.sin(a1)}`;
+      this._append`A${r2},${r2},0,${+(da >= pi2)},${cw},${this._x1 = x2 + r2 * Math.cos(a1)},${this._y1 = y2 + r2 * Math.sin(a1)}`;
     }
   }
   rect(x2, y2, w, h) {
@@ -28317,7 +28445,7 @@ function area_default(x0, y0, y1) {
   y0 = typeof y0 === "function" ? y0 : y0 === void 0 ? constant_default(0) : constant_default(+y0);
   y1 = typeof y1 === "function" ? y1 : y1 === void 0 ? y : constant_default(+y1);
   function area(data) {
-    var i, j, k, n = (data = array_default(data)).length, d, defined0 = false, buffer, x0z = new Array(n), y0z = new Array(n);
+    var i, j, k2, n = (data = array_default(data)).length, d, defined0 = false, buffer, x0z = new Array(n), y0z = new Array(n);
     if (context == null) output = curve(buffer = path2());
     for (i = 0; i <= n; ++i) {
       if (!(i < n && defined2(d = data[i], i, data)) === defined0) {
@@ -28328,8 +28456,8 @@ function area_default(x0, y0, y1) {
         } else {
           output.lineEnd();
           output.lineStart();
-          for (k = i - 1; k >= j; --k) {
-            output.point(x0z[k], y0z[k]);
+          for (k2 = i - 1; k2 >= j; --k2) {
+            output.point(x0z[k2], y0z[k2]);
           }
           output.lineEnd();
           output.areaEnd();
@@ -28428,6 +28556,141 @@ function bumpX(context) {
 }
 function bumpY(context) {
   return new Bump(context, false);
+}
+
+// node_modules/d3-shape/src/symbol/circle.js
+var circle_default = {
+  draw(context, size) {
+    const r2 = sqrt(size / pi);
+    context.moveTo(r2, 0);
+    context.arc(0, 0, r2, 0, tau);
+  }
+};
+
+// node_modules/d3-shape/src/symbol/cross.js
+var cross_default = {
+  draw(context, size) {
+    const r2 = sqrt(size / 5) / 2;
+    context.moveTo(-3 * r2, -r2);
+    context.lineTo(-r2, -r2);
+    context.lineTo(-r2, -3 * r2);
+    context.lineTo(r2, -3 * r2);
+    context.lineTo(r2, -r2);
+    context.lineTo(3 * r2, -r2);
+    context.lineTo(3 * r2, r2);
+    context.lineTo(r2, r2);
+    context.lineTo(r2, 3 * r2);
+    context.lineTo(-r2, 3 * r2);
+    context.lineTo(-r2, r2);
+    context.lineTo(-3 * r2, r2);
+    context.closePath();
+  }
+};
+
+// node_modules/d3-shape/src/symbol/diamond.js
+var tan30 = sqrt(1 / 3);
+var tan30_2 = tan30 * 2;
+var diamond_default = {
+  draw(context, size) {
+    const y2 = sqrt(size / tan30_2);
+    const x2 = y2 * tan30;
+    context.moveTo(0, -y2);
+    context.lineTo(x2, 0);
+    context.lineTo(0, y2);
+    context.lineTo(-x2, 0);
+    context.closePath();
+  }
+};
+
+// node_modules/d3-shape/src/symbol/square.js
+var square_default = {
+  draw(context, size) {
+    const w = sqrt(size);
+    const x2 = -w / 2;
+    context.rect(x2, x2, w, w);
+  }
+};
+
+// node_modules/d3-shape/src/symbol/star.js
+var ka = 0.8908130915292852;
+var kr = sin(pi / 10) / sin(7 * pi / 10);
+var kx = sin(tau / 10) * kr;
+var ky = -cos(tau / 10) * kr;
+var star_default = {
+  draw(context, size) {
+    const r2 = sqrt(size * ka);
+    const x2 = kx * r2;
+    const y2 = ky * r2;
+    context.moveTo(0, -r2);
+    context.lineTo(x2, y2);
+    for (let i = 1; i < 5; ++i) {
+      const a2 = tau * i / 5;
+      const c2 = cos(a2);
+      const s2 = sin(a2);
+      context.lineTo(s2 * r2, -c2 * r2);
+      context.lineTo(c2 * x2 - s2 * y2, s2 * x2 + c2 * y2);
+    }
+    context.closePath();
+  }
+};
+
+// node_modules/d3-shape/src/symbol/triangle.js
+var sqrt3 = sqrt(3);
+var triangle_default = {
+  draw(context, size) {
+    const y2 = -sqrt(size / (sqrt3 * 3));
+    context.moveTo(0, y2 * 2);
+    context.lineTo(-sqrt3 * y2, -y2);
+    context.lineTo(sqrt3 * y2, -y2);
+    context.closePath();
+  }
+};
+
+// node_modules/d3-shape/src/symbol/wye.js
+var c = -0.5;
+var s = sqrt(3) / 2;
+var k = 1 / sqrt(12);
+var a = (k / 2 + 1) * 3;
+var wye_default = {
+  draw(context, size) {
+    const r2 = sqrt(size / a);
+    const x0 = r2 / 2, y0 = r2 * k;
+    const x1 = x0, y1 = r2 * k + r2;
+    const x2 = -x1, y2 = y1;
+    context.moveTo(x0, y0);
+    context.lineTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.lineTo(c * x0 - s * y0, s * x0 + c * y0);
+    context.lineTo(c * x1 - s * y1, s * x1 + c * y1);
+    context.lineTo(c * x2 - s * y2, s * x2 + c * y2);
+    context.lineTo(c * x0 + s * y0, c * y0 - s * x0);
+    context.lineTo(c * x1 + s * y1, c * y1 - s * x1);
+    context.lineTo(c * x2 + s * y2, c * y2 - s * x2);
+    context.closePath();
+  }
+};
+
+// node_modules/d3-shape/src/symbol.js
+function Symbol2(type, size) {
+  let context = null, path2 = withPath(symbol);
+  type = typeof type === "function" ? type : constant_default(type || circle_default);
+  size = typeof size === "function" ? size : constant_default(size === void 0 ? 64 : +size);
+  function symbol() {
+    let buffer;
+    if (!context) context = buffer = path2();
+    type.apply(this, arguments).draw(context, +size.apply(this, arguments));
+    if (buffer) return context = null, buffer + "" || null;
+  }
+  symbol.type = function(_) {
+    return arguments.length ? (type = typeof _ === "function" ? _ : constant_default(_), symbol) : type;
+  };
+  symbol.size = function(_) {
+    return arguments.length ? (size = typeof _ === "function" ? _ : constant_default(+_), symbol) : size;
+  };
+  symbol.context = function(_) {
+    return arguments.length ? (context = _ == null ? null : _, symbol) : context;
+  };
+  return symbol;
 }
 
 // node_modules/d3-shape/src/noop.js
@@ -28760,16 +29023,16 @@ Natural.prototype = {
   }
 };
 function controlPoints(x2) {
-  var i, n = x2.length - 1, m, a = new Array(n), b = new Array(n), r2 = new Array(n);
-  a[0] = 0, b[0] = 2, r2[0] = x2[0] + 2 * x2[1];
-  for (i = 1; i < n - 1; ++i) a[i] = 1, b[i] = 4, r2[i] = 4 * x2[i] + 2 * x2[i + 1];
-  a[n - 1] = 2, b[n - 1] = 7, r2[n - 1] = 8 * x2[n - 1] + x2[n];
-  for (i = 1; i < n; ++i) m = a[i] / b[i - 1], b[i] -= m, r2[i] -= m * r2[i - 1];
-  a[n - 1] = r2[n - 1] / b[n - 1];
-  for (i = n - 2; i >= 0; --i) a[i] = (r2[i] - a[i + 1]) / b[i];
-  b[n - 1] = (x2[n] + a[n - 1]) / 2;
-  for (i = 0; i < n - 1; ++i) b[i] = 2 * x2[i + 1] - a[i + 1];
-  return [a, b];
+  var i, n = x2.length - 1, m, a2 = new Array(n), b = new Array(n), r2 = new Array(n);
+  a2[0] = 0, b[0] = 2, r2[0] = x2[0] + 2 * x2[1];
+  for (i = 1; i < n - 1; ++i) a2[i] = 1, b[i] = 4, r2[i] = 4 * x2[i] + 2 * x2[i + 1];
+  a2[n - 1] = 2, b[n - 1] = 7, r2[n - 1] = 8 * x2[n - 1] + x2[n];
+  for (i = 1; i < n; ++i) m = a2[i] / b[i - 1], b[i] -= m, r2[i] -= m * r2[i - 1];
+  a2[n - 1] = r2[n - 1] / b[n - 1];
+  for (i = n - 2; i >= 0; --i) a2[i] = (r2[i] - a2[i + 1]) / b[i];
+  b[n - 1] = (x2[n] + a2[n - 1]) / 2;
+  for (i = 0; i < n - 1; ++i) b[i] = 2 * x2[i + 1] - a2[i + 1];
+  return [a2, b];
 }
 function natural_default(context) {
   return new Natural(context);
@@ -28913,8 +29176,8 @@ function wiggle_default(series, order) {
   for (var y2 = 0, j = 1, s0, m, n; j < m; ++j) {
     for (var i = 0, s1 = 0, s2 = 0; i < n; ++i) {
       var si = series[order[i]], sij0 = si[j][1] || 0, sij1 = si[j - 1][1] || 0, s3 = (sij0 - sij1) / 2;
-      for (var k = 0; k < i; ++k) {
-        var sk = series[order[k]], skj0 = sk[j][1] || 0, skj1 = sk[j - 1][1] || 0;
+      for (var k2 = 0; k2 < i; ++k2) {
+        var sk = series[order[k2]], skj0 = sk[j][1] || 0, skj1 = sk[j - 1][1] || 0;
         s3 += skj0 - skj1;
       }
       s1 += sij0, s2 += s3 * sij0;
@@ -28944,9 +29207,9 @@ var isPercent = (value) => typeof value === "string" && value.indexOf("%") === v
 var isNumber = (value) => (typeof value === "number" || value instanceof Number) && !isNan(value);
 var isNumOrStr = (value) => isNumber(value) || typeof value === "string";
 var idCounter = 0;
-var uniqueId = (prefix) => {
+var uniqueId = (prefix2) => {
   var id = ++idCounter;
-  return "".concat(prefix || "").concat(id);
+  return "".concat(prefix2 || "").concat(id);
 };
 var getPercentValue = function getPercentValue2(percent, totalValue) {
   var defaultValue = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
@@ -29014,10 +29277,158 @@ function isNotNil(value) {
 function noop() {
 }
 
+// node_modules/recharts/es6/shape/Symbols.js
+var _excluded3 = ["type", "size", "sizeType"];
+function _extends3() {
+  return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
+    }
+    return n;
+  }, _extends3.apply(null, arguments);
+}
+function ownKeys(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys(Object(t), true).forEach(function(r3) {
+      _defineProperty(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty(e, r2, t) {
+  return (r2 = _toPropertyKey(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey(t) {
+  var i = _toPrimitive(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+function _objectWithoutProperties3(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose3(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+  }
+  return i;
+}
+function _objectWithoutPropertiesLoose3(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+var symbolFactories = {
+  symbolCircle: circle_default,
+  symbolCross: cross_default,
+  symbolDiamond: diamond_default,
+  symbolSquare: square_default,
+  symbolStar: star_default,
+  symbolTriangle: triangle_default,
+  symbolWye: wye_default
+};
+var RADIAN = Math.PI / 180;
+var getSymbolFactory = (type) => {
+  var name = "symbol".concat(upperFirst(type));
+  return symbolFactories[name] || circle_default;
+};
+var calculateAreaSize = (size, sizeType, type) => {
+  if (sizeType === "area") {
+    return size;
+  }
+  switch (type) {
+    case "cross":
+      return 5 * size * size / 9;
+    case "diamond":
+      return 0.5 * size * size / Math.sqrt(3);
+    case "square":
+      return size * size;
+    case "star": {
+      var angle = 18 * RADIAN;
+      return 1.25 * size * size * (Math.tan(angle) - Math.tan(angle * 2) * Math.tan(angle) ** 2);
+    }
+    case "triangle":
+      return Math.sqrt(3) * size * size / 4;
+    case "wye":
+      return (21 - 10 * Math.sqrt(3)) * size * size / 8;
+    default:
+      return Math.PI * size * size / 4;
+  }
+};
+var registerSymbol = (key, factory) => {
+  symbolFactories["symbol".concat(upperFirst(key))] = factory;
+};
+var Symbols = (_ref2) => {
+  var {
+    type = "circle",
+    size = 64,
+    sizeType = "area"
+  } = _ref2, rest = _objectWithoutProperties3(_ref2, _excluded3);
+  var props = _objectSpread(_objectSpread({}, rest), {}, {
+    type,
+    size,
+    sizeType
+  });
+  var realType = "circle";
+  if (typeof type === "string") {
+    realType = type;
+  }
+  var getPath3 = () => {
+    var symbolFactory = getSymbolFactory(realType);
+    var symbol = Symbol2().type(symbolFactory).size(calculateAreaSize(size, sizeType, realType));
+    var s2 = symbol();
+    if (s2 === null) {
+      return void 0;
+    }
+    return s2;
+  };
+  var {
+    className,
+    cx,
+    cy
+  } = props;
+  var filteredProps = svgPropertiesAndEvents(props);
+  if (isNumber(cx) && isNumber(cy) && isNumber(size)) {
+    return /* @__PURE__ */ React3.createElement("path", _extends3({}, filteredProps, {
+      className: clsx("recharts-symbols", className),
+      transform: "translate(".concat(cx, ", ").concat(cy, ")"),
+      d: getPath3()
+    }));
+  }
+  return null;
+};
+Symbols.registerSymbol = registerSymbol;
+
 // node_modules/recharts/es6/util/types.js
 var import_react7 = __toESM(require_react());
-var isPolarCoordinate = (c) => {
-  return "radius" in c && "startAngle" in c && "endAngle" in c;
+var isPolarCoordinate = (c2) => {
+  return "radius" in c2 && "startAngle" in c2 && "endAngle" in c2;
 };
 var adaptEventHandlers = (props, newHandler) => {
   if (!props || typeof props === "function" || typeof props === "boolean") {
@@ -29058,7 +29469,7 @@ var adaptEventsOfChild = (props, data, index) => {
 };
 
 // node_modules/recharts/es6/util/resolveDefaultProps.js
-function ownKeys(e, r2) {
+function ownKeys2(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -29068,25 +29479,25 @@ function ownKeys(e, r2) {
   }
   return t;
 }
-function _objectSpread(e) {
+function _objectSpread2(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys(Object(t), true).forEach(function(r3) {
-      _defineProperty(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys2(Object(t), true).forEach(function(r3) {
+      _defineProperty2(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys2(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty(e, r2, t) {
-  return (r2 = _toPropertyKey(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty2(e, r2, t) {
+  return (r2 = _toPropertyKey2(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey(t) {
-  var i = _toPrimitive(t, "string");
+function _toPropertyKey2(t) {
+  var i = _toPrimitive2(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive(t, r2) {
+function _toPrimitive2(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -29097,7 +29508,7 @@ function _toPrimitive(t, r2) {
   return ("string" === r2 ? String : Number)(t);
 }
 function resolveDefaultProps(realProps, defaultProps) {
-  var resolvedProps = _objectSpread({}, realProps);
+  var resolvedProps = _objectSpread2({}, realProps);
   var dp = defaultProps;
   var keys = Object.keys(defaultProps);
   var withDefaults = keys.reduce((acc, key) => {
@@ -29130,7 +29541,7 @@ var import_react8 = __toESM(require_react());
 var RechartsReduxContext = /* @__PURE__ */ (0, import_react8.createContext)(null);
 
 // node_modules/recharts/es6/state/hooks.js
-var noopDispatch = (a) => a;
+var noopDispatch = (a2) => a2;
 var useAppDispatch = () => {
   var context = (0, import_react9.useContext)(RechartsReduxContext);
   if (context) {
@@ -29141,7 +29552,7 @@ var useAppDispatch = () => {
 var noop2 = () => {
 };
 var addNestedSubNoop = () => noop2;
-var refEquality = (a, b) => a === b;
+var refEquality = (a2, b) => a2 === b;
 function useAppSelector(selector) {
   var context = (0, import_react9.useContext)(RechartsReduxContext);
   return (0, import_with_selector.useSyncExternalStoreWithSelector)(context ? context.subscription.addNestedSub : addNestedSubNoop, context ? context.store.getState : noop2, context ? context.store.getState : noop2, context ? selector : noop2, refEquality);
@@ -29277,7 +29688,7 @@ function createCacheNode() {
 function weakMapMemoize(func, options = {}) {
   let fnNode = createCacheNode();
   const { resultEqualityCheck } = options;
-  let lastResult;
+  let lastResult2;
   let resultsCount = 0;
   function memoized() {
     let cacheNode = fnNode;
@@ -29318,13 +29729,13 @@ function weakMapMemoize(func, options = {}) {
       result = func.apply(null, arguments);
       resultsCount++;
       if (resultEqualityCheck) {
-        const lastResultValue = lastResult?.deref?.() ?? lastResult;
+        const lastResultValue = lastResult2?.deref?.() ?? lastResult2;
         if (lastResultValue != null && resultEqualityCheck(lastResultValue, result)) {
           result = lastResultValue;
           resultsCount !== 0 && resultsCount--;
         }
         const needsWeakRef = typeof result === "object" && result !== null || typeof result === "function";
-        lastResult = needsWeakRef ? new Ref(result) : result;
+        lastResult2 = needsWeakRef ? new Ref(result) : result;
       }
     }
     terminatedNode.s = TERMINATED;
@@ -29349,7 +29760,7 @@ function createSelectorCreator(memoizeOrOptions, ...memoizeOptionsFromArgs) {
   const createSelector2 = (...createSelectorArgs) => {
     let recomputations = 0;
     let dependencyRecomputations = 0;
-    let lastResult;
+    let lastResult2;
     let directlyPassedOptions = {};
     let resultFunc = createSelectorArgs.pop();
     if (typeof resultFunc === "object") {
@@ -29388,14 +29799,14 @@ function createSelectorCreator(memoizeOrOptions, ...memoizeOptionsFromArgs) {
         dependencies,
         arguments
       );
-      lastResult = memoizedResultFunc.apply(null, inputSelectorResults);
+      lastResult2 = memoizedResultFunc.apply(null, inputSelectorResults);
       if (true) {
         const { identityFunctionCheck, inputStabilityCheck } = getDevModeChecksExecutionInfo(firstRun, devModeChecks);
         if (identityFunctionCheck.shouldRun) {
           identityFunctionCheck.run(
             resultFunc,
             inputSelectorResults,
-            lastResult
+            lastResult2
           );
         }
         if (inputStabilityCheck.shouldRun) {
@@ -29412,7 +29823,7 @@ function createSelectorCreator(memoizeOrOptions, ...memoizeOptionsFromArgs) {
         if (firstRun)
           firstRun = false;
       }
-      return lastResult;
+      return lastResult2;
     }, ...finalArgsMemoizeOptions);
     return Object.assign(selector, {
       resultFunc,
@@ -29422,7 +29833,7 @@ function createSelectorCreator(memoizeOrOptions, ...memoizeOptionsFromArgs) {
       resetDependencyRecomputations: () => {
         dependencyRecomputations = 0;
       },
-      lastResult: () => lastResult,
+      lastResult: () => lastResult2,
       recomputations: () => recomputations,
       resetRecomputations: () => {
         recomputations = 0;
@@ -29827,7 +30238,7 @@ function compose(...funcs) {
   if (funcs.length === 1) {
     return funcs[0];
   }
-  return funcs.reduce((a, b) => (...args) => a(b(...args)));
+  return funcs.reduce((a2, b) => (...args) => a2(b(...args)));
 }
 function applyMiddleware(...middlewares) {
   return (createStore2) => (reducer, preloadedState) => {
@@ -32293,7 +32704,7 @@ function getSliced(arr, startIndex, endIndex) {
 }
 
 // node_modules/recharts/es6/util/ChartUtils.js
-function ownKeys2(e, r2) {
+function ownKeys3(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -32303,25 +32714,25 @@ function ownKeys2(e, r2) {
   }
   return t;
 }
-function _objectSpread2(e) {
+function _objectSpread3(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys2(Object(t), true).forEach(function(r3) {
-      _defineProperty2(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys2(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys3(Object(t), true).forEach(function(r3) {
+      _defineProperty3(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys3(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty2(e, r2, t) {
-  return (r2 = _toPropertyKey2(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty3(e, r2, t) {
+  return (r2 = _toPropertyKey3(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey2(t) {
-  var i = _toPrimitive2(t, "string");
+function _toPropertyKey3(t) {
+  var i = _toPrimitive3(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive2(t, r2) {
+function _toPrimitive3(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -32355,12 +32766,12 @@ var appendOffsetOfLegend = (offset, legendSettings, legendSize) => {
       layout
     } = legendSettings;
     if ((layout === "vertical" || layout === "horizontal" && verticalAlign === "middle") && align !== "center" && isNumber(offset[align])) {
-      return _objectSpread2(_objectSpread2({}, offset), {}, {
+      return _objectSpread3(_objectSpread3({}, offset), {}, {
         [align]: offset[align] + (boxWidth || 0)
       });
     }
     if ((layout === "horizontal" || layout === "vertical" && align === "center") && verticalAlign !== "middle" && isNumber(offset[verticalAlign])) {
-      return _objectSpread2(_objectSpread2({}, offset), {}, {
+      return _objectSpread3(_objectSpread3({}, offset), {}, {
         [verticalAlign]: offset[verticalAlign] + (boxHeight || 0)
       });
     }
@@ -32368,88 +32779,6 @@ var appendOffsetOfLegend = (offset, legendSettings, legendSize) => {
   return offset;
 };
 var isCategoricalAxis = (layout, axisType) => layout === "horizontal" && axisType === "xAxis" || layout === "vertical" && axisType === "yAxis" || layout === "centric" && axisType === "angleAxis" || layout === "radial" && axisType === "radiusAxis";
-var getCoordinatesOfGrid = (ticks2, minValue, maxValue, syncWithTicks) => {
-  if (syncWithTicks) {
-    return ticks2.map((entry) => entry.coordinate);
-  }
-  var hasMin, hasMax;
-  var values = ticks2.map((entry) => {
-    if (entry.coordinate === minValue) {
-      hasMin = true;
-    }
-    if (entry.coordinate === maxValue) {
-      hasMax = true;
-    }
-    return entry.coordinate;
-  });
-  if (!hasMin) {
-    values.push(minValue);
-  }
-  if (!hasMax) {
-    values.push(maxValue);
-  }
-  return values;
-};
-var getTicksOfAxis = (axis, isGrid, isAll) => {
-  if (!axis) {
-    return null;
-  }
-  var {
-    duplicateDomain,
-    type,
-    range: range4,
-    scale,
-    realScaleType,
-    isCategorical,
-    categoricalDomain,
-    tickCount,
-    ticks: ticks2,
-    niceTicks,
-    axisType
-  } = axis;
-  if (!scale) {
-    return null;
-  }
-  var offsetForBand = realScaleType === "scaleBand" && scale.bandwidth ? scale.bandwidth() / 2 : 2;
-  var offset = (isGrid || isAll) && type === "category" && scale.bandwidth ? scale.bandwidth() / offsetForBand : 0;
-  offset = axisType === "angleAxis" && range4 && range4.length >= 2 ? mathSign(range4[0] - range4[1]) * 2 * offset : offset;
-  if (isGrid && (ticks2 || niceTicks)) {
-    var result = (ticks2 || niceTicks || []).map((entry, index) => {
-      var scaleContent = duplicateDomain ? duplicateDomain.indexOf(entry) : entry;
-      return {
-        // If the scaleContent is not a number, the coordinate will be NaN.
-        // That could be the case for example with a PointScale and a string as domain.
-        coordinate: scale(scaleContent) + offset,
-        value: entry,
-        offset,
-        index
-      };
-    });
-    return result.filter((row) => !isNan(row.coordinate));
-  }
-  if (isCategorical && categoricalDomain) {
-    return categoricalDomain.map((entry, index) => ({
-      coordinate: scale(entry) + offset,
-      value: entry,
-      index,
-      offset
-    }));
-  }
-  if (scale.ticks && !isAll && tickCount != null) {
-    return scale.ticks(tickCount).map((entry, index) => ({
-      coordinate: scale(entry) + offset,
-      value: entry,
-      offset,
-      index
-    }));
-  }
-  return scale.domain().map((entry, index) => ({
-    coordinate: scale(entry) + offset,
-    value: duplicateDomain ? duplicateDomain[entry] : entry,
-    index,
-    offset
-  }));
-};
 var EPS2 = 1e-4;
 var checkDomainOfScale = (scale) => {
   var domain = scale.domain();
@@ -32465,6 +32794,27 @@ var checkDomainOfScale = (scale) => {
   if (first < minValue || first > maxValue || last2 < minValue || last2 > maxValue) {
     scale.domain([domain[0], domain[len - 1]]);
   }
+};
+var truncateByDomain = (value, domain) => {
+  if (!domain || domain.length !== 2 || !isNumber(domain[0]) || !isNumber(domain[1])) {
+    return value;
+  }
+  var minValue = Math.min(domain[0], domain[1]);
+  var maxValue = Math.max(domain[0], domain[1]);
+  var result = [value[0], value[1]];
+  if (!isNumber(value[0]) || value[0] < minValue) {
+    result[0] = minValue;
+  }
+  if (!isNumber(value[1]) || value[1] > maxValue) {
+    result[1] = maxValue;
+  }
+  if (result[0] > maxValue) {
+    result[0] = maxValue;
+  }
+  if (result[1] < minValue) {
+    result[1] = minValue;
+  }
+  return result;
 };
 var offsetSign = (series) => {
   var n = series.length;
@@ -32528,27 +32878,39 @@ var getStackedData = (data, dataKeys, offsetType) => {
 function getNormalizedStackId(publicStackId) {
   return publicStackId == null ? void 0 : String(publicStackId);
 }
-function getCateCoordinateOfLine(_ref2) {
+var getCateCoordinateOfBar = (_ref2) => {
   var {
     axis,
     ticks: ticks2,
+    offset,
     bandSize,
     entry,
-    index,
-    dataKey
+    index
   } = _ref2;
   if (axis.type === "category") {
-    if (!axis.allowDuplicatedCategory && axis.dataKey && !isNullish(entry[axis.dataKey])) {
-      var matchedTick = findEntryInArray(ticks2, "value", entry[axis.dataKey]);
-      if (matchedTick) {
-        return matchedTick.coordinate + bandSize / 2;
-      }
-    }
-    return ticks2[index] ? ticks2[index].coordinate + bandSize / 2 : null;
+    return ticks2[index] ? ticks2[index].coordinate + offset : null;
   }
-  var value = getValueByDataKey(entry, !isNullish(dataKey) ? dataKey : axis.dataKey);
-  return !isNullish(value) ? axis.scale(value) : null;
-}
+  var value = getValueByDataKey(entry, axis.dataKey, axis.scale.domain()[index]);
+  return !isNullish(value) ? axis.scale(value) - bandSize / 2 + offset : null;
+};
+var getBaseValueOfBar = (_ref3) => {
+  var {
+    numericAxis
+  } = _ref3;
+  var domain = numericAxis.scale.domain();
+  if (numericAxis.type === "number") {
+    var minValue = Math.min(domain[0], domain[1]);
+    var maxValue = Math.max(domain[0], domain[1]);
+    if (minValue <= 0 && maxValue >= 0) {
+      return 0;
+    }
+    if (maxValue < 0) {
+      return maxValue;
+    }
+    return minValue;
+  }
+  return domain[0];
+};
 var getDomainOfSingle = (data) => {
   var flat = data.flat(2).filter(isNumber);
   return [Math.min(...flat), Math.max(...flat)];
@@ -32567,8 +32929,8 @@ var getDomainOfStackGroups = (stackGroups, startIndex, endIndex) => {
     } = group;
     var domain = stackedData.reduce((res, entry) => {
       var sliced = getSliced(entry, startIndex, endIndex);
-      var s = getDomainOfSingle(sliced);
-      return [Math.min(res[0], s[0]), Math.max(res[1], s[1])];
+      var s2 = getDomainOfSingle(sliced);
+      return [Math.min(res[0], s2[0]), Math.max(res[1], s2[1])];
     }, [Infinity, -Infinity]);
     return [Math.min(domain[0], result[0]), Math.max(domain[1], result[1])];
   }, [Infinity, -Infinity]));
@@ -32602,7 +32964,7 @@ function getTooltipEntry(_ref4) {
     value,
     name
   } = _ref4;
-  return _objectSpread2(_objectSpread2({}, tooltipEntrySettings), {}, {
+  return _objectSpread3(_objectSpread3({}, tooltipEntrySettings), {}, {
     dataKey,
     payload,
     value,
@@ -32654,7 +33016,7 @@ var DATA_ITEM_DATAKEY_ATTRIBUTE_NAME = "data-recharts-item-data-key";
 var DEFAULT_Y_AXIS_WIDTH = 60;
 
 // node_modules/recharts/es6/state/selectors/selectChartOffsetInternal.js
-function ownKeys3(e, r2) {
+function ownKeys4(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -32664,25 +33026,25 @@ function ownKeys3(e, r2) {
   }
   return t;
 }
-function _objectSpread3(e) {
+function _objectSpread4(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys3(Object(t), true).forEach(function(r3) {
-      _defineProperty3(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys3(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys4(Object(t), true).forEach(function(r3) {
+      _defineProperty4(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys4(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty3(e, r2, t) {
-  return (r2 = _toPropertyKey3(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty4(e, r2, t) {
+  return (r2 = _toPropertyKey4(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey3(t) {
-  var i = _toPrimitive3(t, "string");
+function _toPropertyKey4(t) {
+  var i = _toPrimitive4(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive3(t, r2) {
+function _toPrimitive4(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -32740,13 +33102,13 @@ var selectChartOffsetInternal = createSelector([selectChartWidth, selectChartHei
     top: (margin.top || 0) + topAxesOffset,
     bottom: (margin.bottom || 0) + bottomAxesOffset
   };
-  var offset = _objectSpread3(_objectSpread3({}, offsetV), offsetH);
+  var offset = _objectSpread4(_objectSpread4({}, offsetV), offsetH);
   var brushBottom = offset.bottom;
   offset.bottom += brushHeight;
   offset = appendOffsetOfLegend(offset, legendSettings, legendSize);
   var offsetWidth = chartWidth - offset.left - offset.right;
   var offsetHeight = chartHeight - offset.top - offset.bottom;
-  return _objectSpread3(_objectSpread3({
+  return _objectSpread4(_objectSpread4({
     brushBottom
   }, offset), {}, {
     // never return negative values for height and width
@@ -32768,7 +33130,7 @@ var selectAxisViewBox = createSelector(selectChartWidth, selectChartHeight, (wid
 }));
 
 // node_modules/recharts/es6/context/PanoramaContext.js
-var React3 = __toESM(require_react());
+var React4 = __toESM(require_react());
 var import_react11 = __toESM(require_react());
 var PanoramaContext = /* @__PURE__ */ (0, import_react11.createContext)(null);
 var useIsPanorama = () => (0, import_react11.useContext)(PanoramaContext) != null;
@@ -32783,7 +33145,7 @@ var selectBrushDimensions = createSelector([selectBrushSettings, selectChartOffs
 }));
 
 // node_modules/recharts/es6/component/ResponsiveContainer.js
-var React4 = __toESM(require_react());
+var React5 = __toESM(require_react());
 var import_react12 = __toESM(require_react());
 var import_throttle = __toESM(require_throttle2());
 
@@ -32896,16 +33258,16 @@ function isPositiveNumber(n) {
 }
 
 // node_modules/recharts/es6/component/ResponsiveContainer.js
-function _extends3() {
-  return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends4() {
+  return _extends4 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends3.apply(null, arguments);
+  }, _extends4.apply(null, arguments);
 }
-function ownKeys4(e, r2) {
+function ownKeys5(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -32915,25 +33277,25 @@ function ownKeys4(e, r2) {
   }
   return t;
 }
-function _objectSpread4(e) {
+function _objectSpread5(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys4(Object(t), true).forEach(function(r3) {
-      _defineProperty4(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys4(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys5(Object(t), true).forEach(function(r3) {
+      _defineProperty5(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys5(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty4(e, r2, t) {
-  return (r2 = _toPropertyKey4(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty5(e, r2, t) {
+  return (r2 = _toPropertyKey5(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey4(t) {
-  var i = _toPrimitive4(t, "string");
+function _toPropertyKey5(t) {
+  var i = _toPrimitive5(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive4(t, r2) {
+function _toPrimitive5(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -32963,7 +33325,7 @@ function ResponsiveContainerContextProvider(_ref2) {
   if (!isAcceptableSize(size)) {
     return null;
   }
-  return /* @__PURE__ */ React4.createElement(ResponsiveContainerContext.Provider, {
+  return /* @__PURE__ */ React5.createElement(ResponsiveContainerContext.Provider, {
     value: size
   }, children);
 }
@@ -33057,10 +33419,10 @@ var SizeDetectorContainer = /* @__PURE__ */ (0, import_react12.forwardRef)((_ref
     maxHeight
   });
   warn(calculatedWidth != null && calculatedWidth > 0 || calculatedHeight != null && calculatedHeight > 0, "The width(%s) and height(%s) of chart should be greater than 0,\n       please check the style of container, or the props width(%s) and height(%s),\n       or add a minWidth(%s) or minHeight(%s) or use aspect(%s) to control the\n       height and width.", calculatedWidth, calculatedHeight, width, height, minWidth, minHeight, aspect);
-  return /* @__PURE__ */ React4.createElement("div", {
+  return /* @__PURE__ */ React5.createElement("div", {
     id: id ? "".concat(id) : void 0,
     className: clsx("recharts-responsive-container", className),
-    style: _objectSpread4(_objectSpread4({}, style), {}, {
+    style: _objectSpread5(_objectSpread5({}, style), {}, {
       width,
       height,
       minWidth,
@@ -33068,12 +33430,12 @@ var SizeDetectorContainer = /* @__PURE__ */ (0, import_react12.forwardRef)((_ref
       maxHeight
     }),
     ref: containerRef
-  }, /* @__PURE__ */ React4.createElement("div", {
+  }, /* @__PURE__ */ React5.createElement("div", {
     style: getInnerDivStyle({
       width,
       height
     })
-  }, /* @__PURE__ */ React4.createElement(ResponsiveContainerContextProvider, {
+  }, /* @__PURE__ */ React5.createElement(ResponsiveContainerContextProvider, {
     width: calculatedWidth,
     height: calculatedHeight
   }, children)));
@@ -33101,12 +33463,12 @@ var ResponsiveContainer = /* @__PURE__ */ (0, import_react12.forwardRef)((props,
     maxHeight: props.maxHeight
   });
   if (isNumber(calculatedWidth) && isNumber(calculatedHeight)) {
-    return /* @__PURE__ */ React4.createElement(ResponsiveContainerContextProvider, {
+    return /* @__PURE__ */ React5.createElement(ResponsiveContainerContextProvider, {
       width: calculatedWidth,
       height: calculatedHeight
     }, props.children);
   }
-  return /* @__PURE__ */ React4.createElement(SizeDetectorContainer, _extends3({}, props, {
+  return /* @__PURE__ */ React5.createElement(SizeDetectorContainer, _extends4({}, props, {
     width,
     height,
     ref
@@ -33164,13 +33526,6 @@ var useChartHeight = () => {
 };
 var selectChartLayout = (state) => state.layout.layoutType;
 var useChartLayout = () => useAppSelector(selectChartLayout);
-var useCartesianChartLayout = () => {
-  var layout = useChartLayout();
-  if (layout === "horizontal" || layout === "vertical") {
-    return layout;
-  }
-  return void 0;
-};
 var useIsInChartContext = () => {
   var layout = useChartLayout();
   return layout !== void 0;
@@ -33995,23 +34350,23 @@ var {
 var legendReducer = legendSlice.reducer;
 
 // node_modules/recharts/es6/component/Tooltip.js
-var React12 = __toESM(require_react());
+var React13 = __toESM(require_react());
 var import_react24 = __toESM(require_react());
 var import_react_dom2 = __toESM(require_react_dom());
 
 // node_modules/recharts/es6/component/DefaultTooltipContent.js
-var React5 = __toESM(require_react());
+var React6 = __toESM(require_react());
 var import_sortBy3 = __toESM(require_sortBy2());
-function _extends4() {
-  return _extends4 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends5() {
+  return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends4.apply(null, arguments);
+  }, _extends5.apply(null, arguments);
 }
-function ownKeys5(e, r2) {
+function ownKeys6(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -34021,25 +34376,25 @@ function ownKeys5(e, r2) {
   }
   return t;
 }
-function _objectSpread5(e) {
+function _objectSpread6(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys5(Object(t), true).forEach(function(r3) {
-      _defineProperty5(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys5(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys6(Object(t), true).forEach(function(r3) {
+      _defineProperty6(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys6(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty5(e, r2, t) {
-  return (r2 = _toPropertyKey5(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty6(e, r2, t) {
+  return (r2 = _toPropertyKey6(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey5(t) {
-  var i = _toPrimitive5(t, "string");
+function _toPropertyKey6(t) {
+  var i = _toPrimitive6(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive5(t, r2) {
+function _toPrimitive6(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -34094,41 +34449,41 @@ var DefaultTooltipContent = (props) => {
             return null;
           }
         }
-        var finalItemStyle = _objectSpread5({
+        var finalItemStyle = _objectSpread6({
           display: "block",
           paddingTop: 4,
           paddingBottom: 4,
           color: entry.color || "#000"
         }, itemStyle);
-        return /* @__PURE__ */ React5.createElement("li", {
+        return /* @__PURE__ */ React6.createElement("li", {
           className: "recharts-tooltip-item",
           key: "tooltip-item-".concat(i),
           style: finalItemStyle
-        }, isNumOrStr(finalName) ? /* @__PURE__ */ React5.createElement("span", {
+        }, isNumOrStr(finalName) ? /* @__PURE__ */ React6.createElement("span", {
           className: "recharts-tooltip-item-name"
-        }, finalName) : null, isNumOrStr(finalName) ? /* @__PURE__ */ React5.createElement("span", {
+        }, finalName) : null, isNumOrStr(finalName) ? /* @__PURE__ */ React6.createElement("span", {
           className: "recharts-tooltip-item-separator"
-        }, separator) : null, /* @__PURE__ */ React5.createElement("span", {
+        }, separator) : null, /* @__PURE__ */ React6.createElement("span", {
           className: "recharts-tooltip-item-value"
-        }, finalValue), /* @__PURE__ */ React5.createElement("span", {
+        }, finalValue), /* @__PURE__ */ React6.createElement("span", {
           className: "recharts-tooltip-item-unit"
         }, entry.unit || ""));
       });
-      return /* @__PURE__ */ React5.createElement("ul", {
+      return /* @__PURE__ */ React6.createElement("ul", {
         className: "recharts-tooltip-item-list",
         style: listStyle
       }, items);
     }
     return null;
   };
-  var finalStyle = _objectSpread5({
+  var finalStyle = _objectSpread6({
     margin: 0,
     padding: 10,
     backgroundColor: "#fff",
     border: "1px solid #ccc",
     whiteSpace: "nowrap"
   }, contentStyle);
-  var finalLabelStyle = _objectSpread5({
+  var finalLabelStyle = _objectSpread6({
     margin: 0
   }, labelStyle);
   var hasLabel = !isNullish(label);
@@ -34142,17 +34497,17 @@ var DefaultTooltipContent = (props) => {
     role: "status",
     "aria-live": "assertive"
   } : {};
-  return /* @__PURE__ */ React5.createElement("div", _extends4({
+  return /* @__PURE__ */ React6.createElement("div", _extends5({
     className: wrapperCN,
     style: finalStyle
-  }, accessibilityAttributes), /* @__PURE__ */ React5.createElement("p", {
+  }, accessibilityAttributes), /* @__PURE__ */ React6.createElement("p", {
     className: labelCN,
     style: finalLabelStyle
-  }, /* @__PURE__ */ React5.isValidElement(finalLabel) ? finalLabel : "".concat(finalLabel)), renderContent2());
+  }, /* @__PURE__ */ React6.isValidElement(finalLabel) ? finalLabel : "".concat(finalLabel)), renderContent2());
 };
 
 // node_modules/recharts/es6/component/TooltipBoundingBox.js
-var React6 = __toESM(require_react());
+var React7 = __toESM(require_react());
 var import_react14 = __toESM(require_react());
 
 // node_modules/recharts/es6/util/tooltip/translate.js
@@ -34279,7 +34634,7 @@ function getTooltipTranslate(_ref4) {
 }
 
 // node_modules/recharts/es6/component/TooltipBoundingBox.js
-function ownKeys6(e, r2) {
+function ownKeys7(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -34289,25 +34644,25 @@ function ownKeys6(e, r2) {
   }
   return t;
 }
-function _objectSpread6(e) {
+function _objectSpread7(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys6(Object(t), true).forEach(function(r3) {
-      _defineProperty6(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys6(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys7(Object(t), true).forEach(function(r3) {
+      _defineProperty7(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys7(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty6(e, r2, t) {
-  return (r2 = _toPropertyKey6(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty7(e, r2, t) {
+  return (r2 = _toPropertyKey7(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey6(t) {
-  var i = _toPrimitive6(t, "string");
+function _toPropertyKey7(t) {
+  var i = _toPrimitive7(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive6(t, r2) {
+function _toPrimitive7(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -34320,14 +34675,14 @@ function _toPrimitive6(t, r2) {
 var TooltipBoundingBox = class extends import_react14.PureComponent {
   constructor() {
     super(...arguments);
-    _defineProperty6(this, "state", {
+    _defineProperty7(this, "state", {
       dismissed: false,
       dismissedAtCoordinate: {
         x: 0,
         y: 0
       }
     });
-    _defineProperty6(this, "handleKeyDown", (event) => {
+    _defineProperty7(this, "handleKeyDown", (event) => {
       if (event.key === "Escape") {
         var _this$props$coordinat, _this$props$coordinat2, _this$props$coordinat3, _this$props$coordinat4;
         this.setState({
@@ -34391,7 +34746,7 @@ var TooltipBoundingBox = class extends import_react14.PureComponent {
       useTranslate3d,
       viewBox
     });
-    var positionStyles = hasPortalFromProps ? {} : _objectSpread6(_objectSpread6({
+    var positionStyles = hasPortalFromProps ? {} : _objectSpread7(_objectSpread7({
       transition: isAnimationActive && active ? "transform ".concat(animationDuration, "ms ").concat(animationEasing) : void 0
     }, cssProperties), {}, {
       pointerEvents: "none",
@@ -34400,12 +34755,12 @@ var TooltipBoundingBox = class extends import_react14.PureComponent {
       top: 0,
       left: 0
     });
-    var outerStyle = _objectSpread6(_objectSpread6({}, positionStyles), {}, {
+    var outerStyle = _objectSpread7(_objectSpread7({}, positionStyles), {}, {
       visibility: !this.state.dismissed && active && hasPayload ? "visible" : "hidden"
     }, wrapperStyle);
     return (
       // This element allow listening to the `Escape` key. See https://github.com/recharts/recharts/pull/2925
-      /* @__PURE__ */ React6.createElement("div", {
+      /* @__PURE__ */ React7.createElement("div", {
         // @ts-expect-error typescript library does not recognize xmlns attribute, but it's required for an HTML chunk inside SVG.
         xmlns: "http://www.w3.org/1999/xhtml",
         tabIndex: -1,
@@ -34424,21 +34779,21 @@ var useAccessibilityLayer = () => {
 };
 
 // node_modules/recharts/es6/component/Cursor.js
-var React11 = __toESM(require_react());
+var React12 = __toESM(require_react());
 var import_react21 = __toESM(require_react());
 
 // node_modules/recharts/es6/shape/Curve.js
-var React7 = __toESM(require_react());
-function _extends5() {
-  return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
+var React8 = __toESM(require_react());
+function _extends6() {
+  return _extends6 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends5.apply(null, arguments);
+  }, _extends6.apply(null, arguments);
 }
-function ownKeys7(e, r2) {
+function ownKeys8(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -34448,25 +34803,25 @@ function ownKeys7(e, r2) {
   }
   return t;
 }
-function _objectSpread7(e) {
+function _objectSpread8(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys7(Object(t), true).forEach(function(r3) {
-      _defineProperty7(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys7(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys8(Object(t), true).forEach(function(r3) {
+      _defineProperty8(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys8(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty7(e, r2, t) {
-  return (r2 = _toPropertyKey7(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty8(e, r2, t) {
+  return (r2 = _toPropertyKey8(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey7(t) {
-  var i = _toPrimitive7(t, "string");
+function _toPropertyKey8(t) {
+  var i = _toPrimitive8(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive7(t, r2) {
+function _toPrimitive8(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -34517,7 +34872,7 @@ var getPath = (_ref2) => {
   var formatPoints = connectNulls ? points.filter(defined) : points;
   var lineFunction;
   if (Array.isArray(baseLine)) {
-    var areaPoints = points.map((entry, index) => _objectSpread7(_objectSpread7({}, entry), {}, {
+    var areaPoints = points.map((entry, index) => _objectSpread8(_objectSpread8({}, entry), {}, {
       base: baseLine[index]
     }));
     if (layout === "vertical") {
@@ -34550,7 +34905,7 @@ var Curve = (props) => {
     return null;
   }
   var realPath = points && points.length ? getPath(props) : path2;
-  return /* @__PURE__ */ React7.createElement("path", _extends5({}, svgPropertiesNoEvents(props), adaptEventHandlers(props), {
+  return /* @__PURE__ */ React8.createElement("path", _extends6({}, svgPropertiesNoEvents(props), adaptEventHandlers(props), {
     className: clsx("recharts-curve", className),
     d: realPath === null ? void 0 : realPath,
     ref: pathRef
@@ -34558,124 +34913,17 @@ var Curve = (props) => {
 };
 
 // node_modules/recharts/es6/shape/Cross.js
-var React8 = __toESM(require_react());
-var _excluded3 = ["x", "y", "top", "left", "width", "height", "className"];
-function _extends6() {
-  return _extends6 = Object.assign ? Object.assign.bind() : function(n) {
+var React9 = __toESM(require_react());
+var _excluded4 = ["x", "y", "top", "left", "width", "height", "className"];
+function _extends7() {
+  return _extends7 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends6.apply(null, arguments);
+  }, _extends7.apply(null, arguments);
 }
-function ownKeys8(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread8(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys8(Object(t), true).forEach(function(r3) {
-      _defineProperty8(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys8(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty8(e, r2, t) {
-  return (r2 = _toPropertyKey8(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey8(t) {
-  var i = _toPrimitive8(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive8(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-function _objectWithoutProperties3(e, t) {
-  if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose3(e, t);
-  if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-  }
-  return i;
-}
-function _objectWithoutPropertiesLoose3(r2, e) {
-  if (null == r2) return {};
-  var t = {};
-  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r2[n];
-  }
-  return t;
-}
-var getPath2 = (x2, y2, width, height, top, left) => {
-  return "M".concat(x2, ",").concat(top, "v").concat(height, "M").concat(left, ",").concat(y2, "h").concat(width);
-};
-var Cross = (_ref2) => {
-  var {
-    x: x2 = 0,
-    y: y2 = 0,
-    top = 0,
-    left = 0,
-    width = 0,
-    height = 0,
-    className
-  } = _ref2, rest = _objectWithoutProperties3(_ref2, _excluded3);
-  var props = _objectSpread8({
-    x: x2,
-    y: y2,
-    top,
-    left,
-    width,
-    height
-  }, rest);
-  if (!isNumber(x2) || !isNumber(y2) || !isNumber(width) || !isNumber(height) || !isNumber(top) || !isNumber(left)) {
-    return null;
-  }
-  return /* @__PURE__ */ React8.createElement("path", _extends6({}, svgPropertiesAndEvents(props), {
-    className: clsx("recharts-cross", className),
-    d: getPath2(x2, y2, width, height, top, left)
-  }));
-};
-
-// node_modules/recharts/es6/util/cursor/getCursorRectangle.js
-function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSize) {
-  var halfSize = tooltipAxisBandSize / 2;
-  return {
-    stroke: "none",
-    fill: "#ccc",
-    x: layout === "horizontal" ? activeCoordinate.x - halfSize : offset.left + 0.5,
-    y: layout === "horizontal" ? offset.top + 0.5 : activeCoordinate.y - halfSize,
-    width: layout === "horizontal" ? tooltipAxisBandSize : offset.width - 1,
-    height: layout === "horizontal" ? offset.height - 1 : tooltipAxisBandSize
-  };
-}
-
-// node_modules/recharts/es6/shape/Rectangle.js
-var React9 = __toESM(require_react());
-var import_react18 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/JavascriptAnimate.js
-var import_react16 = __toESM(require_react());
-
-// node_modules/recharts/es6/animation/util.js
 function ownKeys9(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -34714,14 +34962,75 @@ function _toPrimitive9(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-var getDashCase = (name) => name.replace(/([A-Z])/g, (v) => "-".concat(v.toLowerCase()));
-var getTransitionVal = (props, duration, easing) => props.map((prop) => "".concat(getDashCase(prop), " ").concat(duration, "ms ").concat(easing)).join(",");
-var getIntersectionKeys = (preObj, nextObj) => [Object.keys(preObj), Object.keys(nextObj)].reduce((a, b) => a.filter((c) => b.includes(c)));
-var mapObject = (fn, obj) => Object.keys(obj).reduce((res, key) => _objectSpread9(_objectSpread9({}, res), {}, {
-  [key]: fn(key, obj[key])
-}), {});
+function _objectWithoutProperties4(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose4(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+  }
+  return i;
+}
+function _objectWithoutPropertiesLoose4(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+var getPath2 = (x2, y2, width, height, top, left) => {
+  return "M".concat(x2, ",").concat(top, "v").concat(height, "M").concat(left, ",").concat(y2, "h").concat(width);
+};
+var Cross = (_ref2) => {
+  var {
+    x: x2 = 0,
+    y: y2 = 0,
+    top = 0,
+    left = 0,
+    width = 0,
+    height = 0,
+    className
+  } = _ref2, rest = _objectWithoutProperties4(_ref2, _excluded4);
+  var props = _objectSpread9({
+    x: x2,
+    y: y2,
+    top,
+    left,
+    width,
+    height
+  }, rest);
+  if (!isNumber(x2) || !isNumber(y2) || !isNumber(width) || !isNumber(height) || !isNumber(top) || !isNumber(left)) {
+    return null;
+  }
+  return /* @__PURE__ */ React9.createElement("path", _extends7({}, svgPropertiesAndEvents(props), {
+    className: clsx("recharts-cross", className),
+    d: getPath2(x2, y2, width, height, top, left)
+  }));
+};
 
-// node_modules/recharts/es6/animation/configUpdate.js
+// node_modules/recharts/es6/util/cursor/getCursorRectangle.js
+function getCursorRectangle(layout, activeCoordinate, offset, tooltipAxisBandSize) {
+  var halfSize = tooltipAxisBandSize / 2;
+  return {
+    stroke: "none",
+    fill: "#ccc",
+    x: layout === "horizontal" ? activeCoordinate.x - halfSize : offset.left + 0.5,
+    y: layout === "horizontal" ? offset.top + 0.5 : activeCoordinate.y - halfSize,
+    width: layout === "horizontal" ? tooltipAxisBandSize : offset.width - 1,
+    height: layout === "horizontal" ? offset.height - 1 : tooltipAxisBandSize
+  };
+}
+
+// node_modules/recharts/es6/shape/Rectangle.js
+var React10 = __toESM(require_react());
+var import_react18 = __toESM(require_react());
+
+// node_modules/recharts/es6/animation/JavascriptAnimate.js
+var import_react16 = __toESM(require_react());
+
+// node_modules/recharts/es6/animation/util.js
 function ownKeys10(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -34760,7 +35069,53 @@ function _toPrimitive10(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-var alpha = (begin, end, k) => begin + (end - begin) * k;
+var getDashCase = (name) => name.replace(/([A-Z])/g, (v) => "-".concat(v.toLowerCase()));
+var getTransitionVal = (props, duration, easing) => props.map((prop) => "".concat(getDashCase(prop), " ").concat(duration, "ms ").concat(easing)).join(",");
+var getIntersectionKeys = (preObj, nextObj) => [Object.keys(preObj), Object.keys(nextObj)].reduce((a2, b) => a2.filter((c2) => b.includes(c2)));
+var mapObject = (fn, obj) => Object.keys(obj).reduce((res, key) => _objectSpread10(_objectSpread10({}, res), {}, {
+  [key]: fn(key, obj[key])
+}), {});
+
+// node_modules/recharts/es6/animation/configUpdate.js
+function ownKeys11(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread11(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys11(Object(t), true).forEach(function(r3) {
+      _defineProperty11(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys11(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty11(e, r2, t) {
+  return (r2 = _toPropertyKey11(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey11(t) {
+  var i = _toPrimitive11(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive11(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+var alpha = (begin, end, k2) => begin + (end - begin) * k2;
 var needContinue = (_ref2) => {
   var {
     from: from2,
@@ -34772,7 +35127,7 @@ var calStepperVals = (easing, preVals, steps) => {
   var nextStepVals = mapObject((key, val) => {
     if (needContinue(val)) {
       var [newX, newV] = easing(val.from, val.to, val.velocity);
-      return _objectSpread10(_objectSpread10({}, val), {}, {
+      return _objectSpread11(_objectSpread11({}, val), {}, {
         from: newX,
         velocity: newV
       });
@@ -34782,7 +35137,7 @@ var calStepperVals = (easing, preVals, steps) => {
   if (steps < 1) {
     return mapObject((key, val) => {
       if (needContinue(val)) {
-        return _objectSpread10(_objectSpread10({}, val), {}, {
+        return _objectSpread11(_objectSpread11({}, val), {}, {
           velocity: alpha(val.velocity, nextStepVals[key].velocity, steps),
           from: alpha(val.from, nextStepVals[key].from, steps)
         });
@@ -34794,7 +35149,7 @@ var calStepperVals = (easing, preVals, steps) => {
 };
 function createStepperUpdate(from2, to2, easing, interKeys, render, timeoutController) {
   var preTime;
-  var stepperStyle = interKeys.reduce((res, key) => _objectSpread10(_objectSpread10({}, res), {}, {
+  var stepperStyle = interKeys.reduce((res, key) => _objectSpread11(_objectSpread11({}, res), {}, {
     [key]: {
       from: from2[key],
       velocity: 0,
@@ -34811,7 +35166,7 @@ function createStepperUpdate(from2, to2, easing, interKeys, render, timeoutContr
     var deltaTime = now - preTime;
     var steps = deltaTime / easing.dt;
     stepperStyle = calStepperVals(easing, stepperStyle, steps);
-    render(_objectSpread10(_objectSpread10(_objectSpread10({}, from2), to2), getCurrStyle()));
+    render(_objectSpread11(_objectSpread11(_objectSpread11({}, from2), to2), getCurrStyle()));
     preTime = now;
     if (!shouldStopAnimation()) {
       stopAnimation = timeoutController.setTimeout(stepperUpdate);
@@ -34827,7 +35182,7 @@ function createStepperUpdate(from2, to2, easing, interKeys, render, timeoutContr
 }
 function createTimingUpdate(from2, to2, easing, duration, interKeys, render, timeoutController) {
   var stopAnimation = null;
-  var timingStyle = interKeys.reduce((res, key) => _objectSpread10(_objectSpread10({}, res), {}, {
+  var timingStyle = interKeys.reduce((res, key) => _objectSpread11(_objectSpread11({}, res), {}, {
     [key]: [from2[key], to2[key]]
   }), {});
   var beginTime;
@@ -34837,12 +35192,12 @@ function createTimingUpdate(from2, to2, easing, duration, interKeys, render, tim
     }
     var t = (now - beginTime) / duration;
     var currStyle = mapObject((key, val) => alpha(...val, easing(t)), timingStyle);
-    render(_objectSpread10(_objectSpread10(_objectSpread10({}, from2), to2), currStyle));
+    render(_objectSpread11(_objectSpread11(_objectSpread11({}, from2), to2), currStyle));
     if (t < 1) {
       stopAnimation = timeoutController.setTimeout(timingUpdate);
     } else {
       var finalStyle = mapObject((key, val) => alpha(...val, easing(1)), timingStyle);
-      render(_objectSpread10(_objectSpread10(_objectSpread10({}, from2), to2), finalStyle));
+      render(_objectSpread11(_objectSpread11(_objectSpread11({}, from2), to2), finalStyle));
     }
   };
   return () => {
@@ -34857,7 +35212,7 @@ var configUpdate_default = (from2, to2, easing, duration, render, timeoutControl
   var interKeys = getIntersectionKeys(from2, to2);
   if (easing == null) {
     return () => {
-      render(_objectSpread10(_objectSpread10({}, from2), to2));
+      render(_objectSpread11(_objectSpread11({}, from2), to2));
       return () => {
       };
     };
@@ -35149,20 +35504,20 @@ function JavascriptAnimate(outsideProps) {
 // node_modules/recharts/es6/util/useAnimationId.js
 var import_react17 = __toESM(require_react());
 function useAnimationId(input) {
-  var prefix = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "animation-";
-  var animationId = (0, import_react17.useRef)(uniqueId(prefix));
+  var prefix2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "animation-";
+  var animationId = (0, import_react17.useRef)(uniqueId(prefix2));
   var prevProps = (0, import_react17.useRef)(input);
   if (prevProps.current !== input) {
-    animationId.current = uniqueId(prefix);
+    animationId.current = uniqueId(prefix2);
     prevProps.current = input;
   }
   return animationId.current;
 }
 
 // node_modules/recharts/es6/shape/Rectangle.js
-var _excluded4 = ["radius"];
+var _excluded5 = ["radius"];
 var _excluded22 = ["radius"];
-function ownKeys11(e, r2) {
+function ownKeys12(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -35172,25 +35527,25 @@ function ownKeys11(e, r2) {
   }
   return t;
 }
-function _objectSpread11(e) {
+function _objectSpread12(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys11(Object(t), true).forEach(function(r3) {
-      _defineProperty11(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys11(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys12(Object(t), true).forEach(function(r3) {
+      _defineProperty12(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys12(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty11(e, r2, t) {
-  return (r2 = _toPropertyKey11(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty12(e, r2, t) {
+  return (r2 = _toPropertyKey12(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey11(t) {
-  var i = _toPrimitive11(t, "string");
+function _toPropertyKey12(t) {
+  var i = _toPrimitive12(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive11(t, r2) {
+function _toPrimitive12(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -35200,25 +35555,25 @@ function _toPrimitive11(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-function _extends7() {
-  return _extends7 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends8() {
+  return _extends8 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends7.apply(null, arguments);
+  }, _extends8.apply(null, arguments);
 }
-function _objectWithoutProperties4(e, t) {
+function _objectWithoutProperties5(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose4(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose5(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose4(r2, e) {
+function _objectWithoutPropertiesLoose5(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -35327,8 +35682,8 @@ var Rectangle = (rectangleProps) => {
   if (!isUpdateAnimationActive) {
     var _svgPropertiesAndEven = svgPropertiesAndEvents(props), {
       radius: _
-    } = _svgPropertiesAndEven, otherPathProps = _objectWithoutProperties4(_svgPropertiesAndEven, _excluded4);
-    return /* @__PURE__ */ React9.createElement("path", _extends7({}, otherPathProps, {
+    } = _svgPropertiesAndEven, otherPathProps = _objectWithoutProperties5(_svgPropertiesAndEven, _excluded5);
+    return /* @__PURE__ */ React10.createElement("path", _extends8({}, otherPathProps, {
       radius: typeof radius === "number" ? radius : void 0,
       className: layerClass,
       d: getRectanglePath(x2, y2, width, height, radius)
@@ -35341,7 +35696,7 @@ var Rectangle = (rectangleProps) => {
   var from2 = "0px ".concat(totalLength === -1 ? 1 : totalLength, "px");
   var to2 = "".concat(totalLength, "px 0px");
   var transition = getTransitionVal(["strokeDasharray"], animationDuration, typeof animationEasing === "string" ? animationEasing : defaultRectangleProps.animationEasing);
-  return /* @__PURE__ */ React9.createElement(JavascriptAnimate, {
+  return /* @__PURE__ */ React10.createElement(JavascriptAnimate, {
     animationId,
     key: animationId,
     canBegin: totalLength > 0,
@@ -35377,20 +35732,20 @@ var Rectangle = (rectangleProps) => {
     }
     var _svgPropertiesAndEven2 = svgPropertiesAndEvents(props), {
       radius: _2
-    } = _svgPropertiesAndEven2, otherPathProps2 = _objectWithoutProperties4(_svgPropertiesAndEven2, _excluded22);
-    return /* @__PURE__ */ React9.createElement("path", _extends7({}, otherPathProps2, {
+    } = _svgPropertiesAndEven2, otherPathProps2 = _objectWithoutProperties5(_svgPropertiesAndEven2, _excluded22);
+    return /* @__PURE__ */ React10.createElement("path", _extends8({}, otherPathProps2, {
       radius: typeof radius === "number" ? radius : void 0,
       className: layerClass,
       d: getRectanglePath(currX, currY, currWidth, currHeight, radius),
       ref: pathRef,
-      style: _objectSpread11(_objectSpread11({}, animationStyle), props.style)
+      style: _objectSpread12(_objectSpread12({}, animationStyle), props.style)
     }));
   });
 };
 
 // node_modules/recharts/es6/util/PolarUtils.js
 var import_react19 = __toESM(require_react());
-function ownKeys12(e, r2) {
+function ownKeys13(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -35400,25 +35755,25 @@ function ownKeys12(e, r2) {
   }
   return t;
 }
-function _objectSpread12(e) {
+function _objectSpread13(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys12(Object(t), true).forEach(function(r3) {
-      _defineProperty12(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys12(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys13(Object(t), true).forEach(function(r3) {
+      _defineProperty13(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys13(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty12(e, r2, t) {
-  return (r2 = _toPropertyKey12(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty13(e, r2, t) {
+  return (r2 = _toPropertyKey13(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey12(t) {
-  var i = _toPrimitive12(t, "string");
+function _toPropertyKey13(t) {
+  var i = _toPrimitive13(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive12(t, r2) {
+function _toPrimitive13(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -35428,11 +35783,11 @@ function _toPrimitive12(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-var RADIAN = Math.PI / 180;
+var RADIAN2 = Math.PI / 180;
 var radianToDegree = (angleInRadian) => angleInRadian * 180 / Math.PI;
 var polarToCartesian = (cx, cy, radius, angle) => ({
-  x: cx + Math.cos(-RADIAN * angle) * radius,
-  y: cy + Math.sin(-RADIAN * angle) * radius
+  x: cx + Math.cos(-RADIAN2 * angle) * radius,
+  y: cy + Math.sin(-RADIAN2 * angle) * radius
 });
 var getMaxRadius = function getMaxRadius2(width, height) {
   var offset = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {
@@ -35479,8 +35834,8 @@ var getAngleOfPoint = (_ref2, _ref22) => {
       angle: 0
     };
   }
-  var cos = (x2 - cx) / radius;
-  var angleInRadian = Math.acos(cos);
+  var cos2 = (x2 - cx) / radius;
+  var angleInRadian = Math.acos(cos2);
   if (y2 > cy) {
     angleInRadian = 2 * Math.PI - angleInRadian;
   }
@@ -35559,7 +35914,7 @@ var inRangeOfSector = (_ref5, viewBox) => {
     inRange = formatAngle >= endAngle && formatAngle <= startAngle;
   }
   if (inRange) {
-    return _objectSpread12(_objectSpread12({}, viewBox), {}, {
+    return _objectSpread13(_objectSpread13({}, viewBox), {}, {
       radius,
       angle: reverseFormatAngleOfSector(formatAngle, viewBox)
     });
@@ -35589,15 +35944,15 @@ function getRadialCursorPoints(activeCoordinate) {
 }
 
 // node_modules/recharts/es6/shape/Sector.js
-var React10 = __toESM(require_react());
-function _extends8() {
-  return _extends8 = Object.assign ? Object.assign.bind() : function(n) {
+var React11 = __toESM(require_react());
+function _extends9() {
+  return _extends9 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends8.apply(null, arguments);
+  }, _extends9.apply(null, arguments);
 }
 var getDeltaAngle = (startAngle, endAngle) => {
   var sign2 = mathSign(endAngle - startAngle);
@@ -35616,12 +35971,12 @@ var getTangentCircle = (_ref2) => {
     cornerIsExternal
   } = _ref2;
   var centerRadius = cornerRadius * (isExternal ? 1 : -1) + radius;
-  var theta = Math.asin(cornerRadius / centerRadius) / RADIAN;
+  var theta = Math.asin(cornerRadius / centerRadius) / RADIAN2;
   var centerAngle = cornerIsExternal ? angle : angle + sign2 * theta;
   var center = polarToCartesian(cx, cy, centerRadius, centerAngle);
   var circleTangency = polarToCartesian(cx, cy, radius, centerAngle);
   var lineTangencyAngle = cornerIsExternal ? angle - sign2 * theta : angle;
-  var lineTangency = polarToCartesian(cx, cy, centerRadius * Math.cos(theta * RADIAN), lineTangencyAngle);
+  var lineTangency = polarToCartesian(cx, cy, centerRadius * Math.cos(theta * RADIAN2), lineTangencyAngle);
   return {
     center,
     circleTangency,
@@ -35799,7 +36154,7 @@ var Sector = (sectorProps) => {
       endAngle
     });
   }
-  return /* @__PURE__ */ React10.createElement("path", _extends8({}, svgPropertiesAndEvents(props), {
+  return /* @__PURE__ */ React11.createElement("path", _extends9({}, svgPropertiesAndEvents(props), {
     className: layerClass,
     d: path2
   }));
@@ -35877,7 +36232,7 @@ __export(d3_scale_exports, {
   scaleSequentialQuantile: () => sequentialQuantile,
   scaleSequentialSqrt: () => sequentialSqrt,
   scaleSequentialSymlog: () => sequentialSymlog,
-  scaleSqrt: () => sqrt,
+  scaleSqrt: () => sqrt2,
   scaleSymlog: () => symlog,
   scaleThreshold: () => threshold,
   scaleTime: () => time,
@@ -35886,13 +36241,13 @@ __export(d3_scale_exports, {
 });
 
 // node_modules/d3-array/src/ascending.js
-function ascending(a, b) {
-  return a == null || b == null ? NaN : a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+function ascending(a2, b) {
+  return a2 == null || b == null ? NaN : a2 < b ? -1 : a2 > b ? 1 : a2 >= b ? 0 : NaN;
 }
 
 // node_modules/d3-array/src/descending.js
-function descending(a, b) {
-  return a == null || b == null ? NaN : b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+function descending(a2, b) {
+  return a2 == null || b == null ? NaN : b < a2 ? -1 : b > a2 ? 1 : b >= a2 ? 0 : NaN;
 }
 
 // node_modules/d3-array/src/bisector.js
@@ -35907,31 +36262,31 @@ function bisector(f) {
     compare2 = f;
     delta = f;
   }
-  function left(a, x2, lo = 0, hi = a.length) {
+  function left(a2, x2, lo = 0, hi = a2.length) {
     if (lo < hi) {
       if (compare1(x2, x2) !== 0) return hi;
       do {
         const mid = lo + hi >>> 1;
-        if (compare2(a[mid], x2) < 0) lo = mid + 1;
+        if (compare2(a2[mid], x2) < 0) lo = mid + 1;
         else hi = mid;
       } while (lo < hi);
     }
     return lo;
   }
-  function right(a, x2, lo = 0, hi = a.length) {
+  function right(a2, x2, lo = 0, hi = a2.length) {
     if (lo < hi) {
       if (compare1(x2, x2) !== 0) return hi;
       do {
         const mid = lo + hi >>> 1;
-        if (compare2(a[mid], x2) <= 0) lo = mid + 1;
+        if (compare2(a2[mid], x2) <= 0) lo = mid + 1;
         else hi = mid;
       } while (lo < hi);
     }
     return lo;
   }
-  function center(a, x2, lo = 0, hi = a.length) {
-    const i = left(a, x2, lo, hi - 1);
-    return i > lo && delta(a[i - 1], x2) > -delta(a[i], x2) ? i - 1 : i;
+  function center(a2, x2, lo = 0, hi = a2.length) {
+    const i = left(a2, x2, lo, hi - 1);
+    return i > lo && delta(a2[i - 1], x2) > -delta(a2[i], x2) ? i - 1 : i;
   }
   return { left, center, right };
 }
@@ -36013,14 +36368,14 @@ function keyof(value) {
 function compareDefined(compare = ascending) {
   if (compare === ascending) return ascendingDefined;
   if (typeof compare !== "function") throw new TypeError("compare is not a function");
-  return (a, b) => {
-    const x2 = compare(a, b);
+  return (a2, b) => {
+    const x2 = compare(a2, b);
     if (x2 || x2 === 0) return x2;
-    return (compare(b, b) === 0) - (compare(a, a) === 0);
+    return (compare(b, b) === 0) - (compare(a2, a2) === 0);
   };
 }
-function ascendingDefined(a, b) {
-  return (a == null || !(a >= a)) - (b == null || !(b >= b)) || (a < b ? -1 : a > b ? 1 : 0);
+function ascendingDefined(a2, b) {
+  return (a2 == null || !(a2 >= a2)) - (b == null || !(b >= b)) || (a2 < b ? -1 : a2 > b ? 1 : 0);
 }
 
 // node_modules/d3-array/src/ticks.js
@@ -36114,27 +36469,27 @@ function min(values, valueof) {
 }
 
 // node_modules/d3-array/src/quickselect.js
-function quickselect(array, k, left = 0, right = Infinity, compare) {
-  k = Math.floor(k);
+function quickselect(array, k2, left = 0, right = Infinity, compare) {
+  k2 = Math.floor(k2);
   left = Math.floor(Math.max(0, left));
   right = Math.floor(Math.min(array.length - 1, right));
-  if (!(left <= k && k <= right)) return array;
+  if (!(left <= k2 && k2 <= right)) return array;
   compare = compare === void 0 ? ascendingDefined : compareDefined(compare);
   while (right > left) {
     if (right - left > 600) {
       const n = right - left + 1;
-      const m = k - left + 1;
+      const m = k2 - left + 1;
       const z = Math.log(n);
-      const s = 0.5 * Math.exp(2 * z / 3);
-      const sd = 0.5 * Math.sqrt(z * s * (n - s) / n) * (m - n / 2 < 0 ? -1 : 1);
-      const newLeft = Math.max(left, Math.floor(k - m * s / n + sd));
-      const newRight = Math.min(right, Math.floor(k + (n - m) * s / n + sd));
-      quickselect(array, k, newLeft, newRight, compare);
+      const s2 = 0.5 * Math.exp(2 * z / 3);
+      const sd = 0.5 * Math.sqrt(z * s2 * (n - s2) / n) * (m - n / 2 < 0 ? -1 : 1);
+      const newLeft = Math.max(left, Math.floor(k2 - m * s2 / n + sd));
+      const newRight = Math.min(right, Math.floor(k2 + (n - m) * s2 / n + sd));
+      quickselect(array, k2, newLeft, newRight, compare);
     }
-    const t = array[k];
+    const t = array[k2];
     let i = left;
     let j = right;
-    swap(array, left, k);
+    swap(array, left, k2);
     if (compare(array[right], t) > 0) swap(array, left, right);
     while (i < j) {
       swap(array, i, j), ++i, --j;
@@ -36143,8 +36498,8 @@ function quickselect(array, k, left = 0, right = Infinity, compare) {
     }
     if (compare(array[left], t) === 0) swap(array, left, j);
     else ++j, swap(array, j, right);
-    if (j <= k) left = j + 1;
-    if (k <= j) right = j - 1;
+    if (j <= k2) left = j + 1;
+    if (k2 <= j) right = j - 1;
   }
   return array;
 }
@@ -36524,9 +36879,9 @@ function color(format2) {
 function rgbn(n) {
   return new Rgb(n >> 16 & 255, n >> 8 & 255, n & 255, 1);
 }
-function rgba(r2, g, b, a) {
-  if (a <= 0) r2 = g = b = NaN;
-  return new Rgb(r2, g, b, a);
+function rgba(r2, g, b, a2) {
+  if (a2 <= 0) r2 = g = b = NaN;
+  return new Rgb(r2, g, b, a2);
 }
 function rgbConvert(o) {
   if (!(o instanceof Color)) o = color(o);
@@ -36544,13 +36899,13 @@ function Rgb(r2, g, b, opacity) {
   this.opacity = +opacity;
 }
 define_default(Rgb, rgb, extend(Color, {
-  brighter(k) {
-    k = k == null ? brighter : Math.pow(brighter, k);
-    return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+  brighter(k2) {
+    k2 = k2 == null ? brighter : Math.pow(brighter, k2);
+    return new Rgb(this.r * k2, this.g * k2, this.b * k2, this.opacity);
   },
-  darker(k) {
-    k = k == null ? darker : Math.pow(darker, k);
-    return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+  darker(k2) {
+    k2 = k2 == null ? darker : Math.pow(darker, k2);
+    return new Rgb(this.r * k2, this.g * k2, this.b * k2, this.opacity);
   },
   rgb() {
     return this;
@@ -36575,8 +36930,8 @@ function rgb_formatHex8() {
   return `#${hex(this.r)}${hex(this.g)}${hex(this.b)}${hex((isNaN(this.opacity) ? 1 : this.opacity) * 255)}`;
 }
 function rgb_formatRgb() {
-  const a = clampa(this.opacity);
-  return `${a === 1 ? "rgb(" : "rgba("}${clampi(this.r)}, ${clampi(this.g)}, ${clampi(this.b)}${a === 1 ? ")" : `, ${a})`}`;
+  const a2 = clampa(this.opacity);
+  return `${a2 === 1 ? "rgb(" : "rgba("}${clampi(this.r)}, ${clampi(this.g)}, ${clampi(this.b)}${a2 === 1 ? ")" : `, ${a2})`}`;
 }
 function clampa(opacity) {
   return isNaN(opacity) ? 1 : Math.max(0, Math.min(1, opacity));
@@ -36588,11 +36943,11 @@ function hex(value) {
   value = clampi(value);
   return (value < 16 ? "0" : "") + value.toString(16);
 }
-function hsla(h, s, l, a) {
-  if (a <= 0) h = s = l = NaN;
-  else if (l <= 0 || l >= 1) h = s = NaN;
-  else if (s <= 0) h = NaN;
-  return new Hsl(h, s, l, a);
+function hsla(h, s2, l, a2) {
+  if (a2 <= 0) h = s2 = l = NaN;
+  else if (l <= 0 || l >= 1) h = s2 = NaN;
+  else if (s2 <= 0) h = NaN;
+  return new Hsl(h, s2, l, a2);
 }
 function hslConvert(o) {
   if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
@@ -36600,38 +36955,38 @@ function hslConvert(o) {
   if (!o) return new Hsl();
   if (o instanceof Hsl) return o;
   o = o.rgb();
-  var r2 = o.r / 255, g = o.g / 255, b = o.b / 255, min2 = Math.min(r2, g, b), max2 = Math.max(r2, g, b), h = NaN, s = max2 - min2, l = (max2 + min2) / 2;
-  if (s) {
-    if (r2 === max2) h = (g - b) / s + (g < b) * 6;
-    else if (g === max2) h = (b - r2) / s + 2;
-    else h = (r2 - g) / s + 4;
-    s /= l < 0.5 ? max2 + min2 : 2 - max2 - min2;
+  var r2 = o.r / 255, g = o.g / 255, b = o.b / 255, min2 = Math.min(r2, g, b), max2 = Math.max(r2, g, b), h = NaN, s2 = max2 - min2, l = (max2 + min2) / 2;
+  if (s2) {
+    if (r2 === max2) h = (g - b) / s2 + (g < b) * 6;
+    else if (g === max2) h = (b - r2) / s2 + 2;
+    else h = (r2 - g) / s2 + 4;
+    s2 /= l < 0.5 ? max2 + min2 : 2 - max2 - min2;
     h *= 60;
   } else {
-    s = l > 0 && l < 1 ? 0 : h;
+    s2 = l > 0 && l < 1 ? 0 : h;
   }
-  return new Hsl(h, s, l, o.opacity);
+  return new Hsl(h, s2, l, o.opacity);
 }
-function hsl(h, s, l, opacity) {
-  return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
+function hsl(h, s2, l, opacity) {
+  return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s2, l, opacity == null ? 1 : opacity);
 }
-function Hsl(h, s, l, opacity) {
+function Hsl(h, s2, l, opacity) {
   this.h = +h;
-  this.s = +s;
+  this.s = +s2;
   this.l = +l;
   this.opacity = +opacity;
 }
 define_default(Hsl, hsl, extend(Color, {
-  brighter(k) {
-    k = k == null ? brighter : Math.pow(brighter, k);
-    return new Hsl(this.h, this.s, this.l * k, this.opacity);
+  brighter(k2) {
+    k2 = k2 == null ? brighter : Math.pow(brighter, k2);
+    return new Hsl(this.h, this.s, this.l * k2, this.opacity);
   },
-  darker(k) {
-    k = k == null ? darker : Math.pow(darker, k);
-    return new Hsl(this.h, this.s, this.l * k, this.opacity);
+  darker(k2) {
+    k2 = k2 == null ? darker : Math.pow(darker, k2);
+    return new Hsl(this.h, this.s, this.l * k2, this.opacity);
   },
   rgb() {
-    var h = this.h % 360 + (this.h < 0) * 360, s = isNaN(h) || isNaN(this.s) ? 0 : this.s, l = this.l, m2 = l + (l < 0.5 ? l : 1 - l) * s, m1 = 2 * l - m2;
+    var h = this.h % 360 + (this.h < 0) * 360, s2 = isNaN(h) || isNaN(this.s) ? 0 : this.s, l = this.l, m2 = l + (l < 0.5 ? l : 1 - l) * s2, m1 = 2 * l - m2;
     return new Rgb(
       hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2),
       hsl2rgb(h, m1, m2),
@@ -36646,8 +37001,8 @@ define_default(Hsl, hsl, extend(Color, {
     return (0 <= this.s && this.s <= 1 || isNaN(this.s)) && (0 <= this.l && this.l <= 1) && (0 <= this.opacity && this.opacity <= 1);
   },
   formatHsl() {
-    const a = clampa(this.opacity);
-    return `${a === 1 ? "hsl(" : "hsla("}${clamph(this.h)}, ${clampt(this.s) * 100}%, ${clampt(this.l) * 100}%${a === 1 ? ")" : `, ${a})`}`;
+    const a2 = clampa(this.opacity);
+    return `${a2 === 1 ? "hsl(" : "hsla("}${clamph(this.h)}, ${clampt(this.s) * 100}%, ${clampt(this.l) * 100}%${a2 === 1 ? ")" : `, ${a2})`}`;
   }
 }));
 function clamph(value) {
@@ -36687,24 +37042,24 @@ function basisClosed_default2(values) {
 var constant_default2 = (x2) => () => x2;
 
 // node_modules/d3-interpolate/src/color.js
-function linear(a, d) {
+function linear(a2, d) {
   return function(t) {
-    return a + t * d;
+    return a2 + t * d;
   };
 }
-function exponential(a, b, y2) {
-  return a = Math.pow(a, y2), b = Math.pow(b, y2) - a, y2 = 1 / y2, function(t) {
-    return Math.pow(a + t * b, y2);
+function exponential(a2, b, y2) {
+  return a2 = Math.pow(a2, y2), b = Math.pow(b, y2) - a2, y2 = 1 / y2, function(t) {
+    return Math.pow(a2 + t * b, y2);
   };
 }
 function gamma(y2) {
-  return (y2 = +y2) === 1 ? nogamma : function(a, b) {
-    return b - a ? exponential(a, b, y2) : constant_default2(isNaN(a) ? b : a);
+  return (y2 = +y2) === 1 ? nogamma : function(a2, b) {
+    return b - a2 ? exponential(a2, b, y2) : constant_default2(isNaN(a2) ? b : a2);
   };
 }
-function nogamma(a, b) {
-  var d = b - a;
-  return d ? linear(a, d) : constant_default2(isNaN(a) ? b : a);
+function nogamma(a2, b) {
+  var d = b - a2;
+  return d ? linear(a2, d) : constant_default2(isNaN(a2) ? b : a2);
 }
 
 // node_modules/d3-interpolate/src/rgb.js
@@ -36748,12 +37103,12 @@ var rgbBasis = rgbSpline(basis_default2);
 var rgbBasisClosed = rgbSpline(basisClosed_default2);
 
 // node_modules/d3-interpolate/src/numberArray.js
-function numberArray_default(a, b) {
+function numberArray_default(a2, b) {
   if (!b) b = [];
-  var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
+  var n = a2 ? Math.min(b.length, a2.length) : 0, c2 = b.slice(), i;
   return function(t) {
-    for (i = 0; i < n; ++i) c[i] = a[i] * (1 - t) + b[i] * t;
-    return c;
+    for (i = 0; i < n; ++i) c2[i] = a2[i] * (1 - t) + b[i] * t;
+    return c2;
   };
 }
 function isNumberArray(x2) {
@@ -36761,46 +37116,46 @@ function isNumberArray(x2) {
 }
 
 // node_modules/d3-interpolate/src/array.js
-function genericArray(a, b) {
-  var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x2 = new Array(na), c = new Array(nb), i;
-  for (i = 0; i < na; ++i) x2[i] = value_default(a[i], b[i]);
-  for (; i < nb; ++i) c[i] = b[i];
+function genericArray(a2, b) {
+  var nb = b ? b.length : 0, na = a2 ? Math.min(nb, a2.length) : 0, x2 = new Array(na), c2 = new Array(nb), i;
+  for (i = 0; i < na; ++i) x2[i] = value_default(a2[i], b[i]);
+  for (; i < nb; ++i) c2[i] = b[i];
   return function(t) {
-    for (i = 0; i < na; ++i) c[i] = x2[i](t);
-    return c;
+    for (i = 0; i < na; ++i) c2[i] = x2[i](t);
+    return c2;
   };
 }
 
 // node_modules/d3-interpolate/src/date.js
-function date_default(a, b) {
+function date_default(a2, b) {
   var d = /* @__PURE__ */ new Date();
-  return a = +a, b = +b, function(t) {
-    return d.setTime(a * (1 - t) + b * t), d;
+  return a2 = +a2, b = +b, function(t) {
+    return d.setTime(a2 * (1 - t) + b * t), d;
   };
 }
 
 // node_modules/d3-interpolate/src/number.js
-function number_default(a, b) {
-  return a = +a, b = +b, function(t) {
-    return a * (1 - t) + b * t;
+function number_default(a2, b) {
+  return a2 = +a2, b = +b, function(t) {
+    return a2 * (1 - t) + b * t;
   };
 }
 
 // node_modules/d3-interpolate/src/object.js
-function object_default(a, b) {
-  var i = {}, c = {}, k;
-  if (a === null || typeof a !== "object") a = {};
+function object_default(a2, b) {
+  var i = {}, c2 = {}, k2;
+  if (a2 === null || typeof a2 !== "object") a2 = {};
   if (b === null || typeof b !== "object") b = {};
-  for (k in b) {
-    if (k in a) {
-      i[k] = value_default(a[k], b[k]);
+  for (k2 in b) {
+    if (k2 in a2) {
+      i[k2] = value_default(a2[k2], b[k2]);
     } else {
-      c[k] = b[k];
+      c2[k2] = b[k2];
     }
   }
   return function(t) {
-    for (k in i) c[k] = i[k](t);
-    return c;
+    for (k2 in i) c2[k2] = i[k2](t);
+    return c2;
   };
 }
 
@@ -36817,45 +37172,45 @@ function one(b) {
     return b(t) + "";
   };
 }
-function string_default(a, b) {
-  var bi = reA.lastIndex = reB.lastIndex = 0, am, bm, bs, i = -1, s = [], q = [];
-  a = a + "", b = b + "";
-  while ((am = reA.exec(a)) && (bm = reB.exec(b))) {
+function string_default(a2, b) {
+  var bi = reA.lastIndex = reB.lastIndex = 0, am, bm, bs, i = -1, s2 = [], q = [];
+  a2 = a2 + "", b = b + "";
+  while ((am = reA.exec(a2)) && (bm = reB.exec(b))) {
     if ((bs = bm.index) > bi) {
       bs = b.slice(bi, bs);
-      if (s[i]) s[i] += bs;
-      else s[++i] = bs;
+      if (s2[i]) s2[i] += bs;
+      else s2[++i] = bs;
     }
     if ((am = am[0]) === (bm = bm[0])) {
-      if (s[i]) s[i] += bm;
-      else s[++i] = bm;
+      if (s2[i]) s2[i] += bm;
+      else s2[++i] = bm;
     } else {
-      s[++i] = null;
+      s2[++i] = null;
       q.push({ i, x: number_default(am, bm) });
     }
     bi = reB.lastIndex;
   }
   if (bi < b.length) {
     bs = b.slice(bi);
-    if (s[i]) s[i] += bs;
-    else s[++i] = bs;
+    if (s2[i]) s2[i] += bs;
+    else s2[++i] = bs;
   }
-  return s.length < 2 ? q[0] ? one(q[0].x) : zero2(b) : (b = q.length, function(t) {
-    for (var i2 = 0, o; i2 < b; ++i2) s[(o = q[i2]).i] = o.x(t);
-    return s.join("");
+  return s2.length < 2 ? q[0] ? one(q[0].x) : zero2(b) : (b = q.length, function(t) {
+    for (var i2 = 0, o; i2 < b; ++i2) s2[(o = q[i2]).i] = o.x(t);
+    return s2.join("");
   });
 }
 
 // node_modules/d3-interpolate/src/value.js
-function value_default(a, b) {
-  var t = typeof b, c;
-  return b == null || t === "boolean" ? constant_default2(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
+function value_default(a2, b) {
+  var t = typeof b, c2;
+  return b == null || t === "boolean" ? constant_default2(b) : (t === "number" ? number_default : t === "string" ? (c2 = color(b)) ? (b = c2, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a2, b);
 }
 
 // node_modules/d3-interpolate/src/round.js
-function round_default(a, b) {
-  return a = +a, b = +b, function(t) {
-    return Math.round(a * (1 - t) + b * t);
+function round_default(a2, b) {
+  return a2 = +a2, b = +b, function(t) {
+    return Math.round(a2 * (1 - t) + b * t);
   };
 }
 
@@ -36887,16 +37242,16 @@ var unit = [0, 1];
 function identity(x2) {
   return x2;
 }
-function normalize(a, b) {
-  return (b -= a = +a) ? function(x2) {
-    return (x2 - a) / b;
+function normalize(a2, b) {
+  return (b -= a2 = +a2) ? function(x2) {
+    return (x2 - a2) / b;
   } : constants(isNaN(b) ? NaN : 0.5);
 }
-function clamper(a, b) {
+function clamper(a2, b) {
   var t;
-  if (a > b) t = a, a = b, b = t;
+  if (a2 > b) t = a2, a2 = b, b = t;
   return function(x2) {
-    return Math.max(a, Math.min(b, x2));
+    return Math.max(a2, Math.min(b, x2));
   };
 }
 function bimap(domain, range4, interpolate2) {
@@ -37044,9 +37399,9 @@ FormatSpecifier.prototype.toString = function() {
 };
 
 // node_modules/d3-format/src/formatTrim.js
-function formatTrim_default(s) {
-  out: for (var n = s.length, i = 1, i0 = -1, i1; i < n; ++i) {
-    switch (s[i]) {
+function formatTrim_default(s2) {
+  out: for (var n = s2.length, i = 1, i0 = -1, i1; i < n; ++i) {
+    switch (s2[i]) {
       case ".":
         i0 = i1 = i;
         break;
@@ -37055,12 +37410,12 @@ function formatTrim_default(s) {
         i1 = i;
         break;
       default:
-        if (!+s[i]) break out;
+        if (!+s2[i]) break out;
         if (i0 > 0) i0 = 0;
         break;
     }
   }
-  return i0 > 0 ? s.slice(0, i0) + s.slice(i1 + 1) : s;
+  return i0 > 0 ? s2.slice(0, i0) + s2.slice(i1 + 1) : s2;
 }
 
 // node_modules/d3-format/src/formatPrefixAuto.js
@@ -37113,11 +37468,11 @@ function locale_default(locale3) {
     if (type === "n") comma = true, type = "g";
     else if (!formatTypes_default[type]) precision === void 0 && (precision = 12), trim = true, type = "g";
     if (zero3 || fill === "0" && align === "=") zero3 = true, fill = "0", align = "=";
-    var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "", suffix2 = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
+    var prefix2 = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "", suffix2 = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
     var formatType = formatTypes_default[type], maybeSuffix = /[defgprs%]/.test(type);
     precision = precision === void 0 ? 6 : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision)) : Math.max(0, Math.min(20, precision));
     function format2(value) {
-      var valuePrefix = prefix, valueSuffix = suffix2, i, n, c;
+      var valuePrefix = prefix2, valueSuffix = suffix2, i, n, c2;
       if (type === "c") {
         valueSuffix = formatType(value) + valueSuffix;
         value = "";
@@ -37132,8 +37487,8 @@ function locale_default(locale3) {
         if (maybeSuffix) {
           i = -1, n = value.length;
           while (++i < n) {
-            if (c = value.charCodeAt(i), 48 > c || c > 57) {
-              valueSuffix = (c === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
+            if (c2 = value.charCodeAt(i), 48 > c2 || c2 > 57) {
+              valueSuffix = (c2 === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
               value = value.slice(0, i);
               break;
             }
@@ -37165,9 +37520,9 @@ function locale_default(locale3) {
     return format2;
   }
   function formatPrefix2(specifier, value) {
-    var f = newFormat((specifier = formatSpecifier(specifier), specifier.type = "f", specifier)), e = Math.max(-8, Math.min(8, Math.floor(exponent_default(value) / 3))) * 3, k = Math.pow(10, -e), prefix = prefixes[8 + e / 3];
+    var f = newFormat((specifier = formatSpecifier(specifier), specifier.type = "f", specifier)), e = Math.max(-8, Math.min(8, Math.floor(exponent_default(value) / 3))) * 3, k2 = Math.pow(10, -e), prefix2 = prefixes[8 + e / 3];
     return function(value2) {
-      return f(k * value2) + prefix;
+      return f(k2 * value2) + prefix2;
     };
   }
   return {
@@ -37346,7 +37701,7 @@ function logp(base) {
   return base === Math.E ? Math.log : base === 10 && Math.log10 || base === 2 && Math.log2 || (base = Math.log(base), (x2) => Math.log(x2) / base);
 }
 function reflect(f) {
-  return (x2, k) => -f(-x2, k);
+  return (x2, k2) => -f(-x2, k2);
 }
 function loggish(transform) {
   const scale = transform(transformLog, transformExp);
@@ -37378,23 +37733,23 @@ function loggish(transform) {
     if (r2) [u, v] = [v, u];
     let i = logs(u);
     let j = logs(v);
-    let k;
+    let k2;
     let t;
     const n = count == null ? 10 : +count;
     let z = [];
     if (!(base % 1) && j - i < n) {
       i = Math.floor(i), j = Math.ceil(j);
       if (u > 0) for (; i <= j; ++i) {
-        for (k = 1; k < base; ++k) {
-          t = i < 0 ? k / pows(-i) : k * pows(i);
+        for (k2 = 1; k2 < base; ++k2) {
+          t = i < 0 ? k2 / pows(-i) : k2 * pows(i);
           if (t < u) continue;
           if (t > v) break;
           z.push(t);
         }
       }
       else for (; i <= j; ++i) {
-        for (k = base - 1; k >= 1; --k) {
-          t = i > 0 ? k / pows(-i) : k * pows(i);
+        for (k2 = base - 1; k2 >= 1; --k2) {
+          t = i > 0 ? k2 / pows(-i) : k2 * pows(i);
           if (t < u) continue;
           if (t > v) break;
           z.push(t);
@@ -37414,11 +37769,11 @@ function loggish(transform) {
       specifier = format(specifier);
     }
     if (count === Infinity) return specifier;
-    const k = Math.max(1, base * count / scale.ticks().length);
+    const k2 = Math.max(1, base * count / scale.ticks().length);
     return (d) => {
       let i = d / pows(Math.round(logs(d)));
       if (i * base < base - 0.5) i *= base;
-      return i <= k ? specifier(d) : "";
+      return i <= k2 ? specifier(d) : "";
     };
   };
   scale.nice = () => {
@@ -37437,20 +37792,20 @@ function log() {
 }
 
 // node_modules/d3-scale/src/symlog.js
-function transformSymlog(c) {
+function transformSymlog(c2) {
   return function(x2) {
-    return Math.sign(x2) * Math.log1p(Math.abs(x2 / c));
+    return Math.sign(x2) * Math.log1p(Math.abs(x2 / c2));
   };
 }
-function transformSymexp(c) {
+function transformSymexp(c2) {
   return function(x2) {
-    return Math.sign(x2) * Math.expm1(Math.abs(x2)) * c;
+    return Math.sign(x2) * Math.expm1(Math.abs(x2)) * c2;
   };
 }
 function symlogish(transform) {
-  var c = 1, scale = transform(transformSymlog(c), transformSymexp(c));
+  var c2 = 1, scale = transform(transformSymlog(c2), transformSymexp(c2));
   scale.constant = function(_) {
-    return arguments.length ? transform(transformSymlog(c = +_), transformSymexp(c)) : c;
+    return arguments.length ? transform(transformSymlog(c2 = +_), transformSymexp(c2)) : c2;
   };
   return linearish(scale);
 }
@@ -37492,7 +37847,7 @@ function pow() {
   initRange.apply(scale, arguments);
   return scale;
 }
-function sqrt() {
+function sqrt2() {
   return pow.apply(null, arguments).exponent(0.5);
 }
 
@@ -37705,16 +38060,16 @@ var millisecond = timeInterval(() => {
 }, (start, end) => {
   return end - start;
 });
-millisecond.every = (k) => {
-  k = Math.floor(k);
-  if (!isFinite(k) || !(k > 0)) return null;
-  if (!(k > 1)) return millisecond;
+millisecond.every = (k2) => {
+  k2 = Math.floor(k2);
+  if (!isFinite(k2) || !(k2 > 0)) return null;
+  if (!(k2 > 1)) return millisecond;
   return timeInterval((date2) => {
-    date2.setTime(Math.floor(date2 / k) * k);
+    date2.setTime(Math.floor(date2 / k2) * k2);
   }, (date2, step) => {
-    date2.setTime(+date2 + step * k);
+    date2.setTime(+date2 + step * k2);
   }, (start, end) => {
-    return (end - start) / k;
+    return (end - start) / k2;
   });
 };
 var milliseconds = millisecond.range;
@@ -37898,13 +38253,13 @@ var timeYear = timeInterval((date2) => {
 }, (date2) => {
   return date2.getFullYear();
 });
-timeYear.every = (k) => {
-  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : timeInterval((date2) => {
-    date2.setFullYear(Math.floor(date2.getFullYear() / k) * k);
+timeYear.every = (k2) => {
+  return !isFinite(k2 = Math.floor(k2)) || !(k2 > 0) ? null : timeInterval((date2) => {
+    date2.setFullYear(Math.floor(date2.getFullYear() / k2) * k2);
     date2.setMonth(0, 1);
     date2.setHours(0, 0, 0, 0);
   }, (date2, step) => {
-    date2.setFullYear(date2.getFullYear() + step * k);
+    date2.setFullYear(date2.getFullYear() + step * k2);
   });
 };
 var timeYears = timeYear.range;
@@ -37918,13 +38273,13 @@ var utcYear = timeInterval((date2) => {
 }, (date2) => {
   return date2.getUTCFullYear();
 });
-utcYear.every = (k) => {
-  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : timeInterval((date2) => {
-    date2.setUTCFullYear(Math.floor(date2.getUTCFullYear() / k) * k);
+utcYear.every = (k2) => {
+  return !isFinite(k2 = Math.floor(k2)) || !(k2 > 0) ? null : timeInterval((date2) => {
+    date2.setUTCFullYear(Math.floor(date2.getUTCFullYear() / k2) * k2);
     date2.setUTCMonth(0, 1);
     date2.setUTCHours(0, 0, 0, 0);
   }, (date2, step) => {
-    date2.setUTCFullYear(date2.getUTCFullYear() + step * k);
+    date2.setUTCFullYear(date2.getUTCFullYear() + step * k2);
   });
 };
 var utcYears = utcYear.range;
@@ -38104,15 +38459,15 @@ function formatLocale(locale3) {
   utcFormats.c = newFormat(locale_dateTime, utcFormats);
   function newFormat(specifier, formats2) {
     return function(date2) {
-      var string = [], i = -1, j = 0, n = specifier.length, c, pad2, format2;
+      var string = [], i = -1, j = 0, n = specifier.length, c2, pad2, format2;
       if (!(date2 instanceof Date)) date2 = /* @__PURE__ */ new Date(+date2);
       while (++i < n) {
         if (specifier.charCodeAt(i) === 37) {
           string.push(specifier.slice(j, i));
-          if ((pad2 = pads[c = specifier.charAt(++i)]) != null) c = specifier.charAt(++i);
-          else pad2 = c === "e" ? " " : "0";
-          if (format2 = formats2[c]) c = format2(date2, pad2);
-          string.push(c);
+          if ((pad2 = pads[c2 = specifier.charAt(++i)]) != null) c2 = specifier.charAt(++i);
+          else pad2 = c2 === "e" ? " " : "0";
+          if (format2 = formats2[c2]) c2 = format2(date2, pad2);
+          string.push(c2);
           j = i + 1;
         }
       }
@@ -38162,15 +38517,15 @@ function formatLocale(locale3) {
     };
   }
   function parseSpecifier(d, specifier, string, j) {
-    var i = 0, n = specifier.length, m = string.length, c, parse;
+    var i = 0, n = specifier.length, m = string.length, c2, parse;
     while (i < n) {
       if (j >= m) return -1;
-      c = specifier.charCodeAt(i++);
-      if (c === 37) {
-        c = specifier.charAt(i++);
-        parse = parses[c in pads ? specifier.charAt(i++) : c];
+      c2 = specifier.charCodeAt(i++);
+      if (c2 === 37) {
+        c2 = specifier.charAt(i++);
+        parse = parses[c2 in pads ? specifier.charAt(i++) : c2];
         if (!parse || (j = parse(d, string, j)) < 0) return -1;
-      } else if (c != string.charCodeAt(j++)) {
+      } else if (c2 != string.charCodeAt(j++)) {
         return -1;
       }
     }
@@ -38280,8 +38635,8 @@ function pad(value, fill, width) {
   var sign2 = value < 0 ? "-" : "", string = (sign2 ? -value : value) + "", length = string.length;
   return sign2 + (length < width ? new Array(width - length + 1).join(fill) + string : string);
 }
-function requote(s) {
-  return s.replace(requoteRe, "\\$&");
+function requote(s2) {
+  return s2.replace(requoteRe, "\\$&");
 }
 function formatRe(names) {
   return new RegExp("^(?:" + names.map(requote).join("|") + ")", "i");
@@ -38678,12 +39033,12 @@ function sequentialQuantile() {
 
 // node_modules/d3-scale/src/diverging.js
 function transformer3() {
-  var x0 = 0, x1 = 0.5, x2 = 1, s = 1, t02, t12, t2, k10, k21, interpolator = identity, transform, clamp = false, unknown;
+  var x0 = 0, x1 = 0.5, x2 = 1, s2 = 1, t02, t12, t2, k10, k21, interpolator = identity, transform, clamp = false, unknown;
   function scale(x3) {
-    return isNaN(x3 = +x3) ? unknown : (x3 = 0.5 + ((x3 = +transform(x3)) - t12) * (s * x3 < s * t12 ? k10 : k21), interpolator(clamp ? Math.max(0, Math.min(1, x3)) : x3));
+    return isNaN(x3 = +x3) ? unknown : (x3 = 0.5 + ((x3 = +transform(x3)) - t12) * (s2 * x3 < s2 * t12 ? k10 : k21), interpolator(clamp ? Math.max(0, Math.min(1, x3)) : x3));
   }
   scale.domain = function(_) {
-    return arguments.length ? ([x0, x1, x2] = _, t02 = transform(x0 = +x0), t12 = transform(x1 = +x1), t2 = transform(x2 = +x2), k10 = t02 === t12 ? 0 : 0.5 / (t12 - t02), k21 = t12 === t2 ? 0 : 0.5 / (t2 - t12), s = t12 < t02 ? -1 : 1, scale) : [x0, x1, x2];
+    return arguments.length ? ([x0, x1, x2] = _, t02 = transform(x0 = +x0), t12 = transform(x1 = +x1), t2 = transform(x2 = +x2), k10 = t02 === t12 ? 0 : 0.5 / (t12 - t02), k21 = t12 === t2 ? 0 : 0.5 / (t2 - t12), s2 = t12 < t02 ? -1 : 1, scale) : [x0, x1, x2];
   };
   scale.clamp = function(_) {
     return arguments.length ? (clamp = !!_, scale) : clamp;
@@ -38703,7 +39058,7 @@ function transformer3() {
     return arguments.length ? (unknown = _, scale) : unknown;
   };
   return function(t) {
-    transform = t, t02 = t(x0), t12 = t(x1), t2 = t(x2), k10 = t02 === t12 ? 0 : 0.5 / (t12 - t02), k21 = t12 === t2 ? 0 : 0.5 / (t2 - t12), s = t12 < t02 ? -1 : 1;
+    transform = t, t02 = t(x0), t12 = t(x1), t2 = t(x2), k10 = t02 === t12 ? 0 : 0.5 / (t12 - t02), k21 = t12 === t2 ? 0 : 0.5 / (t2 - t12), s2 = t12 < t02 ? -1 : 1;
     return scale;
   };
 }
@@ -39084,14 +39439,16 @@ var getTickValuesFixedDomain = function getTickValuesFixedDomain2(_ref3, tickCou
 };
 
 // node_modules/recharts/es6/state/selectors/rootPropsSelectors.js
+var selectRootMaxBarSize = (state) => state.rootProps.maxBarSize;
+var selectBarGap = (state) => state.rootProps.barGap;
 var selectBarCategoryGap = (state) => state.rootProps.barCategoryGap;
+var selectRootBarSize = (state) => state.rootProps.barSize;
 var selectStackOffsetType = (state) => state.rootProps.stackOffset;
 var selectReverseStackOrder = (state) => state.rootProps.reverseStackOrder;
 var selectChartName = (state) => state.options.chartName;
 var selectSyncId = (state) => state.rootProps.syncId;
 var selectSyncMethod = (state) => state.rootProps.syncMethod;
 var selectEventEmitter = (state) => state.options.eventEmitter;
-var selectChartBaseValue = (state) => state.rootProps.baseValue;
 
 // node_modules/recharts/es6/zIndex/DefaultZIndexes.js
 var DefaultZIndexes = {
@@ -39408,27 +39765,27 @@ function isStacked(graphicalItem) {
 }
 
 // node_modules/recharts/es6/state/selectors/numberDomainEqualityCheck.js
-var numberDomainEqualityCheck = (a, b) => {
-  if (a === b) {
+var numberDomainEqualityCheck = (a2, b) => {
+  if (a2 === b) {
     return true;
   }
-  if (a == null || b == null) {
+  if (a2 == null || b == null) {
     return false;
   }
-  return a[0] === b[0] && a[1] === b[1];
+  return a2[0] === b[0] && a2[1] === b[1];
 };
 
 // node_modules/recharts/es6/state/selectors/arrayEqualityCheck.js
-function emptyArraysAreEqualCheck(a, b) {
-  if (Array.isArray(a) && Array.isArray(b) && a.length === 0 && b.length === 0) {
+function emptyArraysAreEqualCheck(a2, b) {
+  if (Array.isArray(a2) && Array.isArray(b) && a2.length === 0 && b.length === 0) {
     return true;
   }
-  return a === b;
+  return a2 === b;
 }
-function arrayContentsAreEqualCheck(a, b) {
-  if (a.length === b.length) {
-    for (var i = 0; i < a.length; i++) {
-      if (a[i] !== b[i]) {
+function arrayContentsAreEqualCheck(a2, b) {
+  if (a2.length === b.length) {
+    for (var i = 0; i < a2.length; i++) {
+      if (a2[i] !== b[i]) {
         return false;
       }
     }
@@ -39456,7 +39813,7 @@ var selectTooltipAxisType = (state) => {
 var selectTooltipAxisId = (state) => state.tooltip.settings.axisId;
 
 // node_modules/recharts/es6/state/selectors/axisSelectors.js
-function ownKeys13(e, r2) {
+function ownKeys14(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -39466,25 +39823,25 @@ function ownKeys13(e, r2) {
   }
   return t;
 }
-function _objectSpread13(e) {
+function _objectSpread14(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys13(Object(t), true).forEach(function(r3) {
-      _defineProperty13(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys13(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys14(Object(t), true).forEach(function(r3) {
+      _defineProperty14(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys14(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty13(e, r2, t) {
-  return (r2 = _toPropertyKey13(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty14(e, r2, t) {
+  return (r2 = _toPropertyKey14(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey13(t) {
-  var i = _toPrimitive13(t, "string");
+function _toPropertyKey14(t) {
+  var i = _toPrimitive14(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive13(t, r2) {
+function _toPrimitive14(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -39969,7 +40326,7 @@ function extractXCoordinates(line) {
   if (line.x != null) {
     return onlyAllowNumbers([line.x]);
   }
-  var segmentCoordinates = (_line$segment = line.segment) === null || _line$segment === void 0 ? void 0 : _line$segment.map((s) => s.x);
+  var segmentCoordinates = (_line$segment = line.segment) === null || _line$segment === void 0 ? void 0 : _line$segment.map((s2) => s2.x);
   if (segmentCoordinates == null || segmentCoordinates.length === 0) {
     return [];
   }
@@ -39980,7 +40337,7 @@ function extractYCoordinates(line) {
   if (line.y != null) {
     return onlyAllowNumbers([line.y]);
   }
-  var segmentCoordinates = (_line$segment2 = line.segment) === null || _line$segment2 === void 0 ? void 0 : _line$segment2.map((s) => s.y);
+  var segmentCoordinates = (_line$segment2 = line.segment) === null || _line$segment2 === void 0 ? void 0 : _line$segment2.map((s2) => s2.y);
   if (segmentCoordinates == null || segmentCoordinates.length === 0) {
     return [];
   }
@@ -40129,7 +40486,7 @@ var selectSmallestDistanceBetweenValues = createSelector(selectAllAppliedValues,
     return void 0;
   }
   var smallestDistanceBetweenValues = Infinity;
-  var sortedValues = Array.from(onlyAllowNumbers(allDataSquished.map((d) => d.value))).sort((a, b) => a - b);
+  var sortedValues = Array.from(onlyAllowNumbers(allDataSquished.map((d) => d.value))).sort((a2, b) => a2 - b);
   if (sortedValues.length < 2) {
     return Infinity;
   }
@@ -40257,11 +40614,11 @@ var selectAxisRange = (state, axisType, axisId, isPanorama) => {
 var selectAxisRangeWithReverse = createSelector([selectBaseAxis, selectAxisRange], combineAxisRangeWithReverse);
 var selectAxisScale = createSelector([selectBaseAxis, selectRealScaleType, selectAxisDomainIncludingNiceTicks, selectAxisRangeWithReverse], combineScaleFunction);
 var selectErrorBarsSettings = createSelector([selectCartesianItemsSettings, selectAllErrorBarSettings, pickAxisType], combineRelevantErrorBarSettings);
-function compareIds(a, b) {
-  if (a.id < b.id) {
+function compareIds(a2, b) {
+  if (a2.id < b.id) {
     return -1;
   }
-  if (a.id > b.id) {
+  if (a2.id > b.id) {
     return 1;
   }
   return 0;
@@ -40385,6 +40742,19 @@ var selectYAxisSize = createSelector(selectChartOffsetInternal, selectYAxisSetti
     height: offset.height
   };
 });
+var selectCartesianAxisSize = (state, axisType, axisId) => {
+  switch (axisType) {
+    case "xAxis": {
+      return selectXAxisSize(state, axisId).width;
+    }
+    case "yAxis": {
+      return selectYAxisSize(state, axisId).height;
+    }
+    default: {
+      return void 0;
+    }
+  }
+};
 var combineDuplicateDomain = (chartLayout, appliedValues, axis, axisType) => {
   if (axis == null) {
     return void 0;
@@ -40531,7 +40901,7 @@ var selectAxisWithScale = createSelector(selectBaseAxis, selectAxisScale, (axis,
   if (axis == null || scale == null) {
     return void 0;
   }
-  return _objectSpread13(_objectSpread13({}, axis), {}, {
+  return _objectSpread14(_objectSpread14({}, axis), {}, {
     scale
   });
 });
@@ -40540,7 +40910,7 @@ var selectZAxisWithScale = createSelector((state, _axisType, axisId) => selectZA
   if (axis == null || scale == null) {
     return void 0;
   }
-  return _objectSpread13(_objectSpread13({}, axis), {}, {
+  return _objectSpread14(_objectSpread14({}, axis), {}, {
     scale
   });
 });
@@ -40737,7 +41107,7 @@ var {
 var tooltipReducer = tooltipSlice.reducer;
 
 // node_modules/recharts/es6/state/selectors/combiners/combineTooltipInteractionState.js
-function ownKeys14(e, r2) {
+function ownKeys15(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -40747,25 +41117,25 @@ function ownKeys14(e, r2) {
   }
   return t;
 }
-function _objectSpread14(e) {
+function _objectSpread15(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys14(Object(t), true).forEach(function(r3) {
-      _defineProperty14(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys14(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys15(Object(t), true).forEach(function(r3) {
+      _defineProperty15(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys15(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty14(e, r2, t) {
-  return (r2 = _toPropertyKey14(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty15(e, r2, t) {
+  return (r2 = _toPropertyKey15(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey14(t) {
-  var i = _toPrimitive14(t, "string");
+function _toPropertyKey15(t) {
+  var i = _toPrimitive15(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive14(t, r2) {
+function _toPrimitive15(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -40810,7 +41180,7 @@ var combineTooltipInteractionState = (tooltipState, tooltipEventType, trigger, d
   var activeFromProps = tooltipState.settings.active === true;
   if (hasBeenActivePreviously(appropriateMouseInteraction)) {
     if (activeFromProps) {
-      return _objectSpread14(_objectSpread14({}, appropriateMouseInteraction), {}, {
+      return _objectSpread15(_objectSpread15({}, appropriateMouseInteraction), {}, {
         active: true
       });
     }
@@ -40823,7 +41193,7 @@ var combineTooltipInteractionState = (tooltipState, tooltipEventType, trigger, d
       graphicalItemId: void 0
     };
   }
-  return _objectSpread14(_objectSpread14({}, noInteraction), {}, {
+  return _objectSpread15(_objectSpread15({}, noInteraction), {}, {
     coordinate: appropriateMouseInteraction.coordinate
   });
 };
@@ -40949,7 +41319,7 @@ var selectTooltipPayloadSearcher = (state) => state.options.tooltipPayloadSearch
 var selectTooltipState = (state) => state.tooltip;
 
 // node_modules/recharts/es6/state/selectors/combiners/combineTooltipPayload.js
-function ownKeys15(e, r2) {
+function ownKeys16(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -40959,25 +41329,25 @@ function ownKeys15(e, r2) {
   }
   return t;
 }
-function _objectSpread15(e) {
+function _objectSpread16(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys15(Object(t), true).forEach(function(r3) {
-      _defineProperty15(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys15(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys16(Object(t), true).forEach(function(r3) {
+      _defineProperty16(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys16(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty15(e, r2, t) {
-  return (r2 = _toPropertyKey15(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty16(e, r2, t) {
+  return (r2 = _toPropertyKey16(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey15(t) {
-  var i = _toPrimitive15(t, "string");
+function _toPropertyKey16(t) {
+  var i = _toPrimitive16(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive15(t, r2) {
+function _toPrimitive16(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -41043,7 +41413,7 @@ var combineTooltipPayload = (tooltipPayloadConfigurations, activeIndex, chartDat
     }
     if (Array.isArray(tooltipPayload)) {
       tooltipPayload.forEach((item) => {
-        var newSettings = _objectSpread15(_objectSpread15({}, settings), {}, {
+        var newSettings = _objectSpread16(_objectSpread16({}, settings), {}, {
           name: item.name,
           unit: item.unit,
           // color and fill are erased to keep 100% the identical behaviour to recharts 2.x - but there's nothing stopping us from returning them here. It's technically a breaking change.
@@ -41194,61 +41564,6 @@ var selectActiveTooltipDataPoints = createSelector([selectActiveTooltipPayload],
 });
 
 // node_modules/recharts/es6/context/useTooltipAxis.js
-function ownKeys16(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread16(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys16(Object(t), true).forEach(function(r3) {
-      _defineProperty16(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys16(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty16(e, r2, t) {
-  return (r2 = _toPropertyKey16(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey16(t) {
-  var i = _toPrimitive16(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive16(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-var useTooltipAxis = () => useAppSelector(selectTooltipAxis);
-var useTooltipAxisBandSize = () => {
-  var tooltipAxis = useTooltipAxis();
-  var tooltipTicks = useAppSelector(selectTooltipAxisTicks);
-  var tooltipAxisScale = useAppSelector(selectTooltipAxisScale);
-  if (!tooltipAxis || !tooltipAxisScale) {
-    return getBandSizeOfAxis(void 0, tooltipTicks);
-  }
-  return getBandSizeOfAxis(_objectSpread16(_objectSpread16({}, tooltipAxis), {}, {
-    scale: tooltipAxisScale
-  }), tooltipTicks);
-};
-
-// node_modules/recharts/es6/state/selectors/selectors.js
-var import_sortBy4 = __toESM(require_sortBy2());
-
-// node_modules/recharts/es6/util/getActiveCoordinate.js
 function ownKeys17(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
@@ -41287,6 +41602,61 @@ function _toPrimitive17(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
+var useTooltipAxis = () => useAppSelector(selectTooltipAxis);
+var useTooltipAxisBandSize = () => {
+  var tooltipAxis = useTooltipAxis();
+  var tooltipTicks = useAppSelector(selectTooltipAxisTicks);
+  var tooltipAxisScale = useAppSelector(selectTooltipAxisScale);
+  if (!tooltipAxis || !tooltipAxisScale) {
+    return getBandSizeOfAxis(void 0, tooltipTicks);
+  }
+  return getBandSizeOfAxis(_objectSpread17(_objectSpread17({}, tooltipAxis), {}, {
+    scale: tooltipAxisScale
+  }), tooltipTicks);
+};
+
+// node_modules/recharts/es6/state/selectors/selectors.js
+var import_sortBy4 = __toESM(require_sortBy2());
+
+// node_modules/recharts/es6/util/getActiveCoordinate.js
+function ownKeys18(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread18(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys18(Object(t), true).forEach(function(r3) {
+      _defineProperty18(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys18(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty18(e, r2, t) {
+  return (r2 = _toPropertyKey18(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey18(t) {
+  var i = _toPrimitive18(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive18(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
 var getActiveCartesianCoordinate = (layout, tooltipTicks, activeIndex, pointer) => {
   var entry = tooltipTicks.find((tick) => tick && tick.index === activeIndex);
   if (entry) {
@@ -41316,7 +41686,7 @@ var getActivePolarCoordinate = (layout, tooltipTicks, activeIndex, rangeObj) => 
       var {
         radius: _radius
       } = rangeObj;
-      return _objectSpread17(_objectSpread17(_objectSpread17({}, rangeObj), polarToCartesian(rangeObj.cx, rangeObj.cy, _radius, _angle)), {}, {
+      return _objectSpread18(_objectSpread18(_objectSpread18({}, rangeObj), polarToCartesian(rangeObj.cx, rangeObj.cy, _radius, _angle)), {}, {
         angle: _angle,
         radius: _radius
       });
@@ -41325,7 +41695,7 @@ var getActivePolarCoordinate = (layout, tooltipTicks, activeIndex, rangeObj) => 
     var {
       angle
     } = rangeObj;
-    return _objectSpread17(_objectSpread17(_objectSpread17({}, rangeObj), polarToCartesian(rangeObj.cx, rangeObj.cy, radius, angle)), {}, {
+    return _objectSpread18(_objectSpread18(_objectSpread18({}, rangeObj), polarToCartesian(rangeObj.cx, rangeObj.cy, radius, angle)), {}, {
       angle,
       radius
     });
@@ -41510,7 +41880,7 @@ var selectZIndexPortalId = createSelector((state) => state.zIndex.zIndexMap, (_,
 var selectAllRegisteredZIndexes = createSelector((state) => state.zIndex.zIndexMap, (zIndexMap) => {
   var allNumbers = Object.keys(zIndexMap).map((zIndexStr) => parseInt(zIndexStr, 10)).concat(Object.values(DefaultZIndexes));
   var uniqueNumbers = Array.from(new Set(allNumbers));
-  return uniqueNumbers.sort((a, b) => a - b);
+  return uniqueNumbers.sort((a2, b) => a2 - b);
 }, {
   memoizeOptions: {
     resultEqualityCheck: arrayContentsAreEqualCheck
@@ -41518,7 +41888,7 @@ var selectAllRegisteredZIndexes = createSelector((state) => state.zIndex.zIndexM
 });
 
 // node_modules/recharts/es6/state/zIndexSlice.js
-function ownKeys18(e, r2) {
+function ownKeys19(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -41528,25 +41898,25 @@ function ownKeys18(e, r2) {
   }
   return t;
 }
-function _objectSpread18(e) {
+function _objectSpread19(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys18(Object(t), true).forEach(function(r3) {
-      _defineProperty18(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys18(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys19(Object(t), true).forEach(function(r3) {
+      _defineProperty19(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys19(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty18(e, r2, t) {
-  return (r2 = _toPropertyKey18(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty19(e, r2, t) {
+  return (r2 = _toPropertyKey19(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey18(t) {
-  var i = _toPrimitive18(t, "string");
+function _toPropertyKey19(t) {
+  var i = _toPrimitive19(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive18(t, r2) {
+function _toPrimitive19(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -41558,7 +41928,7 @@ function _toPrimitive18(t, r2) {
 }
 var seed = {};
 var initialState4 = {
-  zIndexMap: Object.values(DefaultZIndexes).reduce((acc, current3) => _objectSpread18(_objectSpread18({}, acc), {}, {
+  zIndexMap: Object.values(DefaultZIndexes).reduce((acc, current3) => _objectSpread19(_objectSpread19({}, acc), {}, {
     [current3]: {
       elementId: void 0,
       panoramaElementId: void 0,
@@ -41691,16 +42061,16 @@ function ZIndexLayer(_ref2) {
 }
 
 // node_modules/recharts/es6/component/Cursor.js
-function _extends9() {
-  return _extends9 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends10() {
+  return _extends10 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends9.apply(null, arguments);
+  }, _extends10.apply(null, arguments);
 }
-function ownKeys19(e, r2) {
+function ownKeys20(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -41710,25 +42080,25 @@ function ownKeys19(e, r2) {
   }
   return t;
 }
-function _objectSpread19(e) {
+function _objectSpread20(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys19(Object(t), true).forEach(function(r3) {
-      _defineProperty19(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys19(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys20(Object(t), true).forEach(function(r3) {
+      _defineProperty20(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys20(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty19(e, r2, t) {
-  return (r2 = _toPropertyKey19(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty20(e, r2, t) {
+  return (r2 = _toPropertyKey20(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey19(t) {
-  var i = _toPrimitive19(t, "string");
+function _toPropertyKey20(t) {
+  var i = _toPrimitive20(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive19(t, r2) {
+function _toPrimitive20(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -41803,7 +42173,7 @@ function CursorInternal(props) {
     preferredZIndex = DefaultZIndexes.cursorLine;
   }
   var extraClassName = typeof cursor === "object" && "className" in cursor ? cursor.className : void 0;
-  var cursorProps = _objectSpread19(_objectSpread19(_objectSpread19(_objectSpread19({
+  var cursorProps = _objectSpread20(_objectSpread20(_objectSpread20(_objectSpread20({
     stroke: "#ccc",
     pointerEvents: "none"
   }, offset), restProps), svgPropertiesNoEventsFromUnknown(cursor)), {}, {
@@ -41811,9 +42181,9 @@ function CursorInternal(props) {
     payloadIndex: activeTooltipIndex,
     className: clsx("recharts-tooltip-cursor", extraClassName)
   });
-  return /* @__PURE__ */ React11.createElement(ZIndexLayer, {
+  return /* @__PURE__ */ React12.createElement(ZIndexLayer, {
     zIndex: (_props$zIndex = props.zIndex) !== null && _props$zIndex !== void 0 ? _props$zIndex : preferredZIndex
-  }, /* @__PURE__ */ React11.createElement(RenderCursor, {
+  }, /* @__PURE__ */ React12.createElement(RenderCursor, {
     cursor,
     cursorComp,
     cursorProps
@@ -41827,7 +42197,7 @@ function Cursor(props) {
   if (tooltipAxisBandSize == null || offset == null || layout == null || chartName == null) {
     return null;
   }
-  return /* @__PURE__ */ React11.createElement(CursorInternal, _extends9({}, props, {
+  return /* @__PURE__ */ React12.createElement(CursorInternal, _extends10({}, props, {
     offset,
     layout,
     tooltipAxisBandSize,
@@ -41935,8 +42305,8 @@ var {
 var chartDataReducer = chartDataSlice.reducer;
 
 // node_modules/recharts/es6/synchronisation/useChartSynchronisation.js
-var _excluded5 = ["x", "y"];
-function ownKeys20(e, r2) {
+var _excluded6 = ["x", "y"];
+function ownKeys21(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -41946,25 +42316,25 @@ function ownKeys20(e, r2) {
   }
   return t;
 }
-function _objectSpread20(e) {
+function _objectSpread21(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys20(Object(t), true).forEach(function(r3) {
-      _defineProperty20(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys20(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys21(Object(t), true).forEach(function(r3) {
+      _defineProperty21(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys21(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty20(e, r2, t) {
-  return (r2 = _toPropertyKey20(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty21(e, r2, t) {
+  return (r2 = _toPropertyKey21(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey20(t) {
-  var i = _toPrimitive20(t, "string");
+function _toPropertyKey21(t) {
+  var i = _toPrimitive21(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive20(t, r2) {
+function _toPrimitive21(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -41974,16 +42344,16 @@ function _toPrimitive20(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-function _objectWithoutProperties5(e, t) {
+function _objectWithoutProperties6(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose5(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose6(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose5(r2, e) {
+function _objectWithoutPropertiesLoose6(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -42018,19 +42388,19 @@ function useTooltipSyncEventsListener() {
           var _action$payload$coord = action.payload.coordinate, {
             x: _x,
             y: _y
-          } = _action$payload$coord, otherCoordinateProps = _objectWithoutProperties5(_action$payload$coord, _excluded5);
+          } = _action$payload$coord, otherCoordinateProps = _objectWithoutProperties6(_action$payload$coord, _excluded6);
           var {
             x: sourceX,
             y: sourceY,
             width: sourceWidth,
             height: sourceHeight
           } = action.payload.sourceViewBox;
-          var scaledCoordinate = _objectSpread20(_objectSpread20({}, otherCoordinateProps), {}, {
+          var scaledCoordinate = _objectSpread21(_objectSpread21({}, otherCoordinateProps), {}, {
             x: viewBox.x + (sourceWidth ? (_x - sourceX) / sourceWidth : 0) * viewBox.width,
             y: viewBox.y + (sourceHeight ? (_y - sourceY) / sourceHeight : 0) * viewBox.height
           });
-          dispatch(_objectSpread20(_objectSpread20({}, action), {}, {
-            payload: _objectSpread20(_objectSpread20({}, action.payload), {}, {
+          dispatch(_objectSpread21(_objectSpread21({}, action), {}, {
+            payload: _objectSpread21(_objectSpread21({}, action.payload), {}, {
               coordinate: scaledCoordinate
             })
           }));
@@ -42161,7 +42531,7 @@ function useTooltipChartSynchronisation(tooltipEventType, trigger, activeCoordin
 }
 
 // node_modules/recharts/es6/component/Tooltip.js
-function ownKeys21(e, r2) {
+function ownKeys22(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -42171,25 +42541,25 @@ function ownKeys21(e, r2) {
   }
   return t;
 }
-function _objectSpread21(e) {
+function _objectSpread22(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys21(Object(t), true).forEach(function(r3) {
-      _defineProperty21(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys21(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys22(Object(t), true).forEach(function(r3) {
+      _defineProperty22(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys22(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty21(e, r2, t) {
-  return (r2 = _toPropertyKey21(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty22(e, r2, t) {
+  return (r2 = _toPropertyKey22(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey21(t) {
-  var i = _toPrimitive21(t, "string");
+function _toPropertyKey22(t) {
+  var i = _toPrimitive22(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive21(t, r2) {
+function _toPrimitive22(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -42203,13 +42573,13 @@ function defaultUniqBy(entry) {
   return entry.dataKey;
 }
 function renderContent(content, props) {
-  if (/* @__PURE__ */ React12.isValidElement(content)) {
-    return /* @__PURE__ */ React12.cloneElement(content, props);
+  if (/* @__PURE__ */ React13.isValidElement(content)) {
+    return /* @__PURE__ */ React13.cloneElement(content, props);
   }
   if (typeof content === "function") {
-    return /* @__PURE__ */ React12.createElement(content, props);
+    return /* @__PURE__ */ React13.createElement(content, props);
   }
-  return /* @__PURE__ */ React12.createElement(DefaultTooltipContent, props);
+  return /* @__PURE__ */ React13.createElement(DefaultTooltipContent, props);
 }
 var emptyPayload = [];
 var defaultTooltipProps = {
@@ -42300,7 +42670,7 @@ function Tooltip(outsideProps) {
     finalPayload = getUniqPayload(finalPayload.filter((entry) => entry.value != null && (entry.hide !== true || props.includeHidden)), payloadUniqBy, defaultUniqBy);
   }
   var hasPayload = finalPayload.length > 0;
-  var tooltipElement = /* @__PURE__ */ React12.createElement(TooltipBoundingBox, {
+  var tooltipElement = /* @__PURE__ */ React13.createElement(TooltipBoundingBox, {
     allowEscapeViewBox,
     animationDuration,
     animationEasing,
@@ -42317,7 +42687,7 @@ function Tooltip(outsideProps) {
     lastBoundingBox,
     innerRef: updateBoundingBox,
     hasPortalFromProps: Boolean(portalFromProps)
-  }, renderContent(content, _objectSpread21(_objectSpread21({}, props), {}, {
+  }, renderContent(content, _objectSpread22(_objectSpread22({}, props), {}, {
     payload: finalPayload,
     label: finalLabel,
     active: finalIsActive,
@@ -42325,7 +42695,7 @@ function Tooltip(outsideProps) {
     coordinate,
     accessibilityLayer
   })));
-  return /* @__PURE__ */ React12.createElement(React12.Fragment, null, /* @__PURE__ */ (0, import_react_dom2.createPortal)(tooltipElement, tooltipPortal), finalIsActive && /* @__PURE__ */ React12.createElement(Cursor, {
+  return /* @__PURE__ */ React13.createElement(React13.Fragment, null, /* @__PURE__ */ (0, import_react_dom2.createPortal)(tooltipElement, tooltipPortal), finalIsActive && /* @__PURE__ */ React13.createElement(Cursor, {
     cursor,
     tooltipEventType,
     coordinate,
@@ -42334,19 +42704,23 @@ function Tooltip(outsideProps) {
   }));
 }
 
+// node_modules/recharts/es6/component/Cell.js
+var Cell = (_props) => null;
+Cell.displayName = "Cell";
+
 // node_modules/recharts/es6/component/Text.js
-var React13 = __toESM(require_react());
+var React14 = __toESM(require_react());
 var import_react25 = __toESM(require_react());
 
 // node_modules/recharts/es6/util/LRUCache.js
-function _defineProperty22(e, r2, t) {
-  return (r2 = _toPropertyKey22(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty23(e, r2, t) {
+  return (r2 = _toPropertyKey23(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey22(t) {
-  var i = _toPrimitive22(t, "string");
+function _toPropertyKey23(t) {
+  var i = _toPrimitive23(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive22(t, r2) {
+function _toPrimitive23(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -42358,7 +42732,7 @@ function _toPrimitive22(t, r2) {
 }
 var LRUCache = class {
   constructor(maxSize) {
-    _defineProperty22(this, "cache", /* @__PURE__ */ new Map());
+    _defineProperty23(this, "cache", /* @__PURE__ */ new Map());
     this.maxSize = maxSize;
   }
   get(key) {
@@ -42389,7 +42763,7 @@ var LRUCache = class {
 };
 
 // node_modules/recharts/es6/util/DOMUtils.js
-function ownKeys22(e, r2) {
+function ownKeys23(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -42399,25 +42773,25 @@ function ownKeys22(e, r2) {
   }
   return t;
 }
-function _objectSpread22(e) {
+function _objectSpread23(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys22(Object(t), true).forEach(function(r3) {
-      _defineProperty23(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys22(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys23(Object(t), true).forEach(function(r3) {
+      _defineProperty24(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys23(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty23(e, r2, t) {
-  return (r2 = _toPropertyKey23(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty24(e, r2, t) {
+  return (r2 = _toPropertyKey24(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey23(t) {
-  var i = _toPrimitive23(t, "string");
+function _toPropertyKey24(t) {
+  var i = _toPrimitive24(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive23(t, r2) {
+function _toPrimitive24(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -42431,7 +42805,7 @@ var defaultConfig = {
   cacheSize: 2e3,
   enableCache: true
 };
-var currentConfig = _objectSpread22({}, defaultConfig);
+var currentConfig = _objectSpread23({}, defaultConfig);
 var stringCache = new LRUCache(currentConfig.cacheSize);
 var SPAN_STYLE = {
   position: "absolute",
@@ -42630,27 +43004,27 @@ function reduceCSSCalc(expression) {
 }
 
 // node_modules/recharts/es6/component/Text.js
-var _excluded6 = ["x", "y", "lineHeight", "capHeight", "fill", "scaleToFit", "textAnchor", "verticalAnchor"];
+var _excluded7 = ["x", "y", "lineHeight", "capHeight", "fill", "scaleToFit", "textAnchor", "verticalAnchor"];
 var _excluded23 = ["dx", "dy", "angle", "className", "breakAll"];
-function _extends10() {
-  return _extends10 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends11() {
+  return _extends11 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends10.apply(null, arguments);
+  }, _extends11.apply(null, arguments);
 }
-function _objectWithoutProperties6(e, t) {
+function _objectWithoutProperties7(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose6(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose7(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose6(r2, e) {
+function _objectWithoutPropertiesLoose7(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -42709,7 +43083,7 @@ var calculate = (words, lineWidth, spaceWidth, scaleToFit) => words.reduce((resu
   }
   return result;
 }, []);
-var findLongestLine = (words) => words.reduce((a, b) => a.width > b.width ? a : b);
+var findLongestLine = (words) => words.reduce((a2, b) => a2.width > b.width ? a2 : b);
 var suffix = "\u2026";
 var checkOverflow = (text, index, breakAll, style, maxLines, lineWidth, spaceWidth, scaleToFit) => {
   var tempText = text.slice(0, index);
@@ -42832,7 +43206,7 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
     scaleToFit,
     textAnchor,
     verticalAnchor
-  } = _resolveDefaultProps, props = _objectWithoutProperties6(_resolveDefaultProps, _excluded6);
+  } = _resolveDefaultProps, props = _objectWithoutProperties7(_resolveDefaultProps, _excluded7);
   var wordsByLines = (0, import_react25.useMemo)(() => {
     return getWordsByLines({
       breakAll: props.breakAll,
@@ -42849,7 +43223,7 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
     angle,
     className,
     breakAll
-  } = props, textProps = _objectWithoutProperties6(props, _excluded23);
+  } = props, textProps = _objectWithoutProperties7(props, _excluded23);
   if (!isNumOrStr(propsX) || !isNumOrStr(propsY) || wordsByLines.length === 0) {
     return null;
   }
@@ -42884,7 +43258,7 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
   if (transforms.length) {
     textProps.transform = transforms.join(" ");
   }
-  return /* @__PURE__ */ React13.createElement("text", _extends10({}, svgPropertiesAndEvents(textProps), {
+  return /* @__PURE__ */ React14.createElement("text", _extends11({}, svgPropertiesAndEvents(textProps), {
     ref,
     x: x2,
     y: y2,
@@ -42895,7 +43269,7 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
     var words = line.words.join(breakAll ? "" : " ");
     return (
       // duplicate words will cause duplicate keys which is why we add the array index here
-      /* @__PURE__ */ React13.createElement("tspan", {
+      /* @__PURE__ */ React14.createElement("tspan", {
         x: x2,
         dy: index === 0 ? startDy : lineHeight,
         key: "".concat(words, "-").concat(index)
@@ -42906,19 +43280,19 @@ var Text = /* @__PURE__ */ (0, import_react25.forwardRef)((outsideProps, ref) =>
 Text.displayName = "Text";
 
 // node_modules/recharts/es6/component/Label.js
-var React14 = __toESM(require_react());
+var React15 = __toESM(require_react());
 var import_react26 = __toESM(require_react());
-var _excluded7 = ["labelRef"];
-function _objectWithoutProperties7(e, t) {
+var _excluded8 = ["labelRef"];
+function _objectWithoutProperties8(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose7(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose8(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose7(r2, e) {
+function _objectWithoutPropertiesLoose8(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -42927,7 +43301,7 @@ function _objectWithoutPropertiesLoose7(r2, e) {
   }
   return t;
 }
-function ownKeys23(e, r2) {
+function ownKeys24(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -42937,25 +43311,25 @@ function ownKeys23(e, r2) {
   }
   return t;
 }
-function _objectSpread23(e) {
+function _objectSpread24(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys23(Object(t), true).forEach(function(r3) {
-      _defineProperty24(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys23(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys24(Object(t), true).forEach(function(r3) {
+      _defineProperty25(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys24(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty24(e, r2, t) {
-  return (r2 = _toPropertyKey24(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty25(e, r2, t) {
+  return (r2 = _toPropertyKey25(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey24(t) {
-  var i = _toPrimitive24(t, "string");
+function _toPropertyKey25(t) {
+  var i = _toPrimitive25(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive24(t, r2) {
+function _toPrimitive25(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -42965,14 +43339,14 @@ function _toPrimitive24(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-function _extends11() {
-  return _extends11 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends12() {
+  return _extends12 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends11.apply(null, arguments);
+  }, _extends12.apply(null, arguments);
 }
 var CartesianLabelContext = /* @__PURE__ */ (0, import_react26.createContext)(null);
 var CartesianLabelContextProvider = (_ref2) => {
@@ -42993,7 +43367,7 @@ var CartesianLabelContextProvider = (_ref2) => {
     width,
     height
   }), [x2, y2, upperWidth, lowerWidth, width, height]);
-  return /* @__PURE__ */ React14.createElement(CartesianLabelContext.Provider, {
+  return /* @__PURE__ */ React15.createElement(CartesianLabelContext.Provider, {
     value: viewBox
   }, children);
 };
@@ -43066,13 +43440,13 @@ var renderRadialLabel = (labelProps, position, label, attrs, viewBox) => {
   var endPoint = polarToCartesian(cx, cy, radius, labelAngle + (direction ? 1 : -1) * 359);
   var path2 = "M".concat(startPoint.x, ",").concat(startPoint.y, "\n    A").concat(radius, ",").concat(radius, ",0,1,").concat(direction ? 0 : 1, ",\n    ").concat(endPoint.x, ",").concat(endPoint.y);
   var id = isNullish(labelProps.id) ? uniqueId("recharts-radial-line-") : labelProps.id;
-  return /* @__PURE__ */ React14.createElement("text", _extends11({}, attrs, {
+  return /* @__PURE__ */ React15.createElement("text", _extends12({}, attrs, {
     dominantBaseline: "central",
     className: clsx("recharts-radial-bar-label", className)
-  }), /* @__PURE__ */ React14.createElement("defs", null, /* @__PURE__ */ React14.createElement("path", {
+  }), /* @__PURE__ */ React15.createElement("defs", null, /* @__PURE__ */ React15.createElement("path", {
     id,
     d: path2
-  })), /* @__PURE__ */ React14.createElement("textPath", {
+  })), /* @__PURE__ */ React15.createElement("textPath", {
     xlinkHref: "#".concat(id)
   }, label));
 };
@@ -43172,7 +43546,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
       textAnchor: "middle",
       verticalAnchor: verticalEnd
     };
-    return _objectSpread23(_objectSpread23({}, attrs), parentViewBox ? {
+    return _objectSpread24(_objectSpread24({}, attrs), parentViewBox ? {
       height: Math.max(y2 - parentViewBox.y, 0),
       width: upperWidth
     } : {});
@@ -43184,7 +43558,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
       textAnchor: "middle",
       verticalAnchor: verticalStart
     };
-    return _objectSpread23(_objectSpread23({}, _attrs), parentViewBox ? {
+    return _objectSpread24(_objectSpread24({}, _attrs), parentViewBox ? {
       height: Math.max(parentViewBox.y + parentViewBox.height - (y2 + height), 0),
       width: lowerWidth
     } : {});
@@ -43196,7 +43570,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
       textAnchor: horizontalEnd,
       verticalAnchor: "middle"
     };
-    return _objectSpread23(_objectSpread23({}, _attrs2), parentViewBox ? {
+    return _objectSpread24(_objectSpread24({}, _attrs2), parentViewBox ? {
       width: Math.max(_attrs2.x - parentViewBox.x, 0),
       height
     } : {});
@@ -43208,7 +43582,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
       textAnchor: horizontalStart,
       verticalAnchor: "middle"
     };
-    return _objectSpread23(_objectSpread23({}, _attrs3), parentViewBox ? {
+    return _objectSpread24(_objectSpread24({}, _attrs3), parentViewBox ? {
       width: Math.max(parentViewBox.x + parentViewBox.width - _attrs3.x, 0),
       height
     } : {});
@@ -43218,7 +43592,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     height
   } : {};
   if (position === "insideLeft") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: middleX + horizontalOffset,
       y: y2 + height / 2,
       textAnchor: horizontalStart,
@@ -43226,7 +43600,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideRight") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: middleX + midHeightWidth - horizontalOffset,
       y: y2 + height / 2,
       textAnchor: horizontalEnd,
@@ -43234,7 +43608,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideTop") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: upperX + upperWidth / 2,
       y: y2 + verticalOffset,
       textAnchor: "middle",
@@ -43242,7 +43616,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideBottom") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: lowerX + lowerWidth / 2,
       y: y2 + height - verticalOffset,
       textAnchor: "middle",
@@ -43250,7 +43624,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideTopLeft") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: upperX + horizontalOffset,
       y: y2 + verticalOffset,
       textAnchor: horizontalStart,
@@ -43258,7 +43632,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideTopRight") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: upperX + upperWidth - horizontalOffset,
       y: y2 + verticalOffset,
       textAnchor: horizontalEnd,
@@ -43266,7 +43640,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideBottomLeft") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: lowerX + horizontalOffset,
       y: y2 + height - verticalOffset,
       textAnchor: horizontalStart,
@@ -43274,7 +43648,7 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (position === "insideBottomRight") {
-    return _objectSpread23({
+    return _objectSpread24({
       x: lowerX + lowerWidth - horizontalOffset,
       y: y2 + height - verticalOffset,
       textAnchor: horizontalEnd,
@@ -43282,14 +43656,14 @@ var getAttrsOfCartesianLabel = (props, viewBox) => {
     }, sizeAttrs);
   }
   if (!!position && typeof position === "object" && (isNumber(position.x) || isPercent(position.x)) && (isNumber(position.y) || isPercent(position.y))) {
-    return _objectSpread23({
+    return _objectSpread24({
       x: x2 + getPercentValue(position.x, midHeightWidth),
       y: y2 + getPercentValue(position.y, height),
       textAnchor: "end",
       verticalAnchor: "end"
     }, sizeAttrs);
   }
-  return _objectSpread23({
+  return _objectSpread24({
     x: centerX,
     y: y2 + height / 2,
     textAnchor: "middle",
@@ -43329,13 +43703,13 @@ function Label(outerProps) {
   if (!viewBox || isNullish(value) && isNullish(children) && !/* @__PURE__ */ (0, import_react26.isValidElement)(content) && typeof content !== "function") {
     return null;
   }
-  var propsWithViewBox = _objectSpread23(_objectSpread23({}, props), {}, {
+  var propsWithViewBox = _objectSpread24(_objectSpread24({}, props), {}, {
     viewBox
   });
   if (/* @__PURE__ */ (0, import_react26.isValidElement)(content)) {
     var {
       labelRef: _
-    } = propsWithViewBox, propsWithoutLabelRef = _objectWithoutProperties7(propsWithViewBox, _excluded7);
+    } = propsWithViewBox, propsWithoutLabelRef = _objectWithoutProperties8(propsWithViewBox, _excluded8);
     return /* @__PURE__ */ (0, import_react26.cloneElement)(content, propsWithoutLabelRef);
   }
   if (typeof content === "function") {
@@ -43355,9 +43729,9 @@ function Label(outerProps) {
   } else {
     positionAttrs = getAttrsOfCartesianLabel(props, viewBox);
   }
-  return /* @__PURE__ */ React14.createElement(ZIndexLayer, {
+  return /* @__PURE__ */ React15.createElement(ZIndexLayer, {
     zIndex: props.zIndex
-  }, /* @__PURE__ */ React14.createElement(Text, _extends11({
+  }, /* @__PURE__ */ React15.createElement(Text, _extends12({
     ref: labelRef,
     className: clsx("recharts-label", className)
   }, attrs, positionAttrs, {
@@ -43379,35 +43753,35 @@ var parseLabel = (label, viewBox, labelRef) => {
     labelRef
   };
   if (label === true) {
-    return /* @__PURE__ */ React14.createElement(Label, _extends11({
+    return /* @__PURE__ */ React15.createElement(Label, _extends12({
       key: "label-implicit"
     }, commonProps));
   }
   if (isNumOrStr(label)) {
-    return /* @__PURE__ */ React14.createElement(Label, _extends11({
+    return /* @__PURE__ */ React15.createElement(Label, _extends12({
       key: "label-implicit",
       value: label
     }, commonProps));
   }
   if (/* @__PURE__ */ (0, import_react26.isValidElement)(label)) {
     if (label.type === Label) {
-      return /* @__PURE__ */ (0, import_react26.cloneElement)(label, _objectSpread23({
+      return /* @__PURE__ */ (0, import_react26.cloneElement)(label, _objectSpread24({
         key: "label-implicit"
       }, commonProps));
     }
-    return /* @__PURE__ */ React14.createElement(Label, _extends11({
+    return /* @__PURE__ */ React15.createElement(Label, _extends12({
       key: "label-implicit",
       content: label
     }, commonProps));
   }
   if (isLabelContentAFunction(label)) {
-    return /* @__PURE__ */ React14.createElement(Label, _extends11({
+    return /* @__PURE__ */ React15.createElement(Label, _extends12({
       key: "label-implicit",
       content: label
     }, commonProps));
   }
   if (label && typeof label === "object") {
-    return /* @__PURE__ */ React14.createElement(Label, _extends11({}, label, {
+    return /* @__PURE__ */ React15.createElement(Label, _extends12({}, label, {
       key: "label-implicit"
     }, commonProps));
   }
@@ -43423,30 +43797,30 @@ function CartesianLabelFromLabelProp(_ref3) {
 }
 
 // node_modules/recharts/es6/component/LabelList.js
-var React15 = __toESM(require_react());
+var React16 = __toESM(require_react());
 var import_react27 = __toESM(require_react());
 var import_last = __toESM(require_last3());
-var _excluded8 = ["valueAccessor"];
+var _excluded9 = ["valueAccessor"];
 var _excluded24 = ["dataKey", "clockWise", "id", "textBreakAll", "zIndex"];
-function _extends12() {
-  return _extends12 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends13() {
+  return _extends13 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends12.apply(null, arguments);
+  }, _extends13.apply(null, arguments);
 }
-function _objectWithoutProperties8(e, t) {
+function _objectWithoutProperties9(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose8(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose9(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose8(r2, e) {
+function _objectWithoutPropertiesLoose9(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -43469,23 +43843,23 @@ function usePolarLabelListContext() {
 function LabelList(_ref2) {
   var {
     valueAccessor = defaultAccessor
-  } = _ref2, restProps = _objectWithoutProperties8(_ref2, _excluded8);
+  } = _ref2, restProps = _objectWithoutProperties9(_ref2, _excluded9);
   var {
     dataKey,
     clockWise,
     id,
     textBreakAll,
     zIndex
-  } = restProps, others = _objectWithoutProperties8(restProps, _excluded24);
+  } = restProps, others = _objectWithoutProperties9(restProps, _excluded24);
   var cartesianData = useCartesianLabelListContext();
   var polarData = usePolarLabelListContext();
   var data = cartesianData || polarData;
   if (!data || !data.length) {
     return null;
   }
-  return /* @__PURE__ */ React15.createElement(ZIndexLayer, {
+  return /* @__PURE__ */ React16.createElement(ZIndexLayer, {
     zIndex: zIndex !== null && zIndex !== void 0 ? zIndex : DefaultZIndexes.label
-  }, /* @__PURE__ */ React15.createElement(Layer, {
+  }, /* @__PURE__ */ React16.createElement(Layer, {
     className: "recharts-label-list"
   }, data.map((entry, index) => {
     var _restProps$fill;
@@ -43493,7 +43867,7 @@ function LabelList(_ref2) {
     var idProps = isNullish(id) ? {} : {
       id: "".concat(id, "-").concat(index)
     };
-    return /* @__PURE__ */ React15.createElement(Label, _extends12({
+    return /* @__PURE__ */ React16.createElement(Label, _extends13({
       key: "label-".concat(index)
     }, svgPropertiesAndEvents(entry), others, idProps, {
       /*
@@ -43521,18 +43895,18 @@ function LabelListFromLabelProp(_ref2) {
     return null;
   }
   if (label === true) {
-    return /* @__PURE__ */ React15.createElement(LabelList, {
+    return /* @__PURE__ */ React16.createElement(LabelList, {
       key: "labelList-implicit"
     });
   }
-  if (/* @__PURE__ */ React15.isValidElement(label) || isLabelContentAFunction(label)) {
-    return /* @__PURE__ */ React15.createElement(LabelList, {
+  if (/* @__PURE__ */ React16.isValidElement(label) || isLabelContentAFunction(label)) {
+    return /* @__PURE__ */ React16.createElement(LabelList, {
       key: "labelList-implicit",
       content: label
     });
   }
   if (typeof label === "object") {
-    return /* @__PURE__ */ React15.createElement(LabelList, _extends12({
+    return /* @__PURE__ */ React16.createElement(LabelList, _extends13({
       key: "labelList-implicit"
     }, label, {
       type: String(label.type)
@@ -43540,36 +43914,6 @@ function LabelListFromLabelProp(_ref2) {
   }
   return null;
 }
-
-// node_modules/recharts/es6/shape/Dot.js
-var React16 = __toESM(require_react());
-function _extends13() {
-  return _extends13 = Object.assign ? Object.assign.bind() : function(n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-    }
-    return n;
-  }, _extends13.apply(null, arguments);
-}
-var Dot = (props) => {
-  var {
-    cx,
-    cy,
-    r: r2,
-    className
-  } = props;
-  var layerClass = clsx("recharts-dot", className);
-  if (isNumber(cx) && isNumber(cy) && isNumber(r2)) {
-    return /* @__PURE__ */ React16.createElement("circle", _extends13({}, svgPropertiesNoEvents(props), adaptEventHandlers(props), {
-      className: layerClass,
-      cx,
-      cy,
-      r: r2
-    }));
-  }
-  return null;
-};
 
 // node_modules/recharts/es6/state/polarAxisSlice.js
 var initialState6 = {
@@ -43603,24 +43947,388 @@ var {
 var polarAxisReducer = polarAxisSlice.reducer;
 
 // node_modules/recharts/es6/util/ReactUtils.js
+var import_get3 = __toESM(require_get2());
 var import_react28 = __toESM(require_react());
-var isClipDot = (dot) => {
-  if (dot && typeof dot === "object" && "clipDot" in dot) {
-    return Boolean(dot.clipDot);
+var import_react_is = __toESM(require_react_is());
+var getDisplayName = (Comp) => {
+  if (typeof Comp === "string") {
+    return Comp;
   }
-  return true;
+  if (!Comp) {
+    return "";
+  }
+  return Comp.displayName || Comp.name || "Component";
+};
+var lastChildren = null;
+var lastResult = null;
+var toArray = (children) => {
+  if (children === lastChildren && Array.isArray(lastResult)) {
+    return lastResult;
+  }
+  var result = [];
+  import_react28.Children.forEach(children, (child) => {
+    if (isNullish(child)) return;
+    if ((0, import_react_is.isFragment)(child)) {
+      result = result.concat(toArray(child.props.children));
+    } else {
+      result.push(child);
+    }
+  });
+  lastResult = result;
+  lastChildren = children;
+  return result;
+};
+function findAllByType(children, type) {
+  var result = [];
+  var types = [];
+  if (Array.isArray(type)) {
+    types = type.map((t) => getDisplayName(t));
+  } else {
+    types = [getDisplayName(type)];
+  }
+  toArray(children).forEach((child) => {
+    var childType = (0, import_get3.default)(child, "type.displayName") || (0, import_get3.default)(child, "type.name");
+    if (childType && types.indexOf(childType) !== -1) {
+      result.push(child);
+    }
+  });
+  return result;
+}
+
+// node_modules/recharts/es6/util/ActiveShapeUtils.js
+var React18 = __toESM(require_react());
+var import_react30 = __toESM(require_react());
+var import_isPlainObject = __toESM(require_isPlainObject2());
+
+// node_modules/recharts/es6/shape/Trapezoid.js
+var React17 = __toESM(require_react());
+var import_react29 = __toESM(require_react());
+function ownKeys25(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread25(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys25(Object(t), true).forEach(function(r3) {
+      _defineProperty26(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys25(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty26(e, r2, t) {
+  return (r2 = _toPropertyKey26(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey26(t) {
+  var i = _toPrimitive26(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive26(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+function _extends14() {
+  return _extends14 = Object.assign ? Object.assign.bind() : function(n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
+    }
+    return n;
+  }, _extends14.apply(null, arguments);
+}
+var getTrapezoidPath = (x2, y2, upperWidth, lowerWidth, height) => {
+  var widthGap = upperWidth - lowerWidth;
+  var path2;
+  path2 = "M ".concat(x2, ",").concat(y2);
+  path2 += "L ".concat(x2 + upperWidth, ",").concat(y2);
+  path2 += "L ".concat(x2 + upperWidth - widthGap / 2, ",").concat(y2 + height);
+  path2 += "L ".concat(x2 + upperWidth - widthGap / 2 - lowerWidth, ",").concat(y2 + height);
+  path2 += "L ".concat(x2, ",").concat(y2, " Z");
+  return path2;
+};
+var defaultTrapezoidProps = {
+  x: 0,
+  y: 0,
+  upperWidth: 0,
+  lowerWidth: 0,
+  height: 0,
+  isUpdateAnimationActive: false,
+  animationBegin: 0,
+  animationDuration: 1500,
+  animationEasing: "ease"
+};
+var Trapezoid = (outsideProps) => {
+  var trapezoidProps = resolveDefaultProps(outsideProps, defaultTrapezoidProps);
+  var {
+    x: x2,
+    y: y2,
+    upperWidth,
+    lowerWidth,
+    height,
+    className
+  } = trapezoidProps;
+  var {
+    animationEasing,
+    animationDuration,
+    animationBegin,
+    isUpdateAnimationActive
+  } = trapezoidProps;
+  var pathRef = (0, import_react29.useRef)(null);
+  var [totalLength, setTotalLength] = (0, import_react29.useState)(-1);
+  var prevUpperWidthRef = (0, import_react29.useRef)(upperWidth);
+  var prevLowerWidthRef = (0, import_react29.useRef)(lowerWidth);
+  var prevHeightRef = (0, import_react29.useRef)(height);
+  var prevXRef = (0, import_react29.useRef)(x2);
+  var prevYRef = (0, import_react29.useRef)(y2);
+  var animationId = useAnimationId(outsideProps, "trapezoid-");
+  (0, import_react29.useEffect)(() => {
+    if (pathRef.current && pathRef.current.getTotalLength) {
+      try {
+        var pathTotalLength = pathRef.current.getTotalLength();
+        if (pathTotalLength) {
+          setTotalLength(pathTotalLength);
+        }
+      } catch (_unused) {
+      }
+    }
+  }, []);
+  if (x2 !== +x2 || y2 !== +y2 || upperWidth !== +upperWidth || lowerWidth !== +lowerWidth || height !== +height || upperWidth === 0 && lowerWidth === 0 || height === 0) {
+    return null;
+  }
+  var layerClass = clsx("recharts-trapezoid", className);
+  if (!isUpdateAnimationActive) {
+    return /* @__PURE__ */ React17.createElement("g", null, /* @__PURE__ */ React17.createElement("path", _extends14({}, svgPropertiesAndEvents(trapezoidProps), {
+      className: layerClass,
+      d: getTrapezoidPath(x2, y2, upperWidth, lowerWidth, height)
+    })));
+  }
+  var prevUpperWidth = prevUpperWidthRef.current;
+  var prevLowerWidth = prevLowerWidthRef.current;
+  var prevHeight = prevHeightRef.current;
+  var prevX = prevXRef.current;
+  var prevY = prevYRef.current;
+  var from2 = "0px ".concat(totalLength === -1 ? 1 : totalLength, "px");
+  var to2 = "".concat(totalLength, "px 0px");
+  var transition = getTransitionVal(["strokeDasharray"], animationDuration, animationEasing);
+  return /* @__PURE__ */ React17.createElement(JavascriptAnimate, {
+    animationId,
+    key: animationId,
+    canBegin: totalLength > 0,
+    duration: animationDuration,
+    easing: animationEasing,
+    isActive: isUpdateAnimationActive,
+    begin: animationBegin
+  }, (t) => {
+    var currUpperWidth = interpolate(prevUpperWidth, upperWidth, t);
+    var currLowerWidth = interpolate(prevLowerWidth, lowerWidth, t);
+    var currHeight = interpolate(prevHeight, height, t);
+    var currX = interpolate(prevX, x2, t);
+    var currY = interpolate(prevY, y2, t);
+    if (pathRef.current) {
+      prevUpperWidthRef.current = currUpperWidth;
+      prevLowerWidthRef.current = currLowerWidth;
+      prevHeightRef.current = currHeight;
+      prevXRef.current = currX;
+      prevYRef.current = currY;
+    }
+    var animationStyle = t > 0 ? {
+      transition,
+      strokeDasharray: to2
+    } : {
+      strokeDasharray: from2
+    };
+    return /* @__PURE__ */ React17.createElement("path", _extends14({}, svgPropertiesAndEvents(trapezoidProps), {
+      className: layerClass,
+      d: getTrapezoidPath(currX, currY, currUpperWidth, currLowerWidth, currHeight),
+      ref: pathRef,
+      style: _objectSpread25(_objectSpread25({}, animationStyle), trapezoidProps.style)
+    }));
+  });
+};
+
+// node_modules/recharts/es6/util/ActiveShapeUtils.js
+var _excluded10 = ["option", "shapeType", "propTransformer", "activeClassName"];
+function _objectWithoutProperties10(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose10(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+  }
+  return i;
+}
+function _objectWithoutPropertiesLoose10(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+function ownKeys26(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread26(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys26(Object(t), true).forEach(function(r3) {
+      _defineProperty27(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys26(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty27(e, r2, t) {
+  return (r2 = _toPropertyKey27(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey27(t) {
+  var i = _toPrimitive27(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive27(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+function defaultPropTransformer(option, props) {
+  return _objectSpread26(_objectSpread26({}, props), option);
+}
+function isSymbolsProps(shapeType, _elementProps) {
+  return shapeType === "symbols";
+}
+function ShapeSelector(_ref2) {
+  var {
+    shapeType,
+    elementProps
+  } = _ref2;
+  switch (shapeType) {
+    case "rectangle":
+      return /* @__PURE__ */ React18.createElement(Rectangle, elementProps);
+    case "trapezoid":
+      return /* @__PURE__ */ React18.createElement(Trapezoid, elementProps);
+    case "sector":
+      return /* @__PURE__ */ React18.createElement(Sector, elementProps);
+    case "symbols":
+      if (isSymbolsProps(shapeType, elementProps)) {
+        return /* @__PURE__ */ React18.createElement(Symbols, elementProps);
+      }
+      break;
+    case "curve":
+      return /* @__PURE__ */ React18.createElement(Curve, elementProps);
+    default:
+      return null;
+  }
+}
+function getPropsFromShapeOption(option) {
+  if (/* @__PURE__ */ (0, import_react30.isValidElement)(option)) {
+    return option.props;
+  }
+  return option;
+}
+function Shape(_ref2) {
+  var {
+    option,
+    shapeType,
+    propTransformer = defaultPropTransformer,
+    activeClassName = "recharts-active-shape"
+  } = _ref2, props = _objectWithoutProperties10(_ref2, _excluded10);
+  var shape;
+  if (/* @__PURE__ */ (0, import_react30.isValidElement)(option)) {
+    shape = /* @__PURE__ */ (0, import_react30.cloneElement)(option, _objectSpread26(_objectSpread26({}, props), getPropsFromShapeOption(option)));
+  } else if (typeof option === "function") {
+    shape = option(props, props.index);
+  } else if ((0, import_isPlainObject.default)(option) && typeof option !== "boolean") {
+    var nextProps = propTransformer(option, props);
+    shape = /* @__PURE__ */ React18.createElement(ShapeSelector, {
+      shapeType,
+      elementProps: nextProps
+    });
+  } else {
+    var elementProps = props;
+    shape = /* @__PURE__ */ React18.createElement(ShapeSelector, {
+      shapeType,
+      elementProps
+    });
+  }
+  if (props.isActive) {
+    return /* @__PURE__ */ React18.createElement(Layer, {
+      className: activeClassName
+    }, shape);
+  }
+  return shape;
+}
+
+// node_modules/recharts/es6/context/tooltipContext.js
+var useMouseEnterItemDispatch = (onMouseEnterFromProps, dataKey, graphicalItemId) => {
+  var dispatch = useAppDispatch();
+  return (data, index) => (event) => {
+    onMouseEnterFromProps === null || onMouseEnterFromProps === void 0 || onMouseEnterFromProps(data, index, event);
+    dispatch(setActiveMouseOverItemIndex({
+      activeIndex: String(index),
+      activeDataKey: dataKey,
+      activeCoordinate: data.tooltipPosition,
+      activeGraphicalItemId: graphicalItemId
+    }));
+  };
+};
+var useMouseLeaveItemDispatch = (onMouseLeaveFromProps) => {
+  var dispatch = useAppDispatch();
+  return (data, index) => (event) => {
+    onMouseLeaveFromProps === null || onMouseLeaveFromProps === void 0 || onMouseLeaveFromProps(data, index, event);
+    dispatch(mouseLeaveItem());
+  };
+};
+var useMouseClickItemDispatch = (onMouseClickFromProps, dataKey, graphicalItemId) => {
+  var dispatch = useAppDispatch();
+  return (data, index) => (event) => {
+    onMouseClickFromProps === null || onMouseClickFromProps === void 0 || onMouseClickFromProps(data, index, event);
+    dispatch(setActiveClickItemIndex({
+      activeIndex: String(index),
+      activeDataKey: dataKey,
+      activeCoordinate: data.tooltipPosition,
+      activeGraphicalItemId: graphicalItemId
+    }));
+  };
 };
 
 // node_modules/recharts/es6/state/SetTooltipEntrySettings.js
-var import_react29 = __toESM(require_react());
+var import_react31 = __toESM(require_react());
 function SetTooltipEntrySettings(_ref2) {
   var {
     tooltipEntrySettings
   } = _ref2;
   var dispatch = useAppDispatch();
   var isPanorama = useIsPanorama();
-  var prevSettingsRef = (0, import_react29.useRef)(null);
-  (0, import_react29.useLayoutEffect)(() => {
+  var prevSettingsRef = (0, import_react31.useRef)(null);
+  (0, import_react31.useLayoutEffect)(() => {
     if (isPanorama) {
       return;
     }
@@ -43634,7 +44342,7 @@ function SetTooltipEntrySettings(_ref2) {
     }
     prevSettingsRef.current = tooltipEntrySettings;
   }, [tooltipEntrySettings, dispatch, isPanorama]);
-  (0, import_react29.useLayoutEffect)(() => {
+  (0, import_react31.useLayoutEffect)(() => {
     return () => {
       if (prevSettingsRef.current) {
         dispatch(removeTooltipEntrySettings(prevSettingsRef.current));
@@ -43646,15 +44354,15 @@ function SetTooltipEntrySettings(_ref2) {
 }
 
 // node_modules/recharts/es6/state/SetLegendPayload.js
-var import_react30 = __toESM(require_react());
+var import_react32 = __toESM(require_react());
 function SetLegendPayload(_ref2) {
   var {
     legendPayload
   } = _ref2;
   var dispatch = useAppDispatch();
   var isPanorama = useIsPanorama();
-  var prevPayloadRef = (0, import_react30.useRef)(null);
-  (0, import_react30.useLayoutEffect)(() => {
+  var prevPayloadRef = (0, import_react32.useRef)(null);
+  (0, import_react32.useLayoutEffect)(() => {
     if (isPanorama) {
       return;
     }
@@ -43668,7 +44376,7 @@ function SetLegendPayload(_ref2) {
     }
     prevPayloadRef.current = legendPayload;
   }, [dispatch, isPanorama, legendPayload]);
-  (0, import_react30.useLayoutEffect)(() => {
+  (0, import_react32.useLayoutEffect)(() => {
     return () => {
       if (prevPayloadRef.current) {
         dispatch(removeLegendPayload(prevPayloadRef.current));
@@ -43680,29 +44388,29 @@ function SetLegendPayload(_ref2) {
 }
 
 // node_modules/recharts/es6/context/RegisterGraphicalItemId.js
-var React18 = __toESM(require_react());
-var import_react31 = __toESM(require_react());
+var React20 = __toESM(require_react());
+var import_react33 = __toESM(require_react());
 
 // node_modules/recharts/es6/util/useId.js
-var React17 = __toESM(require_react());
+var React19 = __toESM(require_react());
 var _ref;
 var useIdFallback = () => {
-  var [id] = React17.useState(() => uniqueId("uid-"));
+  var [id] = React19.useState(() => uniqueId("uid-"));
   return id;
 };
-var useId = (_ref = React17["useId".toString()]) !== null && _ref !== void 0 ? _ref : useIdFallback;
+var useId = (_ref = React19["useId".toString()]) !== null && _ref !== void 0 ? _ref : useIdFallback;
 
 // node_modules/recharts/es6/util/useUniqueId.js
-function useUniqueId(prefix, customId) {
+function useUniqueId(prefix2, customId) {
   var generatedId = useId();
   if (customId) {
     return customId;
   }
-  return prefix ? "".concat(prefix, "-").concat(generatedId) : generatedId;
+  return prefix2 ? "".concat(prefix2, "-").concat(generatedId) : generatedId;
 }
 
 // node_modules/recharts/es6/context/RegisterGraphicalItemId.js
-var GraphicalItemIdContext = /* @__PURE__ */ (0, import_react31.createContext)(void 0);
+var GraphicalItemIdContext = /* @__PURE__ */ (0, import_react33.createContext)(void 0);
 var RegisterGraphicalItemId = (_ref2) => {
   var {
     id,
@@ -43710,13 +44418,13 @@ var RegisterGraphicalItemId = (_ref2) => {
     children
   } = _ref2;
   var resolvedId = useUniqueId("recharts-".concat(type), id);
-  return /* @__PURE__ */ React18.createElement(GraphicalItemIdContext.Provider, {
+  return /* @__PURE__ */ React20.createElement(GraphicalItemIdContext.Provider, {
     value: resolvedId
   }, children(resolvedId));
 };
 
 // node_modules/recharts/es6/state/SetGraphicalItem.js
-var import_react32 = __toESM(require_react());
+var import_react34 = __toESM(require_react());
 
 // node_modules/recharts/es6/state/graphicalItemsSlice.js
 var initialState7 = {
@@ -43784,8 +44492,8 @@ var graphicalItemsReducer = graphicalItemsSlice.reducer;
 // node_modules/recharts/es6/state/SetGraphicalItem.js
 var SetCartesianGraphicalItemImpl = (props) => {
   var dispatch = useAppDispatch();
-  var prevPropsRef = (0, import_react32.useRef)(null);
-  (0, import_react32.useLayoutEffect)(() => {
+  var prevPropsRef = (0, import_react34.useRef)(null);
+  (0, import_react34.useLayoutEffect)(() => {
     if (prevPropsRef.current === null) {
       dispatch(addCartesianGraphicalItem(props));
     } else if (prevPropsRef.current !== props) {
@@ -43796,7 +44504,7 @@ var SetCartesianGraphicalItemImpl = (props) => {
     }
     prevPropsRef.current = props;
   }, [dispatch, props]);
-  (0, import_react32.useLayoutEffect)(() => {
+  (0, import_react34.useLayoutEffect)(() => {
     return () => {
       if (prevPropsRef.current) {
         dispatch(removeCartesianGraphicalItem(prevPropsRef.current));
@@ -43806,160 +44514,10 @@ var SetCartesianGraphicalItemImpl = (props) => {
   }, [dispatch]);
   return null;
 };
-var SetCartesianGraphicalItem = /* @__PURE__ */ (0, import_react32.memo)(SetCartesianGraphicalItemImpl);
-
-// node_modules/recharts/es6/component/Dots.js
-var React19 = __toESM(require_react());
-var import_react33 = __toESM(require_react());
-var _excluded9 = ["points"];
-function ownKeys24(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread24(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys24(Object(t), true).forEach(function(r3) {
-      _defineProperty25(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys24(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty25(e, r2, t) {
-  return (r2 = _toPropertyKey25(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey25(t) {
-  var i = _toPrimitive25(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive25(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-function _extends14() {
-  return _extends14 = Object.assign ? Object.assign.bind() : function(n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-    }
-    return n;
-  }, _extends14.apply(null, arguments);
-}
-function _objectWithoutProperties9(e, t) {
-  if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose9(e, t);
-  if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-  }
-  return i;
-}
-function _objectWithoutPropertiesLoose9(r2, e) {
-  if (null == r2) return {};
-  var t = {};
-  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r2[n];
-  }
-  return t;
-}
-function DotItem(_ref2) {
-  var {
-    option,
-    dotProps,
-    className
-  } = _ref2;
-  if (/* @__PURE__ */ (0, import_react33.isValidElement)(option)) {
-    return /* @__PURE__ */ (0, import_react33.cloneElement)(option, dotProps);
-  }
-  if (typeof option === "function") {
-    return option(dotProps);
-  }
-  var finalClassName = clsx(className, typeof option !== "boolean" ? option.className : "");
-  var _ref22 = dotProps !== null && dotProps !== void 0 ? dotProps : {}, {
-    points
-  } = _ref22, props = _objectWithoutProperties9(_ref22, _excluded9);
-  return /* @__PURE__ */ React19.createElement(Dot, _extends14({}, props, {
-    className: finalClassName
-  }));
-}
-function shouldRenderDots(points, dot) {
-  if (points == null) {
-    return false;
-  }
-  if (dot) {
-    return true;
-  }
-  return points.length === 1;
-}
-function Dots(_ref3) {
-  var {
-    points,
-    dot,
-    className,
-    dotClassName,
-    dataKey,
-    baseProps,
-    needClip,
-    clipPathId,
-    zIndex = DefaultZIndexes.scatter
-  } = _ref3;
-  if (!shouldRenderDots(points, dot)) {
-    return null;
-  }
-  var clipDot = isClipDot(dot);
-  var customDotProps = svgPropertiesAndEventsFromUnknown(dot);
-  var dots = points.map((entry, i) => {
-    var _entry$x, _entry$y;
-    var dotProps = _objectSpread24(_objectSpread24(_objectSpread24({
-      r: 3
-    }, baseProps), customDotProps), {}, {
-      index: i,
-      cx: (_entry$x = entry.x) !== null && _entry$x !== void 0 ? _entry$x : void 0,
-      cy: (_entry$y = entry.y) !== null && _entry$y !== void 0 ? _entry$y : void 0,
-      dataKey,
-      value: entry.value,
-      payload: entry.payload,
-      points
-    });
-    return /* @__PURE__ */ React19.createElement(DotItem, {
-      key: "dot-".concat(i),
-      option: dot,
-      dotProps,
-      className: dotClassName
-    });
-  });
-  var layerProps = {};
-  if (needClip && clipPathId != null) {
-    layerProps.clipPath = "url(#clipPath-".concat(clipDot ? "" : "dots-").concat(clipPathId, ")");
-  }
-  return /* @__PURE__ */ React19.createElement(ZIndexLayer, {
-    zIndex
-  }, /* @__PURE__ */ React19.createElement(Layer, _extends14({
-    className
-  }, layerProps), dots));
-}
-
-// node_modules/recharts/es6/component/ActivePoints.js
-var React20 = __toESM(require_react());
-var import_react34 = __toESM(require_react());
+var SetCartesianGraphicalItem = /* @__PURE__ */ (0, import_react34.memo)(SetCartesianGraphicalItemImpl);
 
 // node_modules/recharts/es6/state/cartesianAxisSlice.js
-function ownKeys25(e, r2) {
+function ownKeys27(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -43969,25 +44527,25 @@ function ownKeys25(e, r2) {
   }
   return t;
 }
-function _objectSpread25(e) {
+function _objectSpread27(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys25(Object(t), true).forEach(function(r3) {
-      _defineProperty26(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys25(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys27(Object(t), true).forEach(function(r3) {
+      _defineProperty28(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys27(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty26(e, r2, t) {
-  return (r2 = _toPropertyKey26(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty28(e, r2, t) {
+  return (r2 = _toPropertyKey28(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey26(t) {
-  var i = _toPrimitive26(t, "string");
+function _toPropertyKey28(t) {
+  var i = _toPrimitive28(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive26(t, r2) {
+function _toPrimitive28(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -44099,7 +44657,7 @@ var cartesianAxisSlice = createSlice({
           return;
         }
         var newHistory = [...history, width].slice(-3);
-        state.yAxis[id] = _objectSpread25(_objectSpread25({}, state.yAxis[id]), {}, {
+        state.yAxis[id] = _objectSpread27(_objectSpread27({}, state.yAxis[id]), {}, {
           width,
           widthHistory: newHistory
         });
@@ -44148,12 +44706,41 @@ var selectPlotArea = createSelector([selectChartOffset, selectChartWidth, select
 var usePlotArea = () => {
   return useAppSelector(selectPlotArea);
 };
-var useActiveTooltipDataPoints = () => {
-  return useAppSelector(selectActiveTooltipDataPoints);
-};
 
-// node_modules/recharts/es6/component/ActivePoints.js
-function ownKeys26(e, r2) {
+// node_modules/recharts/es6/cartesian/Bar.js
+var React25 = __toESM(require_react());
+var import_react36 = __toESM(require_react());
+
+// node_modules/recharts/es6/util/BarUtils.js
+var React21 = __toESM(require_react());
+
+// node_modules/tiny-invariant/dist/esm/tiny-invariant.js
+var isProduction = false;
+var prefix = "Invariant failed";
+function invariant(condition, message) {
+  if (condition) {
+    return;
+  }
+  if (isProduction) {
+    throw new Error(prefix);
+  }
+  var provided = typeof message === "function" ? message() : message;
+  var value = provided ? "".concat(prefix, ": ").concat(provided) : prefix;
+  throw new Error(value);
+}
+
+// node_modules/recharts/es6/util/BarUtils.js
+var _excluded11 = ["x", "y"];
+function _extends15() {
+  return _extends15 = Object.assign ? Object.assign.bind() : function(n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
+    }
+    return n;
+  }, _extends15.apply(null, arguments);
+}
+function ownKeys28(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -44163,25 +44750,25 @@ function ownKeys26(e, r2) {
   }
   return t;
 }
-function _objectSpread26(e) {
+function _objectSpread28(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys26(Object(t), true).forEach(function(r3) {
-      _defineProperty27(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys26(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys28(Object(t), true).forEach(function(r3) {
+      _defineProperty29(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys28(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty27(e, r2, t) {
-  return (r2 = _toPropertyKey27(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty29(e, r2, t) {
+  return (r2 = _toPropertyKey29(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey27(t) {
-  var i = _toPrimitive27(t, "string");
+function _toPropertyKey29(t) {
+  var i = _toPrimitive29(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive27(t, r2) {
+function _toPrimitive29(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -44191,73 +44778,71 @@ function _toPrimitive27(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-var ActivePoint = (_ref2) => {
-  var {
-    point: point4,
-    childIndex,
-    mainColor,
-    activeDot,
-    dataKey,
-    clipPath
-  } = _ref2;
-  if (activeDot === false || point4.x == null || point4.y == null) {
-    return null;
+function _objectWithoutProperties11(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose11(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
-  var dotPropsTyped = {
-    index: childIndex,
-    dataKey,
-    cx: point4.x,
-    cy: point4.y,
-    r: 4,
-    fill: mainColor !== null && mainColor !== void 0 ? mainColor : "none",
-    strokeWidth: 2,
-    stroke: "#fff",
-    payload: point4.payload,
-    value: point4.value
-  };
-  var dotProps = _objectSpread26(_objectSpread26(_objectSpread26({}, dotPropsTyped), svgPropertiesNoEventsFromUnknown(activeDot)), adaptEventHandlers(activeDot));
-  var dot;
-  if (/* @__PURE__ */ (0, import_react34.isValidElement)(activeDot)) {
-    dot = /* @__PURE__ */ (0, import_react34.cloneElement)(activeDot, dotProps);
-  } else if (typeof activeDot === "function") {
-    dot = activeDot(dotProps);
-  } else {
-    dot = /* @__PURE__ */ React20.createElement(Dot, dotProps);
-  }
-  return /* @__PURE__ */ React20.createElement(Layer, {
-    className: "recharts-active-dot",
-    clipPath
-  }, dot);
-};
-function ActivePoints(_ref2) {
-  var {
-    points,
-    mainColor,
-    activeDot,
-    itemDataKey,
-    clipPath,
-    zIndex = DefaultZIndexes.activeDot
-  } = _ref2;
-  var activeTooltipIndex = useAppSelector(selectActiveTooltipIndex);
-  var activeDataPoints = useActiveTooltipDataPoints();
-  if (points == null || activeDataPoints == null) {
-    return null;
-  }
-  var activePoint = points.find((p) => activeDataPoints.includes(p.payload));
-  if (isNullish(activePoint)) {
-    return null;
-  }
-  return /* @__PURE__ */ React20.createElement(ZIndexLayer, {
-    zIndex
-  }, /* @__PURE__ */ React20.createElement(ActivePoint, {
-    point: activePoint,
-    childIndex: Number(activeTooltipIndex),
-    mainColor,
-    dataKey: itemDataKey,
-    activeDot,
-    clipPath
-  }));
+  return i;
 }
+function _objectWithoutPropertiesLoose11(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+function typeguardBarRectangleProps(_ref2, props) {
+  var {
+    x: xProp,
+    y: yProp
+  } = _ref2, option = _objectWithoutProperties11(_ref2, _excluded11);
+  var xValue = "".concat(xProp);
+  var x2 = parseInt(xValue, 10);
+  var yValue = "".concat(yProp);
+  var y2 = parseInt(yValue, 10);
+  var heightValue = "".concat(props.height || option.height);
+  var height = parseInt(heightValue, 10);
+  var widthValue = "".concat(props.width || option.width);
+  var width = parseInt(widthValue, 10);
+  return _objectSpread28(_objectSpread28(_objectSpread28(_objectSpread28(_objectSpread28({}, props), option), x2 ? {
+    x: x2
+  } : {}), y2 ? {
+    y: y2
+  } : {}), {}, {
+    height,
+    width,
+    name: props.name,
+    radius: props.radius
+  });
+}
+function BarRectangle(props) {
+  return /* @__PURE__ */ React21.createElement(Shape, _extends15({
+    shapeType: "rectangle",
+    propTransformer: typeguardBarRectangleProps,
+    activeClassName: "recharts-active-bar"
+  }, props));
+}
+var minPointSizeCallback = function minPointSizeCallback2(minPointSize) {
+  var defaultValue = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
+  return (value, index) => {
+    if (isNumber(minPointSize)) return minPointSize;
+    var isValueNumberOrNil = isNumber(value) || isNullish(value);
+    if (isValueNumberOrNil) {
+      return minPointSize(value, index);
+    }
+    !isValueNumberOrNil ? true ? invariant(false, "minPointSize callback function received a value with type of ".concat(typeof value, ". Currently only numbers or null/undefined are supported.")) : invariant(false) : void 0;
+    return defaultValue;
+  };
+};
+
+// node_modules/recharts/es6/context/ErrorBarContext.js
+var React22 = __toESM(require_react());
+var import_react35 = __toESM(require_react());
 
 // node_modules/recharts/es6/state/errorBarSlice.js
 var initialState9 = {};
@@ -44303,8 +44888,49 @@ var {
 } = errorBarSlice.actions;
 var errorBarReducer = errorBarSlice.reducer;
 
+// node_modules/recharts/es6/context/ErrorBarContext.js
+var _excluded12 = ["children"];
+function _objectWithoutProperties12(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose12(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+  }
+  return i;
+}
+function _objectWithoutPropertiesLoose12(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+var initialContextState = {
+  data: [],
+  xAxisId: "xAxis-0",
+  yAxisId: "yAxis-0",
+  dataPointFormatter: () => ({
+    x: 0,
+    y: 0,
+    value: 0
+  }),
+  errorBarOffset: 0
+};
+var ErrorBarContext = /* @__PURE__ */ (0, import_react35.createContext)(initialContextState);
+function SetErrorBarContext(props) {
+  var {
+    children
+  } = props, rest = _objectWithoutProperties12(props, _excluded12);
+  return /* @__PURE__ */ React22.createElement(ErrorBarContext.Provider, {
+    value: rest
+  }, children);
+}
+
 // node_modules/recharts/es6/cartesian/GraphicalItemClipPath.js
-var React21 = __toESM(require_react());
+var React23 = __toESM(require_react());
 function useNeedsClip(xAxisId, yAxisId) {
   var _xAxis$allowDataOverf, _yAxis$allowDataOverf;
   var xAxis = useAppSelector((state) => selectXAxisSettings(state, xAxisId));
@@ -44339,9 +44965,9 @@ function GraphicalItemClipPath(_ref2) {
     width,
     height
   } = plotArea;
-  return /* @__PURE__ */ React21.createElement("clipPath", {
+  return /* @__PURE__ */ React23.createElement("clipPath", {
     id: "clipPath-".concat(clipPathId)
-  }, /* @__PURE__ */ React21.createElement("rect", {
+  }, /* @__PURE__ */ React23.createElement("rect", {
     x: needClipX ? x2 : x2 - width / 2,
     y: needClipY ? y2 : y2 - height / 2,
     width: needClipX ? width : width * 2,
@@ -44349,8 +44975,16 @@ function GraphicalItemClipPath(_ref2) {
   }));
 }
 
+// node_modules/recharts/es6/zIndex/getZIndexFromUnknown.js
+function getZIndexFromUnknown(input, defaultZIndex) {
+  if (input && typeof input === "object" && "zIndex" in input && typeof input.zIndex === "number" && isWellBehavedNumber(input.zIndex)) {
+    return input.zIndex;
+  }
+  return defaultZIndex;
+}
+
 // node_modules/react-redux/dist/react-redux.mjs
-var React22 = __toESM(require_react(), 1);
+var React24 = __toESM(require_react(), 1);
 var import_with_selector2 = __toESM(require_with_selector2(), 1);
 var REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref");
 var REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo");
@@ -44490,7 +45124,7 @@ var canUseDOM = () => !!(typeof window !== "undefined" && typeof window.document
 var isDOM = /* @__PURE__ */ canUseDOM();
 var isRunningInReactNative = () => typeof navigator !== "undefined" && navigator.product === "ReactNative";
 var isReactNative = /* @__PURE__ */ isRunningInReactNative();
-var getUseIsomorphicLayoutEffect = () => isDOM || isReactNative ? React22.useLayoutEffect : React22.useEffect;
+var getUseIsomorphicLayoutEffect = () => isDOM || isReactNative ? React24.useLayoutEffect : React24.useEffect;
 var useIsomorphicLayoutEffect = /* @__PURE__ */ getUseIsomorphicLayoutEffect();
 function is3(x2, y2) {
   if (x2 === y2) {
@@ -44540,24 +45174,24 @@ var gT = typeof globalThis !== "undefined" ? globalThis : (
   {}
 );
 function getContext() {
-  if (!React22.createContext) return {};
+  if (!React24.createContext) return {};
   const contextMap = gT[ContextKey] ??= /* @__PURE__ */ new Map();
-  let realContext = contextMap.get(React22.createContext);
+  let realContext = contextMap.get(React24.createContext);
   if (!realContext) {
-    realContext = React22.createContext(
+    realContext = React24.createContext(
       null
     );
     if (true) {
       realContext.displayName = "ReactRedux";
     }
-    contextMap.set(React22.createContext, realContext);
+    contextMap.set(React24.createContext, realContext);
   }
   return realContext;
 }
 var ReactReduxContext = /* @__PURE__ */ getContext();
 function Provider(providerProps) {
   const { children, context, serverState, store } = providerProps;
-  const contextValue = React22.useMemo(() => {
+  const contextValue = React24.useMemo(() => {
     const subscription = createSubscription(store);
     const baseContextValue = {
       store,
@@ -44574,7 +45208,7 @@ function Provider(providerProps) {
       });
     }
   }, [store, serverState]);
-  const previousState = React22.useMemo(() => store.getState(), [store]);
+  const previousState = React24.useMemo(() => store.getState(), [store]);
   useIsomorphicLayoutEffect(() => {
     const { subscription } = contextValue;
     subscription.onStateChange = subscription.notifyNestedSubs;
@@ -44588,7 +45222,7 @@ function Provider(providerProps) {
     };
   }, [contextValue, previousState]);
   const Context = context || ReactReduxContext;
-  return /* @__PURE__ */ React22.createElement(Context.Provider, { value: contextValue }, children);
+  return /* @__PURE__ */ React24.createElement(Context.Provider, { value: contextValue }, children);
 }
 var Provider_default = Provider;
 
@@ -44620,15 +45254,973 @@ function propsAreEqual(prevProps, nextProps) {
   return true;
 }
 
+// node_modules/recharts/es6/cartesian/Bar.js
+var _excluded13 = ["onMouseEnter", "onMouseLeave", "onClick"];
+var _excluded25 = ["value", "background", "tooltipPosition"];
+var _excluded32 = ["id"];
+var _excluded42 = ["onMouseEnter", "onClick", "onMouseLeave"];
+function _extends16() {
+  return _extends16 = Object.assign ? Object.assign.bind() : function(n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
+    }
+    return n;
+  }, _extends16.apply(null, arguments);
+}
+function ownKeys29(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread29(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys29(Object(t), true).forEach(function(r3) {
+      _defineProperty30(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys29(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty30(e, r2, t) {
+  return (r2 = _toPropertyKey30(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey30(t) {
+  var i = _toPrimitive30(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive30(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+function _objectWithoutProperties13(e, t) {
+  if (null == e) return {};
+  var o, r2, i = _objectWithoutPropertiesLoose13(e, t);
+  if (Object.getOwnPropertySymbols) {
+    var n = Object.getOwnPropertySymbols(e);
+    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
+  }
+  return i;
+}
+function _objectWithoutPropertiesLoose13(r2, e) {
+  if (null == r2) return {};
+  var t = {};
+  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
+    if (-1 !== e.indexOf(n)) continue;
+    t[n] = r2[n];
+  }
+  return t;
+}
+var computeLegendPayloadFromBarData = (props) => {
+  var {
+    dataKey,
+    name,
+    fill,
+    legendType,
+    hide
+  } = props;
+  return [{
+    inactive: hide,
+    dataKey,
+    type: legendType,
+    color: fill,
+    value: getTooltipNameProp(name, dataKey),
+    payload: props
+  }];
+};
+var SetBarTooltipEntrySettings = /* @__PURE__ */ React25.memo((_ref2) => {
+  var {
+    dataKey,
+    stroke,
+    strokeWidth,
+    fill,
+    name,
+    hide,
+    unit: unit2,
+    tooltipType
+  } = _ref2;
+  var tooltipEntrySettings = {
+    dataDefinedOnItem: void 0,
+    positions: void 0,
+    settings: {
+      stroke,
+      strokeWidth,
+      fill,
+      dataKey,
+      nameKey: void 0,
+      name: getTooltipNameProp(name, dataKey),
+      hide,
+      type: tooltipType,
+      color: fill,
+      unit: unit2
+    }
+  };
+  return /* @__PURE__ */ React25.createElement(SetTooltipEntrySettings, {
+    tooltipEntrySettings
+  });
+});
+function BarBackground(props) {
+  var activeIndex = useAppSelector(selectActiveTooltipIndex);
+  var {
+    data,
+    dataKey,
+    background: backgroundFromProps,
+    allOtherBarProps
+  } = props;
+  var {
+    onMouseEnter: onMouseEnterFromProps,
+    onMouseLeave: onMouseLeaveFromProps,
+    onClick: onItemClickFromProps
+  } = allOtherBarProps, restOfAllOtherProps = _objectWithoutProperties13(allOtherBarProps, _excluded13);
+  var onMouseEnterFromContext = useMouseEnterItemDispatch(onMouseEnterFromProps, dataKey);
+  var onMouseLeaveFromContext = useMouseLeaveItemDispatch(onMouseLeaveFromProps);
+  var onClickFromContext = useMouseClickItemDispatch(onItemClickFromProps, dataKey);
+  if (!backgroundFromProps || data == null) {
+    return null;
+  }
+  var backgroundProps = svgPropertiesNoEventsFromUnknown(backgroundFromProps);
+  return /* @__PURE__ */ React25.createElement(ZIndexLayer, {
+    zIndex: getZIndexFromUnknown(backgroundFromProps, DefaultZIndexes.barBackground)
+  }, data.map((entry, i) => {
+    var {
+      value,
+      background: backgroundFromDataEntry,
+      tooltipPosition
+    } = entry, rest = _objectWithoutProperties13(entry, _excluded25);
+    if (!backgroundFromDataEntry) {
+      return null;
+    }
+    var onMouseEnter = onMouseEnterFromContext(entry, i);
+    var onMouseLeave = onMouseLeaveFromContext(entry, i);
+    var onClick = onClickFromContext(entry, i);
+    var barRectangleProps = _objectSpread29(_objectSpread29(_objectSpread29(_objectSpread29(_objectSpread29({
+      option: backgroundFromProps,
+      isActive: String(i) === activeIndex
+    }, rest), {}, {
+      // @ts-expect-error backgroundProps is contributing unknown props
+      fill: "#eee"
+    }, backgroundFromDataEntry), backgroundProps), adaptEventsOfChild(restOfAllOtherProps, entry, i)), {}, {
+      onMouseEnter,
+      onMouseLeave,
+      onClick,
+      dataKey,
+      index: i,
+      className: "recharts-bar-background-rectangle"
+    });
+    return /* @__PURE__ */ React25.createElement(BarRectangle, _extends16({
+      key: "background-bar-".concat(i)
+    }, barRectangleProps));
+  }));
+}
+function BarLabelListProvider(_ref2) {
+  var {
+    showLabels,
+    children,
+    rects
+  } = _ref2;
+  var labelListEntries = rects === null || rects === void 0 ? void 0 : rects.map((entry) => {
+    var viewBox = {
+      x: entry.x,
+      y: entry.y,
+      width: entry.width,
+      lowerWidth: entry.width,
+      upperWidth: entry.width,
+      height: entry.height
+    };
+    return _objectSpread29(_objectSpread29({}, viewBox), {}, {
+      value: entry.value,
+      payload: entry.payload,
+      parentViewBox: entry.parentViewBox,
+      viewBox,
+      fill: entry.fill
+    });
+  });
+  return /* @__PURE__ */ React25.createElement(CartesianLabelListContextProvider, {
+    value: showLabels ? labelListEntries : void 0
+  }, children);
+}
+function BarRectangleWithActiveState(props) {
+  var {
+    shape,
+    activeBar,
+    baseProps,
+    entry,
+    index,
+    dataKey
+  } = props;
+  var activeIndex = useAppSelector(selectActiveTooltipIndex);
+  var activeDataKey = useAppSelector(selectActiveTooltipDataKey);
+  var isActive = activeBar && String(index) === activeIndex && (activeDataKey == null || dataKey === activeDataKey);
+  var option = isActive ? activeBar : shape;
+  if (isActive) {
+    return /* @__PURE__ */ React25.createElement(ZIndexLayer, {
+      zIndex: DefaultZIndexes.activeBar
+    }, /* @__PURE__ */ React25.createElement(BarRectangle, _extends16({}, baseProps, {
+      name: String(baseProps.name)
+    }, entry, {
+      isActive,
+      option,
+      index,
+      dataKey
+    })));
+  }
+  return /* @__PURE__ */ React25.createElement(BarRectangle, _extends16({}, baseProps, {
+    name: String(baseProps.name)
+  }, entry, {
+    isActive,
+    option,
+    index,
+    dataKey
+  }));
+}
+function BarRectangleNeverActive(props) {
+  var {
+    shape,
+    baseProps,
+    entry,
+    index,
+    dataKey
+  } = props;
+  return /* @__PURE__ */ React25.createElement(BarRectangle, _extends16({}, baseProps, {
+    name: String(baseProps.name)
+  }, entry, {
+    isActive: false,
+    option: shape,
+    index,
+    dataKey
+  }));
+}
+function BarRectangles(_ref3) {
+  var _svgPropertiesNoEvent;
+  var {
+    data,
+    props
+  } = _ref3;
+  var _ref4 = (_svgPropertiesNoEvent = svgPropertiesNoEvents(props)) !== null && _svgPropertiesNoEvent !== void 0 ? _svgPropertiesNoEvent : {}, {
+    id
+  } = _ref4, baseProps = _objectWithoutProperties13(_ref4, _excluded32);
+  var {
+    shape,
+    dataKey,
+    activeBar
+  } = props;
+  var {
+    onMouseEnter: onMouseEnterFromProps,
+    onClick: onItemClickFromProps,
+    onMouseLeave: onMouseLeaveFromProps
+  } = props, restOfAllOtherProps = _objectWithoutProperties13(props, _excluded42);
+  var onMouseEnterFromContext = useMouseEnterItemDispatch(onMouseEnterFromProps, dataKey);
+  var onMouseLeaveFromContext = useMouseLeaveItemDispatch(onMouseLeaveFromProps);
+  var onClickFromContext = useMouseClickItemDispatch(onItemClickFromProps, dataKey);
+  if (!data) {
+    return null;
+  }
+  return /* @__PURE__ */ React25.createElement(React25.Fragment, null, data.map((entry, i) => {
+    return /* @__PURE__ */ React25.createElement(
+      Layer,
+      _extends16({
+        key: "rectangle-".concat(entry === null || entry === void 0 ? void 0 : entry.x, "-").concat(entry === null || entry === void 0 ? void 0 : entry.y, "-").concat(entry === null || entry === void 0 ? void 0 : entry.value, "-").concat(i),
+        className: "recharts-bar-rectangle"
+      }, adaptEventsOfChild(restOfAllOtherProps, entry, i), {
+        // @ts-expect-error BarRectangleItem type definition says it's missing properties, but I can see them present in debugger!
+        onMouseEnter: onMouseEnterFromContext(entry, i),
+        onMouseLeave: onMouseLeaveFromContext(entry, i),
+        onClick: onClickFromContext(entry, i)
+      }),
+      activeBar ? /* @__PURE__ */ React25.createElement(BarRectangleWithActiveState, {
+        shape,
+        activeBar,
+        baseProps,
+        entry,
+        index: i,
+        dataKey
+      }) : (
+        /*
+         * If the `activeBar` prop is falsy, then let's call the variant without hooks.
+         * Using the `selectActiveTooltipIndex` selector is usually fast
+         * but in charts with large-ish amount of data even the few nanoseconds add up to a noticeable jank.
+         * If the activeBar is false then we don't need to know which index is active - because we won't use it anyway.
+         * So let's just skip the hooks altogether. That way, React can skip rendering the component,
+         * and can skip the tree reconciliation for its children too.
+         * Because we can't call hooks conditionally, we need to have a separate component for that.
+         */
+        /* @__PURE__ */ React25.createElement(BarRectangleNeverActive, {
+          shape,
+          baseProps,
+          entry,
+          index: i,
+          dataKey
+        })
+      )
+    );
+  }));
+}
+function RectanglesWithAnimation(_ref5) {
+  var {
+    props,
+    previousRectanglesRef
+  } = _ref5;
+  var {
+    data,
+    layout,
+    isAnimationActive,
+    animationBegin,
+    animationDuration,
+    animationEasing,
+    onAnimationEnd,
+    onAnimationStart
+  } = props;
+  var prevData = previousRectanglesRef.current;
+  var animationId = useAnimationId(props, "recharts-bar-");
+  var [isAnimating, setIsAnimating] = (0, import_react36.useState)(false);
+  var showLabels = !isAnimating;
+  var handleAnimationEnd = (0, import_react36.useCallback)(() => {
+    if (typeof onAnimationEnd === "function") {
+      onAnimationEnd();
+    }
+    setIsAnimating(false);
+  }, [onAnimationEnd]);
+  var handleAnimationStart = (0, import_react36.useCallback)(() => {
+    if (typeof onAnimationStart === "function") {
+      onAnimationStart();
+    }
+    setIsAnimating(true);
+  }, [onAnimationStart]);
+  return /* @__PURE__ */ React25.createElement(BarLabelListProvider, {
+    showLabels,
+    rects: data
+  }, /* @__PURE__ */ React25.createElement(JavascriptAnimate, {
+    animationId,
+    begin: animationBegin,
+    duration: animationDuration,
+    isActive: isAnimationActive,
+    easing: animationEasing,
+    onAnimationEnd: handleAnimationEnd,
+    onAnimationStart: handleAnimationStart,
+    key: animationId
+  }, (t) => {
+    var stepData = t === 1 ? data : data === null || data === void 0 ? void 0 : data.map((entry, index) => {
+      var prev = prevData && prevData[index];
+      if (prev) {
+        return _objectSpread29(_objectSpread29({}, entry), {}, {
+          x: interpolate(prev.x, entry.x, t),
+          y: interpolate(prev.y, entry.y, t),
+          width: interpolate(prev.width, entry.width, t),
+          height: interpolate(prev.height, entry.height, t)
+        });
+      }
+      if (layout === "horizontal") {
+        var height = interpolate(0, entry.height, t);
+        var y2 = interpolate(entry.stackedBarStart, entry.y, t);
+        return _objectSpread29(_objectSpread29({}, entry), {}, {
+          y: y2,
+          height
+        });
+      }
+      var w = interpolate(0, entry.width, t);
+      var x2 = interpolate(entry.stackedBarStart, entry.x, t);
+      return _objectSpread29(_objectSpread29({}, entry), {}, {
+        width: w,
+        x: x2
+      });
+    });
+    if (t > 0) {
+      previousRectanglesRef.current = stepData !== null && stepData !== void 0 ? stepData : null;
+    }
+    if (stepData == null) {
+      return null;
+    }
+    return /* @__PURE__ */ React25.createElement(Layer, null, /* @__PURE__ */ React25.createElement(BarRectangles, {
+      props,
+      data: stepData
+    }));
+  }), /* @__PURE__ */ React25.createElement(LabelListFromLabelProp, {
+    label: props.label
+  }), props.children);
+}
+function RenderRectangles(props) {
+  var previousRectanglesRef = (0, import_react36.useRef)(null);
+  return /* @__PURE__ */ React25.createElement(RectanglesWithAnimation, {
+    previousRectanglesRef,
+    props
+  });
+}
+var defaultMinPointSize = 0;
+var errorBarDataPointFormatter = (dataPoint, dataKey) => {
+  var value = Array.isArray(dataPoint.value) ? dataPoint.value[1] : dataPoint.value;
+  return {
+    x: dataPoint.x,
+    y: dataPoint.y,
+    value,
+    // @ts-expect-error getValueByDataKey does not validate the output type
+    errorVal: getValueByDataKey(dataPoint, dataKey)
+  };
+};
+var BarWithState = class extends import_react36.PureComponent {
+  render() {
+    var {
+      hide,
+      data,
+      dataKey,
+      className,
+      xAxisId,
+      yAxisId,
+      needClip,
+      background,
+      id
+    } = this.props;
+    if (hide || data == null) {
+      return null;
+    }
+    var layerClass = clsx("recharts-bar", className);
+    var clipPathId = id;
+    return /* @__PURE__ */ React25.createElement(Layer, {
+      className: layerClass,
+      id
+    }, needClip && /* @__PURE__ */ React25.createElement("defs", null, /* @__PURE__ */ React25.createElement(GraphicalItemClipPath, {
+      clipPathId,
+      xAxisId,
+      yAxisId
+    })), /* @__PURE__ */ React25.createElement(Layer, {
+      className: "recharts-bar-rectangles",
+      clipPath: needClip ? "url(#clipPath-".concat(clipPathId, ")") : void 0
+    }, /* @__PURE__ */ React25.createElement(BarBackground, {
+      data,
+      dataKey,
+      background,
+      allOtherBarProps: this.props
+    }), /* @__PURE__ */ React25.createElement(RenderRectangles, this.props)));
+  }
+};
+var defaultBarProps = {
+  activeBar: false,
+  animationBegin: 0,
+  animationDuration: 400,
+  animationEasing: "ease",
+  background: false,
+  hide: false,
+  isAnimationActive: "auto",
+  label: false,
+  legendType: "rect",
+  minPointSize: defaultMinPointSize,
+  xAxisId: 0,
+  yAxisId: 0,
+  zIndex: DefaultZIndexes.bar
+};
+function BarImpl(props) {
+  var {
+    xAxisId,
+    yAxisId,
+    hide,
+    legendType,
+    minPointSize,
+    activeBar,
+    animationBegin,
+    animationDuration,
+    animationEasing,
+    isAnimationActive
+  } = props;
+  var {
+    needClip
+  } = useNeedsClip(xAxisId, yAxisId);
+  var layout = useChartLayout();
+  var isPanorama = useIsPanorama();
+  var cells = findAllByType(props.children, Cell);
+  var rects = useAppSelector((state) => selectBarRectangles(state, xAxisId, yAxisId, isPanorama, props.id, cells));
+  if (layout !== "vertical" && layout !== "horizontal") {
+    return null;
+  }
+  var errorBarOffset;
+  var firstDataPoint = rects === null || rects === void 0 ? void 0 : rects[0];
+  if (firstDataPoint == null || firstDataPoint.height == null || firstDataPoint.width == null) {
+    errorBarOffset = 0;
+  } else {
+    errorBarOffset = layout === "vertical" ? firstDataPoint.height / 2 : firstDataPoint.width / 2;
+  }
+  return /* @__PURE__ */ React25.createElement(SetErrorBarContext, {
+    xAxisId,
+    yAxisId,
+    data: rects,
+    dataPointFormatter: errorBarDataPointFormatter,
+    errorBarOffset
+  }, /* @__PURE__ */ React25.createElement(BarWithState, _extends16({}, props, {
+    layout,
+    needClip,
+    data: rects,
+    xAxisId,
+    yAxisId,
+    hide,
+    legendType,
+    minPointSize,
+    activeBar,
+    animationBegin,
+    animationDuration,
+    animationEasing,
+    isAnimationActive
+  })));
+}
+function computeBarRectangles(_ref6) {
+  var {
+    layout,
+    barSettings: {
+      dataKey,
+      minPointSize: minPointSizeProp
+    },
+    pos,
+    bandSize,
+    xAxis,
+    yAxis,
+    xAxisTicks,
+    yAxisTicks,
+    stackedData,
+    displayedData,
+    offset,
+    cells,
+    parentViewBox,
+    dataStartIndex
+  } = _ref6;
+  var numericAxis = layout === "horizontal" ? yAxis : xAxis;
+  var stackedDomain = stackedData ? numericAxis.scale.domain() : null;
+  var baseValue = getBaseValueOfBar({
+    numericAxis
+  });
+  var stackedBarStart = numericAxis.scale(baseValue);
+  return displayedData.map((entry, index) => {
+    var value, x2, y2, width, height, background;
+    if (stackedData) {
+      value = truncateByDomain(stackedData[index + dataStartIndex], stackedDomain);
+    } else {
+      value = getValueByDataKey(entry, dataKey);
+      if (!Array.isArray(value)) {
+        value = [baseValue, value];
+      }
+    }
+    var minPointSize = minPointSizeCallback(minPointSizeProp, defaultMinPointSize)(value[1], index);
+    if (layout === "horizontal") {
+      var _ref7;
+      var [baseValueScale, currentValueScale] = [yAxis.scale(value[0]), yAxis.scale(value[1])];
+      x2 = getCateCoordinateOfBar({
+        axis: xAxis,
+        ticks: xAxisTicks,
+        bandSize,
+        offset: pos.offset,
+        entry,
+        index
+      });
+      y2 = (_ref7 = currentValueScale !== null && currentValueScale !== void 0 ? currentValueScale : baseValueScale) !== null && _ref7 !== void 0 ? _ref7 : void 0;
+      width = pos.size;
+      var computedHeight = baseValueScale - currentValueScale;
+      height = isNan(computedHeight) ? 0 : computedHeight;
+      background = {
+        x: x2,
+        y: offset.top,
+        width,
+        height: offset.height
+      };
+      if (Math.abs(minPointSize) > 0 && Math.abs(height) < Math.abs(minPointSize)) {
+        var delta = mathSign(height || minPointSize) * (Math.abs(minPointSize) - Math.abs(height));
+        y2 -= delta;
+        height += delta;
+      }
+    } else {
+      var [_baseValueScale, _currentValueScale] = [xAxis.scale(value[0]), xAxis.scale(value[1])];
+      x2 = _baseValueScale;
+      y2 = getCateCoordinateOfBar({
+        axis: yAxis,
+        ticks: yAxisTicks,
+        bandSize,
+        offset: pos.offset,
+        entry,
+        index
+      });
+      width = _currentValueScale - _baseValueScale;
+      height = pos.size;
+      background = {
+        x: offset.left,
+        y: y2,
+        width: offset.width,
+        height
+      };
+      if (Math.abs(minPointSize) > 0 && Math.abs(width) < Math.abs(minPointSize)) {
+        var _delta = mathSign(width || minPointSize) * (Math.abs(minPointSize) - Math.abs(width));
+        width += _delta;
+      }
+    }
+    if (x2 == null || y2 == null || width == null || height == null) {
+      return null;
+    }
+    var barRectangleItem = _objectSpread29(_objectSpread29({}, entry), {}, {
+      stackedBarStart,
+      x: x2,
+      y: y2,
+      width,
+      height,
+      value: stackedData ? value : value[1],
+      payload: entry,
+      background,
+      tooltipPosition: {
+        x: x2 + width / 2,
+        y: y2 + height / 2
+      },
+      parentViewBox
+    }, cells && cells[index] && cells[index].props);
+    return barRectangleItem;
+  }).filter(Boolean);
+}
+function BarFn(outsideProps) {
+  var props = resolveDefaultProps(outsideProps, defaultBarProps);
+  var isPanorama = useIsPanorama();
+  return /* @__PURE__ */ React25.createElement(RegisterGraphicalItemId, {
+    id: props.id,
+    type: "bar"
+  }, (id) => /* @__PURE__ */ React25.createElement(React25.Fragment, null, /* @__PURE__ */ React25.createElement(SetLegendPayload, {
+    legendPayload: computeLegendPayloadFromBarData(props)
+  }), /* @__PURE__ */ React25.createElement(SetBarTooltipEntrySettings, {
+    dataKey: props.dataKey,
+    stroke: props.stroke,
+    strokeWidth: props.strokeWidth,
+    fill: props.fill,
+    name: props.name,
+    hide: props.hide,
+    unit: props.unit,
+    tooltipType: props.tooltipType
+  }), /* @__PURE__ */ React25.createElement(SetCartesianGraphicalItem, {
+    type: "bar",
+    id,
+    data: void 0,
+    xAxisId: props.xAxisId,
+    yAxisId: props.yAxisId,
+    zAxisId: 0,
+    dataKey: props.dataKey,
+    stackId: getNormalizedStackId(props.stackId),
+    hide: props.hide,
+    barSize: props.barSize,
+    minPointSize: props.minPointSize,
+    maxBarSize: props.maxBarSize,
+    isPanorama
+  }), /* @__PURE__ */ React25.createElement(ZIndexLayer, {
+    zIndex: props.zIndex
+  }, /* @__PURE__ */ React25.createElement(BarImpl, _extends16({}, props, {
+    id
+  })))));
+}
+var Bar = /* @__PURE__ */ React25.memo(BarFn, propsAreEqual);
+Bar.displayName = "Bar";
+
+// node_modules/recharts/es6/state/selectors/barSelectors.js
+function ownKeys30(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread30(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys30(Object(t), true).forEach(function(r3) {
+      _defineProperty31(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys30(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty31(e, r2, t) {
+  return (r2 = _toPropertyKey31(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+}
+function _toPropertyKey31(t) {
+  var i = _toPrimitive31(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive31(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2 || "default");
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+var pickXAxisId = (_state, xAxisId) => xAxisId;
+var pickYAxisId = (_state, _xAxisId, yAxisId) => yAxisId;
+var pickIsPanorama = (_state, _xAxisId, _yAxisId, isPanorama) => isPanorama;
+var pickBarId = (_state, _xAxisId, _yAxisId, _isPanorama, id) => id;
+var selectSynchronisedBarSettings = createSelector([selectUnfilteredCartesianItems, pickBarId], (graphicalItems, id) => graphicalItems.filter((item) => item.type === "bar").find((item) => item.id === id));
+var selectMaxBarSize = createSelector([selectSynchronisedBarSettings], (barSettings) => barSettings === null || barSettings === void 0 ? void 0 : barSettings.maxBarSize);
+var pickCells = (_state, _xAxisId, _yAxisId, _isPanorama, _id, cells) => cells;
+var getBarSize = (globalSize, totalSize, selfSize) => {
+  var barSize = selfSize !== null && selfSize !== void 0 ? selfSize : globalSize;
+  if (isNullish(barSize)) {
+    return void 0;
+  }
+  return getPercentValue(barSize, totalSize, 0);
+};
+var selectAllVisibleBars = createSelector([selectChartLayout, selectUnfilteredCartesianItems, pickXAxisId, pickYAxisId, pickIsPanorama], (layout, allItems, xAxisId, yAxisId, isPanorama) => allItems.filter((i) => {
+  if (layout === "horizontal") {
+    return i.xAxisId === xAxisId;
+  }
+  return i.yAxisId === yAxisId;
+}).filter((i) => i.isPanorama === isPanorama).filter((i) => i.hide === false).filter((i) => i.type === "bar"));
+var selectBarStackGroups = (state, xAxisId, yAxisId, isPanorama) => {
+  var layout = selectChartLayout(state);
+  if (layout === "horizontal") {
+    return selectStackGroups(state, "yAxis", yAxisId, isPanorama);
+  }
+  return selectStackGroups(state, "xAxis", xAxisId, isPanorama);
+};
+var selectBarCartesianAxisSize = (state, xAxisId, yAxisId) => {
+  var layout = selectChartLayout(state);
+  if (layout === "horizontal") {
+    return selectCartesianAxisSize(state, "xAxis", xAxisId);
+  }
+  return selectCartesianAxisSize(state, "yAxis", yAxisId);
+};
+var combineBarSizeList = (allBars, globalSize, totalSize) => {
+  var initialValue = {};
+  var stackedBars = allBars.filter(isStacked);
+  var unstackedBars = allBars.filter((b) => b.stackId == null);
+  var groupByStack = stackedBars.reduce((acc, bar) => {
+    if (!acc[bar.stackId]) {
+      acc[bar.stackId] = [];
+    }
+    acc[bar.stackId].push(bar);
+    return acc;
+  }, initialValue);
+  var stackedSizeList = Object.entries(groupByStack).map((_ref2) => {
+    var [stackId, bars] = _ref2;
+    var dataKeys = bars.map((b) => b.dataKey);
+    var barSize = getBarSize(globalSize, totalSize, bars[0].barSize);
+    return {
+      stackId,
+      dataKeys,
+      barSize
+    };
+  });
+  var unstackedSizeList = unstackedBars.map((b) => {
+    var dataKeys = [b.dataKey].filter((dk) => dk != null);
+    var barSize = getBarSize(globalSize, totalSize, b.barSize);
+    return {
+      stackId: void 0,
+      dataKeys,
+      barSize
+    };
+  });
+  return [...stackedSizeList, ...unstackedSizeList];
+};
+var selectBarSizeList = createSelector([selectAllVisibleBars, selectRootBarSize, selectBarCartesianAxisSize], combineBarSizeList);
+var selectBarBandSize = (state, xAxisId, yAxisId, isPanorama, id) => {
+  var _ref2, _getBandSizeOfAxis;
+  var barSettings = selectSynchronisedBarSettings(state, xAxisId, yAxisId, isPanorama, id);
+  if (barSettings == null) {
+    return void 0;
+  }
+  var layout = selectChartLayout(state);
+  var globalMaxBarSize = selectRootMaxBarSize(state);
+  var {
+    maxBarSize: childMaxBarSize
+  } = barSettings;
+  var maxBarSize = isNullish(childMaxBarSize) ? globalMaxBarSize : childMaxBarSize;
+  var axis, ticks2;
+  if (layout === "horizontal") {
+    axis = selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
+    ticks2 = selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
+  } else {
+    axis = selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
+    ticks2 = selectTicksOfGraphicalItem(state, "yAxis", yAxisId, isPanorama);
+  }
+  return (_ref2 = (_getBandSizeOfAxis = getBandSizeOfAxis(axis, ticks2, true)) !== null && _getBandSizeOfAxis !== void 0 ? _getBandSizeOfAxis : maxBarSize) !== null && _ref2 !== void 0 ? _ref2 : 0;
+};
+var selectAxisBandSize = (state, xAxisId, yAxisId, isPanorama) => {
+  var layout = selectChartLayout(state);
+  var axis, ticks2;
+  if (layout === "horizontal") {
+    axis = selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
+    ticks2 = selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
+  } else {
+    axis = selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
+    ticks2 = selectTicksOfGraphicalItem(state, "yAxis", yAxisId, isPanorama);
+  }
+  return getBandSizeOfAxis(axis, ticks2);
+};
+function getBarPositions(barGap, barCategoryGap, bandSize, sizeList, maxBarSize) {
+  var len = sizeList.length;
+  if (len < 1) {
+    return void 0;
+  }
+  var realBarGap = getPercentValue(barGap, bandSize, 0, true);
+  var result;
+  var initialValue = [];
+  if (isWellBehavedNumber(sizeList[0].barSize)) {
+    var useFull = false;
+    var fullBarSize = bandSize / len;
+    var sum = sizeList.reduce((res, entry) => res + (entry.barSize || 0), 0);
+    sum += (len - 1) * realBarGap;
+    if (sum >= bandSize) {
+      sum -= (len - 1) * realBarGap;
+      realBarGap = 0;
+    }
+    if (sum >= bandSize && fullBarSize > 0) {
+      useFull = true;
+      fullBarSize *= 0.9;
+      sum = len * fullBarSize;
+    }
+    var offset = (bandSize - sum) / 2 >> 0;
+    var prev = {
+      offset: offset - realBarGap,
+      size: 0
+    };
+    result = sizeList.reduce((res, entry) => {
+      var _entry$barSize;
+      var newPosition = {
+        stackId: entry.stackId,
+        dataKeys: entry.dataKeys,
+        position: {
+          offset: prev.offset + prev.size + realBarGap,
+          size: useFull ? fullBarSize : (_entry$barSize = entry.barSize) !== null && _entry$barSize !== void 0 ? _entry$barSize : 0
+        }
+      };
+      var newRes = [...res, newPosition];
+      prev = newRes[newRes.length - 1].position;
+      return newRes;
+    }, initialValue);
+  } else {
+    var _offset = getPercentValue(barCategoryGap, bandSize, 0, true);
+    if (bandSize - 2 * _offset - (len - 1) * realBarGap <= 0) {
+      realBarGap = 0;
+    }
+    var originalSize = (bandSize - 2 * _offset - (len - 1) * realBarGap) / len;
+    if (originalSize > 1) {
+      originalSize >>= 0;
+    }
+    var size = isWellBehavedNumber(maxBarSize) ? Math.min(originalSize, maxBarSize) : originalSize;
+    result = sizeList.reduce((res, entry, i) => [...res, {
+      stackId: entry.stackId,
+      dataKeys: entry.dataKeys,
+      position: {
+        offset: _offset + (originalSize + realBarGap) * i + (originalSize - size) / 2,
+        size
+      }
+    }], initialValue);
+  }
+  return result;
+}
+var combineAllBarPositions = (sizeList, globalMaxBarSize, barGap, barCategoryGap, barBandSize, bandSize, childMaxBarSize) => {
+  var maxBarSize = isNullish(childMaxBarSize) ? globalMaxBarSize : childMaxBarSize;
+  var allBarPositions = getBarPositions(barGap, barCategoryGap, barBandSize !== bandSize ? barBandSize : bandSize, sizeList, maxBarSize);
+  if (barBandSize !== bandSize && allBarPositions != null) {
+    allBarPositions = allBarPositions.map((pos) => _objectSpread30(_objectSpread30({}, pos), {}, {
+      position: _objectSpread30(_objectSpread30({}, pos.position), {}, {
+        offset: pos.position.offset - barBandSize / 2
+      })
+    }));
+  }
+  return allBarPositions;
+};
+var selectAllBarPositions = createSelector([selectBarSizeList, selectRootMaxBarSize, selectBarGap, selectBarCategoryGap, selectBarBandSize, selectAxisBandSize, selectMaxBarSize], combineAllBarPositions);
+var selectXAxisWithScale = (state, xAxisId, _yAxisId, isPanorama) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
+var selectYAxisWithScale = (state, _xAxisId, yAxisId, isPanorama) => selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
+var selectXAxisTicks = (state, xAxisId, _yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
+var selectYAxisTicks = (state, _xAxisId, yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "yAxis", yAxisId, isPanorama);
+var selectBarPosition = createSelector([selectAllBarPositions, selectSynchronisedBarSettings], (allBarPositions, barSettings) => {
+  if (allBarPositions == null || barSettings == null) {
+    return void 0;
+  }
+  var position = allBarPositions.find((p) => p.stackId === barSettings.stackId && barSettings.dataKey != null && p.dataKeys.includes(barSettings.dataKey));
+  if (position == null) {
+    return void 0;
+  }
+  return position.position;
+});
+var combineStackedData = (stackGroups, barSettings) => {
+  var stackSeriesIdentifier = getStackSeriesIdentifier(barSettings);
+  if (!stackGroups || stackSeriesIdentifier == null || barSettings == null) {
+    return void 0;
+  }
+  var {
+    stackId
+  } = barSettings;
+  if (stackId == null) {
+    return void 0;
+  }
+  var stackGroup = stackGroups[stackId];
+  if (!stackGroup) {
+    return void 0;
+  }
+  var {
+    stackedData
+  } = stackGroup;
+  if (!stackedData) {
+    return void 0;
+  }
+  return stackedData.find((sd) => sd.key === stackSeriesIdentifier);
+};
+var selectStackedDataOfItem = createSelector([selectBarStackGroups, selectSynchronisedBarSettings], combineStackedData);
+var selectBarRectangles = createSelector([selectChartOffsetInternal, selectAxisViewBox, selectXAxisWithScale, selectYAxisWithScale, selectXAxisTicks, selectYAxisTicks, selectBarPosition, selectChartLayout, selectChartDataWithIndexesIfNotInPanorama, selectAxisBandSize, selectStackedDataOfItem, selectSynchronisedBarSettings, pickCells], (offset, axisViewBox, xAxis, yAxis, xAxisTicks, yAxisTicks, pos, layout, _ref3, bandSize, stackedData, barSettings, cells) => {
+  var {
+    chartData,
+    dataStartIndex,
+    dataEndIndex
+  } = _ref3;
+  if (barSettings == null || pos == null || axisViewBox == null || layout !== "horizontal" && layout !== "vertical" || xAxis == null || yAxis == null || xAxisTicks == null || yAxisTicks == null || bandSize == null) {
+    return void 0;
+  }
+  var {
+    data
+  } = barSettings;
+  var displayedData;
+  if (data != null && data.length > 0) {
+    displayedData = data;
+  } else {
+    displayedData = chartData === null || chartData === void 0 ? void 0 : chartData.slice(dataStartIndex, dataEndIndex + 1);
+  }
+  if (displayedData == null) {
+    return void 0;
+  }
+  return computeBarRectangles({
+    layout,
+    barSettings,
+    pos,
+    parentViewBox: axisViewBox,
+    bandSize,
+    xAxis,
+    yAxis,
+    xAxisTicks,
+    yAxisTicks,
+    stackedData,
+    displayedData,
+    offset,
+    cells,
+    dataStartIndex
+  });
+});
+
 // node_modules/recharts/es6/context/chartDataContext.js
-var import_react35 = __toESM(require_react());
+var import_react37 = __toESM(require_react());
 var ChartDataContextProvider = (props) => {
   var {
     chartData
   } = props;
   var dispatch = useAppDispatch();
   var isPanorama = useIsPanorama();
-  (0, import_react35.useEffect)(() => {
+  (0, import_react37.useEffect)(() => {
     if (isPanorama) {
       return () => {
       };
@@ -44672,35 +46264,14 @@ var {
 var brushReducer = brushSlice.reducer;
 
 // node_modules/recharts/es6/util/CartesianUtils.js
-function ownKeys27(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
+function _defineProperty32(e, r2, t) {
+  return (r2 = _toPropertyKey32(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _objectSpread27(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys27(Object(t), true).forEach(function(r3) {
-      _defineProperty28(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys27(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty28(e, r2, t) {
-  return (r2 = _toPropertyKey28(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey28(t) {
-  var i = _toPrimitive28(t, "string");
+function _toPropertyKey32(t) {
+  var i = _toPrimitive32(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive28(t, r2) {
+function _toPrimitive32(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -44771,30 +46342,7 @@ var ScaleHelper = class _ScaleHelper {
     return first <= last2 ? value >= first && value <= last2 : value >= last2 && value <= first;
   }
 };
-_defineProperty28(ScaleHelper, "EPS", 1e-4);
-var createLabeledScales = (options) => {
-  var scales = Object.keys(options).reduce((res, key) => _objectSpread27(_objectSpread27({}, res), {}, {
-    [key]: ScaleHelper.create(options[key])
-  }), {});
-  return _objectSpread27(_objectSpread27({}, scales), {}, {
-    apply(coord) {
-      var {
-        bandAware,
-        position
-      } = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-      return Object.fromEntries(Object.entries(coord).map((_ref4) => {
-        var [label, value] = _ref4;
-        return [label, scales[label].apply(value, {
-          bandAware,
-          position
-        })];
-      }));
-    },
-    isInRange(coord) {
-      return Object.keys(coord).every((label) => scales[label].isInRange(coord[label]));
-    }
-  });
-};
+_defineProperty32(ScaleHelper, "EPS", 1e-4);
 function normalizeAngle(angle) {
   return (angle % 180 + 180) % 180;
 }
@@ -44861,14 +46409,14 @@ var {
 var referenceElementsReducer = referenceElementsSlice.reducer;
 
 // node_modules/recharts/es6/container/ClipPathProvider.js
-var React23 = __toESM(require_react());
-var import_react36 = __toESM(require_react());
-var ClipPathIdContext = /* @__PURE__ */ (0, import_react36.createContext)(void 0);
+var React26 = __toESM(require_react());
+var import_react38 = __toESM(require_react());
+var ClipPathIdContext = /* @__PURE__ */ (0, import_react38.createContext)(void 0);
 var ClipPathProvider = (_ref2) => {
   var {
     children
   } = _ref2;
-  var [clipPathId] = (0, import_react36.useState)("".concat(uniqueId("recharts"), "-clip"));
+  var [clipPathId] = (0, import_react38.useState)("".concat(uniqueId("recharts"), "-clip"));
   var plotArea = usePlotArea();
   if (plotArea == null) {
     return null;
@@ -44879,198 +46427,22 @@ var ClipPathProvider = (_ref2) => {
     width,
     height
   } = plotArea;
-  return /* @__PURE__ */ React23.createElement(ClipPathIdContext.Provider, {
+  return /* @__PURE__ */ React26.createElement(ClipPathIdContext.Provider, {
     value: clipPathId
-  }, /* @__PURE__ */ React23.createElement("defs", null, /* @__PURE__ */ React23.createElement("clipPath", {
+  }, /* @__PURE__ */ React26.createElement("defs", null, /* @__PURE__ */ React26.createElement("clipPath", {
     id: clipPathId
-  }, /* @__PURE__ */ React23.createElement("rect", {
+  }, /* @__PURE__ */ React26.createElement("rect", {
     x: x2,
     y: y2,
     height,
     width
   }))), children);
 };
-var useClipPathId = () => {
-  return (0, import_react36.useContext)(ClipPathIdContext);
-};
-
-// node_modules/recharts/es6/cartesian/ReferenceDot.js
-var React24 = __toESM(require_react());
-var import_react37 = __toESM(require_react());
-function ownKeys28(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread28(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys28(Object(t), true).forEach(function(r3) {
-      _defineProperty29(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys28(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty29(e, r2, t) {
-  return (r2 = _toPropertyKey29(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey29(t) {
-  var i = _toPrimitive29(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive29(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-function _extends15() {
-  return _extends15 = Object.assign ? Object.assign.bind() : function(n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-    }
-    return n;
-  }, _extends15.apply(null, arguments);
-}
-var useCoordinate = (x2, y2, xAxisId, yAxisId, ifOverflow) => {
-  var isX = isNumOrStr(x2);
-  var isY = isNumOrStr(y2);
-  var isPanorama = useIsPanorama();
-  var xAxisScale = useAppSelector((state) => selectAxisScale(state, "xAxis", xAxisId, isPanorama));
-  var yAxisScale = useAppSelector((state) => selectAxisScale(state, "yAxis", yAxisId, isPanorama));
-  if (!isX || !isY || xAxisScale == null || yAxisScale == null) {
-    return null;
-  }
-  var scales = createLabeledScales({
-    x: xAxisScale,
-    y: yAxisScale
-  });
-  var result = scales.apply({
-    x: x2,
-    y: y2
-  }, {
-    bandAware: true
-  });
-  if (ifOverflow === "discard" && !scales.isInRange(result)) {
-    return null;
-  }
-  return result;
-};
-function ReportReferenceDot(props) {
-  var dispatch = useAppDispatch();
-  (0, import_react37.useEffect)(() => {
-    dispatch(addDot(props));
-    return () => {
-      dispatch(removeDot(props));
-    };
-  });
-  return null;
-}
-var renderDot = (option, props) => {
-  var dot;
-  if (/* @__PURE__ */ React24.isValidElement(option)) {
-    dot = /* @__PURE__ */ React24.cloneElement(option, props);
-  } else if (typeof option === "function") {
-    dot = option(props);
-  } else {
-    dot = /* @__PURE__ */ React24.createElement(Dot, _extends15({}, props, {
-      cx: props.cx,
-      cy: props.cy,
-      className: "recharts-reference-dot-dot"
-    }));
-  }
-  return dot;
-};
-function ReferenceDotImpl(props) {
-  var {
-    x: x2,
-    y: y2,
-    r: r2
-  } = props;
-  var clipPathId = useClipPathId();
-  var coordinate = useCoordinate(x2, y2, props.xAxisId, props.yAxisId, props.ifOverflow);
-  if (!coordinate) {
-    return null;
-  }
-  var {
-    x: cx,
-    y: cy
-  } = coordinate;
-  var {
-    shape,
-    className,
-    ifOverflow
-  } = props;
-  var clipPath = ifOverflow === "hidden" ? "url(#".concat(clipPathId, ")") : void 0;
-  var dotProps = _objectSpread28(_objectSpread28({
-    clipPath
-  }, svgPropertiesAndEvents(props)), {}, {
-    cx,
-    cy
-  });
-  return /* @__PURE__ */ React24.createElement(ZIndexLayer, {
-    zIndex: props.zIndex
-  }, /* @__PURE__ */ React24.createElement(Layer, {
-    className: clsx("recharts-reference-dot", className)
-  }, renderDot(shape, dotProps), /* @__PURE__ */ React24.createElement(CartesianLabelContextProvider, {
-    x: cx - r2,
-    y: cy - r2,
-    width: 2 * r2,
-    height: 2 * r2,
-    upperWidth: 2 * r2,
-    lowerWidth: 2 * r2
-  }, /* @__PURE__ */ React24.createElement(CartesianLabelFromLabelProp, {
-    label: props.label
-  }), props.children)));
-}
-var referenceDotDefaultProps = {
-  ifOverflow: "discard",
-  xAxisId: 0,
-  yAxisId: 0,
-  r: 10,
-  fill: "#fff",
-  stroke: "#ccc",
-  fillOpacity: 1,
-  strokeWidth: 1,
-  zIndex: DefaultZIndexes.scatter
-};
-function ReferenceDot(outsideProps) {
-  var props = resolveDefaultProps(outsideProps, referenceDotDefaultProps);
-  var {
-    x: x2,
-    y: y2,
-    r: r2,
-    ifOverflow,
-    yAxisId,
-    xAxisId
-  } = props;
-  return /* @__PURE__ */ React24.createElement(React24.Fragment, null, /* @__PURE__ */ React24.createElement(ReportReferenceDot, {
-    y: y2,
-    x: x2,
-    r: r2,
-    yAxisId,
-    xAxisId,
-    ifOverflow
-  }), /* @__PURE__ */ React24.createElement(ReferenceDotImpl, props));
-}
-ReferenceDot.displayName = "ReferenceDot";
 
 // node_modules/recharts/es6/cartesian/CartesianAxis.js
-var React25 = __toESM(require_react());
-var import_react38 = __toESM(require_react());
-var import_get3 = __toESM(require_get2());
+var React27 = __toESM(require_react());
+var import_react39 = __toESM(require_react());
+var import_get4 = __toESM(require_get2());
 
 // node_modules/recharts/es6/util/getEveryNthWithCondition.js
 function getEveryNthWithCondition(array, n) {
@@ -45170,7 +46542,7 @@ function getEquidistantTicks(sign2, boundaries, getTickSize, ticks2, minTickGap)
 }
 
 // node_modules/recharts/es6/cartesian/getTicks.js
-function ownKeys29(e, r2) {
+function ownKeys31(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -45180,25 +46552,25 @@ function ownKeys29(e, r2) {
   }
   return t;
 }
-function _objectSpread29(e) {
+function _objectSpread31(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys29(Object(t), true).forEach(function(r3) {
-      _defineProperty30(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys29(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys31(Object(t), true).forEach(function(r3) {
+      _defineProperty33(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys31(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty30(e, r2, t) {
-  return (r2 = _toPropertyKey30(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty33(e, r2, t) {
+  return (r2 = _toPropertyKey33(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey30(t) {
-  var i = _toPrimitive30(t, "string");
+function _toPropertyKey33(t) {
+  var i = _toPrimitive33(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive30(t, r2) {
+function _toPrimitive33(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -45228,11 +46600,11 @@ function getTicksEnd(sign2, boundaries, getTickSize, ticks2, minTickGap) {
     };
     if (i2 === len - 1) {
       var gap = sign2 * (entry.coordinate + sign2 * getSize() / 2 - end);
-      result[i2] = entry = _objectSpread29(_objectSpread29({}, entry), {}, {
+      result[i2] = entry = _objectSpread31(_objectSpread31({}, entry), {}, {
         tickCoord: gap > 0 ? entry.coordinate - gap * sign2 : entry.coordinate
       });
     } else {
-      result[i2] = entry = _objectSpread29(_objectSpread29({}, entry), {}, {
+      result[i2] = entry = _objectSpread31(_objectSpread31({}, entry), {}, {
         tickCoord: entry.coordinate
       });
     }
@@ -45240,7 +46612,7 @@ function getTicksEnd(sign2, boundaries, getTickSize, ticks2, minTickGap) {
       var isShow = isVisible(sign2, entry.tickCoord, getSize, start, end);
       if (isShow) {
         end = entry.tickCoord - sign2 * (getSize() / 2 + minTickGap);
-        result[i2] = _objectSpread29(_objectSpread29({}, entry), {}, {
+        result[i2] = _objectSpread31(_objectSpread31({}, entry), {}, {
           isShow: true
         });
       }
@@ -45262,14 +46634,14 @@ function getTicksStart(sign2, boundaries, getTickSize, ticks2, minTickGap, prese
     var tail = ticks2[len - 1];
     var tailSize = getTickSize(tail, len - 1);
     var tailGap = sign2 * (tail.coordinate + sign2 * tailSize / 2 - end);
-    result[len - 1] = tail = _objectSpread29(_objectSpread29({}, tail), {}, {
+    result[len - 1] = tail = _objectSpread31(_objectSpread31({}, tail), {}, {
       tickCoord: tailGap > 0 ? tail.coordinate - tailGap * sign2 : tail.coordinate
     });
     if (tail.tickCoord != null) {
       var isTailShow = isVisible(sign2, tail.tickCoord, () => tailSize, start, end);
       if (isTailShow) {
         end = tail.tickCoord - sign2 * (tailSize / 2 + minTickGap);
-        result[len - 1] = _objectSpread29(_objectSpread29({}, tail), {}, {
+        result[len - 1] = _objectSpread31(_objectSpread31({}, tail), {}, {
           isShow: true
         });
       }
@@ -45287,11 +46659,11 @@ function getTicksStart(sign2, boundaries, getTickSize, ticks2, minTickGap, prese
     };
     if (i2 === 0) {
       var gap = sign2 * (entry.coordinate - sign2 * getSize() / 2 - start);
-      result[i2] = entry = _objectSpread29(_objectSpread29({}, entry), {}, {
+      result[i2] = entry = _objectSpread31(_objectSpread31({}, entry), {}, {
         tickCoord: gap < 0 ? entry.coordinate - gap * sign2 : entry.coordinate
       });
     } else {
-      result[i2] = entry = _objectSpread29(_objectSpread29({}, entry), {}, {
+      result[i2] = entry = _objectSpread31(_objectSpread31({}, entry), {}, {
         tickCoord: entry.coordinate
       });
     }
@@ -45299,7 +46671,7 @@ function getTicksStart(sign2, boundaries, getTickSize, ticks2, minTickGap, prese
       var isShow = isVisible(sign2, entry.tickCoord, getSize, start, end);
       if (isShow) {
         start = entry.tickCoord + sign2 * (getSize() / 2 + minTickGap);
-        result[i2] = _objectSpread29(_objectSpread29({}, entry), {}, {
+        result[i2] = _objectSpread31(_objectSpread31({}, entry), {}, {
           isShow: true
         });
       }
@@ -45390,17 +46762,17 @@ var getCalculatedYAxisWidth = (_ref2) => {
 };
 
 // node_modules/recharts/es6/cartesian/CartesianAxis.js
-var _excluded10 = ["axisLine", "width", "height", "className", "hide", "ticks", "axisType"];
-function _objectWithoutProperties10(e, t) {
+var _excluded14 = ["axisLine", "width", "height", "className", "hide", "ticks", "axisType"];
+function _objectWithoutProperties14(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose10(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose14(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose10(r2, e) {
+function _objectWithoutPropertiesLoose14(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -45409,16 +46781,16 @@ function _objectWithoutPropertiesLoose10(r2, e) {
   }
   return t;
 }
-function _extends16() {
-  return _extends16 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends17() {
+  return _extends17 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends16.apply(null, arguments);
+  }, _extends17.apply(null, arguments);
 }
-function ownKeys30(e, r2) {
+function ownKeys32(e, r2) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
@@ -45428,25 +46800,25 @@ function ownKeys30(e, r2) {
   }
   return t;
 }
-function _objectSpread30(e) {
+function _objectSpread32(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys30(Object(t), true).forEach(function(r3) {
-      _defineProperty31(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys30(Object(t)).forEach(function(r3) {
+    r2 % 2 ? ownKeys32(Object(t), true).forEach(function(r3) {
+      _defineProperty34(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys32(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty31(e, r2, t) {
-  return (r2 = _toPropertyKey31(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty34(e, r2, t) {
+  return (r2 = _toPropertyKey34(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey31(t) {
-  var i = _toPrimitive31(t, "string");
+function _toPropertyKey34(t) {
+  var i = _toPrimitive34(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive31(t, r2) {
+function _toPrimitive34(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -45497,12 +46869,12 @@ function AxisLine(axisLineProps) {
   if (!axisLine) {
     return null;
   }
-  var props = _objectSpread30(_objectSpread30(_objectSpread30({}, otherSvgProps), svgPropertiesNoEvents(axisLine)), {}, {
+  var props = _objectSpread32(_objectSpread32(_objectSpread32({}, otherSvgProps), svgPropertiesNoEvents(axisLine)), {}, {
     fill: "none"
   });
   if (orientation === "top" || orientation === "bottom") {
     var needHeight = +(orientation === "top" && !mirror || orientation === "bottom" && mirror);
-    props = _objectSpread30(_objectSpread30({}, props), {}, {
+    props = _objectSpread32(_objectSpread32({}, props), {}, {
       x1: x2,
       y1: y2 + needHeight * height,
       x2: x2 + width,
@@ -45510,15 +46882,15 @@ function AxisLine(axisLineProps) {
     });
   } else {
     var needWidth = +(orientation === "left" && !mirror || orientation === "right" && mirror);
-    props = _objectSpread30(_objectSpread30({}, props), {}, {
+    props = _objectSpread32(_objectSpread32({}, props), {}, {
       x1: x2 + needWidth * width,
       y1: y2,
       x2: x2 + needWidth * width,
       y2: y2 + height
     });
   }
-  return /* @__PURE__ */ React25.createElement("line", _extends16({}, props, {
-    className: clsx("recharts-cartesian-axis-line", (0, import_get3.default)(axisLine, "className"))
+  return /* @__PURE__ */ React27.createElement("line", _extends17({}, props, {
+    className: clsx("recharts-cartesian-axis-line", (0, import_get4.default)(axisLine, "className"))
   }));
 }
 function getTickLineCoord(data, x2, y2, width, height, orientation, tickSize, mirror, tickMargin) {
@@ -45598,12 +46970,12 @@ function TickItem(props) {
   } = props;
   var tickItem;
   var combinedClassName = clsx(tickProps.className, "recharts-cartesian-axis-tick-value");
-  if (/* @__PURE__ */ React25.isValidElement(option)) {
-    tickItem = /* @__PURE__ */ React25.cloneElement(option, _objectSpread30(_objectSpread30({}, tickProps), {}, {
+  if (/* @__PURE__ */ React27.isValidElement(option)) {
+    tickItem = /* @__PURE__ */ React27.cloneElement(option, _objectSpread32(_objectSpread32({}, tickProps), {}, {
       className: combinedClassName
     }));
   } else if (typeof option === "function") {
-    tickItem = option(_objectSpread30(_objectSpread30({}, tickProps), {}, {
+    tickItem = option(_objectSpread32(_objectSpread32({}, tickProps), {}, {
       className: combinedClassName
     }));
   } else {
@@ -45611,13 +46983,13 @@ function TickItem(props) {
     if (typeof option !== "boolean") {
       className = clsx(className, option === null || option === void 0 ? void 0 : option.className);
     }
-    tickItem = /* @__PURE__ */ React25.createElement(Text, _extends16({}, tickProps, {
+    tickItem = /* @__PURE__ */ React27.createElement(Text, _extends17({}, tickProps, {
       className
     }), value);
   }
   return tickItem;
 }
-var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
+var Ticks = /* @__PURE__ */ (0, import_react39.forwardRef)((props, ref) => {
   var {
     ticks: ticks2 = [],
     tick,
@@ -45641,7 +47013,7 @@ var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
     events,
     axisType
   } = props;
-  var finalTicks = getTicks(_objectSpread30(_objectSpread30({}, getTicksConfig), {}, {
+  var finalTicks = getTicks(_objectSpread32(_objectSpread32({}, getTicksConfig), {}, {
     ticks: ticks2
   }), fontSize, letterSpacing);
   var textAnchor = getTickTextAnchor(orientation, mirror);
@@ -45652,10 +47024,10 @@ var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
   if (typeof tickLine === "object") {
     tickLinePropsObject = tickLine;
   }
-  var tickLineProps = _objectSpread30(_objectSpread30({}, axisProps), {}, {
+  var tickLineProps = _objectSpread32(_objectSpread32({}, axisProps), {}, {
     fill: "none"
   }, tickLinePropsObject);
-  var tickLineCoords = finalTicks.map((entry) => _objectSpread30({
+  var tickLineCoords = finalTicks.map((entry) => _objectSpread32({
     entry
   }, getTickLineCoord(entry, x2, y2, width, height, orientation, tickSize, mirror, tickMargin)));
   var tickLines = tickLineCoords.map((_ref2) => {
@@ -45663,11 +47035,11 @@ var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
       entry,
       line: lineCoord
     } = _ref2;
-    return /* @__PURE__ */ React25.createElement(Layer, {
+    return /* @__PURE__ */ React27.createElement(Layer, {
       className: "recharts-cartesian-axis-tick",
       key: "tick-".concat(entry.value, "-").concat(entry.coordinate, "-").concat(entry.tickCoord)
-    }, tickLine && /* @__PURE__ */ React25.createElement("line", _extends16({}, tickLineProps, lineCoord, {
-      className: clsx("recharts-cartesian-axis-tick-line", (0, import_get3.default)(tickLine, "className"))
+    }, tickLine && /* @__PURE__ */ React27.createElement("line", _extends17({}, tickLineProps, lineCoord, {
+      className: clsx("recharts-cartesian-axis-tick-line", (0, import_get4.default)(tickLine, "className"))
     })));
   });
   var tickLabels = tickLineCoords.map((_ref2, i) => {
@@ -45675,7 +47047,7 @@ var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
       entry,
       tick: tickCoord
     } = _ref2;
-    var tickProps = _objectSpread30(_objectSpread30(_objectSpread30(_objectSpread30({
+    var tickProps = _objectSpread32(_objectSpread32(_objectSpread32(_objectSpread32({
       // @ts-expect-error textAnchor from axisProps is typed as `string` but Text wants type `TextAnchor`
       textAnchor,
       verticalAnchor
@@ -45691,27 +47063,27 @@ var Ticks = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
       tickFormatter,
       padding
     }, tickTextProps);
-    return /* @__PURE__ */ React25.createElement(Layer, _extends16({
+    return /* @__PURE__ */ React27.createElement(Layer, _extends17({
       className: "recharts-cartesian-axis-tick-label",
       key: "tick-label-".concat(entry.value, "-").concat(entry.coordinate, "-").concat(entry.tickCoord)
-    }, adaptEventsOfChild(events, entry, i)), tick && /* @__PURE__ */ React25.createElement(TickItem, {
+    }, adaptEventsOfChild(events, entry, i)), tick && /* @__PURE__ */ React27.createElement(TickItem, {
       option: tick,
       tickProps,
       value: "".concat(typeof tickFormatter === "function" ? tickFormatter(entry.value, i) : entry.value).concat(unit2 || "")
     }));
   });
-  return /* @__PURE__ */ React25.createElement("g", {
+  return /* @__PURE__ */ React27.createElement("g", {
     className: "recharts-cartesian-axis-ticks recharts-".concat(axisType, "-ticks")
-  }, tickLabels.length > 0 && /* @__PURE__ */ React25.createElement(ZIndexLayer, {
+  }, tickLabels.length > 0 && /* @__PURE__ */ React27.createElement(ZIndexLayer, {
     zIndex: DefaultZIndexes.label
-  }, /* @__PURE__ */ React25.createElement("g", {
+  }, /* @__PURE__ */ React27.createElement("g", {
     className: "recharts-cartesian-axis-tick-labels recharts-".concat(axisType, "-tick-labels"),
     ref
-  }, tickLabels)), tickLines.length > 0 && /* @__PURE__ */ React25.createElement("g", {
+  }, tickLabels)), tickLines.length > 0 && /* @__PURE__ */ React27.createElement("g", {
     className: "recharts-cartesian-axis-tick-lines recharts-".concat(axisType, "-tick-lines")
   }, tickLines));
 });
-var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((props, ref) => {
+var CartesianAxisComponent = /* @__PURE__ */ (0, import_react39.forwardRef)((props, ref) => {
   var {
     axisLine,
     width,
@@ -45720,11 +47092,11 @@ var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((pro
     hide,
     ticks: ticks2,
     axisType
-  } = props, rest = _objectWithoutProperties10(props, _excluded10);
-  var [fontSize, setFontSize] = (0, import_react38.useState)("");
-  var [letterSpacing, setLetterSpacing] = (0, import_react38.useState)("");
-  var tickRefs = (0, import_react38.useRef)(null);
-  (0, import_react38.useImperativeHandle)(ref, () => ({
+  } = props, rest = _objectWithoutProperties14(props, _excluded14);
+  var [fontSize, setFontSize] = (0, import_react39.useState)("");
+  var [letterSpacing, setLetterSpacing] = (0, import_react39.useState)("");
+  var tickRefs = (0, import_react39.useRef)(null);
+  (0, import_react39.useImperativeHandle)(ref, () => ({
     getCalculatedWidth: () => {
       var _props$labelRef;
       return getCalculatedYAxisWidth({
@@ -45736,7 +47108,7 @@ var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((pro
       });
     }
   }));
-  var layerRef = (0, import_react38.useCallback)((el) => {
+  var layerRef = (0, import_react39.useCallback)((el) => {
     if (el) {
       var tickNodes = el.getElementsByClassName("recharts-cartesian-axis-tick-value");
       tickRefs.current = tickNodes;
@@ -45758,11 +47130,11 @@ var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((pro
   if (width != null && width <= 0 || height != null && height <= 0) {
     return null;
   }
-  return /* @__PURE__ */ React25.createElement(ZIndexLayer, {
+  return /* @__PURE__ */ React27.createElement(ZIndexLayer, {
     zIndex: props.zIndex
-  }, /* @__PURE__ */ React25.createElement(Layer, {
+  }, /* @__PURE__ */ React27.createElement(Layer, {
     className: clsx("recharts-cartesian-axis", className)
-  }, /* @__PURE__ */ React25.createElement(AxisLine, {
+  }, /* @__PURE__ */ React27.createElement(AxisLine, {
     x: props.x,
     y: props.y,
     width,
@@ -45771,7 +47143,7 @@ var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((pro
     mirror: props.mirror,
     axisLine,
     otherSvgProps: svgPropertiesNoEvents(props)
-  }), /* @__PURE__ */ React25.createElement(Ticks, {
+  }), /* @__PURE__ */ React27.createElement(Ticks, {
     ref: layerRef,
     axisType,
     events: rest,
@@ -45794,1336 +47166,43 @@ var CartesianAxisComponent = /* @__PURE__ */ (0, import_react38.forwardRef)((pro
     width: props.width,
     x: props.x,
     y: props.y
-  }), /* @__PURE__ */ React25.createElement(CartesianLabelContextProvider, {
+  }), /* @__PURE__ */ React27.createElement(CartesianLabelContextProvider, {
     x: props.x,
     y: props.y,
     width: props.width,
     height: props.height,
     lowerWidth: props.width,
     upperWidth: props.width
-  }, /* @__PURE__ */ React25.createElement(CartesianLabelFromLabelProp, {
+  }, /* @__PURE__ */ React27.createElement(CartesianLabelFromLabelProp, {
     label: props.label,
     labelRef: props.labelRef
   }), props.children)));
 });
-var CartesianAxis = /* @__PURE__ */ React25.forwardRef((outsideProps, ref) => {
+var CartesianAxis = /* @__PURE__ */ React27.forwardRef((outsideProps, ref) => {
   var props = resolveDefaultProps(outsideProps, defaultCartesianAxisProps);
-  return /* @__PURE__ */ React25.createElement(CartesianAxisComponent, _extends16({}, props, {
+  return /* @__PURE__ */ React27.createElement(CartesianAxisComponent, _extends17({}, props, {
     ref
   }));
 });
 CartesianAxis.displayName = "CartesianAxis";
-
-// node_modules/recharts/es6/cartesian/CartesianGrid.js
-var React26 = __toESM(require_react());
-var _excluded11 = ["x1", "y1", "x2", "y2", "key"];
-var _excluded25 = ["offset"];
-var _excluded32 = ["xAxisId", "yAxisId"];
-var _excluded42 = ["xAxisId", "yAxisId"];
-function ownKeys31(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread31(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys31(Object(t), true).forEach(function(r3) {
-      _defineProperty32(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys31(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty32(e, r2, t) {
-  return (r2 = _toPropertyKey32(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey32(t) {
-  var i = _toPrimitive32(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive32(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-function _extends17() {
-  return _extends17 = Object.assign ? Object.assign.bind() : function(n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-    }
-    return n;
-  }, _extends17.apply(null, arguments);
-}
-function _objectWithoutProperties11(e, t) {
-  if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose11(e, t);
-  if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-  }
-  return i;
-}
-function _objectWithoutPropertiesLoose11(r2, e) {
-  if (null == r2) return {};
-  var t = {};
-  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r2[n];
-  }
-  return t;
-}
-var Background = (props) => {
-  var {
-    fill
-  } = props;
-  if (!fill || fill === "none") {
-    return null;
-  }
-  var {
-    fillOpacity,
-    x: x2,
-    y: y2,
-    width,
-    height,
-    ry
-  } = props;
-  return /* @__PURE__ */ React26.createElement("rect", {
-    x: x2,
-    y: y2,
-    ry,
-    width,
-    height,
-    stroke: "none",
-    fill,
-    fillOpacity,
-    className: "recharts-cartesian-grid-bg"
-  });
-};
-function LineItem(_ref2) {
-  var {
-    option,
-    lineItemProps
-  } = _ref2;
-  var lineItem;
-  if (/* @__PURE__ */ React26.isValidElement(option)) {
-    lineItem = /* @__PURE__ */ React26.cloneElement(option, lineItemProps);
-  } else if (typeof option === "function") {
-    lineItem = option(lineItemProps);
-  } else {
-    var _svgPropertiesNoEvent;
-    var {
-      x1,
-      y1,
-      x2,
-      y2,
-      key
-    } = lineItemProps, others = _objectWithoutProperties11(lineItemProps, _excluded11);
-    var _ref22 = (_svgPropertiesNoEvent = svgPropertiesNoEvents(others)) !== null && _svgPropertiesNoEvent !== void 0 ? _svgPropertiesNoEvent : {}, {
-      offset: __
-    } = _ref22, restOfFilteredProps = _objectWithoutProperties11(_ref22, _excluded25);
-    lineItem = /* @__PURE__ */ React26.createElement("line", _extends17({}, restOfFilteredProps, {
-      x1,
-      y1,
-      x2,
-      y2,
-      fill: "none",
-      key
-    }));
-  }
-  return lineItem;
-}
-function HorizontalGridLines(props) {
-  var {
-    x: x2,
-    width,
-    horizontal = true,
-    horizontalPoints
-  } = props;
-  if (!horizontal || !horizontalPoints || !horizontalPoints.length) {
-    return null;
-  }
-  var {
-    xAxisId,
-    yAxisId
-  } = props, otherLineItemProps = _objectWithoutProperties11(props, _excluded32);
-  var items = horizontalPoints.map((entry, i) => {
-    var lineItemProps = _objectSpread31(_objectSpread31({}, otherLineItemProps), {}, {
-      x1: x2,
-      y1: entry,
-      x2: x2 + width,
-      y2: entry,
-      key: "line-".concat(i),
-      index: i
-    });
-    return /* @__PURE__ */ React26.createElement(LineItem, {
-      key: "line-".concat(i),
-      option: horizontal,
-      lineItemProps
-    });
-  });
-  return /* @__PURE__ */ React26.createElement("g", {
-    className: "recharts-cartesian-grid-horizontal"
-  }, items);
-}
-function VerticalGridLines(props) {
-  var {
-    y: y2,
-    height,
-    vertical = true,
-    verticalPoints
-  } = props;
-  if (!vertical || !verticalPoints || !verticalPoints.length) {
-    return null;
-  }
-  var {
-    xAxisId,
-    yAxisId
-  } = props, otherLineItemProps = _objectWithoutProperties11(props, _excluded42);
-  var items = verticalPoints.map((entry, i) => {
-    var lineItemProps = _objectSpread31(_objectSpread31({}, otherLineItemProps), {}, {
-      x1: entry,
-      y1: y2,
-      x2: entry,
-      y2: y2 + height,
-      key: "line-".concat(i),
-      index: i
-    });
-    return /* @__PURE__ */ React26.createElement(LineItem, {
-      option: vertical,
-      lineItemProps,
-      key: "line-".concat(i)
-    });
-  });
-  return /* @__PURE__ */ React26.createElement("g", {
-    className: "recharts-cartesian-grid-vertical"
-  }, items);
-}
-function HorizontalStripes(props) {
-  var {
-    horizontalFill,
-    fillOpacity,
-    x: x2,
-    y: y2,
-    width,
-    height,
-    horizontalPoints,
-    horizontal = true
-  } = props;
-  if (!horizontal || !horizontalFill || !horizontalFill.length || horizontalPoints == null) {
-    return null;
-  }
-  var roundedSortedHorizontalPoints = horizontalPoints.map((e) => Math.round(e + y2 - y2)).sort((a, b) => a - b);
-  if (y2 !== roundedSortedHorizontalPoints[0]) {
-    roundedSortedHorizontalPoints.unshift(0);
-  }
-  var items = roundedSortedHorizontalPoints.map((entry, i) => {
-    var lastStripe = !roundedSortedHorizontalPoints[i + 1];
-    var lineHeight = lastStripe ? y2 + height - entry : roundedSortedHorizontalPoints[i + 1] - entry;
-    if (lineHeight <= 0) {
-      return null;
-    }
-    var colorIndex = i % horizontalFill.length;
-    return /* @__PURE__ */ React26.createElement("rect", {
-      key: "react-".concat(i),
-      y: entry,
-      x: x2,
-      height: lineHeight,
-      width,
-      stroke: "none",
-      fill: horizontalFill[colorIndex],
-      fillOpacity,
-      className: "recharts-cartesian-grid-bg"
-    });
-  });
-  return /* @__PURE__ */ React26.createElement("g", {
-    className: "recharts-cartesian-gridstripes-horizontal"
-  }, items);
-}
-function VerticalStripes(props) {
-  var {
-    vertical = true,
-    verticalFill,
-    fillOpacity,
-    x: x2,
-    y: y2,
-    width,
-    height,
-    verticalPoints
-  } = props;
-  if (!vertical || !verticalFill || !verticalFill.length) {
-    return null;
-  }
-  var roundedSortedVerticalPoints = verticalPoints.map((e) => Math.round(e + x2 - x2)).sort((a, b) => a - b);
-  if (x2 !== roundedSortedVerticalPoints[0]) {
-    roundedSortedVerticalPoints.unshift(0);
-  }
-  var items = roundedSortedVerticalPoints.map((entry, i) => {
-    var lastStripe = !roundedSortedVerticalPoints[i + 1];
-    var lineWidth = lastStripe ? x2 + width - entry : roundedSortedVerticalPoints[i + 1] - entry;
-    if (lineWidth <= 0) {
-      return null;
-    }
-    var colorIndex = i % verticalFill.length;
-    return /* @__PURE__ */ React26.createElement("rect", {
-      key: "react-".concat(i),
-      x: entry,
-      y: y2,
-      width: lineWidth,
-      height,
-      stroke: "none",
-      fill: verticalFill[colorIndex],
-      fillOpacity,
-      className: "recharts-cartesian-grid-bg"
-    });
-  });
-  return /* @__PURE__ */ React26.createElement("g", {
-    className: "recharts-cartesian-gridstripes-vertical"
-  }, items);
-}
-var defaultVerticalCoordinatesGenerator = (_ref3, syncWithTicks) => {
-  var {
-    xAxis,
-    width,
-    height,
-    offset
-  } = _ref3;
-  return getCoordinatesOfGrid(getTicks(_objectSpread31(_objectSpread31(_objectSpread31({}, defaultCartesianAxisProps), xAxis), {}, {
-    ticks: getTicksOfAxis(xAxis, true),
-    viewBox: {
-      x: 0,
-      y: 0,
-      width,
-      height
-    }
-  })), offset.left, offset.left + offset.width, syncWithTicks);
-};
-var defaultHorizontalCoordinatesGenerator = (_ref4, syncWithTicks) => {
-  var {
-    yAxis,
-    width,
-    height,
-    offset
-  } = _ref4;
-  return getCoordinatesOfGrid(getTicks(_objectSpread31(_objectSpread31(_objectSpread31({}, defaultCartesianAxisProps), yAxis), {}, {
-    ticks: getTicksOfAxis(yAxis, true),
-    viewBox: {
-      x: 0,
-      y: 0,
-      width,
-      height
-    }
-  })), offset.top, offset.top + offset.height, syncWithTicks);
-};
-var defaultCartesianGridProps = {
-  horizontal: true,
-  vertical: true,
-  // The ordinates of horizontal grid lines
-  horizontalPoints: [],
-  // The abscissas of vertical grid lines
-  verticalPoints: [],
-  stroke: "#ccc",
-  fill: "none",
-  // The fill of colors of grid lines
-  verticalFill: [],
-  horizontalFill: [],
-  xAxisId: 0,
-  yAxisId: 0,
-  syncWithTicks: false,
-  zIndex: DefaultZIndexes.grid
-};
-function CartesianGrid(props) {
-  var chartWidth = useChartWidth();
-  var chartHeight = useChartHeight();
-  var offset = useOffsetInternal();
-  var propsIncludingDefaults = _objectSpread31(_objectSpread31({}, resolveDefaultProps(props, defaultCartesianGridProps)), {}, {
-    x: isNumber(props.x) ? props.x : offset.left,
-    y: isNumber(props.y) ? props.y : offset.top,
-    width: isNumber(props.width) ? props.width : offset.width,
-    height: isNumber(props.height) ? props.height : offset.height
-  });
-  var {
-    xAxisId,
-    yAxisId,
-    x: x2,
-    y: y2,
-    width,
-    height,
-    syncWithTicks,
-    horizontalValues,
-    verticalValues
-  } = propsIncludingDefaults;
-  var isPanorama = useIsPanorama();
-  var xAxis = useAppSelector((state) => selectAxisPropsNeededForCartesianGridTicksGenerator(state, "xAxis", xAxisId, isPanorama));
-  var yAxis = useAppSelector((state) => selectAxisPropsNeededForCartesianGridTicksGenerator(state, "yAxis", yAxisId, isPanorama));
-  if (!isPositiveNumber(width) || !isPositiveNumber(height) || !isNumber(x2) || !isNumber(y2)) {
-    return null;
-  }
-  var verticalCoordinatesGenerator = propsIncludingDefaults.verticalCoordinatesGenerator || defaultVerticalCoordinatesGenerator;
-  var horizontalCoordinatesGenerator = propsIncludingDefaults.horizontalCoordinatesGenerator || defaultHorizontalCoordinatesGenerator;
-  var {
-    horizontalPoints,
-    verticalPoints
-  } = propsIncludingDefaults;
-  if ((!horizontalPoints || !horizontalPoints.length) && typeof horizontalCoordinatesGenerator === "function") {
-    var isHorizontalValues = horizontalValues && horizontalValues.length;
-    var generatorResult = horizontalCoordinatesGenerator({
-      yAxis: yAxis ? _objectSpread31(_objectSpread31({}, yAxis), {}, {
-        ticks: isHorizontalValues ? horizontalValues : yAxis.ticks
-      }) : void 0,
-      width: chartWidth !== null && chartWidth !== void 0 ? chartWidth : width,
-      height: chartHeight !== null && chartHeight !== void 0 ? chartHeight : height,
-      offset
-    }, isHorizontalValues ? true : syncWithTicks);
-    warn(Array.isArray(generatorResult), "horizontalCoordinatesGenerator should return Array but instead it returned [".concat(typeof generatorResult, "]"));
-    if (Array.isArray(generatorResult)) {
-      horizontalPoints = generatorResult;
-    }
-  }
-  if ((!verticalPoints || !verticalPoints.length) && typeof verticalCoordinatesGenerator === "function") {
-    var isVerticalValues = verticalValues && verticalValues.length;
-    var _generatorResult = verticalCoordinatesGenerator({
-      xAxis: xAxis ? _objectSpread31(_objectSpread31({}, xAxis), {}, {
-        ticks: isVerticalValues ? verticalValues : xAxis.ticks
-      }) : void 0,
-      width: chartWidth !== null && chartWidth !== void 0 ? chartWidth : width,
-      height: chartHeight !== null && chartHeight !== void 0 ? chartHeight : height,
-      offset
-    }, isVerticalValues ? true : syncWithTicks);
-    warn(Array.isArray(_generatorResult), "verticalCoordinatesGenerator should return Array but instead it returned [".concat(typeof _generatorResult, "]"));
-    if (Array.isArray(_generatorResult)) {
-      verticalPoints = _generatorResult;
-    }
-  }
-  return /* @__PURE__ */ React26.createElement(ZIndexLayer, {
-    zIndex: propsIncludingDefaults.zIndex
-  }, /* @__PURE__ */ React26.createElement("g", {
-    className: "recharts-cartesian-grid"
-  }, /* @__PURE__ */ React26.createElement(Background, {
-    fill: propsIncludingDefaults.fill,
-    fillOpacity: propsIncludingDefaults.fillOpacity,
-    x: propsIncludingDefaults.x,
-    y: propsIncludingDefaults.y,
-    width: propsIncludingDefaults.width,
-    height: propsIncludingDefaults.height,
-    ry: propsIncludingDefaults.ry
-  }), /* @__PURE__ */ React26.createElement(HorizontalStripes, _extends17({}, propsIncludingDefaults, {
-    horizontalPoints
-  })), /* @__PURE__ */ React26.createElement(VerticalStripes, _extends17({}, propsIncludingDefaults, {
-    verticalPoints
-  })), /* @__PURE__ */ React26.createElement(HorizontalGridLines, _extends17({}, propsIncludingDefaults, {
-    offset,
-    horizontalPoints,
-    xAxis,
-    yAxis
-  })), /* @__PURE__ */ React26.createElement(VerticalGridLines, _extends17({}, propsIncludingDefaults, {
-    offset,
-    verticalPoints,
-    xAxis,
-    yAxis
-  }))));
-}
-CartesianGrid.displayName = "CartesianGrid";
-
-// node_modules/recharts/es6/util/getRadiusAndStrokeWidthFromDot.js
-function getRadiusAndStrokeWidthFromDot(dot) {
-  var props = svgPropertiesNoEventsFromUnknown(dot);
-  var defaultR = 3;
-  var defaultStrokeWidth = 2;
-  if (props != null) {
-    var {
-      r: r2,
-      strokeWidth
-    } = props;
-    var realR = Number(r2);
-    var realStrokeWidth = Number(strokeWidth);
-    if (Number.isNaN(realR) || realR < 0) {
-      realR = defaultR;
-    }
-    if (Number.isNaN(realStrokeWidth) || realStrokeWidth < 0) {
-      realStrokeWidth = defaultStrokeWidth;
-    }
-    return {
-      r: realR,
-      strokeWidth: realStrokeWidth
-    };
-  }
-  return {
-    r: defaultR,
-    strokeWidth: defaultStrokeWidth
-  };
-}
-
-// node_modules/recharts/es6/cartesian/Area.js
-var React27 = __toESM(require_react());
-var import_react39 = __toESM(require_react());
-
-// node_modules/recharts/es6/state/selectors/areaSelectors.js
-var selectXAxisWithScale = (state, xAxisId, _yAxisId, isPanorama) => selectAxisWithScale(state, "xAxis", xAxisId, isPanorama);
-var selectXAxisTicks = (state, xAxisId, _yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "xAxis", xAxisId, isPanorama);
-var selectYAxisWithScale = (state, _xAxisId, yAxisId, isPanorama) => selectAxisWithScale(state, "yAxis", yAxisId, isPanorama);
-var selectYAxisTicks = (state, _xAxisId, yAxisId, isPanorama) => selectTicksOfGraphicalItem(state, "yAxis", yAxisId, isPanorama);
-var selectBandSize = createSelector([selectChartLayout, selectXAxisWithScale, selectYAxisWithScale, selectXAxisTicks, selectYAxisTicks], (layout, xAxis, yAxis, xAxisTicks, yAxisTicks) => {
-  if (isCategoricalAxis(layout, "xAxis")) {
-    return getBandSizeOfAxis(xAxis, xAxisTicks, false);
-  }
-  return getBandSizeOfAxis(yAxis, yAxisTicks, false);
-});
-var pickAreaId = (_state, _xAxisId, _yAxisId, _isPanorama, id) => id;
-var selectSynchronisedAreaSettings = createSelector([selectUnfilteredCartesianItems, pickAreaId], (graphicalItems, id) => graphicalItems.filter((item) => item.type === "area").find((item) => item.id === id));
-var selectGraphicalItemStackedData = (state, xAxisId, yAxisId, isPanorama, id) => {
-  var _stackGroups$stackId;
-  var areaSettings = selectSynchronisedAreaSettings(state, xAxisId, yAxisId, isPanorama, id);
-  if (areaSettings == null) {
-    return void 0;
-  }
-  var layout = selectChartLayout(state);
-  var isXAxisCategorical = isCategoricalAxis(layout, "xAxis");
-  var stackGroups;
-  if (isXAxisCategorical) {
-    stackGroups = selectStackGroups(state, "yAxis", yAxisId, isPanorama);
-  } else {
-    stackGroups = selectStackGroups(state, "xAxis", xAxisId, isPanorama);
-  }
-  if (stackGroups == null) {
-    return void 0;
-  }
-  var {
-    stackId
-  } = areaSettings;
-  var stackSeriesIdentifier = getStackSeriesIdentifier(areaSettings);
-  if (stackId == null || stackSeriesIdentifier == null) {
-    return void 0;
-  }
-  var groups = (_stackGroups$stackId = stackGroups[stackId]) === null || _stackGroups$stackId === void 0 ? void 0 : _stackGroups$stackId.stackedData;
-  return groups === null || groups === void 0 ? void 0 : groups.find((v) => v.key === stackSeriesIdentifier);
-};
-var selectArea = createSelector([selectChartLayout, selectXAxisWithScale, selectYAxisWithScale, selectXAxisTicks, selectYAxisTicks, selectGraphicalItemStackedData, selectChartDataWithIndexesIfNotInPanorama, selectBandSize, selectSynchronisedAreaSettings, selectChartBaseValue], (layout, xAxis, yAxis, xAxisTicks, yAxisTicks, stackedData, _ref2, bandSize, areaSettings, chartBaseValue) => {
-  var {
-    chartData,
-    dataStartIndex,
-    dataEndIndex
-  } = _ref2;
-  if (areaSettings == null || layout !== "horizontal" && layout !== "vertical" || xAxis == null || yAxis == null || xAxisTicks == null || yAxisTicks == null || xAxisTicks.length === 0 || yAxisTicks.length === 0 || bandSize == null) {
-    return void 0;
-  }
-  var {
-    data
-  } = areaSettings;
-  var displayedData;
-  if (data && data.length > 0) {
-    displayedData = data;
-  } else {
-    displayedData = chartData === null || chartData === void 0 ? void 0 : chartData.slice(dataStartIndex, dataEndIndex + 1);
-  }
-  if (displayedData == null) {
-    return void 0;
-  }
-  return computeArea({
-    layout,
-    xAxis,
-    yAxis,
-    xAxisTicks,
-    yAxisTicks,
-    dataStartIndex,
-    areaSettings,
-    stackedData,
-    displayedData,
-    chartBaseValue,
-    bandSize
-  });
-});
-
-// node_modules/recharts/es6/cartesian/Area.js
-var _excluded12 = ["id"];
-var _excluded26 = ["activeDot", "animationBegin", "animationDuration", "animationEasing", "connectNulls", "dot", "fill", "fillOpacity", "hide", "isAnimationActive", "legendType", "stroke", "xAxisId", "yAxisId"];
-function _extends18() {
-  return _extends18 = Object.assign ? Object.assign.bind() : function(n) {
-    for (var e = 1; e < arguments.length; e++) {
-      var t = arguments[e];
-      for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
-    }
-    return n;
-  }, _extends18.apply(null, arguments);
-}
-function _objectWithoutProperties12(e, t) {
-  if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose12(e, t);
-  if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
-  }
-  return i;
-}
-function _objectWithoutPropertiesLoose12(r2, e) {
-  if (null == r2) return {};
-  var t = {};
-  for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r2[n];
-  }
-  return t;
-}
-function ownKeys32(e, r2) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r2 && (o = o.filter(function(r3) {
-      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread32(e) {
-  for (var r2 = 1; r2 < arguments.length; r2++) {
-    var t = null != arguments[r2] ? arguments[r2] : {};
-    r2 % 2 ? ownKeys32(Object(t), true).forEach(function(r3) {
-      _defineProperty33(e, r3, t[r3]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys32(Object(t)).forEach(function(r3) {
-      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
-    });
-  }
-  return e;
-}
-function _defineProperty33(e, r2, t) {
-  return (r2 = _toPropertyKey33(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
-}
-function _toPropertyKey33(t) {
-  var i = _toPrimitive33(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive33(t, r2) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r2 || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r2 ? String : Number)(t);
-}
-function getLegendItemColor(stroke, fill) {
-  return stroke && stroke !== "none" ? stroke : fill;
-}
-var computeLegendPayloadFromAreaData = (props) => {
-  var {
-    dataKey,
-    name,
-    stroke,
-    fill,
-    legendType,
-    hide
-  } = props;
-  return [{
-    inactive: hide,
-    dataKey,
-    type: legendType,
-    color: getLegendItemColor(stroke, fill),
-    value: getTooltipNameProp(name, dataKey),
-    payload: props
-  }];
-};
-var SetAreaTooltipEntrySettings = /* @__PURE__ */ React27.memo((_ref2) => {
-  var {
-    dataKey,
-    data,
-    stroke,
-    strokeWidth,
-    fill,
-    name,
-    hide,
-    unit: unit2,
-    tooltipType
-  } = _ref2;
-  var tooltipEntrySettings = {
-    dataDefinedOnItem: data,
-    positions: void 0,
-    settings: {
-      stroke,
-      strokeWidth,
-      fill,
-      dataKey,
-      nameKey: void 0,
-      name: getTooltipNameProp(name, dataKey),
-      hide,
-      type: tooltipType,
-      color: getLegendItemColor(stroke, fill),
-      unit: unit2
-    }
-  };
-  return /* @__PURE__ */ React27.createElement(SetTooltipEntrySettings, {
-    tooltipEntrySettings
-  });
-});
-function AreaDotsWrapper(_ref2) {
-  var {
-    clipPathId,
-    points,
-    props
-  } = _ref2;
-  var {
-    needClip,
-    dot,
-    dataKey
-  } = props;
-  var areaProps = svgPropertiesNoEvents(props);
-  return /* @__PURE__ */ React27.createElement(Dots, {
-    points,
-    dot,
-    className: "recharts-area-dots",
-    dotClassName: "recharts-area-dot",
-    dataKey,
-    baseProps: areaProps,
-    needClip,
-    clipPathId
-  });
-}
-function AreaLabelListProvider(_ref3) {
-  var {
-    showLabels,
-    children,
-    points
-  } = _ref3;
-  var labelListEntries = points.map((point4) => {
-    var _point$x, _point$y;
-    var viewBox = {
-      x: (_point$x = point4.x) !== null && _point$x !== void 0 ? _point$x : 0,
-      y: (_point$y = point4.y) !== null && _point$y !== void 0 ? _point$y : 0,
-      width: 0,
-      lowerWidth: 0,
-      upperWidth: 0,
-      height: 0
-    };
-    return _objectSpread32(_objectSpread32({}, viewBox), {}, {
-      value: point4.value,
-      payload: point4.payload,
-      parentViewBox: void 0,
-      viewBox,
-      fill: void 0
-    });
-  });
-  return /* @__PURE__ */ React27.createElement(CartesianLabelListContextProvider, {
-    value: showLabels ? labelListEntries : void 0
-  }, children);
-}
-function StaticArea(_ref4) {
-  var {
-    points,
-    baseLine,
-    needClip,
-    clipPathId,
-    props
-  } = _ref4;
-  var {
-    layout,
-    type,
-    stroke,
-    connectNulls,
-    isRange
-  } = props;
-  var {
-    id
-  } = props, propsWithoutId = _objectWithoutProperties12(props, _excluded12);
-  var allOtherProps = svgPropertiesNoEvents(propsWithoutId);
-  var propsWithEvents = svgPropertiesAndEvents(propsWithoutId);
-  return /* @__PURE__ */ React27.createElement(React27.Fragment, null, (points === null || points === void 0 ? void 0 : points.length) > 1 && /* @__PURE__ */ React27.createElement(Layer, {
-    clipPath: needClip ? "url(#clipPath-".concat(clipPathId, ")") : void 0
-  }, /* @__PURE__ */ React27.createElement(Curve, _extends18({}, propsWithEvents, {
-    id,
-    points,
-    connectNulls,
-    type,
-    baseLine,
-    layout,
-    stroke: "none",
-    className: "recharts-area-area"
-  })), stroke !== "none" && /* @__PURE__ */ React27.createElement(Curve, _extends18({}, allOtherProps, {
-    className: "recharts-area-curve",
-    layout,
-    type,
-    connectNulls,
-    fill: "none",
-    points
-  })), stroke !== "none" && isRange && /* @__PURE__ */ React27.createElement(Curve, _extends18({}, allOtherProps, {
-    className: "recharts-area-curve",
-    layout,
-    type,
-    connectNulls,
-    fill: "none",
-    points: baseLine
-  }))), /* @__PURE__ */ React27.createElement(AreaDotsWrapper, {
-    points,
-    props: propsWithoutId,
-    clipPathId
-  }));
-}
-function VerticalRect(_ref5) {
-  var {
-    alpha: alpha2,
-    baseLine,
-    points,
-    strokeWidth
-  } = _ref5;
-  var startY = points[0].y;
-  var endY = points[points.length - 1].y;
-  if (!isWellBehavedNumber(startY) || !isWellBehavedNumber(endY)) {
-    return null;
-  }
-  var height = alpha2 * Math.abs(startY - endY);
-  var maxX = Math.max(...points.map((entry) => entry.x || 0));
-  if (isNumber(baseLine)) {
-    maxX = Math.max(baseLine, maxX);
-  } else if (baseLine && Array.isArray(baseLine) && baseLine.length) {
-    maxX = Math.max(...baseLine.map((entry) => entry.x || 0), maxX);
-  }
-  if (isNumber(maxX)) {
-    return /* @__PURE__ */ React27.createElement("rect", {
-      x: 0,
-      y: startY < endY ? startY : startY - height,
-      width: maxX + (strokeWidth ? parseInt("".concat(strokeWidth), 10) : 1),
-      height: Math.floor(height)
-    });
-  }
-  return null;
-}
-function HorizontalRect(_ref6) {
-  var {
-    alpha: alpha2,
-    baseLine,
-    points,
-    strokeWidth
-  } = _ref6;
-  var startX = points[0].x;
-  var endX = points[points.length - 1].x;
-  if (!isWellBehavedNumber(startX) || !isWellBehavedNumber(endX)) {
-    return null;
-  }
-  var width = alpha2 * Math.abs(startX - endX);
-  var maxY = Math.max(...points.map((entry) => entry.y || 0));
-  if (isNumber(baseLine)) {
-    maxY = Math.max(baseLine, maxY);
-  } else if (baseLine && Array.isArray(baseLine) && baseLine.length) {
-    maxY = Math.max(...baseLine.map((entry) => entry.y || 0), maxY);
-  }
-  if (isNumber(maxY)) {
-    return /* @__PURE__ */ React27.createElement("rect", {
-      x: startX < endX ? startX : startX - width,
-      y: 0,
-      width,
-      height: Math.floor(maxY + (strokeWidth ? parseInt("".concat(strokeWidth), 10) : 1))
-    });
-  }
-  return null;
-}
-function ClipRect(_ref7) {
-  var {
-    alpha: alpha2,
-    layout,
-    points,
-    baseLine,
-    strokeWidth
-  } = _ref7;
-  if (layout === "vertical") {
-    return /* @__PURE__ */ React27.createElement(VerticalRect, {
-      alpha: alpha2,
-      points,
-      baseLine,
-      strokeWidth
-    });
-  }
-  return /* @__PURE__ */ React27.createElement(HorizontalRect, {
-    alpha: alpha2,
-    points,
-    baseLine,
-    strokeWidth
-  });
-}
-function AreaWithAnimation(_ref8) {
-  var {
-    needClip,
-    clipPathId,
-    props,
-    previousPointsRef,
-    previousBaselineRef
-  } = _ref8;
-  var {
-    points,
-    baseLine,
-    isAnimationActive,
-    animationBegin,
-    animationDuration,
-    animationEasing,
-    onAnimationStart,
-    onAnimationEnd
-  } = props;
-  var animationInput = (0, import_react39.useMemo)(() => ({
-    points,
-    baseLine
-  }), [points, baseLine]);
-  var animationId = useAnimationId(animationInput, "recharts-area-");
-  var layout = useCartesianChartLayout();
-  var [isAnimating, setIsAnimating] = (0, import_react39.useState)(false);
-  var showLabels = !isAnimating;
-  var handleAnimationEnd = (0, import_react39.useCallback)(() => {
-    if (typeof onAnimationEnd === "function") {
-      onAnimationEnd();
-    }
-    setIsAnimating(false);
-  }, [onAnimationEnd]);
-  var handleAnimationStart = (0, import_react39.useCallback)(() => {
-    if (typeof onAnimationStart === "function") {
-      onAnimationStart();
-    }
-    setIsAnimating(true);
-  }, [onAnimationStart]);
-  if (layout == null) {
-    return null;
-  }
-  var prevPoints = previousPointsRef.current;
-  var prevBaseLine = previousBaselineRef.current;
-  return /* @__PURE__ */ React27.createElement(AreaLabelListProvider, {
-    showLabels,
-    points
-  }, props.children, /* @__PURE__ */ React27.createElement(JavascriptAnimate, {
-    animationId,
-    begin: animationBegin,
-    duration: animationDuration,
-    isActive: isAnimationActive,
-    easing: animationEasing,
-    onAnimationEnd: handleAnimationEnd,
-    onAnimationStart: handleAnimationStart,
-    key: animationId
-  }, (t) => {
-    if (prevPoints) {
-      var prevPointsDiffFactor = prevPoints.length / points.length;
-      var stepPoints = (
-        /*
-         * Here it is important that at the very end of the animation, on the last frame,
-         * we render the original points without any interpolation.
-         * This is needed because the code above is checking for reference equality to decide if the animation should run
-         * and if we create a new array instance (even if the numbers were the same)
-         * then we would break animations.
-         */
-        t === 1 ? points : points.map((entry, index) => {
-          var prevPointIndex = Math.floor(index * prevPointsDiffFactor);
-          if (prevPoints[prevPointIndex]) {
-            var prev = prevPoints[prevPointIndex];
-            return _objectSpread32(_objectSpread32({}, entry), {}, {
-              x: interpolate(prev.x, entry.x, t),
-              y: interpolate(prev.y, entry.y, t)
-            });
-          }
-          return entry;
-        })
-      );
-      var stepBaseLine;
-      if (isNumber(baseLine)) {
-        stepBaseLine = interpolate(prevBaseLine, baseLine, t);
-      } else if (isNullish(baseLine) || isNan(baseLine)) {
-        stepBaseLine = interpolate(prevBaseLine, 0, t);
-      } else {
-        stepBaseLine = baseLine.map((entry, index) => {
-          var prevPointIndex = Math.floor(index * prevPointsDiffFactor);
-          if (Array.isArray(prevBaseLine) && prevBaseLine[prevPointIndex]) {
-            var prev = prevBaseLine[prevPointIndex];
-            return _objectSpread32(_objectSpread32({}, entry), {}, {
-              x: interpolate(prev.x, entry.x, t),
-              y: interpolate(prev.y, entry.y, t)
-            });
-          }
-          return entry;
-        });
-      }
-      if (t > 0) {
-        previousPointsRef.current = stepPoints;
-        previousBaselineRef.current = stepBaseLine;
-      }
-      return /* @__PURE__ */ React27.createElement(StaticArea, {
-        points: stepPoints,
-        baseLine: stepBaseLine,
-        needClip,
-        clipPathId,
-        props
-      });
-    }
-    if (t > 0) {
-      previousPointsRef.current = points;
-      previousBaselineRef.current = baseLine;
-    }
-    return /* @__PURE__ */ React27.createElement(Layer, null, isAnimationActive && /* @__PURE__ */ React27.createElement("defs", null, /* @__PURE__ */ React27.createElement("clipPath", {
-      id: "animationClipPath-".concat(clipPathId)
-    }, /* @__PURE__ */ React27.createElement(ClipRect, {
-      alpha: t,
-      points,
-      baseLine,
-      layout,
-      strokeWidth: props.strokeWidth
-    }))), /* @__PURE__ */ React27.createElement(Layer, {
-      clipPath: "url(#animationClipPath-".concat(clipPathId, ")")
-    }, /* @__PURE__ */ React27.createElement(StaticArea, {
-      points,
-      baseLine,
-      needClip,
-      clipPathId,
-      props
-    })));
-  }), /* @__PURE__ */ React27.createElement(LabelListFromLabelProp, {
-    label: props.label
-  }));
-}
-function RenderArea(_ref9) {
-  var {
-    needClip,
-    clipPathId,
-    props
-  } = _ref9;
-  var previousPointsRef = (0, import_react39.useRef)(null);
-  var previousBaselineRef = (0, import_react39.useRef)();
-  return /* @__PURE__ */ React27.createElement(AreaWithAnimation, {
-    needClip,
-    clipPathId,
-    props,
-    previousPointsRef,
-    previousBaselineRef
-  });
-}
-var AreaWithState = class extends import_react39.PureComponent {
-  render() {
-    var {
-      hide,
-      dot,
-      points,
-      className,
-      top,
-      left,
-      needClip,
-      xAxisId,
-      yAxisId,
-      width,
-      height,
-      id,
-      baseLine,
-      zIndex
-    } = this.props;
-    if (hide) {
-      return null;
-    }
-    var layerClass = clsx("recharts-area", className);
-    var clipPathId = id;
-    var {
-      r: r2,
-      strokeWidth
-    } = getRadiusAndStrokeWidthFromDot(dot);
-    var clipDot = isClipDot(dot);
-    var dotSize = r2 * 2 + strokeWidth;
-    var activePointsClipPath = needClip ? "url(#clipPath-".concat(clipDot ? "" : "dots-").concat(clipPathId, ")") : void 0;
-    return /* @__PURE__ */ React27.createElement(ZIndexLayer, {
-      zIndex
-    }, /* @__PURE__ */ React27.createElement(Layer, {
-      className: layerClass
-    }, needClip && /* @__PURE__ */ React27.createElement("defs", null, /* @__PURE__ */ React27.createElement(GraphicalItemClipPath, {
-      clipPathId,
-      xAxisId,
-      yAxisId
-    }), !clipDot && /* @__PURE__ */ React27.createElement("clipPath", {
-      id: "clipPath-dots-".concat(clipPathId)
-    }, /* @__PURE__ */ React27.createElement("rect", {
-      x: left - dotSize / 2,
-      y: top - dotSize / 2,
-      width: width + dotSize,
-      height: height + dotSize
-    }))), /* @__PURE__ */ React27.createElement(RenderArea, {
-      needClip,
-      clipPathId,
-      props: this.props
-    })), /* @__PURE__ */ React27.createElement(ActivePoints, {
-      points,
-      mainColor: getLegendItemColor(this.props.stroke, this.props.fill),
-      itemDataKey: this.props.dataKey,
-      activeDot: this.props.activeDot,
-      clipPath: activePointsClipPath
-    }), this.props.isRange && Array.isArray(baseLine) && /* @__PURE__ */ React27.createElement(ActivePoints, {
-      points: baseLine,
-      mainColor: getLegendItemColor(this.props.stroke, this.props.fill),
-      itemDataKey: this.props.dataKey,
-      activeDot: this.props.activeDot,
-      clipPath: activePointsClipPath
-    }));
-  }
-};
-var defaultAreaProps = {
-  activeDot: true,
-  animationBegin: 0,
-  animationDuration: 1500,
-  animationEasing: "ease",
-  connectNulls: false,
-  dot: false,
-  fill: "#3182bd",
-  fillOpacity: 0.6,
-  hide: false,
-  isAnimationActive: "auto",
-  legendType: "line",
-  stroke: "#3182bd",
-  strokeWidth: 1,
-  type: "linear",
-  label: false,
-  xAxisId: 0,
-  yAxisId: 0,
-  zIndex: DefaultZIndexes.area
-};
-function AreaImpl(props) {
-  var _useAppSelector;
-  var _resolveDefaultProps = resolveDefaultProps(props, defaultAreaProps), {
-    activeDot,
-    animationBegin,
-    animationDuration,
-    animationEasing,
-    connectNulls,
-    dot,
-    fill,
-    fillOpacity,
-    hide,
-    isAnimationActive,
-    legendType,
-    stroke,
-    xAxisId,
-    yAxisId
-  } = _resolveDefaultProps, everythingElse = _objectWithoutProperties12(_resolveDefaultProps, _excluded26);
-  var layout = useChartLayout();
-  var chartName = useChartName();
-  var {
-    needClip
-  } = useNeedsClip(xAxisId, yAxisId);
-  var isPanorama = useIsPanorama();
-  var {
-    points,
-    isRange,
-    baseLine
-  } = (_useAppSelector = useAppSelector((state) => selectArea(state, xAxisId, yAxisId, isPanorama, props.id))) !== null && _useAppSelector !== void 0 ? _useAppSelector : {};
-  var plotArea = usePlotArea();
-  if (layout !== "horizontal" && layout !== "vertical" || plotArea == null) {
-    return null;
-  }
-  if (chartName !== "AreaChart" && chartName !== "ComposedChart") {
-    return null;
-  }
-  var {
-    height,
-    width,
-    x: left,
-    y: top
-  } = plotArea;
-  if (!points || !points.length) {
-    return null;
-  }
-  return /* @__PURE__ */ React27.createElement(AreaWithState, _extends18({}, everythingElse, {
-    activeDot,
-    animationBegin,
-    animationDuration,
-    animationEasing,
-    baseLine,
-    connectNulls,
-    dot,
-    fill,
-    fillOpacity,
-    height,
-    hide,
-    layout,
-    isAnimationActive: isAnimationActive === "auto" ? !Global.isSsr : isAnimationActive,
-    isRange,
-    legendType,
-    needClip,
-    points,
-    stroke,
-    width,
-    left,
-    top,
-    xAxisId,
-    yAxisId
-  }));
-}
-var getBaseValue = (layout, chartBaseValue, itemBaseValue, xAxis, yAxis) => {
-  var baseValue = itemBaseValue !== null && itemBaseValue !== void 0 ? itemBaseValue : chartBaseValue;
-  if (isNumber(baseValue)) {
-    return baseValue;
-  }
-  var numericAxis = layout === "horizontal" ? yAxis : xAxis;
-  var domain = numericAxis.scale.domain();
-  if (numericAxis.type === "number") {
-    var domainMax = Math.max(domain[0], domain[1]);
-    var domainMin = Math.min(domain[0], domain[1]);
-    if (baseValue === "dataMin") {
-      return domainMin;
-    }
-    if (baseValue === "dataMax") {
-      return domainMax;
-    }
-    return domainMax < 0 ? domainMax : Math.max(Math.min(domain[0], domain[1]), 0);
-  }
-  if (baseValue === "dataMin") {
-    return domain[0];
-  }
-  if (baseValue === "dataMax") {
-    return domain[1];
-  }
-  return domain[0];
-};
-function computeArea(_ref0) {
-  var {
-    areaSettings: {
-      connectNulls,
-      baseValue: itemBaseValue,
-      dataKey
-    },
-    stackedData,
-    layout,
-    chartBaseValue,
-    xAxis,
-    yAxis,
-    displayedData,
-    dataStartIndex,
-    xAxisTicks,
-    yAxisTicks,
-    bandSize
-  } = _ref0;
-  var hasStack = stackedData && stackedData.length;
-  var baseValue = getBaseValue(layout, chartBaseValue, itemBaseValue, xAxis, yAxis);
-  var isHorizontalLayout = layout === "horizontal";
-  var isRange = false;
-  var points = displayedData.map((entry, index) => {
-    var value;
-    if (hasStack) {
-      value = stackedData[dataStartIndex + index];
-    } else {
-      value = getValueByDataKey(entry, dataKey);
-      if (!Array.isArray(value)) {
-        value = [baseValue, value];
-      } else {
-        isRange = true;
-      }
-    }
-    var isBreakPoint = value[1] == null || hasStack && !connectNulls && getValueByDataKey(entry, dataKey) == null;
-    if (isHorizontalLayout) {
-      return {
-        x: getCateCoordinateOfLine({
-          axis: xAxis,
-          ticks: xAxisTicks,
-          bandSize,
-          entry,
-          index
-        }),
-        y: isBreakPoint ? null : yAxis.scale(value[1]),
-        value,
-        payload: entry
-      };
-    }
-    return {
-      x: isBreakPoint ? null : xAxis.scale(value[1]),
-      y: getCateCoordinateOfLine({
-        axis: yAxis,
-        ticks: yAxisTicks,
-        bandSize,
-        entry,
-        index
-      }),
-      value,
-      payload: entry
-    };
-  });
-  var baseLine;
-  if (hasStack || isRange) {
-    baseLine = points.map((entry) => {
-      var x2 = Array.isArray(entry.value) ? entry.value[0] : null;
-      if (isHorizontalLayout) {
-        return {
-          x: entry.x,
-          y: x2 != null && entry.y != null ? yAxis.scale(x2) : null,
-          payload: entry.payload
-        };
-      }
-      return {
-        x: x2 != null ? xAxis.scale(x2) : null,
-        y: entry.y,
-        payload: entry.payload
-      };
-    });
-  } else {
-    baseLine = isHorizontalLayout ? yAxis.scale(baseValue) : xAxis.scale(baseValue);
-  }
-  return {
-    points,
-    baseLine,
-    isRange
-  };
-}
-function AreaFn(outsideProps) {
-  var props = resolveDefaultProps(outsideProps, defaultAreaProps);
-  var isPanorama = useIsPanorama();
-  return /* @__PURE__ */ React27.createElement(RegisterGraphicalItemId, {
-    id: props.id,
-    type: "area"
-  }, (id) => /* @__PURE__ */ React27.createElement(React27.Fragment, null, /* @__PURE__ */ React27.createElement(SetLegendPayload, {
-    legendPayload: computeLegendPayloadFromAreaData(props)
-  }), /* @__PURE__ */ React27.createElement(SetAreaTooltipEntrySettings, {
-    dataKey: props.dataKey,
-    data: props.data,
-    stroke: props.stroke,
-    strokeWidth: props.strokeWidth,
-    fill: props.fill,
-    name: props.name,
-    hide: props.hide,
-    unit: props.unit,
-    tooltipType: props.tooltipType
-  }), /* @__PURE__ */ React27.createElement(SetCartesianGraphicalItem, {
-    type: "area",
-    id,
-    data: props.data,
-    dataKey: props.dataKey,
-    xAxisId: props.xAxisId,
-    yAxisId: props.yAxisId,
-    zAxisId: 0,
-    stackId: getNormalizedStackId(props.stackId),
-    hide: props.hide,
-    barSize: void 0,
-    baseValue: props.baseValue,
-    isPanorama,
-    connectNulls: props.connectNulls
-  }), /* @__PURE__ */ React27.createElement(AreaImpl, _extends18({}, props, {
-    id
-  }))));
-}
-var Area = /* @__PURE__ */ React27.memo(AreaFn, propsAreEqual);
-Area.displayName = "Area";
 
 // node_modules/recharts/es6/cartesian/XAxis.js
 var React28 = __toESM(require_react());
 var import_react40 = __toESM(require_react());
 
 // node_modules/recharts/es6/util/axisPropsAreEqual.js
-var _excluded13 = ["domain", "range"];
-var _excluded27 = ["domain", "range"];
-function _objectWithoutProperties13(e, t) {
+var _excluded15 = ["domain", "range"];
+var _excluded26 = ["domain", "range"];
+function _objectWithoutProperties15(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose13(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose15(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose13(r2, e) {
+function _objectWithoutPropertiesLoose15(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -47148,11 +47227,11 @@ function axisPropsAreEqual(prevProps, nextProps) {
   var {
     domain: prevDomain,
     range: prevRange
-  } = prevProps, prevRest = _objectWithoutProperties13(prevProps, _excluded13);
+  } = prevProps, prevRest = _objectWithoutProperties15(prevProps, _excluded15);
   var {
     domain: nextDomain,
     range: nextRange
-  } = nextProps, nextRest = _objectWithoutProperties13(nextProps, _excluded27);
+  } = nextProps, nextRest = _objectWithoutProperties15(nextProps, _excluded26);
   if (!shortArraysAreEqual(prevDomain, nextDomain)) {
     return false;
   }
@@ -47163,27 +47242,27 @@ function axisPropsAreEqual(prevProps, nextProps) {
 }
 
 // node_modules/recharts/es6/cartesian/XAxis.js
-var _excluded14 = ["dangerouslySetInnerHTML", "ticks"];
-var _excluded28 = ["id"];
-function _extends19() {
-  return _extends19 = Object.assign ? Object.assign.bind() : function(n) {
+var _excluded16 = ["dangerouslySetInnerHTML", "ticks"];
+var _excluded27 = ["id"];
+function _extends18() {
+  return _extends18 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends19.apply(null, arguments);
+  }, _extends18.apply(null, arguments);
 }
-function _objectWithoutProperties14(e, t) {
+function _objectWithoutProperties16(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose14(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose16(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose14(r2, e) {
+function _objectWithoutPropertiesLoose16(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -47235,11 +47314,11 @@ var XAxisImpl = (props) => {
   var {
     dangerouslySetInnerHTML,
     ticks: ticks2
-  } = props, allOtherProps = _objectWithoutProperties14(props, _excluded14);
+  } = props, allOtherProps = _objectWithoutProperties16(props, _excluded16);
   var {
     id
-  } = synchronizedSettings, restSynchronizedSettings = _objectWithoutProperties14(synchronizedSettings, _excluded28);
-  return /* @__PURE__ */ React28.createElement(CartesianAxis, _extends19({}, allOtherProps, restSynchronizedSettings, {
+  } = synchronizedSettings, restSynchronizedSettings = _objectWithoutProperties16(synchronizedSettings, _excluded27);
+  return /* @__PURE__ */ React28.createElement(CartesianAxis, _extends18({}, allOtherProps, restSynchronizedSettings, {
     scale,
     x: position.x,
     y: position.y,
@@ -47309,27 +47388,27 @@ XAxis.displayName = "XAxis";
 // node_modules/recharts/es6/cartesian/YAxis.js
 var React29 = __toESM(require_react());
 var import_react41 = __toESM(require_react());
-var _excluded15 = ["dangerouslySetInnerHTML", "ticks"];
-var _excluded29 = ["id"];
-function _extends20() {
-  return _extends20 = Object.assign ? Object.assign.bind() : function(n) {
+var _excluded17 = ["dangerouslySetInnerHTML", "ticks"];
+var _excluded28 = ["id"];
+function _extends19() {
+  return _extends19 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends20.apply(null, arguments);
+  }, _extends19.apply(null, arguments);
 }
-function _objectWithoutProperties15(e, t) {
+function _objectWithoutProperties17(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose15(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose17(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose15(r2, e) {
+function _objectWithoutPropertiesLoose17(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -47413,11 +47492,11 @@ var YAxisImpl = (props) => {
   var {
     dangerouslySetInnerHTML,
     ticks: ticks2
-  } = props, allOtherProps = _objectWithoutProperties15(props, _excluded15);
+  } = props, allOtherProps = _objectWithoutProperties17(props, _excluded17);
   var {
     id
-  } = synchronizedSettings, restSynchronizedSettings = _objectWithoutProperties15(synchronizedSettings, _excluded29);
-  return /* @__PURE__ */ React29.createElement(CartesianAxis, _extends20({}, allOtherProps, restSynchronizedSettings, {
+  } = synchronizedSettings, restSynchronizedSettings = _objectWithoutProperties17(synchronizedSettings, _excluded28);
+  return /* @__PURE__ */ React29.createElement(CartesianAxis, _extends19({}, allOtherProps, restSynchronizedSettings, {
     ref: cartesianAxisRef,
     labelRef,
     scale,
@@ -47948,8 +48027,8 @@ function ZIndexSvgPortal(_ref2) {
     zIndex,
     isPanorama
   } = _ref2;
-  var prefix = isPanorama ? "recharts-zindex-panorama-" : "recharts-zindex-";
-  var portalId = useUniqueId("".concat(prefix).concat(zIndex));
+  var prefix2 = isPanorama ? "recharts-zindex-panorama-" : "recharts-zindex-";
+  var portalId = useUniqueId("".concat(prefix2).concat(zIndex));
   var dispatch = useAppDispatch();
   (0, import_react45.useLayoutEffect)(() => {
     dispatch(registerZIndexPortalId({
@@ -47992,17 +48071,17 @@ function AllZIndexPortals(_ref2) {
 }
 
 // node_modules/recharts/es6/container/RootSurface.js
-var _excluded16 = ["children"];
-function _objectWithoutProperties16(e, t) {
+var _excluded18 = ["children"];
+function _objectWithoutProperties18(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose16(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose18(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose16(r2, e) {
+function _objectWithoutPropertiesLoose18(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -48011,14 +48090,14 @@ function _objectWithoutPropertiesLoose16(r2, e) {
   }
   return t;
 }
-function _extends21() {
-  return _extends21 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends20() {
+  return _extends20 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends21.apply(null, arguments);
+  }, _extends20.apply(null, arguments);
 }
 var FULL_WIDTH_AND_HEIGHT = {
   width: "100%",
@@ -48060,7 +48139,7 @@ var MainChartSurface = /* @__PURE__ */ (0, import_react46.forwardRef)((props, re
       role = hasAccessibilityLayer ? "application" : void 0;
     }
   }
-  return /* @__PURE__ */ React32.createElement(Surface, _extends21({}, otherAttributes, {
+  return /* @__PURE__ */ React32.createElement(Surface, _extends20({}, otherAttributes, {
     title,
     desc,
     role,
@@ -48095,14 +48174,14 @@ var BrushPanoramaSurface = (_ref2) => {
 var RootSurface = /* @__PURE__ */ (0, import_react46.forwardRef)((_ref2, ref) => {
   var {
     children
-  } = _ref2, rest = _objectWithoutProperties16(_ref2, _excluded16);
+  } = _ref2, rest = _objectWithoutProperties18(_ref2, _excluded18);
   var isPanorama = useIsPanorama();
   if (isPanorama) {
     return /* @__PURE__ */ React32.createElement(BrushPanoramaSurface, null, /* @__PURE__ */ React32.createElement(AllZIndexPortals, {
       isPanorama: true
     }, children));
   }
-  return /* @__PURE__ */ React32.createElement(MainChartSurface, _extends21({
+  return /* @__PURE__ */ React32.createElement(MainChartSurface, _extends20({
     ref
   }, rest), /* @__PURE__ */ React32.createElement(AllZIndexPortals, {
     isPanorama: false
@@ -48147,21 +48226,21 @@ function _objectSpread33(e) {
   for (var r2 = 1; r2 < arguments.length; r2++) {
     var t = null != arguments[r2] ? arguments[r2] : {};
     r2 % 2 ? ownKeys33(Object(t), true).forEach(function(r3) {
-      _defineProperty34(e, r3, t[r3]);
+      _defineProperty35(e, r3, t[r3]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys33(Object(t)).forEach(function(r3) {
       Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
     });
   }
   return e;
 }
-function _defineProperty34(e, r2, t) {
-  return (r2 = _toPropertyKey34(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
+function _defineProperty35(e, r2, t) {
+  return (r2 = _toPropertyKey35(r2)) in e ? Object.defineProperty(e, r2, { value: t, enumerable: true, configurable: true, writable: true }) : e[r2] = t, e;
 }
-function _toPropertyKey34(t) {
-  var i = _toPrimitive34(t, "string");
+function _toPropertyKey35(t) {
+  var i = _toPrimitive35(t, "string");
   return "symbol" == typeof i ? i : i + "";
 }
-function _toPrimitive34(t, r2) {
+function _toPrimitive35(t, r2) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
@@ -48171,14 +48250,14 @@ function _toPrimitive34(t, r2) {
   }
   return ("string" === r2 ? String : Number)(t);
 }
-function _extends22() {
-  return _extends22 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends21() {
+  return _extends21 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends22.apply(null, arguments);
+  }, _extends21.apply(null, arguments);
 }
 var EventSynchronizer = () => {
   useSynchronisedEventsFromOtherCharts();
@@ -48249,7 +48328,7 @@ var ResponsiveDiv = /* @__PURE__ */ (0, import_react48.forwardRef)((props, ref) 
   return /* @__PURE__ */ React33.createElement(React33.Fragment, null, /* @__PURE__ */ React33.createElement(ReportChartSize, {
     width: sizes.containerWidth,
     height: sizes.containerHeight
-  }), /* @__PURE__ */ React33.createElement("div", _extends22({
+  }), /* @__PURE__ */ React33.createElement("div", _extends21({
     ref: innerRef
   }, props)));
 });
@@ -48290,7 +48369,7 @@ var ReadSizeOnceDiv = /* @__PURE__ */ (0, import_react48.forwardRef)((props, ref
   return /* @__PURE__ */ React33.createElement(React33.Fragment, null, /* @__PURE__ */ React33.createElement(ReportChartSize, {
     width: sizes.containerWidth,
     height: sizes.containerHeight
-  }), /* @__PURE__ */ React33.createElement("div", _extends22({
+  }), /* @__PURE__ */ React33.createElement("div", _extends21({
     ref: innerRef
   }, props)));
 });
@@ -48302,7 +48381,7 @@ var StaticDiv = /* @__PURE__ */ (0, import_react48.forwardRef)((props, ref) => {
   return /* @__PURE__ */ React33.createElement(React33.Fragment, null, /* @__PURE__ */ React33.createElement(ReportChartSize, {
     width,
     height
-  }), /* @__PURE__ */ React33.createElement("div", _extends22({
+  }), /* @__PURE__ */ React33.createElement("div", _extends21({
     ref
   }, props)));
 });
@@ -48312,11 +48391,11 @@ var NonResponsiveDiv = /* @__PURE__ */ (0, import_react48.forwardRef)((props, re
     height
   } = props;
   if (isPercent(width) || isPercent(height)) {
-    return /* @__PURE__ */ React33.createElement(ReadSizeOnceDiv, _extends22({}, props, {
+    return /* @__PURE__ */ React33.createElement(ReadSizeOnceDiv, _extends21({}, props, {
       ref
     }));
   }
-  return /* @__PURE__ */ React33.createElement(StaticDiv, _extends22({}, props, {
+  return /* @__PURE__ */ React33.createElement(StaticDiv, _extends21({}, props, {
     ref
   }));
 });
@@ -48475,17 +48554,17 @@ var RechartsWrapper = /* @__PURE__ */ (0, import_react48.forwardRef)((props, ref
 });
 
 // node_modules/recharts/es6/chart/CategoricalChart.js
-var _excluded17 = ["width", "height", "responsive", "children", "className", "style", "compact", "title", "desc"];
-function _objectWithoutProperties17(e, t) {
+var _excluded19 = ["width", "height", "responsive", "children", "className", "style", "compact", "title", "desc"];
+function _objectWithoutProperties19(e, t) {
   if (null == e) return {};
-  var o, r2, i = _objectWithoutPropertiesLoose17(e, t);
+  var o, r2, i = _objectWithoutPropertiesLoose19(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
     for (r2 = 0; r2 < n.length; r2++) o = n[r2], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]);
   }
   return i;
 }
-function _objectWithoutPropertiesLoose17(r2, e) {
+function _objectWithoutPropertiesLoose19(r2, e) {
   if (null == r2) return {};
   var t = {};
   for (var n in r2) if ({}.hasOwnProperty.call(r2, n)) {
@@ -48505,7 +48584,7 @@ var CategoricalChart = /* @__PURE__ */ (0, import_react49.forwardRef)((props, re
     compact,
     title,
     desc
-  } = props, others = _objectWithoutProperties17(props, _excluded17);
+  } = props, others = _objectWithoutProperties19(props, _excluded19);
   var attrs = svgPropertiesNoEvents(others);
   if (compact) {
     return /* @__PURE__ */ React34.createElement(React34.Fragment, null, /* @__PURE__ */ React34.createElement(ReportChartSize, {
@@ -48543,14 +48622,14 @@ var CategoricalChart = /* @__PURE__ */ (0, import_react49.forwardRef)((props, re
 });
 
 // node_modules/recharts/es6/chart/CartesianChart.js
-function _extends23() {
-  return _extends23 = Object.assign ? Object.assign.bind() : function(n) {
+function _extends22() {
+  return _extends22 = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
       for (var r2 in t) ({}).hasOwnProperty.call(t, r2) && (n[r2] = t[r2]);
     }
     return n;
-  }, _extends23.apply(null, arguments);
+  }, _extends22.apply(null, arguments);
 }
 var defaultMargin = {
   top: 5,
@@ -48608,18 +48687,18 @@ var CartesianChart = /* @__PURE__ */ (0, import_react50.forwardRef)(function Car
     syncMethod: rootChartProps.syncMethod,
     className: rootChartProps.className,
     reverseStackOrder: rootChartProps.reverseStackOrder
-  }), /* @__PURE__ */ React35.createElement(CategoricalChart, _extends23({}, rootChartProps, {
+  }), /* @__PURE__ */ React35.createElement(CategoricalChart, _extends22({}, rootChartProps, {
     ref
   })));
 });
 
-// node_modules/recharts/es6/chart/AreaChart.js
+// node_modules/recharts/es6/chart/BarChart.js
 var React36 = __toESM(require_react());
 var import_react51 = __toESM(require_react());
-var allowedTooltipTypes = ["axis"];
-var AreaChart = /* @__PURE__ */ (0, import_react51.forwardRef)((props, ref) => {
+var allowedTooltipTypes = ["axis", "item"];
+var BarChart = /* @__PURE__ */ (0, import_react51.forwardRef)((props, ref) => {
   return /* @__PURE__ */ React36.createElement(CartesianChart, {
-    chartName: "AreaChart",
+    chartName: "BarChart",
     defaultTooltipEventType: "axis",
     validateTooltipEventTypes: allowedTooltipTypes,
     tooltipPayloadSearcher: arrayTooltipSearcher,
@@ -48649,6 +48728,11 @@ var COLORS = {
   saveGreen: "#4D7C0F",
   tableHeader: "#2563EB"
 };
+var STRATEGY_RATES = {
+  conservative: 3,
+  moderate: 6,
+  aggressive: 9
+};
 var NumberControl = ({
   value,
   onChange,
@@ -48657,7 +48741,7 @@ var NumberControl = ({
   step = 1,
   label,
   suffix: suffix2,
-  prefix
+  prefix: prefix2
 }) => {
   const handleDec = () => {
     const num = parseFloat(value) || 0;
@@ -48697,7 +48781,7 @@ var NumberControl = ({
   }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: handleDec, style: btnStyle, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Minus, { size: 16, strokeWidth: 3 }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: "4px" }, children: [
-      prefix && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "16px", fontWeight: 700, color: COLORS.textMain }, children: prefix }),
+      prefix2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "16px", fontWeight: 700, color: COLORS.textMain }, children: prefix2 }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "input",
         {
@@ -48722,637 +48806,274 @@ var NumberControl = ({
   ] });
 };
 var DEFAULT_VALUES = {
-  currentAge: "35",
-  income: "60000",
-  savings: "30000",
-  contributions: "500",
-  budget: "2561",
-  otherIncome: "0",
-  retirementAge: "67",
-  lifeExpectancy: "95",
-  preRetireRate: "7",
-  postRetireRate: "5",
-  inflation: "3",
-  incomeIncrease: "2",
-  contributionMode: "$",
-  budgetMode: "$"
+  goal: "target",
+  targetAmount: "1000000",
+  currentBalance: "10000",
+  monthlyContribution: "500",
+  timeHorizon: "20",
+  investmentStrategy: "moderate",
+  solveFor: "contribution"
 };
-var STORAGE_KEY = "RETIREMENT_CALCULATOR_DATA";
-var EXPIRATION_DAYS = 30;
-var loadSavedData = () => {
+var STORAGE_KEY = "investment-calculator-values";
+var STORAGE_EXPIRY_HOURS = 72;
+var loadSavedValues = () => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const { data, timestamp } = JSON.parse(saved);
-      const now = (/* @__PURE__ */ new Date()).getTime();
-      const daysDiff = (now - timestamp) / (1e3 * 60 * 60 * 24);
-      if (daysDiff < EXPIRATION_DAYS) {
-        const merged = {
-          "Retirement Calculator": { values: { ...DEFAULT_VALUES }, touched: {}, result: null }
-        };
-        if (data["Retirement Calculator"]) {
-          merged["Retirement Calculator"] = {
-            ...merged["Retirement Calculator"],
-            ...data["Retirement Calculator"],
-            values: { ...merged["Retirement Calculator"].values, ...data["Retirement Calculator"].values }
-          };
-        }
-        return merged;
+    if (!saved) return null;
+    const parsed = JSON.parse(saved);
+    const savedAt = parsed._savedAt;
+    if (savedAt) {
+      const hoursSinceSave = (Date.now() - savedAt) / (1e3 * 60 * 60);
+      if (hoursSinceSave > STORAGE_EXPIRY_HOURS) {
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
       }
     }
+    const { _savedAt, ...values } = parsed;
+    return values;
   } catch (e) {
-    console.error("Failed to load saved data", e);
+    return null;
   }
-  return {
-    "Retirement Calculator": { values: { ...DEFAULT_VALUES }, touched: {}, result: null }
-  };
 };
-function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
-  const [calculatorType, setCalculatorType] = (0, import_react52.useState)("Retirement Calculator");
-  const [isAnalyzing, setIsAnalyzing] = (0, import_react52.useState)(false);
-  const [calculators, setCalculators] = (0, import_react52.useState)(() => {
-    const loaded = loadSavedData();
-    if (initialData2 && Object.keys(initialData2).length > 0) {
-      try {
-        const current3 = loaded["Retirement Calculator"];
-        loaded["Retirement Calculator"] = {
-          ...current3,
-          values: {
-            ...current3.values,
-            currentAge: initialData2.current_age ? String(initialData2.current_age) : current3.values.currentAge,
-            income: initialData2.annual_pre_tax_income ? String(initialData2.annual_pre_tax_income) : current3.values.income,
-            savings: initialData2.current_retirement_savings ? String(initialData2.current_retirement_savings) : current3.values.savings,
-            contributions: initialData2.monthly_contributions ? String(initialData2.monthly_contributions) : current3.values.contributions,
-            budget: initialData2.monthly_budget_in_retirement ? String(initialData2.monthly_budget_in_retirement) : current3.values.budget,
-            otherIncome: initialData2.other_retirement_income ? String(initialData2.other_retirement_income) : current3.values.otherIncome,
-            retirementAge: initialData2.retirement_age ? String(initialData2.retirement_age) : current3.values.retirementAge,
-            lifeExpectancy: initialData2.life_expectancy ? String(initialData2.life_expectancy) : current3.values.lifeExpectancy,
-            preRetireRate: initialData2.pre_retirement_rate_of_return ? String(initialData2.pre_retirement_rate_of_return) : current3.values.preRetireRate,
-            postRetireRate: initialData2.post_retirement_rate_of_return ? String(initialData2.post_retirement_rate_of_return) : current3.values.postRetireRate,
-            inflation: initialData2.inflation_rate ? String(initialData2.inflation_rate) : current3.values.inflation,
-            incomeIncrease: initialData2.annual_income_increase ? String(initialData2.annual_income_increase) : current3.values.incomeIncrease
-          },
-          touched: {}
-          // Reset touched on fresh load
-        };
-      } catch (e) {
-        console.error("Failed to apply initialData:", e);
-      }
+var saveValues = (values) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      ...values,
+      _savedAt: Date.now()
+    }));
+  } catch (e) {
+    console.error("Failed to save values", e);
+  }
+};
+var clearSavedValues = () => {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (e) {
+    console.error("Failed to clear values", e);
+  }
+};
+var solveForRate = (nYears, pv, pmt, fv) => {
+  let low = 1e-4;
+  let high = 1;
+  let mid = 0.05;
+  const n = nYears * 12;
+  for (let i = 0; i < 50; i++) {
+    mid = (low + high) / 2;
+    const r2 = mid / 12;
+    const val = pv * Math.pow(1 + r2, n) + pmt * (Math.pow(1 + r2, n) - 1) / r2;
+    if (Math.abs(val - fv) < 1) return mid;
+    if (val > fv) {
+      high = mid;
+    } else {
+      low = mid;
     }
-    return loaded;
+  }
+  return mid;
+};
+var API_BASE = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:8001" : "https://investment-calculator.onrender.com";
+function InvestmentCalculator({ initialData: initialData2 }) {
+  const [values, setValues] = (0, import_react52.useState)(() => {
+    const saved = loadSavedValues();
+    return saved || DEFAULT_VALUES;
   });
-  const [showSubscribeModal, setShowSubscribeModal] = (0, import_react52.useState)(false);
-  const [email, setEmail] = (0, import_react52.useState)("");
+  const [result, setResult] = (0, import_react52.useState)(null);
+  (0, import_react52.useEffect)(() => {
+    saveValues(values);
+  }, [values]);
+  const [showSubscribeBanner, setShowSubscribeBanner] = (0, import_react52.useState)(true);
+  const [subscribeEmail, setSubscribeEmail] = (0, import_react52.useState)("");
   const [subscribeStatus, setSubscribeStatus] = (0, import_react52.useState)("idle");
   const [subscribeMessage, setSubscribeMessage] = (0, import_react52.useState)("");
-  const [showBanner, setShowBanner] = (0, import_react52.useState)(true);
-  const [personalNotes, setPersonalNotes] = (0, import_react52.useState)("");
+  const turnstileRef = (0, import_react52.useRef)(null);
+  const [turnstileToken, setTurnstileToken] = (0, import_react52.useState)("");
+  const [showSubscribeModal, setShowSubscribeModal] = (0, import_react52.useState)(false);
   const [showFeedbackModal, setShowFeedbackModal] = (0, import_react52.useState)(false);
   const [feedbackText, setFeedbackText] = (0, import_react52.useState)("");
   const [feedbackStatus, setFeedbackStatus] = (0, import_react52.useState)("idle");
+  (0, import_react52.useEffect)(() => {
+    if (showSubscribeModal && turnstileRef.current && window.turnstile) {
+      const widgetId = turnstileRef.current.getAttribute("data-turnstile-id");
+      if (widgetId) window.turnstile.remove(widgetId);
+      try {
+        window.turnstile.render(turnstileRef.current, {
+          sitekey: window.TURNSTILE_SITE_KEY,
+          callback: (token) => setTurnstileToken(token),
+          appearance: "interaction-only"
+        });
+      } catch (e) {
+        console.error("Turnstile render error", e);
+      }
+    }
+  }, [showSubscribeModal]);
   const handleSubscribe = async () => {
-    if (!email || !email.includes("@")) {
-      setSubscribeMessage("Please enter a valid email.");
+    if (!subscribeEmail || !subscribeEmail.includes("@")) {
       setSubscribeStatus("error");
+      setSubscribeMessage("Please enter a valid email address");
+      return;
+    }
+    if (!turnstileToken) {
+      setSubscribeStatus("error");
+      setSubscribeMessage("Please verify you are human");
       return;
     }
     setSubscribeStatus("loading");
     try {
-      const response = await fetch("/api/subscribe", {
+      const response = await fetch(`${API_BASE}/api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email,
-          topicId: "retirement-news",
-          topicName: "Retirement Calculator Updates"
+          email: subscribeEmail,
+          topicId: "investment-calculator",
+          topicName: "Investment Calculator Tips",
+          turnstileToken
         })
       });
       const data = await response.json();
       if (response.ok && data.success) {
         setSubscribeStatus("success");
-        setSubscribeMessage(data.message);
+        setSubscribeMessage(data.message || "Successfully subscribed!");
         setTimeout(() => {
           setShowSubscribeModal(false);
-          setEmail("");
           setSubscribeStatus("idle");
-          setSubscribeMessage("");
-        }, 3e3);
+          setSubscribeEmail("");
+        }, 2e3);
       } else {
         setSubscribeStatus("error");
-        setSubscribeMessage(data.error || "Failed to subscribe.");
+        setSubscribeMessage(data.error || "Failed to subscribe");
       }
-    } catch (e) {
-      console.error("Subscribe error:", e);
+    } catch (err) {
       setSubscribeStatus("error");
-      setSubscribeMessage("Network error. Please try again.");
+      setSubscribeMessage("Failed to subscribe. Please try again.");
     }
   };
-  const handleFeedbackSubmit = async () => {
-    if (!feedbackText.trim()) return;
-    setFeedbackStatus("submitting");
+  const handleFeedback = async () => {
+    if (!feedbackText.trim()) {
+      setFeedbackStatus("error");
+      return;
+    }
+    setFeedbackStatus("loading");
     try {
-      const response = await fetch("/api/track", {
+      const response = await fetch(`${API_BASE}/api/track`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          event: "user_feedback",
-          data: {
-            feedback: feedbackText,
-            calculatorType
-          }
+          event: "widget_user_feedback",
+          data: { feedback: feedbackText, source: "investment-calculator" }
         })
       });
       if (response.ok) {
         setFeedbackStatus("success");
         setTimeout(() => {
           setShowFeedbackModal(false);
-          setFeedbackText("");
           setFeedbackStatus("idle");
-        }, 2e3);
+          setFeedbackText("");
+        }, 1500);
       } else {
         setFeedbackStatus("error");
       }
-    } catch (e) {
-      console.error("Feedback error:", e);
+    } catch (err) {
       setFeedbackStatus("error");
     }
   };
-  (0, import_react52.useEffect)(() => {
-    const dataToSave = {
-      data: calculators,
-      timestamp: (/* @__PURE__ */ new Date()).getTime()
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
-  }, [calculators]);
-  const currentCalc = calculators[calculatorType];
-  const {
-    currentAge,
-    income,
-    savings,
-    contributions,
-    budget,
-    otherIncome,
-    retirementAge,
-    lifeExpectancy,
-    preRetireRate,
-    postRetireRate,
-    inflation,
-    incomeIncrease,
-    contributionMode,
-    budgetMode
-  } = currentCalc.values;
-  const updateVal = (field, value) => {
-    setCalculators((prev) => {
-      const next = { ...prev };
-      next[calculatorType] = {
-        ...next[calculatorType],
-        values: {
-          ...next[calculatorType].values,
-          [field]: value
-        },
-        touched: {
-          ...next[calculatorType].touched,
-          [field]: true
-        }
-      };
-      return next;
-    });
-  };
-  const updateResult = (result) => {
-    setCalculators((prev) => ({
-      ...prev,
-      [calculatorType]: {
-        ...prev[calculatorType],
-        result
-      }
-    }));
-  };
-  const calculateRetirement = () => {
-    const currentAgeNum = parseFloat(currentAge);
-    const retirementAgeNum = parseFloat(retirementAge);
-    const lifeExpectancyNum = parseFloat(lifeExpectancy);
-    const incomeNum = parseFloat(income);
-    let savingsNum = parseFloat(savings);
-    if (isNaN(currentAgeNum) || isNaN(retirementAgeNum) || isNaN(incomeNum) || isNaN(savingsNum)) {
-      console.warn("Calculation skipped due to invalid inputs:", { currentAge, retirementAge, income, savings });
-      return;
-    }
-    const preRate = parseFloat(preRetireRate) / 100;
-    const postRate = parseFloat(postRetireRate) / 100;
-    const infl = parseFloat(inflation) / 100;
-    const incIncrease = parseFloat(incomeIncrease) / 100;
-    const noteText = personalNotes.toLowerCase();
-    let budgetAdj = 0;
-    let incomeAdj = 0;
-    let savingsAdj = 0;
-    const sentences = noteText.split(/[.!?]+/).filter((s) => s.trim().length > 0);
-    for (const sentence of sentences) {
-      const amountMatch = sentence.match(/[\$]?([0-9,]+)/);
-      if (amountMatch) {
-        const amount = parseFloat(amountMatch[1].replace(/,/g, ""));
-        if (!isNaN(amount) && amount > 0) {
-          const isMonthly = sentence.includes("month") || sentence.includes("/mo");
-          const multiplier = isMonthly ? 12 : 1;
-          const isRecurring = isMonthly || sentence.includes("year") || sentence.includes("annual");
-          if (isRecurring) {
-            if (sentence.includes("pension") || sentence.includes("social security") || sentence.includes("annuity") || sentence.includes("earn") || sentence.includes("salary") || sentence.includes("rent") || sentence.includes("income")) {
-              incomeAdj += amount * multiplier;
-            } else if (sentence.includes("save") || sentence.includes("cut") || sentence.includes("reduce") || sentence.includes("lower")) {
-              budgetAdj -= amount * multiplier;
-            } else {
-              budgetAdj += amount * multiplier;
-            }
-          } else {
-            if (sentence.includes("inherit") || sentence.includes("gift") || sentence.includes("sell") || sentence.includes("windfall") || sentence.includes("bonus") || sentence.includes("profit")) {
-              savingsAdj += amount;
-            } else if (sentence.includes("debt") || sentence.includes("loan") || sentence.includes("owe") || sentence.includes("cost") || sentence.includes("buy") || sentence.includes("purchase") || sentence.includes("spend") || sentence.includes("pay") || sentence.includes("college") || sentence.includes("wedding") || sentence.includes("renovation") || sentence.includes("surgery")) {
-              savingsAdj -= amount;
-            }
-          }
-        }
-      }
-    }
-    if (noteText.includes("wife") || noteText.includes("husband") || noteText.includes("spouse") || noteText.includes("sick") || noteText.includes("care") || noteText.includes("disabled") || noteText.includes("support") || noteText.includes("mother") || noteText.includes("father")) {
-      budgetAdj += 1500 * 12;
-    }
-    const yearsPre = retirementAgeNum - currentAgeNum;
-    const yearsPost = lifeExpectancyNum - retirementAgeNum;
-    const annualExpensesToday = parseFloat(budget) * 12 + budgetAdj;
-    const annualIncomeToday = parseFloat(otherIncome) * 12 + incomeAdj;
-    const monthlyShortfallToday = Math.max(0, parseFloat(budget) - parseFloat(otherIncome));
-    const annualShortfallToday = monthlyShortfallToday * 12;
-    const annualShortfallAtRetire = annualShortfallToday * Math.pow(1 + infl, yearsPre);
-    const annualExpensesAtRetire = annualExpensesToday * Math.pow(1 + infl, yearsPre);
-    const annualIncomeAtRetire = annualIncomeToday * Math.pow(1 + infl, yearsPre);
-    const safeWithdrawalRate = 0.04;
-    let grossNeedAtRetirement = 0;
-    let incomeValueAtRetirement = 0;
-    let netNeedAtRetirement = 0;
-    for (let i = 0; i < yearsPost; i++) {
-      const yearlyExpense = annualExpensesAtRetire * Math.pow(1 + infl, i);
-      const yearlyIncome = annualIncomeAtRetire * Math.pow(1 + infl, i);
-      const yearlyShortfall = annualShortfallAtRetire * Math.pow(1 + infl, i);
-      const discountFactor = Math.pow(1 + safeWithdrawalRate, i);
-      grossNeedAtRetirement += yearlyExpense / discountFactor;
-      incomeValueAtRetirement += yearlyIncome / discountFactor;
-      netNeedAtRetirement += yearlyShortfall / discountFactor;
-    }
-    const fvSavings = savingsNum * Math.pow(1 + preRate, yearsPre);
-    const gap = netNeedAtRetirement - fvSavings;
-    let initialAnnualContribNeeded = 0;
-    let accumFactor = 0;
-    for (let k = 0; k < yearsPre; k++) {
-      accumFactor += Math.pow(1 + incIncrease, k) * Math.pow(1 + preRate, yearsPre - 1 - k);
-    }
-    if (accumFactor > 0) {
-      initialAnnualContribNeeded = gap / accumFactor;
-    }
-    let annualContrib = parseFloat(contributions);
-    if (contributionMode === "%") {
-      annualContrib = incomeNum * (parseFloat(contributions) / 100);
-    } else {
-      annualContrib = annualContrib * 12;
-    }
-    const fvInitial = savingsNum * Math.pow(1 + preRate, yearsPre);
-    let fvContributions = 0;
-    if (contributionMode === "$") {
-      fvContributions = annualContrib * (Math.pow(1 + preRate, yearsPre) - 1) / preRate;
-    } else {
-      if (Math.abs(preRate - incIncrease) < 1e-4) {
-        fvContributions = annualContrib * yearsPre * Math.pow(1 + preRate, yearsPre - 1);
-      } else {
-        fvContributions = annualContrib * (Math.pow(1 + preRate, yearsPre) - Math.pow(1 + incIncrease, yearsPre)) / (preRate - incIncrease);
-      }
-    }
-    const whatYouHaveLiquid = Math.round(fvInitial + fvContributions);
-    let collegeCost = 0;
-    if (helpWithCollege && familyPlan !== "none") {
-      collegeCost = familyPlan === "small" ? 3e5 : 6e5;
-    }
-    const totalWealthAtRetirement = whatYouHaveLiquid + incomeValueAtRetirement + savingsAdj - collegeCost;
-    const graphData = [];
-    let simCurrent = savingsNum;
-    let simIdeal = savingsNum;
-    let simSalary = incomeNum;
-    let simCurrentContrib = annualContrib;
-    let simIdealContrib = Math.max(0, initialAnnualContribNeeded);
-    let runOutAgeCurrent = null;
-    let runOutAgeIdeal = null;
-    const totalYears = lifeExpectancyNum - currentAgeNum;
-    for (let yr = 0; yr <= totalYears; yr++) {
-      const age = currentAgeNum + yr;
-      const isRetired = age > retirementAgeNum;
-      graphData.push({
-        age,
-        current: Math.round(simCurrent),
-        recommended: Math.round(simIdeal)
-      });
-      if (isRetired) {
-        const yearsIntoRetirement = age - retirementAgeNum;
-        const payout = annualShortfallAtRetire * Math.pow(1 + infl, yearsIntoRetirement - 1);
-        if (simCurrent > 0) {
-          simCurrent = simCurrent * (1 + postRate) - payout;
-          if (simCurrent < 0) {
-            simCurrent = 0;
-            if (!runOutAgeCurrent) runOutAgeCurrent = age;
-          }
-        }
-        if (simIdeal > 0) {
-          simIdeal = simIdeal * (1 + postRate) - payout;
-          if (simIdeal < 0) {
-            simIdeal = 0;
-            if (!runOutAgeIdeal) runOutAgeIdeal = age;
-          }
-        }
-      } else {
-        simCurrent = simCurrent * (1 + preRate) + simCurrentContrib;
-        simIdeal = simIdeal * (1 + preRate) + simIdealContrib;
-        simSalary *= 1 + incIncrease;
-        if (contributionMode === "%") {
-          simCurrentContrib = simSalary * (parseFloat(contributions) / 100);
-        }
-        simIdealContrib *= 1 + incIncrease;
-      }
-    }
-    const whatYouNeed = grossNeedAtRetirement;
-    updateResult({
-      have: Math.round(totalWealthAtRetirement),
-      need: Math.round(whatYouNeed),
-      graphData,
-      runOutAgeCurrent: runOutAgeCurrent || lifeExpectancyNum,
-      runOutAgeIdeal: runOutAgeIdeal || lifeExpectancyNum,
-      monthlyContribNeeded: Math.round(initialAnnualContribNeeded / 12),
-      currentMonthlyContrib: Math.round(simCurrentContrib / 12),
-      monthlyShortfall: monthlyShortfallToday
-    });
-  };
-  const calculate2 = () => {
-    calculateRetirement();
+  const updateVal = (field, val) => {
+    setValues((prev) => ({ ...prev, [field]: val }));
   };
   (0, import_react52.useEffect)(() => {
-    calculate2();
-  }, [currentCalc.values, personalNotes]);
-  const [showAdvanced, setShowAdvanced] = (0, import_react52.useState)(false);
-  const [resultView, setResultView] = (0, import_react52.useState)("graph");
-  const toggleMode = (field) => {
-    const current3 = currentCalc.values[field];
-    updateVal(field, current3 === "$" ? "%" : "$");
-  };
+    if (initialData2) {
+      const newValues = { ...values };
+      if (initialData2.current_balance) newValues.currentBalance = String(initialData2.current_balance);
+      if (initialData2.monthly_contribution) newValues.monthlyContribution = String(initialData2.monthly_contribution);
+      if (initialData2.target_amount) newValues.targetAmount = String(initialData2.target_amount);
+      setValues(newValues);
+    }
+  }, [initialData2]);
   (0, import_react52.useEffect)(() => {
-    const incomeNum = parseFloat(income);
-    if (!isNaN(incomeNum) && !currentCalc.touched.budget) {
-      const suggestedAnnualBudget = incomeNum * 0.75;
-      const suggestedMonthlyBudget = Math.round(suggestedAnnualBudget / 12);
-      setCalculators((prev) => {
-        const next = { ...prev };
-        next[calculatorType] = {
-          ...next[calculatorType],
-          values: {
-            ...next[calculatorType].values,
-            budget: String(suggestedMonthlyBudget)
-          }
-          // Do NOT mark as touched so it continues to update until user manually overrides
-        };
-        return next;
-      });
-    }
-  }, [income, currentCalc.touched.budget, calculatorType]);
-  const handleInvestmentStrategy = (strategy) => {
-    let pre = "6";
-    let post = "5";
-    if (strategy === "conservative") {
-      pre = "4";
-      post = "3";
-    } else if (strategy === "aggressive") {
-      pre = "9";
-      post = "7";
+    const { goal, targetAmount, currentBalance, monthlyContribution, timeHorizon, investmentStrategy, solveFor } = values;
+    const target = parseFloat(targetAmount) || 0;
+    const current3 = parseFloat(currentBalance) || 0;
+    const monthly = parseFloat(monthlyContribution) || 0;
+    const years = parseFloat(timeHorizon) || 0;
+    const rate = STRATEGY_RATES[investmentStrategy] || 6;
+    let mainValue = 0;
+    let breakdown = { starting: current3, totalContrib: 0, totalGrowth: 0 };
+    if (goal === "future") {
+      const r2 = rate / 100 / 12;
+      const n = years * 12;
+      const fv = current3 * Math.pow(1 + r2, n) + monthly * (Math.pow(1 + r2, n) - 1) / r2;
+      mainValue = fv;
+      breakdown.totalContrib = monthly * n;
+      breakdown.totalGrowth = Math.max(0, fv - current3 - breakdown.totalContrib);
     } else {
-      pre = "7";
-      post = "5";
-    }
-    setCalculators((prev) => {
-      const next = { ...prev };
-      next[calculatorType] = {
-        ...next[calculatorType],
-        values: {
-          ...next[calculatorType].values,
-          preRetireRate: pre,
-          postRetireRate: post
-        },
-        touched: {
-          ...next[calculatorType].touched,
-          preRetireRate: true,
-          postRetireRate: true
+      if (solveFor === "contribution") {
+        const r2 = rate / 100 / 12;
+        const n = years * 12;
+        const numerator = (target - current3 * Math.pow(1 + r2, n)) * r2;
+        const denominator = Math.pow(1 + r2, n) - 1;
+        const pmt = denominator !== 0 ? numerator / denominator : 0;
+        mainValue = Math.max(0, pmt);
+        breakdown.starting = current3;
+        breakdown.totalContrib = mainValue * n;
+        breakdown.totalGrowth = Math.max(0, target - current3 - breakdown.totalContrib);
+      } else if (solveFor === "current") {
+        const r2 = rate / 100 / 12;
+        const n = years * 12;
+        const fvOfPmt = monthly * (Math.pow(1 + r2, n) - 1) / r2;
+        const pv = (target - fvOfPmt) / Math.pow(1 + r2, n);
+        mainValue = Math.max(0, pv);
+        breakdown.starting = mainValue;
+        breakdown.totalContrib = monthly * n;
+        breakdown.totalGrowth = Math.max(0, target - breakdown.starting - breakdown.totalContrib);
+      } else if (solveFor === "time") {
+        const r2 = rate / 100 / 12;
+        const num = target * r2 + monthly;
+        const den = current3 * r2 + monthly;
+        if (num > 0 && den > 0) {
+          const nMonths = Math.log(num / den) / Math.log(1 + r2);
+          mainValue = Math.max(0, nMonths / 12);
+        } else {
+          mainValue = 0;
         }
-      };
-      return next;
+        breakdown.starting = current3;
+        breakdown.totalContrib = monthly * (mainValue * 12);
+        breakdown.totalGrowth = Math.max(0, target - current3 - breakdown.totalContrib);
+      } else if (solveFor === "rate") {
+        const r2 = solveForRate(years, current3, monthly, target);
+        mainValue = r2 * 100;
+        breakdown.starting = current3;
+        breakdown.totalContrib = monthly * (years * 12);
+        breakdown.totalGrowth = Math.max(0, target - current3 - breakdown.totalContrib);
+      }
+    }
+    const chartData = [];
+    const effectiveYears = goal === "target" && solveFor === "time" ? Math.ceil(mainValue) : years;
+    const effectiveMonthly = goal === "target" && solveFor === "contribution" ? mainValue : monthly;
+    const effectiveStarting = goal === "target" && solveFor === "current" ? mainValue : current3;
+    const effectiveRate = goal === "target" && solveFor === "rate" ? mainValue : rate;
+    let runningBalance = effectiveStarting;
+    let totalContributions = 0;
+    for (let year = 0; year <= Math.min(effectiveYears, 50); year++) {
+      const startingPortion = effectiveStarting;
+      const contributionsPortion = totalContributions;
+      const growthPortion = Math.max(0, runningBalance - startingPortion - contributionsPortion);
+      chartData.push({
+        year,
+        starting: Math.round(startingPortion),
+        contributions: Math.round(contributionsPortion),
+        growth: Math.round(growthPortion),
+        total: Math.round(runningBalance)
+      });
+      const monthlyRate = effectiveRate / 100 / 12;
+      for (let month = 0; month < 12; month++) {
+        runningBalance = runningBalance * (1 + monthlyRate) + effectiveMonthly;
+        totalContributions += effectiveMonthly;
+      }
+    }
+    setResult({
+      mainValue,
+      breakdown,
+      chartData
     });
-  };
-  const resetToDefaults = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    setCalculators((prev) => {
-      const next = { ...prev };
-      next[calculatorType] = {
-        values: {
-          ...DEFAULT_VALUES,
-          preRetireRate: "7",
-          // Moderate investment strategy
-          postRetireRate: "5"
-        },
-        touched: {},
-        result: null
-      };
-      return next;
-    });
-    setTravelPlan("moderate");
-    setFamilyPlan("none");
-    setHelpWithCollege(false);
-    setSavingsDetails({ savings: "", checking: "", crypto: "", retirement: "", stockPortfolio: "" });
-    setIncomeDetails({ socialSecurity: "", realEstate: "", trust: "", investments: "", other: "" });
-    setPersonalNotes("");
-  };
-  const [travelPlan, setTravelPlan] = (0, import_react52.useState)("moderate");
-  const [familyPlan, setFamilyPlan] = (0, import_react52.useState)("none");
-  const [helpWithCollege, setHelpWithCollege] = (0, import_react52.useState)(false);
-  const getTravelCost = (plan) => {
-    if (plan === "low") return 200;
-    if (plan === "moderate") return 800;
-    return 2500;
-  };
-  const handleTravelPlanChange = (newPlan) => {
-    const oldCost = getTravelCost(travelPlan);
-    const newCost = getTravelCost(newPlan);
-    const diff = newCost - oldCost;
-    const currentBudget = parseFloat(budget) || 0;
-    const newBudget = Math.max(0, currentBudget + diff);
-    setTravelPlan(newPlan);
-    updateVal("budget", String(Math.round(newBudget)));
-  };
-  const getFamilyCost = (plan) => {
-    if (plan === "none") return 0;
-    if (plan === "small") return 300;
-    return 600;
-  };
-  const getCollegeContribReduction = (plan) => {
-    if (plan === "none") return 0;
-    if (plan === "small") return 400;
-    return 800;
-  };
-  const handleFamilyPlanChange = (newPlan) => {
-    const oldCost = getFamilyCost(familyPlan);
-    const newCost = getFamilyCost(newPlan);
-    const budgetDiff = newCost - oldCost;
-    const currentBudget = parseFloat(budget) || 0;
-    const newBudget = Math.max(0, currentBudget + budgetDiff);
-    setFamilyPlan(newPlan);
-    updateVal("budget", String(Math.round(newBudget)));
-  };
-  const handleCollegeToggle = (checked) => {
-    setHelpWithCollege(checked);
-  };
-  const applySmartBudget = () => {
-    const incomeNum = parseFloat(income);
-    if (!isNaN(incomeNum)) {
-      const suggested = Math.round(incomeNum * 0.75 / 12);
-      updateVal("budget", String(suggested));
-    }
-  };
-  const [savingsDetails, setSavingsDetails] = (0, import_react52.useState)({
-    savings: "",
-    checking: "",
-    crypto: "",
-    retirement: "",
-    stockPortfolio: ""
-  });
-  const [showSavingsModal, setShowSavingsModal] = (0, import_react52.useState)(false);
-  const [incomeDetails, setIncomeDetails] = (0, import_react52.useState)({
-    socialSecurity: "",
-    realEstate: "",
-    trust: "",
-    investments: "",
-    other: ""
-  });
-  const [showIncomeModal, setShowIncomeModal] = (0, import_react52.useState)(false);
-  const updateSavingsTotal = (details) => {
-    const total = [
-      details.savings,
-      details.checking,
-      details.crypto,
-      details.retirement,
-      details.stockPortfolio
-    ].reduce((acc, val) => acc + (parseFloat(val) || 0), 0);
-    updateVal("savings", String(total));
-  };
-  const handleSavingsDetailChange = (field, value) => {
-    const newDetails = { ...savingsDetails, [field]: value };
-    setSavingsDetails(newDetails);
-    updateSavingsTotal(newDetails);
-  };
-  const updateIncomeTotal = (details) => {
-    const total = [
-      details.socialSecurity,
-      details.realEstate,
-      details.trust,
-      details.investments,
-      details.other
-    ].reduce((acc, val) => acc + (parseFloat(val) || 0), 0);
-    updateVal("otherIncome", String(total));
-  };
-  const handleIncomeDetailChange = (field, value) => {
-    const newDetails = { ...incomeDetails, [field]: value };
-    setIncomeDetails(newDetails);
-    updateIncomeTotal(newDetails);
-  };
-  const handleEstimateSocialSecurity = () => {
-    const annualIncome = parseFloat(income) || 0;
-    const estimated = Math.min(Math.round(annualIncome * 0.4 / 12), 3800);
-    const newDetails = { ...incomeDetails, socialSecurity: String(estimated) };
-    setIncomeDetails(newDetails);
-    updateIncomeTotal(newDetails);
-  };
-  const generateTips = () => {
-    if (!currentCalc.result) return [];
-    const tips = [];
-    const { have, need, monthlyContribNeeded, currentMonthlyContrib } = currentCalc.result;
-    const shortfall = need - have;
-    const incomeNum = parseFloat(income);
-    if (shortfall > 0) {
-      tips.push({
-        title: "Increase Monthly Savings",
-        desc: `You are saving $${currentMonthlyContrib.toLocaleString()}/mo. To reach your goal, aim for $${monthlyContribNeeded.toLocaleString()}/mo (+$${(monthlyContribNeeded - currentMonthlyContrib).toLocaleString()}).`,
-        icon: "\u{1F4B0}",
-        priority: "high"
-      });
-    }
-    if (incomeNum > 0) {
-      const currentRate = currentMonthlyContrib * 12 / incomeNum;
-      const targetRate = 0.15;
-      if (currentRate < targetRate) {
-        const targetMonthly = Math.round(incomeNum * targetRate / 12);
-        tips.push({
-          title: "Boost Your Savings Rate",
-          desc: `Your savings rate is ${(currentRate * 100).toFixed(1)}%. Experts recommend 15% ($${targetMonthly.toLocaleString()}/mo) for a secure retirement.`,
-          icon: "\u{1F4C8}",
-          priority: "high"
-        });
-      }
-    }
-    const budgetNum = parseFloat(budget);
-    if (incomeNum > 0 && budgetNum * 12 > incomeNum * 0.85) {
-      const targetBudget = Math.round(incomeNum * 0.8 / 12);
-      tips.push({
-        title: "Review Retirement Budget",
-        desc: `Your planned spending ($${budgetNum.toLocaleString()}/mo) is high relative to your income. Reducing it to ~$${targetBudget.toLocaleString()}/mo would drastically lower your savings target.`,
-        icon: "\u{1F4C9}",
-        priority: "medium"
-      });
-    }
-    if (shortfall > 0 && (preRetireRate === "4" || preRetireRate === "6")) {
-      tips.push({
-        title: "Optimize Asset Allocation",
-        desc: "Your 4-6% return assumption is conservative. A balanced portfolio (60/40 stocks/bonds) historically returns ~7-8% over long periods.",
-        icon: "\u{1F4CA}",
-        priority: "medium"
-      });
-    }
-    if (shortfall > 0 && parseInt(retirementAge) < 67) {
-      tips.push({
-        title: "Consider Delaying Retirement",
-        desc: `Retiring at ${parseInt(retirementAge) + 2} instead of ${retirementAge} gives your money 2 more years to grow and reduces the withdrawal period.`,
-        icon: "\u23F3",
-        priority: "medium"
-      });
-    }
-    const fillerTips = [
-      {
-        title: "Maximize Tax Advantages",
-        desc: `Ensure you are contributing at least enough to get any employer 401(k) match (often free money!).`,
-        icon: "\u{1F3DB}\uFE0F",
-        priority: "low"
-      },
-      {
-        title: "Emergency Fund",
-        desc: `Before aggressive investing, ensure you have 3-6 months of expenses ($${(budgetNum * 3).toLocaleString()} - $${(budgetNum * 6).toLocaleString()}) in cash.`,
-        icon: "\u{1F6E1}\uFE0F",
-        priority: "low"
-      },
-      {
-        title: "Debt Management",
-        desc: "Pay off high-interest debt (>7%) before increasing retirement contributions further.",
-        icon: "\u{1F4B3}",
-        priority: "low"
-      }
-    ];
-    let fillerIndex = 0;
-    while (tips.length < 3 && fillerIndex < fillerTips.length) {
-      const isDuplicate = tips.some((t) => t.title === fillerTips[fillerIndex].title);
-      if (!isDuplicate) {
-        tips.push(fillerTips[fillerIndex]);
-      }
-      fillerIndex++;
-    }
-    return tips;
-  };
+  }, [values]);
   const styles = {
     container: {
       width: "100%",
@@ -49367,14 +49088,58 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       fontSize: "28px",
       fontWeight: 800,
       color: COLORS.textMain,
-      marginBottom: "10px",
-      textAlign: "left"
+      marginBottom: "8px",
+      textAlign: "left",
+      letterSpacing: "-0.5px"
     },
-    subheader: {
-      fontSize: "14px",
+    subtitle: {
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
       color: COLORS.textSecondary,
-      marginBottom: "20px",
-      marginTop: "-5px"
+      fontSize: "14px",
+      fontWeight: 500,
+      marginBottom: "20px"
+    },
+    subscribeBanner: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      backgroundColor: COLORS.accentLight,
+      borderRadius: "12px",
+      padding: "12px 16px",
+      marginBottom: "24px",
+      position: "relative"
+    },
+    subscribeText: {
+      fontSize: "14px",
+      fontWeight: 500,
+      color: COLORS.textMain,
+      flex: 1
+    },
+    subscribeBtn: {
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      backgroundColor: COLORS.primary,
+      color: "white",
+      border: "none",
+      borderRadius: "20px",
+      padding: "8px 20px",
+      fontSize: "14px",
+      fontWeight: 600,
+      cursor: "pointer",
+      transition: "background-color 0.2s"
+    },
+    closeBtn: {
+      background: "none",
+      border: "none",
+      cursor: "pointer",
+      padding: "4px",
+      marginLeft: "12px",
+      color: COLORS.textSecondary,
+      display: "flex",
+      alignItems: "center"
     },
     card: {
       backgroundColor: COLORS.card,
@@ -49383,1038 +49148,609 @@ function RetirementCalculatorHelloWorld({ initialData: initialData2 }) {
       boxShadow: "0 10px 40px -10px rgba(0,0,0,0.08)",
       marginBottom: "20px"
     },
-    row: {
-      display: "flex",
-      alignItems: "flex-start",
-      marginBottom: "20px",
-      gap: "16px"
-    },
-    column: {
-      flex: 1,
-      display: "flex",
-      flexDirection: "column"
-    },
     label: {
       fontWeight: 600,
       color: COLORS.textMain,
-      fontSize: "15px",
-      marginBottom: "0px"
-    },
-    subheaderLabel: {
-      fontSize: "12px",
-      color: COLORS.textSecondary,
-      fontWeight: 400,
-      marginTop: "0px",
+      fontSize: "14px",
       marginBottom: "8px",
-      lineHeight: "1.3",
-      maxWidth: "90%"
+      display: "block"
     },
-    toggleContainer: {
-      display: "flex",
-      gap: "4px",
-      backgroundColor: COLORS.inputBg,
-      borderRadius: "8px",
-      padding: "2px",
-      alignItems: "center"
-    },
-    toggleBtn: (isActive) => ({
-      padding: "4px 12px",
-      borderRadius: "6px",
-      cursor: "pointer",
-      fontWeight: 600,
-      fontSize: "14px",
-      color: isActive ? "white" : COLORS.textSecondary,
-      backgroundColor: isActive ? COLORS.blue : "transparent",
-      transition: "all 0.2s"
-    }),
-    buttonRow: {
-      display: "flex",
-      gap: "12px",
-      marginTop: "10px"
-    },
-    calcButton: {
+    modeBtn: (active) => ({
       flex: 1,
-      backgroundColor: COLORS.primary,
-      color: "white",
-      border: "none",
-      padding: "14px",
-      borderRadius: "16px",
-      fontSize: "16px",
-      fontWeight: 700,
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "8px",
-      boxShadow: "0 4px 12px rgba(86, 197, 150, 0.2)"
-    },
-    resultCard: {
-      backgroundColor: COLORS.card,
-      borderRadius: "24px",
-      padding: "24px",
-      boxShadow: "0 10px 40px -10px rgba(0,0,0,0.08)",
-      marginTop: "24px"
-    },
-    resultHeader: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: "20px",
-      borderBottom: `1px solid ${COLORS.border}`,
-      paddingBottom: "16px"
-    },
-    resultTitle: {
-      fontSize: "18px",
-      fontWeight: 700,
-      color: COLORS.textMain
-    },
-    list: {
-      fontSize: "14px",
-      lineHeight: "1.8",
-      color: COLORS.textSecondary,
-      backgroundColor: COLORS.inputBg,
       padding: "16px",
-      borderRadius: "16px"
-    },
-    listItem: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginBottom: "8px",
-      borderBottom: "1px dashed #E5E7EB",
-      paddingBottom: "8px"
-    },
-    footer: {
-      display: "flex",
-      justifyContent: "center",
-      gap: "24px",
-      marginTop: "40px",
-      paddingTop: "24px",
-      borderTop: `1px solid ${COLORS.border}`
-    },
-    footerBtn: {
-      display: "flex",
-      alignItems: "center",
-      gap: "8px",
-      background: "none",
-      border: "none",
-      cursor: "pointer",
-      color: COLORS.textSecondary,
-      fontSize: "14px",
-      fontWeight: 600,
-      transition: "color 0.2s",
-      padding: "8px"
-    },
-    sectionTitle: {
-      fontSize: "20px",
-      fontWeight: 700,
-      color: COLORS.textMain,
-      marginBottom: "16px",
-      paddingLeft: "4px"
-    },
-    bottomModalOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(0,0,0,0.5)",
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "center",
-      zIndex: 1e3,
-      padding: "20px",
-      paddingBottom: "40px"
-    },
-    modalOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(0,0,0,0.5)",
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "center",
-      zIndex: 1e3,
-      padding: "20px",
-      paddingTop: "40px",
-      overflowY: "auto"
-    },
-    modalContent: {
-      backgroundColor: "white",
-      borderRadius: "24px",
-      padding: "24px",
-      width: "100%",
-      maxWidth: "560px",
-      boxShadow: "0 20px 60px -10px rgba(0,0,0,0.2)",
-      position: "relative"
-    },
-    modalClose: {
-      position: "absolute",
-      top: "16px",
-      right: "16px",
-      background: "none",
-      border: "none",
-      cursor: "pointer",
-      color: COLORS.textSecondary,
-      padding: "8px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-    },
-    input: {
-      width: "100%",
-      padding: "12px 16px",
-      borderRadius: "12px",
-      border: `1px solid ${COLORS.border}`,
-      fontSize: "16px",
-      backgroundColor: COLORS.inputBg,
-      color: COLORS.textMain,
-      marginBottom: "16px",
-      boxSizing: "border-box",
-      outline: "none"
-    },
-    headerRow: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: "10px"
-    },
-    strategyBtn: (active) => ({
-      flex: 1,
-      padding: "8px",
-      borderRadius: "8px",
+      borderRadius: "16px",
       border: active ? `2px solid ${COLORS.primary}` : `1px solid ${COLORS.border}`,
       backgroundColor: active ? COLORS.accentLight : "white",
       color: active ? COLORS.primaryDark : COLORS.textSecondary,
       fontWeight: 700,
-      fontSize: "12px",
+      fontSize: "14px",
       cursor: "pointer",
-      textAlign: "center"
-    }),
-    subscribeBtn: {
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
       gap: "8px",
+      transition: "all 0.2s"
+    }),
+    grid: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "16px",
+      marginBottom: "24px"
+    },
+    solveForContainer: {
+      marginTop: "24px",
+      marginBottom: "24px",
+      padding: "16px",
+      backgroundColor: COLORS.inputBg,
+      borderRadius: "16px"
+    },
+    solveForOption: (active) => ({
       padding: "10px 16px",
-      backgroundColor: COLORS.primary,
-      color: "white",
-      borderRadius: "24px",
-      border: "none",
-      fontSize: "13px",
-      fontWeight: 700,
+      borderRadius: "12px",
       cursor: "pointer",
-      textDecoration: "none",
-      transition: "transform 0.2s, box-shadow 0.2s",
-      boxShadow: "0 4px 12px rgba(86, 197, 150, 0.25)",
-      whiteSpace: "nowrap"
+      backgroundColor: active ? COLORS.blue : "transparent",
+      color: active ? "white" : COLORS.textSecondary,
+      fontWeight: 600,
+      fontSize: "13px",
+      marginBottom: "4px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }),
+    resultBig: {
+      fontSize: "42px",
+      fontWeight: 800,
+      color: COLORS.primary,
+      marginBottom: "16px",
+      textAlign: "center"
+    },
+    resultLabel: {
+      fontSize: "14px",
+      color: COLORS.textSecondary,
+      textAlign: "center",
+      fontWeight: 500,
+      marginBottom: "16px"
+    },
+    legendItem: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "8px 0",
+      borderBottom: `1px dashed ${COLORS.border}`,
+      fontSize: "13px",
+      color: COLORS.textMain
+    },
+    calculatedInput: {
+      backgroundColor: COLORS.inputBg,
+      borderRadius: "12px",
+      padding: "6px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "4px",
+      height: "44px",
+      boxSizing: "border-box",
+      color: COLORS.textSecondary,
+      fontSize: "16px",
+      fontWeight: 700,
+      cursor: "not-allowed"
+    },
+    strategyBtn: (active) => ({
+      flex: 1,
+      padding: "12px 8px",
+      borderRadius: "12px",
+      border: active ? `2px solid ${COLORS.primary}` : `1px solid ${COLORS.border}`,
+      backgroundColor: active ? COLORS.accentLight : "white",
+      color: active ? COLORS.primaryDark : COLORS.textSecondary,
+      fontWeight: 600,
+      fontSize: "13px",
+      cursor: "pointer",
+      textAlign: "center",
+      transition: "all 0.2s"
+    }),
+    actionsContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: "32px",
+      paddingTop: "24px",
+      borderTop: `1px solid ${COLORS.border}`,
+      gap: "24px",
+      flexWrap: "wrap"
+    },
+    actionBtn: {
+      display: "flex",
+      alignItems: "center",
+      gap: "6px",
+      background: "none",
+      border: "none",
+      color: COLORS.textSecondary,
+      fontSize: "14px",
+      fontWeight: 600,
+      cursor: "pointer",
+      padding: "8px",
+      borderRadius: "8px",
+      transition: "color 0.2s",
+      fontFamily: "inherit"
     }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.container, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.headerRow, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.title, children: "The Retirement Planner Pro" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...styles.subheader, display: "flex", alignItems: "center", gap: 6 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16, color: COLORS.primary }),
-      " Aligned with Certified Financial Planner\u2122 (CFP\xAE) principles"
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+        .action-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+            background-color: rgba(0,0,0,0.05) !important;
+        }
+        .action-btn:active {
+            transform: scale(0.95);
+        }
+        @media print {
+            body { background-color: white; }
+            .action-btn, button { display: none !important; }
+            /* Hide subscribe banner */
+            div[style*="backgroundColor: #E0F2FE"] { display: none !important; } 
+            /* Reset container width */
+            div[style*="maxWidth: 600px"] { max-width: none !important; width: 100% !important; }
+        }
+      ` }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.title, children: "The Investment Growth Strategist" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.subtitle, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16, color: COLORS.primary, strokeWidth: 3 }),
+      "Aligned with Modern Portfolio Theory principles"
     ] }),
-    showBanner && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
-      backgroundColor: COLORS.accentLight,
-      borderRadius: "16px",
-      padding: "16px",
-      marginBottom: "24px",
-      marginTop: "16px",
+    showSubscribeBanner && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.subscribeBanner, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: styles.subscribeText, children: "Want expert tips to grow your investments faster?" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        "button",
+        {
+          style: styles.subscribeBtn,
+          onClick: () => {
+            setShowSubscribeBanner(false);
+            setShowSubscribeModal(true);
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { size: 16 }),
+            "Subscribe"
+          ]
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "button",
+        {
+          style: styles.closeBtn,
+          onClick: () => setShowSubscribeBanner(false),
+          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 18 })
+        }
+      )
+    ] }),
+    showSubscribeModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(0,0,0,0.5)",
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-between",
-      flexWrap: "wrap",
-      gap: "12px",
+      justifyContent: "center",
+      zIndex: 1e3
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+      backgroundColor: "white",
+      borderRadius: "16px",
+      padding: "24px",
+      width: "90%",
+      maxWidth: "400px",
       position: "relative"
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", fontWeight: 600, color: COLORS.primaryDark, paddingRight: "24px" }, children: "Want expert tips to reach your goals faster?" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: { ...styles.subscribeBtn, marginRight: 24 }, className: "btn-press", onClick: () => setShowSubscribeModal(true), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { size: 14 }),
-          "Subscribe"
-        ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "button",
+        {
+          style: { ...styles.closeBtn, position: "absolute", top: "12px", right: "12px" },
+          onClick: () => {
+            setShowSubscribeModal(false);
+            setSubscribeStatus("idle");
+            setSubscribeEmail("");
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 18 })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { margin: "0 0 8px 0", color: COLORS.textMain }, children: "Subscribe for Tips" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { margin: "0 0 16px 0", color: COLORS.textSecondary, fontSize: "14px" }, children: "Get expert investment tips and strategies delivered to your inbox." }),
+      subscribeStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.primary, fontWeight: 600, textAlign: "center", padding: "20px 0" }, children: subscribeMessage }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "div",
+          "input",
           {
-            style: { cursor: "pointer", padding: 4, position: "absolute", top: 8, right: 8, color: COLORS.textSecondary },
-            onClick: () => setShowBanner(false),
-            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 16 })
+            type: "email",
+            placeholder: "Enter your email",
+            value: subscribeEmail,
+            onChange: (e) => setSubscribeEmail(e.target.value),
+            style: {
+              width: "100%",
+              padding: "12px",
+              borderRadius: "8px",
+              border: `1px solid ${COLORS.border}`,
+              fontSize: "14px",
+              marginBottom: "12px",
+              boxSizing: "border-box"
+            }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { ref: turnstileRef, style: { marginBottom: "12px" } }),
+        subscribeStatus === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#DC2626", fontSize: "13px", marginBottom: "12px" }, children: subscribeMessage || "Please try again" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "button",
+          {
+            style: { ...styles.subscribeBtn, width: "100%", justifyContent: "center" },
+            onClick: handleSubscribe,
+            disabled: subscribeStatus === "loading",
+            children: subscribeStatus === "loading" ? "Subscribing..." : "Subscribe"
           }
         )
       ] })
+    ] }) }),
+    showFeedbackModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: "rgba(0,0,0,0.5)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 1e3
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+      backgroundColor: "white",
+      borderRadius: "16px",
+      padding: "24px",
+      width: "90%",
+      maxWidth: "400px",
+      position: "relative"
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "button",
+        {
+          style: { ...styles.closeBtn, position: "absolute", top: "12px", right: "12px" },
+          onClick: () => {
+            setShowFeedbackModal(false);
+            setFeedbackStatus("idle");
+            setFeedbackText("");
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 18 })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { margin: "0 0 8px 0", color: COLORS.textMain }, children: "Share Your Feedback" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { margin: "0 0 16px 0", color: COLORS.textSecondary, fontSize: "14px" }, children: "Help us improve the Investment Calculator." }),
+      feedbackStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.primary, fontWeight: 600, textAlign: "center", padding: "20px 0" }, children: "Thank you for your feedback!" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "textarea",
+          {
+            placeholder: "What can we do better?",
+            value: feedbackText,
+            onChange: (e) => setFeedbackText(e.target.value),
+            style: {
+              width: "100%",
+              padding: "12px",
+              borderRadius: "8px",
+              border: `1px solid ${COLORS.border}`,
+              fontSize: "14px",
+              marginBottom: "12px",
+              boxSizing: "border-box",
+              minHeight: "100px",
+              resize: "vertical",
+              fontFamily: "inherit"
+            }
+          }
+        ),
+        feedbackStatus === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#DC2626", fontSize: "13px", marginBottom: "12px" }, children: "Please enter some feedback" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "button",
+          {
+            style: { ...styles.subscribeBtn, width: "100%", justifyContent: "center" },
+            onClick: handleFeedback,
+            disabled: feedbackStatus === "loading",
+            children: feedbackStatus === "loading" ? "Sending..." : "Send Feedback"
+          }
+        )
+      ] })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "12px", marginBottom: "24px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modeBtn(values.goal === "target"), onClick: () => updateVal("goal", "target"), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 24 }),
+        "Reach a Target"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modeBtn(values.goal === "future"), onClick: () => updateVal("goal", "future"), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TrendingUp, { size: 24 }),
+        "See Future Growth"
+      ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.card, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Current age" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Age you are now" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      values.goal === "target" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: "24px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Target Amount" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          NumberControl,
+          {
+            value: values.targetAmount,
+            onChange: (v) => updateVal("targetAmount", v),
+            prefix: "$",
+            step: 1e3,
+            max: 1e8
+          }
+        )
+      ] }),
+      values.goal === "target" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.solveForContainer, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", fontWeight: 700, color: COLORS.textMain, marginBottom: "12px" }, children: "What do you need help calculating?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.solveForOption(values.solveFor === "contribution"), onClick: () => updateVal("solveFor", "contribution"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "How much do I need to save monthly to reach my goal" }),
+          values.solveFor === "contribution" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.solveForOption(values.solveFor === "time"), onClick: () => updateVal("solveFor", "time"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "How long it will take to reach my goal" }),
+          values.solveFor === "time" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.solveForOption(values.solveFor === "rate"), onClick: () => updateVal("solveFor", "rate"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "What return I need to reach my goal" }),
+          values.solveFor === "rate" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.solveForOption(values.solveFor === "current"), onClick: () => updateVal("solveFor", "current"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "How much do I need to start with" }),
+          values.solveFor === "current" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.grid, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Current Balance" }),
+          values.goal === "target" && values.solveFor === "current" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "div",
+            {
+              style: styles.calculatedInput,
+              title: "This result is being calculated, you cannot modify it. Change your selection above if you want to modify this input.",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary }, children: "$" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: result ? Math.round(result.mainValue).toLocaleString() : "\u2014" })
+              ]
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             NumberControl,
             {
-              value: currentAge,
-              onChange: (v) => updateVal("currentAge", v),
-              min: 18,
+              value: values.currentBalance,
+              onChange: (v) => updateVal("currentBalance", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Monthly Contribution" }),
+          values.goal === "target" && values.solveFor === "contribution" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "div",
+            {
+              style: styles.calculatedInput,
+              title: "This result is being calculated, you cannot modify it. Change your selection above if you want to modify this input.",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary }, children: "$" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: result ? Math.round(result.mainValue).toLocaleString() : "\u2014" })
+              ]
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: values.monthlyContribution,
+              onChange: (v) => updateVal("monthlyContribution", v),
+              prefix: "$"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Time Horizon" }),
+          values.goal === "target" && values.solveFor === "time" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "div",
+            {
+              style: styles.calculatedInput,
+              title: "This result is being calculated, you cannot modify it. Change your selection above if you want to modify this input.",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: result ? result.mainValue.toFixed(1) : "\u2014" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: "14px" }, children: "years" })
+              ]
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            NumberControl,
+            {
+              value: values.timeHorizon,
+              onChange: (v) => updateVal("timeHorizon", v),
+              suffix: "years",
               max: 100
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Annual pre-tax income" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Your yearly earnings before tax" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: income,
-              onChange: (v) => updateVal("income", v),
-              min: 0,
-              max: 1e7,
-              step: 1e3,
-              prefix: "$"
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Current Savings" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Total amount saved for retirement" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savings,
-              onChange: (v) => updateVal("savings", v),
-              min: 0,
-              max: 1e7,
-              step: 1e3,
-              prefix: "$"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "1 / -1" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Investment Strategy" }),
+          values.goal === "target" && values.solveFor === "rate" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "div",
             {
-              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
-              onClick: () => setShowSavingsModal(true),
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "+ Add Details" })
+              style: styles.calculatedInput,
+              title: "This result is being calculated, you cannot modify it. Change your selection above if you want to modify this input.",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: result ? result.mainValue.toFixed(2) : "\u2014" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: "14px" }, children: "% annual return needed" })
+              ]
             }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Other Monthly Income" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Monthly income from other sources" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: otherIncome,
-              onChange: (v) => updateVal("otherIncome", v),
-              min: 0,
-              max: 1e5,
-              step: 100,
-              prefix: "$"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "div",
-            {
-              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
-              onClick: () => setShowIncomeModal(true),
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "+ Add Details" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Monthly contributions" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Amount you save each month" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: contributions,
-              onChange: (v) => updateVal("contributions", v),
-              min: 0,
-              max: 1e5,
-              step: 100,
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Monthly budget in retirement" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Estimated monthly spending" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: budget,
-              onChange: (v) => updateVal("budget", v),
-              min: 0,
-              max: 1e5,
-              step: 100,
-              prefix: "$"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "div",
-            {
-              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
-              onClick: applySmartBudget,
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u{1FA84} Estimate" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-        "div",
-        {
-          style: { display: "flex", alignItems: "center", gap: 8, cursor: "pointer", marginTop: 20, marginBottom: 20, color: COLORS.blue, fontWeight: 700, fontSize: 14 },
-          onClick: () => setShowAdvanced(!showAdvanced),
-          children: [
-            showAdvanced ? "HIDE ADVANCED DETAILS" : "ADVANCED DETAILS",
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { size: 16, style: { transform: showAdvanced ? "rotate(180deg)" : "none", transition: "transform 0.2s" } })
-          ]
-        }
-      ),
-      showAdvanced && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.row, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Retirement age" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Age you plan to retire" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "8px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "div",
               {
-                value: retirementAge,
-                onChange: (v) => updateVal("retirementAge", v),
-                min: parseInt(currentAge) + 1,
-                max: 100
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.column, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Life expectancy" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.subheaderLabel, children: "Estimated age of lifespan" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              NumberControl,
-              {
-                value: lifeExpectancy,
-                onChange: (v) => updateVal("lifeExpectancy", v),
-                min: parseInt(retirementAge) + 1,
-                max: 120
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16, marginTop: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Investment Strategy" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(preRetireRate === "4" && postRetireRate === "3"), onClick: () => handleInvestmentStrategy("conservative"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Conservative" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Bonds & Stability" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(preRetireRate === "7" && postRetireRate === "5"), onClick: () => handleInvestmentStrategy("moderate"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Moderate" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Balanced Growth" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(preRetireRate === "9" && postRetireRate === "7"), onClick: () => handleInvestmentStrategy("aggressive"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Aggressive" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Max Returns" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Post-Retirement Travel Plans" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "low"), onClick: () => handleTravelPlanChange("low"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Conservative" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Local trips" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "moderate"), onClick: () => handleTravelPlanChange("moderate"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Moderate" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "1-2 trips/year" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(travelPlan === "high"), onClick: () => handleTravelPlanChange("high"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Aggressive" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "Frequent travel" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Family Plans" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 8, marginBottom: 12 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "none"), onClick: () => handleFamilyPlanChange("none"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "No Family" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "No children" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "small"), onClick: () => handleFamilyPlanChange("small"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Small Family" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "1-2 children" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.strategyBtn(familyPlan === "large"), onClick: () => handleFamilyPlanChange("large"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Large Family" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 10, fontWeight: 400, marginTop: 2 }, children: "3+ children" })
-            ] })
-          ] }),
-          familyPlan !== "none" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontSize: 13, color: COLORS.textSecondary }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              "input",
-              {
-                type: "checkbox",
-                checked: helpWithCollege,
-                onChange: (e) => handleCollegeToggle(e.target.checked),
-                style: { width: 16, height: 16, accentColor: COLORS.primary }
+                style: styles.strategyBtn(values.investmentStrategy === "conservative"),
+                onClick: () => updateVal("investmentStrategy", "conservative"),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Conservative" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "11px", fontWeight: 400, marginTop: "2px", opacity: 0.7 }, children: "Bonds & Stability" })
+                ]
               }
             ),
-            "Check here if you plan to help with college tuition"
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16, borderTop: `1px dashed ${COLORS.border}`, paddingTop: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Additional Notes" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 8, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }, children: "Add any extra details about your retirement plans here." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "textarea",
-            {
-              value: personalNotes,
-              onChange: (e) => setPersonalNotes(e.target.value),
-              placeholder: "Type here...",
-              style: {
-                width: "100%",
-                height: "52px",
-                padding: "10px 12px",
-                borderRadius: "12px",
-                border: `1px solid ${COLORS.border}`,
-                fontSize: "14px",
-                fontFamily: "inherit",
-                marginBottom: "8px",
-                resize: "vertical",
-                backgroundColor: COLORS.card,
-                boxSizing: "border-box"
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "div",
+              {
+                style: styles.strategyBtn(values.investmentStrategy === "moderate"),
+                onClick: () => updateVal("investmentStrategy", "moderate"),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Moderate" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "11px", fontWeight: 400, marginTop: "2px", opacity: 0.7 }, children: "Balanced Growth" })
+                ]
               }
-            }
-          )
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "div",
+              {
+                style: styles.strategyBtn(values.investmentStrategy === "aggressive"),
+                onClick: () => updateVal("investmentStrategy", "aggressive"),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Aggressive" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "11px", fontWeight: 400, marginTop: "2px", opacity: 0.7 }, children: "Max Returns" })
+                ]
+              }
+            )
+          ] })
         ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.buttonRow, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-press", style: styles.calcButton, onClick: calculate2, disabled: isAnalyzing, children: isAnalyzing ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Loader, { size: 20, className: "spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        "Calculate ",
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Play, { size: 20, fill: "white" })
-      ] }) }) })
+      ] })
     ] }),
-    currentCalc.result && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.resultCard, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultHeader, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: styles.resultTitle, children: [
-        "Retirement savings at age ",
-        currentCalc.values.retirementAge
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 24, gap: 16 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textMain, marginBottom: 4 }, children: "What you'll have" }),
-          (() => {
-            const have = currentCalc.result.have;
-            const need = currentCalc.result.need;
-            const ratio = need > 0 ? have / need : 1;
-            let color2 = COLORS.primary;
-            let message = "You're on track!";
-            if (ratio < 0.8) {
-              color2 = COLORS.red;
-              message = "You're falling short.";
-            } else if (ratio < 1) {
-              color2 = COLORS.yellow;
-              message = "You're getting close.";
-            }
-            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: color2 }, children: [
-                "$",
-                have.toLocaleString()
+    result && (() => {
+      const target = parseFloat(values.targetAmount) || 0;
+      const current3 = parseFloat(values.currentBalance) || 0;
+      const monthly = parseFloat(values.monthlyContribution) || 0;
+      const years = parseFloat(values.timeHorizon) || 0;
+      const strategyName = values.investmentStrategy === "conservative" ? "conservative" : values.investmentStrategy === "aggressive" ? "aggressive" : "moderate";
+      const getResultHeader = () => {
+        if (values.goal === "future") return "Projected Future Balance";
+        switch (values.solveFor) {
+          case "contribution":
+            return "Required Monthly Savings";
+          case "time":
+            return "Time to Reach Your Goal";
+          case "rate":
+            return "Required Annual Return";
+          case "current":
+            return "Required Starting Balance";
+          default:
+            return "Result";
+        }
+      };
+      const getResultSubtext = () => {
+        const mainVal = result.mainValue;
+        if (values.goal === "future") {
+          return `In ${years} years, your investment will grow to $${Math.round(mainVal).toLocaleString()}, starting with $${current3.toLocaleString()}, saving $${monthly.toLocaleString()}/month in a ${strategyName} growth strategy.`;
+        }
+        switch (values.solveFor) {
+          case "contribution":
+            return `You'll need to save $${Math.round(mainVal).toLocaleString()}/month if your goal is $${target.toLocaleString()}, in ${years} years, starting with $${current3.toLocaleString()} in a ${strategyName} growth strategy.`;
+          case "time":
+            return `It will take ${mainVal.toFixed(1)} years to reach $${target.toLocaleString()}, starting with $${current3.toLocaleString()}, saving $${monthly.toLocaleString()}/month in a ${strategyName} growth strategy.`;
+          case "rate":
+            return `You'll need a ${mainVal.toFixed(2)}% annual return to reach $${target.toLocaleString()} in ${years} years, starting with $${current3.toLocaleString()}, saving $${monthly.toLocaleString()}/month.`;
+          case "current":
+            return `You'll need to start with $${Math.round(mainVal).toLocaleString()} if your goal is $${target.toLocaleString()}, in ${years} years, with a monthly contribution of $${monthly.toLocaleString()} in a ${strategyName} growth strategy.`;
+          default:
+            return "";
+        }
+      };
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.card, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultLabel, children: getResultHeader() }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultBig, children: values.solveFor === "rate" ? result.mainValue.toFixed(2) + "%" : values.solveFor === "time" ? result.mainValue.toFixed(1) + " Years" : "$" + Math.round(result.mainValue).toLocaleString() }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", color: COLORS.textSecondary, textAlign: "center", lineHeight: 1.5, marginBottom: "16px" }, children: getResultSubtext() }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: "24px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: "12px", marginBottom: "20px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.legendItem, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "12px", height: "12px", borderRadius: "4px", backgroundColor: COLORS.primary } }),
+                "Interest"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: color2, marginTop: 4 }, children: message })
-            ] });
-          })()
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1, borderLeft: `1px solid ${COLORS.border}`, paddingLeft: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textMain, marginBottom: 4 }, children: "What you'll need" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 28, fontWeight: 800, color: COLORS.textMain }, children: [
-            "$",
-            currentCalc.result.need.toLocaleString()
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", borderBottom: `1px solid ${COLORS.border}`, marginBottom: 24 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "div",
-          {
-            style: { padding: "8px 16px", borderBottom: resultView === "graph" ? `2px solid ${COLORS.primary}` : "none", fontWeight: 700, color: resultView === "graph" ? COLORS.primary : COLORS.textSecondary, cursor: "pointer", fontSize: 12, letterSpacing: 1 },
-            onClick: () => setResultView("graph"),
-            children: "GRAPH VIEW"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "div",
-          {
-            style: { padding: "8px 16px", borderBottom: resultView === "summary" ? `2px solid ${COLORS.primary}` : "none", fontWeight: 700, color: resultView === "summary" ? COLORS.primary : COLORS.textSecondary, cursor: "pointer", fontSize: 12, letterSpacing: 1 },
-            onClick: () => setResultView("summary"),
-            children: "SUMMARY VIEW"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "div",
-          {
-            style: { padding: "8px 16px", borderBottom: resultView === "tips" ? `2px solid ${COLORS.primary}` : "none", fontWeight: 700, color: resultView === "tips" ? COLORS.primary : COLORS.textSecondary, cursor: "pointer", fontSize: 12, letterSpacing: 1 },
-            onClick: () => setResultView("tips"),
-            children: "TIPS"
-          }
-        )
-      ] }),
-      resultView === "graph" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { height: 300, width: "100%", fontSize: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResponsiveContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AreaChart, { data: currentCalc.result.graphData, margin: { top: 10, right: 10, left: -20, bottom: 0 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("linearGradient", { id: "colorCurrent", x1: "0", y1: "0", x2: "0", y2: "1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "5%", stopColor: COLORS.primary, stopOpacity: 0.1 }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "95%", stopColor: COLORS.primary, stopOpacity: 0 })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CartesianGrid, { strokeDasharray: "3 3", vertical: false, stroke: COLORS.border }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(XAxis, { dataKey: "age", tick: { fill: COLORS.textSecondary }, tickLine: false, axisLine: { stroke: COLORS.border }, minTickGap: 30 }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(YAxis, { tick: { fill: COLORS.textSecondary }, tickFormatter: (val) => `$${(val / 1e6).toFixed(1)}m`, tickLine: false, axisLine: false }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            Tooltip,
-            {
-              content: ({ active, payload, label }) => {
-                if (active && payload && payload.length) {
-                  const rec = payload.find((p) => p.name === "Recommended")?.value;
-                  const cur = payload.find((p) => p.name === "Current path")?.value;
-                  const diff = cur !== void 0 && rec !== void 0 ? cur - rec : 0;
-                  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { backgroundColor: "white", padding: 12, borderRadius: 8, boxShadow: "0 4px 12px rgba(0,0,0,0.1)", border: "1px solid #E5E7EB" }, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontWeight: 600, marginBottom: 8, fontSize: 12, color: COLORS.textSecondary }, children: [
-                      "Age ",
-                      label
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", gap: 16, marginBottom: 4 }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.blue, fontWeight: 600, fontSize: 12 }, children: "Recommended" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.textMain, fontSize: 12 }, children: [
-                        "$",
-                        rec?.toLocaleString()
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", gap: 16, marginBottom: 8 }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.primary, fontWeight: 600, fontSize: 12 }, children: "Current path" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.textMain, fontSize: 12 }, children: [
-                        "$",
-                        cur?.toLocaleString()
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", gap: 16, borderTop: "1px dashed #E5E7EB", paddingTop: 4 }, children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: 12 }, children: "Difference" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: diff >= 0 ? COLORS.primary : COLORS.red, fontSize: 12 }, children: [
-                        diff >= 0 ? "+" : "",
-                        "$",
-                        diff.toLocaleString()
-                      ] })
-                    ] })
-                  ] });
-                }
-                return null;
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontWeight: 700 }, children: [
+                "$",
+                Math.round(result.breakdown.totalGrowth).toLocaleString()
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.legendItem, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "12px", height: "12px", borderRadius: "4px", backgroundColor: COLORS.blue } }),
+                "Contributions"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontWeight: 700 }, children: [
+                "$",
+                Math.round(result.breakdown.totalContrib).toLocaleString()
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...styles.legendItem, borderBottom: "none" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "12px", height: "12px", borderRadius: "4px", backgroundColor: COLORS.textSecondary } }),
+                "Starting Amount"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontWeight: 700 }, children: [
+                "$",
+                result.breakdown.starting.toLocaleString()
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "280px", width: "100%", marginTop: "16px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResponsiveContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(BarChart, { data: result.chartData, margin: { top: 10, right: 10, left: 0, bottom: 20 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              XAxis,
+              {
+                dataKey: "year",
+                tick: { fontSize: 11, fill: COLORS.textSecondary },
+                axisLine: { stroke: COLORS.border },
+                tickLine: false,
+                label: { value: "Year", position: "bottom", offset: 0, fontSize: 12, fill: COLORS.textSecondary }
               }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Area, { type: "monotone", dataKey: "recommended", stroke: COLORS.blue, strokeDasharray: "5 5", fill: "transparent", strokeWidth: 2, name: "Recommended" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Area, { type: "monotone", dataKey: "current", stroke: COLORS.primary, fill: "url(#colorCurrent)", strokeWidth: 2, name: "Current path" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReferenceDot, { x: parseInt(currentCalc.values.retirementAge), y: currentCalc.result.have, r: 4, fill: COLORS.primary, stroke: "white", strokeWidth: 2 }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReferenceDot, { x: parseInt(currentCalc.values.retirementAge), y: currentCalc.result.need, r: 4, fill: COLORS.blue, stroke: "white", strokeWidth: 2 })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "center", gap: 16, marginTop: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 4 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 12, height: 2, backgroundColor: COLORS.blue } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: 12 }, children: "Recommended" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 4 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 12, height: 2, backgroundColor: COLORS.primary } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: COLORS.textSecondary, fontSize: 12 }, children: "Current path" })
-          ] })
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              YAxis,
+              {
+                tick: { fontSize: 11, fill: COLORS.textSecondary },
+                axisLine: { stroke: COLORS.border },
+                tickLine: false,
+                tickFormatter: (value) => value >= 1e6 ? `$${(value / 1e6).toFixed(1)}M` : value >= 1e3 ? `$${(value / 1e3).toFixed(0)}K` : `$${value}`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              Tooltip,
+              {
+                formatter: (value, name) => [`$${value.toLocaleString()}`, name === "starting" ? "Starting Amount" : name === "contributions" ? "Contributions" : "Interest"],
+                labelFormatter: (label) => `Year ${label}`,
+                contentStyle: { borderRadius: "8px", border: `1px solid ${COLORS.border}` }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bar, { dataKey: "starting", stackId: "a", fill: COLORS.textSecondary, radius: [0, 0, 0, 0] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bar, { dataKey: "contributions", stackId: "a", fill: COLORS.blue, radius: [0, 0, 0, 0] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bar, { dataKey: "growth", stackId: "a", fill: COLORS.primary, radius: [4, 4, 0, 0] })
+          ] }) }) })
         ] })
-      ] }),
-      resultView === "summary" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.list, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 800, color: COLORS.textMain, fontSize: 16 }, children: "Plan Analysis" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary }, children: "Comparison of your current trajectory vs. your goals" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Monthly Contributions" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Current Contribution" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.textMain }, children: [
-                "$",
-                currentCalc.result.currentMonthlyContrib.toLocaleString()
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Required Contribution" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
-                "$",
-                currentCalc.result.monthlyContribNeeded.toLocaleString()
-              ] })
-            ] })
-          ] }),
-          (() => {
-            const diff = currentCalc.result.monthlyContribNeeded - currentCalc.result.currentMonthlyContrib;
-            if (diff > 0) {
-              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 13, color: COLORS.textSecondary, marginTop: 8, paddingLeft: 4, display: "flex", gap: 6 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u{1F4A1}" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-                  "To meet your goal, increase contributions by ",
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontWeight: 700, color: COLORS.textMain }, children: [
-                    "$",
-                    diff.toLocaleString()
-                  ] }),
-                  " /mo."
-                ] })
-              ] });
-            } else {
-              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 13, color: COLORS.primary, marginTop: 8, paddingLeft: 4, fontWeight: 600, display: "flex", gap: 6 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u2705" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "You are contributing enough to meet your goal!" })
-              ] });
-            }
-          })()
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Total Savings at Retirement" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Projected Outcome" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.textMain }, children: [
-                "$",
-                currentCalc.result.have.toLocaleString()
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Retirement Goal" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
-                "$",
-                currentCalc.result.need.toLocaleString()
-              ] })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 600, color: COLORS.textMain, marginBottom: 8 }, children: "Sustainability" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 12, backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Funds last until" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: currentCalc.result.runOutAgeCurrent < parseInt(currentCalc.values.lifeExpectancy) ? COLORS.red : COLORS.primary }, children: [
-                "Age ",
-                currentCalc.result.runOutAgeCurrent
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.textSecondary, opacity: 0.5 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { size: 24 }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 12, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 500 }, children: "Target Duration" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontSize: 18, fontWeight: 800, color: COLORS.blue }, children: [
-                "Age ",
-                currentCalc.values.lifeExpectancy,
-                "+"
-              ] })
-            ] })
-          ] })
-        ] })
-      ] }),
-      resultView === "tips" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.list, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 20, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: 12 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontWeight: 800, color: COLORS.textMain, fontSize: 16 }, children: "Personalized Recommendations" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary }, children: "Actionable steps to improve your retirement outlook" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: generateTips().map((tip, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { backgroundColor: "white", padding: 16, borderRadius: 12, border: `1px solid ${COLORS.border}`, boxShadow: "0 2px 4px rgba(0,0,0,0.02)", display: "flex", gap: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 24, backgroundColor: COLORS.inputBg, width: 48, height: 48, borderRadius: 24, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: tip.icon }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, fontWeight: 700, color: COLORS.textMain, marginBottom: 4 }, children: tip.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 13, color: COLORS.textSecondary, lineHeight: 1.5 }, children: tip.desc })
-          ] })
-        ] }, idx)) })
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.footer, className: "no-print", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, onClick: () => setShowSubscribeModal(true), className: "btn-press", children: [
+      ] });
+    })(),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.actionsContainer, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => setShowSubscribeModal(true), children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { size: 16 }),
-        " Subscribe"
+        "Subscribe"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, onClick: resetToDefaults, className: "btn-press", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { size: 16 }),
-        " Reset"
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => {
+        clearSavedValues();
+        setValues(DEFAULT_VALUES);
+        setSubscribeStatus("idle");
+        setSubscribeEmail("");
+        setSubscribeMessage("");
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { size: 16 }),
+        "Reset"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, className: "btn-press", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heart, { size: 16 }),
-        " Donate"
+        "Donate"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, onClick: () => setShowFeedbackModal(true), className: "btn-press", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => setShowFeedbackModal(true), children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageSquare, { size: 16 }),
-        " Feedback"
+        "Feedback"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { style: styles.footerBtn, onClick: () => window.print(), className: "btn-press", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => window.print(), children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 16 }),
-        " Print"
+        "Print"
       ] })
-    ] }),
-    showFeedbackModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.bottomModalOverlay, onClick: () => setShowFeedbackModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, onClick: (e) => e.stopPropagation(), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowFeedbackModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 20 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "24px", fontWeight: 800, marginBottom: "8px", color: COLORS.textMain }, children: "Feedback" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", color: COLORS.textSecondary, marginBottom: "24px" }, children: "Help us improve the calculator." }),
-      feedbackStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { textAlign: "center", padding: "20px", color: COLORS.primary, fontWeight: 600 }, children: "Thanks for your feedback!" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "textarea",
-          {
-            style: { ...styles.input, height: "120px", resize: "none", fontFamily: "inherit" },
-            placeholder: "Tell us what you think...",
-            value: feedbackText,
-            onChange: (e) => setFeedbackText(e.target.value)
-          }
-        ),
-        feedbackStatus === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.red, fontSize: "14px", marginBottom: "10px" }, children: "Failed to send. Please try again." }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "button",
-          {
-            style: { ...styles.calcButton, width: "100%" },
-            onClick: handleFeedbackSubmit,
-            disabled: feedbackStatus === "submitting" || !feedbackText.trim(),
-            className: "btn-press",
-            children: feedbackStatus === "submitting" ? "Sending..." : "Send Feedback"
-          }
-        )
-      ] })
-    ] }) }),
-    showSavingsModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowSavingsModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 20 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginBottom: 24, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 20, fontWeight: 800, color: COLORS.textMain, marginBottom: 8 }, children: "Current Savings Breakdown" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Savings Account" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savingsDetails.savings,
-              onChange: (v) => handleSavingsDetailChange("savings", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Checking Account" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savingsDetails.checking,
-              onChange: (v) => handleSavingsDetailChange("checking", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Stock Portfolio" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savingsDetails.stockPortfolio,
-              onChange: (v) => handleSavingsDetailChange("stockPortfolio", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Crypto Accounts" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savingsDetails.crypto,
-              onChange: (v) => handleSavingsDetailChange("crypto", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "401k / Retirement Accounts" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: savingsDetails.retirement,
-              onChange: (v) => handleSavingsDetailChange("retirement", v),
-              prefix: "$"
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "button",
-        {
-          onClick: () => setShowSavingsModal(false),
-          style: {
-            marginTop: 24,
-            width: "100%",
-            padding: "14px",
-            borderRadius: "12px",
-            border: "none",
-            backgroundColor: COLORS.primary,
-            color: "white",
-            fontSize: "16px",
-            fontWeight: 700,
-            cursor: "pointer"
-          },
-          children: "Save"
-        }
-      )
-    ] }) }),
-    showIncomeModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowIncomeModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 20 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 24, textAlign: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 20, fontWeight: 800, color: COLORS.textMain, marginBottom: 8 }, children: "Other Monthly Income" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: 14, color: COLORS.textSecondary }, children: "Enter monthly income amounts" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Social Security Payment" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: incomeDetails.socialSecurity,
-              onChange: (v) => handleIncomeDetailChange("socialSecurity", v),
-              prefix: "$"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "div",
-            {
-              style: { fontSize: 12, color: COLORS.primary, fontWeight: 700, cursor: "pointer", display: "flex", justifyContent: "flex-end", marginTop: 4 },
-              onClick: handleEstimateSocialSecurity,
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u{1FA84} Estimate" })
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Real Estate" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: incomeDetails.realEstate,
-              onChange: (v) => handleIncomeDetailChange("realEstate", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Trust Fund" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: incomeDetails.trust,
-              onChange: (v) => handleIncomeDetailChange("trust", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Investment Funds" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: incomeDetails.investments,
-              onChange: (v) => handleIncomeDetailChange("investments", v),
-              prefix: "$"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.label, children: "Other" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            NumberControl,
-            {
-              value: incomeDetails.other,
-              onChange: (v) => handleIncomeDetailChange("other", v),
-              prefix: "$"
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "button",
-        {
-          onClick: () => setShowIncomeModal(false),
-          style: {
-            marginTop: 24,
-            width: "100%",
-            padding: "14px",
-            borderRadius: "12px",
-            border: "none",
-            backgroundColor: COLORS.primary,
-            color: "white",
-            fontSize: "16px",
-            fontWeight: 700,
-            cursor: "pointer"
-          },
-          children: "Save"
-        }
-      )
-    ] }) }),
-    showSubscribeModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.modalOverlay, onClick: () => setShowSubscribeModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.modalContent, onClick: (e) => e.stopPropagation(), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: styles.modalClose, onClick: () => setShowSubscribeModal(false), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 20 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "24px", fontWeight: 800, marginBottom: "8px", color: COLORS.textMain }, children: "Sign Up For Retirement Tips" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", color: COLORS.textSecondary, marginBottom: "24px" }, children: "Get personalized recommendations to improve your retirement planning." }),
-      subscribeStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", padding: "20px", color: COLORS.primary, fontWeight: 600 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "40px", marginBottom: "10px" }, children: "\u{1F389}" }),
-        subscribeMessage
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: "16px" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: { display: "block", fontSize: "14px", fontWeight: 600, marginBottom: "8px", color: COLORS.textMain }, children: "Email Address" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "input",
-            {
-              style: styles.input,
-              placeholder: "you@example.com",
-              value: email,
-              onChange: (e) => setEmail(e.target.value)
-            }
-          )
-        ] }),
-        subscribeStatus === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: COLORS.red, fontSize: "14px", marginBottom: "16px", textAlign: "center" }, children: subscribeMessage }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "button",
-          {
-            style: { ...styles.calcButton, width: "100%" },
-            onClick: handleSubscribe,
-            disabled: subscribeStatus === "loading",
-            className: "btn-press",
-            children: subscribeStatus === "loading" ? "Subscribing..." : "Subscribe"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "11px", color: COLORS.textSecondary, textAlign: "center", marginTop: "12px", lineHeight: 1.4 }, children: "By subscribing, you agree to receive emails. Unsubscribe anytime. We retain your email until you unsubscribe." })
-      ] })
-    ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-        .btn-press {
-          transition: transform 0.1s ease, opacity 0.2s;
-        }
-        .btn-press:active {
-          transform: scale(0.95);
-        }
-        .btn-press:hover {
-          opacity: 0.7;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .spin {
-            animation: spin 1s linear infinite;
-        }
-        @media print {
-          body {
-            background-color: white;
-          }
-          .no-print {
-            display: none !important;
-          }
-        }
-      ` })
+    ] })
   ] });
 }
 
@@ -50491,15 +49827,15 @@ var getHydrationData = () => {
   console.log("[Hydration] No data found in any candidate source");
   return {};
 };
-console.log("[Main] Retirement Calculator main.tsx loading...");
-var container = document.getElementById("retirement-calculator-root");
+console.log("[Main] Investment Calculator main.tsx loading...");
+var container = document.getElementById("investment-calculator-root");
 if (!container) {
-  throw new Error("retirement-calculator-root element not found");
+  throw new Error("investment-calculator-root element not found");
 }
 var root = (0, import_client.createRoot)(container);
 var renderApp = (data) => {
   root.render(
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react53.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ErrorBoundary, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(RetirementCalculatorHelloWorld, { initialData: data }, Date.now()) }) })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react53.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ErrorBoundary, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InvestmentCalculator, { initialData: data }, Date.now()) }) })
   );
 };
 var initialData = getHydrationData();
@@ -50596,6 +49932,17 @@ use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.developme
 decimal.js-light/decimal.js:
   (*! decimal.js-light v2.5.1 https://github.com/MikeMcl/decimal.js-light/LICENCE *)
 
+react-is/cjs/react-is.development.js:
+  (**
+   * @license React
+   * react-is.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
 use-sync-external-store/cjs/use-sync-external-store-with-selector.development.js:
   (**
    * @license React
@@ -50650,14 +49997,6 @@ lucide-react/dist/esm/createLucideIcon.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/arrow-right.js:
-  (**
-   * @license lucide-react v0.554.0 - ISC
-   *
-   * This source code is licensed under the ISC license.
-   * See the LICENSE file in the root directory of this source tree.
-   *)
-
 lucide-react/dist/esm/icons/check.js:
   (**
    * @license lucide-react v0.554.0 - ISC
@@ -50666,23 +50005,7 @@ lucide-react/dist/esm/icons/check.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/chevron-down.js:
-  (**
-   * @license lucide-react v0.554.0 - ISC
-   *
-   * This source code is licensed under the ISC license.
-   * See the LICENSE file in the root directory of this source tree.
-   *)
-
 lucide-react/dist/esm/icons/heart.js:
-  (**
-   * @license lucide-react v0.554.0 - ISC
-   *
-   * This source code is licensed under the ISC license.
-   * See the LICENSE file in the root directory of this source tree.
-   *)
-
-lucide-react/dist/esm/icons/loader.js:
   (**
    * @license lucide-react v0.554.0 - ISC
    *
@@ -50714,14 +50037,6 @@ lucide-react/dist/esm/icons/minus.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/play.js:
-  (**
-   * @license lucide-react v0.554.0 - ISC
-   *
-   * This source code is licensed under the ISC license.
-   * See the LICENSE file in the root directory of this source tree.
-   *)
-
 lucide-react/dist/esm/icons/plus.js:
   (**
    * @license lucide-react v0.554.0 - ISC
@@ -50738,7 +50053,23 @@ lucide-react/dist/esm/icons/printer.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 
-lucide-react/dist/esm/icons/rotate-ccw.js:
+lucide-react/dist/esm/icons/refresh-cw.js:
+  (**
+   * @license lucide-react v0.554.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
+   *)
+
+lucide-react/dist/esm/icons/target.js:
+  (**
+   * @license lucide-react v0.554.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
+   *)
+
+lucide-react/dist/esm/icons/trending-up.js:
   (**
    * @license lucide-react v0.554.0 - ISC
    *
