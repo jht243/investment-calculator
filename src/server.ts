@@ -240,12 +240,12 @@ function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = fal
     "openai/widgetCSP": {
       connect_domains: [
         "https://api.stlouisfed.org",
-        "https://investment-calculator.onrender.com",
+        "https://investment-calculator-1a2t.onrender.com",
         "http://localhost:8010",
         "https://challenges.cloudflare.com"
       ],
       script_src_domains: [
-        "https://investment-calculator.onrender.com",
+        "https://investment-calculator-1a2t.onrender.com",
         "https://challenges.cloudflare.com"
       ],
       resource_domains: [],

@@ -48870,7 +48870,7 @@ var solveForRate = (nYears, pv, pmt, fv) => {
   }
   return mid;
 };
-var API_BASE = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:8001" : "https://investment-calculator.onrender.com";
+var API_BASE = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:8001" : "https://investment-calculator-1a2t.onrender.com";
 function InvestmentCalculator({ initialData: initialData2 }) {
   const [values, setValues] = (0, import_react52.useState)(() => {
     const saved = loadSavedValues();

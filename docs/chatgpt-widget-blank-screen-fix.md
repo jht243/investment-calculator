@@ -24,7 +24,7 @@ The issue was with **how the external React JavaScript bundle was being loaded**
 
 2. **Absolute Script URLs with Regular src Attribute**
    ```html
-   <script type="module" src="https://investment-calculator.onrender.com/assets/investment-calculator.js"></script>
+   <script type="module" src="https://investment-calculator-1a2t.onrender.com/assets/investment-calculator.js"></script>
    ```
    - Failed even with proper CSP `script_src_domains` configured
    - ChatGPT's HTML inlining process may interfere with external script loading via `src` attribute
@@ -43,7 +43,7 @@ Use **dynamic `import()` within an inline `<script>` tag** to load the external 
   Load script via import() to avoid HTML parser issues with inline code
 -->
 <script type="module">
-  import('https://investment-calculator.onrender.com/assets/investment-calculator.js')
+  import('https://investment-calculator-1a2t.onrender.com/assets/investment-calculator.js')
     .catch(err => {
       console.error('[Investment Calculator] Failed to load script:', err);
       document.getElementById('investment-calculator-root').innerHTML = 

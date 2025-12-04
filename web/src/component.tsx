@@ -235,7 +235,7 @@ const solveForRate = (nYears: number, pv: number, pmt: number, fv: number): numb
 
 const API_BASE = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
   ? 'http://localhost:8001' 
-  : 'https://investment-calculator.onrender.com';
+  : 'https://investment-calculator-1a2t.onrender.com';
 
 export default function InvestmentCalculator({ initialData }: { initialData?: any }) {
   // Load saved values from localStorage or use defaults
