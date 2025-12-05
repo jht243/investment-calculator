@@ -696,6 +696,9 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         .action-btn:active {
             transform: scale(0.95);
         }
+        .related-btn:active {
+            transform: scale(0.95);
+        }
         @media print {
             body { background-color: white; }
             .action-btn, button { display: none !important; }
@@ -1179,6 +1182,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
               {/* First row - 2 buttons */}
               <div style={{ display: "flex", gap: "8px" }}>
                   <button 
+                    className="related-btn"
                     style={{
                         flex: 1,
                         padding: "12px 10px",
@@ -1208,6 +1212,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
                       Retirement Calculator
                   </button>
                   <button 
+                    className="related-btn"
                     style={{
                         flex: 1,
                         padding: "12px 10px",
@@ -1240,6 +1245,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
               {/* Second row - 1 button centered */}
               <div style={{ display: "flex", justifyContent: "center" }}>
                   <button 
+                    className="related-btn"
                     style={{
                         flex: "0 1 50%",
                         padding: "12px 10px",
