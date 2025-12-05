@@ -48891,42 +48891,16 @@ function InvestmentCalculator({ initialData: initialData2 }) {
   const [subscribeEmail, setSubscribeEmail] = (0, import_react52.useState)("");
   const [subscribeStatus, setSubscribeStatus] = (0, import_react52.useState)("idle");
   const [subscribeMessage, setSubscribeMessage] = (0, import_react52.useState)("");
-  const turnstileRef = (0, import_react52.useRef)(null);
-  const [turnstileToken, setTurnstileToken] = (0, import_react52.useState)("");
   const [showSubscribeModal, setShowSubscribeModal] = (0, import_react52.useState)(false);
   const [modalSource, setModalSource] = (0, import_react52.useState)("top");
   const [showFeedbackModal, setShowFeedbackModal] = (0, import_react52.useState)(false);
   const [feedbackText, setFeedbackText] = (0, import_react52.useState)("");
   const [feedbackStatus, setFeedbackStatus] = (0, import_react52.useState)("idle");
-  (0, import_react52.useEffect)(() => {
-    if (showSubscribeModal && turnstileRef.current && window.turnstile) {
-      const widgetId = turnstileRef.current.getAttribute("data-turnstile-id");
-      if (widgetId) window.turnstile.remove(widgetId);
-      try {
-        console.log("[InvestmentCalculator] Rendering Turnstile widget");
-        window.turnstile.render(turnstileRef.current, {
-          sitekey: window.TURNSTILE_SITE_KEY,
-          callback: (token) => {
-            console.log("[InvestmentCalculator] Turnstile verified, token received");
-            setTurnstileToken(token);
-          },
-          appearance: "interaction-only"
-        });
-      } catch (e) {
-        console.error("Turnstile render error", e);
-      }
-    }
-  }, [showSubscribeModal]);
   const handleSubscribe = async () => {
-    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail, hasToken: !!turnstileToken });
+    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail });
     if (!subscribeEmail || !subscribeEmail.includes("@")) {
       setSubscribeStatus("error");
       setSubscribeMessage("Please enter a valid email address");
-      return;
-    }
-    if (!turnstileToken) {
-      setSubscribeStatus("error");
-      setSubscribeMessage("Please verify you are human");
       return;
     }
     setSubscribeStatus("loading");
@@ -48937,8 +48911,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         body: JSON.stringify({
           email: subscribeEmail,
           topicId: "investment-calculator",
-          topicName: "Investment Calculator Tips",
-          turnstileToken
+          topicName: "Investment Calculator Tips"
         })
       });
       const data = await response.json();
@@ -49398,7 +49371,6 @@ function InvestmentCalculator({ initialData: initialData2 }) {
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { ref: turnstileRef, style: { marginBottom: "12px" } }),
         subscribeStatus === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: "#DC2626", fontSize: "13px", marginBottom: "12px" }, children: subscribeMessage || "Please try again" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "button",
@@ -49748,6 +49720,129 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         ] })
       ] });
     })(),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+      backgroundColor: COLORS.card,
+      borderRadius: "16px",
+      padding: "16px",
+      boxShadow: "0 4px 12px -4px rgba(0,0,0,0.05)",
+      marginBottom: "20px"
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+        fontSize: "14px",
+        fontWeight: 600,
+        color: COLORS.textSecondary,
+        marginBottom: "12px",
+        textAlign: "center"
+      }, children: "Related Calculators" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "8px",
+        width: "100%"
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "8px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              style: {
+                flex: 1,
+                padding: "12px 10px",
+                backgroundColor: COLORS.inputBg,
+                border: `1px solid ${COLORS.border}`,
+                borderRadius: "10px",
+                color: COLORS.primary,
+                fontWeight: 600,
+                fontSize: "14px",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px"
+              },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                e.currentTarget.style.borderColor = COLORS.primary;
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                e.currentTarget.style.borderColor = COLORS.border;
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TrendingUp, { size: 16 }),
+                "Retirement Calculator"
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              style: {
+                flex: 1,
+                padding: "12px 10px",
+                backgroundColor: COLORS.inputBg,
+                border: `1px solid ${COLORS.border}`,
+                borderRadius: "10px",
+                color: COLORS.primary,
+                fontWeight: 600,
+                fontSize: "14px",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px"
+              },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                e.currentTarget.style.borderColor = COLORS.primary;
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                e.currentTarget.style.borderColor = COLORS.border;
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 16 }),
+                "Mortgage Calculator"
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+          "button",
+          {
+            style: {
+              flex: "0 1 50%",
+              padding: "12px 10px",
+              backgroundColor: COLORS.inputBg,
+              border: `1px solid ${COLORS.border}`,
+              borderRadius: "10px",
+              color: COLORS.primary,
+              fontWeight: 600,
+              fontSize: "14px",
+              cursor: "pointer",
+              transition: "all 0.2s",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px"
+            },
+            onMouseEnter: (e) => {
+              e.currentTarget.style.backgroundColor = COLORS.accentLight;
+              e.currentTarget.style.borderColor = COLORS.primary;
+            },
+            onMouseLeave: (e) => {
+              e.currentTarget.style.backgroundColor = COLORS.inputBg;
+              e.currentTarget.style.borderColor = COLORS.border;
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 }),
+              "Portfolio Analyzer"
+            ]
+          }
+        ) })
+      ] })
+    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.actionsContainer, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "action-btn", style: styles.actionBtn, onClick: () => {
         setModalSource("bottom");

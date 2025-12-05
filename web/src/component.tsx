@@ -263,9 +263,6 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
   const [subscribeStatus, setSubscribeStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [subscribeMessage, setSubscribeMessage] = useState("");
   
-  const turnstileRef = useRef<HTMLDivElement>(null);
-  const [turnstileToken, setTurnstileToken] = useState<string>("");
-  
   // Modal states
   const [showSubscribeModal, setShowSubscribeModal] = useState(false);
   const [modalSource, setModalSource] = useState<"top" | "bottom">("top");
@@ -273,42 +270,14 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackStatus, setFeedbackStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  useEffect(() => {
-    if (showSubscribeModal && turnstileRef.current && (window as any).turnstile) {
-        // cleanup previous
-        const widgetId = turnstileRef.current.getAttribute("data-turnstile-id");
-        if (widgetId) (window as any).turnstile.remove(widgetId);
-
-        try {
-            console.log("[InvestmentCalculator] Rendering Turnstile widget");
-            (window as any).turnstile.render(turnstileRef.current, {
-                sitekey: (window as any).TURNSTILE_SITE_KEY,
-                callback: (token: string) => {
-                    console.log("[InvestmentCalculator] Turnstile verified, token received");
-                    setTurnstileToken(token);
-                },
-                appearance: 'interaction-only'
-            });
-        } catch (e) {
-            console.error("Turnstile render error", e);
-        }
-    }
-  }, [showSubscribeModal]);
-
   const handleSubscribe = async () => {
-    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail, hasToken: !!turnstileToken });
+    console.log("[InvestmentCalculator] Handle subscribe called", { email: subscribeEmail });
     if (!subscribeEmail || !subscribeEmail.includes("@")) {
       setSubscribeStatus("error");
       setSubscribeMessage("Please enter a valid email address");
       return;
     }
     
-    if (!turnstileToken) {
-        setSubscribeStatus("error");
-        setSubscribeMessage("Please verify you are human");
-        return;
-    }
-
     setSubscribeStatus("loading");
     try {
       const response = await fetch(`${API_BASE}/api/subscribe`, {
@@ -317,8 +286,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         body: JSON.stringify({
           email: subscribeEmail,
           topicId: "investment-calculator",
-          topicName: "Investment Calculator Tips",
-          turnstileToken
+          topicName: "Investment Calculator Tips"
         })
       });
       
@@ -826,7 +794,6 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
                             boxSizing: "border-box"
                         }}
                     />
-                    <div ref={turnstileRef} style={{marginBottom: "12px"}}></div>
                     {subscribeStatus === "error" && (
                         <div style={{color: "#DC2626", fontSize: "13px", marginBottom: "12px"}}>
                             {subscribeMessage || "Please try again"}
@@ -1185,6 +1152,125 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
           </div>
           );
       })()}
+
+      {/* Related Calculators Section */}
+      <div style={{
+          backgroundColor: COLORS.card,
+          borderRadius: "16px",
+          padding: "16px",
+          boxShadow: "0 4px 12px -4px rgba(0,0,0,0.05)",
+          marginBottom: "20px"
+      }}>
+          <div style={{
+              fontSize: "14px", 
+              fontWeight: 600, 
+              color: COLORS.textSecondary, 
+              marginBottom: "12px",
+              textAlign: "center"
+          }}>
+              Related Calculators
+          </div>
+          <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "8px",
+              width: "100%"
+          }}>
+              {/* First row - 2 buttons */}
+              <div style={{ display: "flex", gap: "8px" }}>
+                  <button 
+                    style={{
+                        flex: 1,
+                        padding: "12px 10px",
+                        backgroundColor: COLORS.inputBg,
+                        border: `1px solid ${COLORS.border}`,
+                        borderRadius: "10px",
+                        color: COLORS.primary,
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        cursor: "pointer",
+                        transition: "all 0.2s",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "6px"
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                        e.currentTarget.style.borderColor = COLORS.primary;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                        e.currentTarget.style.borderColor = COLORS.border;
+                    }}
+                  >
+                      <TrendingUp size={16} />
+                      Retirement Calculator
+                  </button>
+                  <button 
+                    style={{
+                        flex: 1,
+                        padding: "12px 10px",
+                        backgroundColor: COLORS.inputBg,
+                        border: `1px solid ${COLORS.border}`,
+                        borderRadius: "10px",
+                        color: COLORS.primary,
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        cursor: "pointer",
+                        transition: "all 0.2s",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "6px"
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                        e.currentTarget.style.borderColor = COLORS.primary;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                        e.currentTarget.style.borderColor = COLORS.border;
+                    }}
+                  >
+                      <Target size={16} />
+                      Mortgage Calculator
+                  </button>
+              </div>
+              {/* Second row - 1 button centered */}
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                  <button 
+                    style={{
+                        flex: "0 1 50%",
+                        padding: "12px 10px",
+                        backgroundColor: COLORS.inputBg,
+                        border: `1px solid ${COLORS.border}`,
+                        borderRadius: "10px",
+                        color: COLORS.primary,
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        cursor: "pointer",
+                        transition: "all 0.2s",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "6px"
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                        e.currentTarget.style.borderColor = COLORS.primary;
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                        e.currentTarget.style.borderColor = COLORS.border;
+                    }}
+                  >
+                      <Check size={16} />
+                      Portfolio Analyzer
+                  </button>
+              </div>
+          </div>
+      </div>
 
       <div style={styles.actionsContainer}>
         <button className="action-btn" style={styles.actionBtn} onClick={() => {

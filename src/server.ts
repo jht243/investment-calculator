@@ -61,7 +61,6 @@ const ROOT_DIR = (() => {
 
 const ASSETS_DIR = path.resolve(ROOT_DIR, "assets");
 const LOGS_DIR = path.resolve(__dirname, "..", "logs");
-const TURNSTILE_SITE_KEY = process.env.TURNSTILE_SITE_KEY || "";
 
 if (!fs.existsSync(LOGS_DIR)) {
   fs.mkdirSync(LOGS_DIR, { recursive: true });
@@ -252,12 +251,10 @@ function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = fal
       connect_domains: [
         "https://api.stlouisfed.org",
         "https://investment-calculator-1a2t.onrender.com",
-        "http://localhost:8010",
-        "https://challenges.cloudflare.com"
+        "http://localhost:8010"
       ],
       script_src_domains: [
-        "https://investment-calculator-1a2t.onrender.com",
-        "https://challenges.cloudflare.com"
+        "https://investment-calculator-1a2t.onrender.com"
       ],
       resource_domains: [],
     },
@@ -416,12 +413,6 @@ function createInvestmentCalculatorServer(): Server {
       // Inject current FRED rate into HTML before sending to ChatGPT
       // (Logic removed for Investment calculator)
       let htmlToSend = widget.html;
-      
-      if (TURNSTILE_SITE_KEY) {
-        htmlToSend = htmlToSend.replace(/__TURNSTILE_SITE_KEY__/g, TURNSTILE_SITE_KEY);
-      } else {
-        console.warn("[Turnstile] TURNSTILE_SITE_KEY missing; captcha will not render");
-      }
 
       return {
         contents: [
@@ -541,12 +532,11 @@ function createInvestmentCalculatorServer(): Server {
           }
 
           // Infer time horizon (years)
-          if (args.time_horizon === undefined) {
-             const yearsMatch = userText.match(/(?:for|over|in)\s*(\d+)\s*(?:years?|yrs?)/i);
-             if (yearsMatch) {
-                const years = parseInt(yearsMatch[1], 10);
-                if (years > 0 && years < 100) args.time_horizon = years;
-             }
+          // Check text specifically for years to override potential defaults from the model
+          const yearsMatch = userText.match(/(?:for|over|in)\s*(\d+)\s*(?:years?|yrs?)/i);
+          if (yearsMatch) {
+            const years = parseInt(yearsMatch[1], 10);
+            if (years > 0 && years < 100) args.time_horizon = years;
           }
 
         } catch (e) {
@@ -1265,43 +1255,14 @@ async function handleTrackEvent(req: IncomingMessage, res: ServerResponse) {
   }
 }
 
-// Turnstile verification
-async function verifyTurnstile(token: string): Promise<boolean> {
-  const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
-  
-  if (!TURNSTILE_SECRET_KEY) {
-    console.error("TURNSTILE_SECRET_KEY not set in environment variables");
-    return false;
-  }
-
-  if (!token) {
-    console.error("Turnstile token missing");
-    return false;
-  }
-
-  try {
-    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        secret: TURNSTILE_SECRET_KEY,
-        response: token,
-      }),
-    });
-
-    const data = await response.json();
-    return data.success === true;
-  } catch (error) {
-    console.error('Turnstile verification error:', error);
-    return false;
-  }
-}
 
 // Buttondown API integration
 async function subscribeToButtondown(email: string, topicId: string, topicName: string) {
   const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY;
+  
+  console.log("[Buttondown] subscribeToButtondown called", { email, topicId, topicName });
+  console.log("[Buttondown] API Key present:", !!BUTTONDOWN_API_KEY);
+  console.log("[Buttondown] API Key length:", BUTTONDOWN_API_KEY?.length);
   
   if (!BUTTONDOWN_API_KEY) {
     throw new Error("BUTTONDOWN_API_KEY not set in environment variables");
@@ -1309,8 +1270,17 @@ async function subscribeToButtondown(email: string, topicId: string, topicName: 
 
   const metadata: Record<string, any> = {
     topicName,
+    source: "investment-calculator",
     subscribedAt: new Date().toISOString(),
   };
+
+  const requestBody = {
+    email_address: email,
+    tags: [topicId],
+    metadata,
+  };
+  
+  console.log("[Buttondown] Sending request to Buttondown API:", JSON.stringify(requestBody));
 
   const response = await fetch("https://api.buttondown.email/v1/subscribers", {
     method: "POST",
@@ -1318,19 +1288,19 @@ async function subscribeToButtondown(email: string, topicId: string, topicName: 
       "Authorization": `Token ${BUTTONDOWN_API_KEY}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      email_address: email,
-      tags: [topicId],
-      metadata,
-    }),
+    body: JSON.stringify(requestBody),
   });
+
+  console.log("[Buttondown] Response status:", response.status, response.statusText);
 
   if (!response.ok) {
     const errorText = await response.text();
+    console.log("[Buttondown] Error response body:", errorText);
     let errorMessage = "Failed to subscribe";
     
     try {
       const errorData = JSON.parse(errorText);
+      console.log("[Buttondown] Parsed error data:", errorData);
       if (errorData.detail) {
         errorMessage = errorData.detail;
       } else if (errorData.code) {
@@ -1343,7 +1313,9 @@ async function subscribeToButtondown(email: string, topicId: string, topicName: 
     throw new Error(errorMessage);
   }
 
-  return await response.json();
+  const responseData = await response.json();
+  console.log("[Buttondown] Success response:", JSON.stringify(responseData));
+  return responseData;
 }
 
 // Update existing subscriber with new topic
@@ -1392,6 +1364,7 @@ async function updateButtondownSubscriber(email: string, topicId: string, topicN
   const updatedMetadata = {
     ...existingMetadata,
     [topicKey]: topicData,
+    source: "investment-calculator",
   };
 
   const updateResponse = await fetch(`https://api.buttondown.email/v1/subscribers/${subscriberId}`, {
@@ -1415,17 +1388,21 @@ async function updateButtondownSubscriber(email: string, topicId: string, topicN
 }
 
 async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
+  console.log("[Subscribe] handleSubscribe called", { method: req.method, url: req.url });
+  
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "content-type");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Content-Type", "application/json");
 
   if (req.method === "OPTIONS") {
+    console.log("[Subscribe] OPTIONS preflight request");
     res.writeHead(204).end();
     return;
   }
 
   if (req.method !== "POST") {
+    console.log("[Subscribe] Invalid method:", req.method);
     res.writeHead(405).end(JSON.stringify({ error: "Method not allowed" }));
     return;
   }
@@ -1435,28 +1412,19 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
     for await (const chunk of req) {
       body += chunk;
     }
+    
+    console.log("[Subscribe] Received request body:", body);
 
     // Support both old (settlementId/settlementName) and new (topicId/topicName) field names
     const parsed = JSON.parse(body);
     const email = parsed.email;
     const topicId = parsed.topicId || parsed.settlementId || "investment-news";
     const topicName = parsed.topicName || parsed.settlementName || "Investment Calculator Updates";
-    const turnstileToken = parsed.turnstileToken;
+    
+    console.log("[Subscribe] Parsed subscription request:", { email, topicId, topicName });
 
     if (!email || !email.includes("@")) {
       res.writeHead(400).end(JSON.stringify({ error: "Invalid email address" }));
-      return;
-    }
-
-    // Verify Turnstile token
-    if (!turnstileToken) {
-      res.writeHead(400).end(JSON.stringify({ error: "Security verification required" }));
-      return;
-    }
-
-    const isValidToken = await verifyTurnstile(turnstileToken);
-    if (!isValidToken) {
-      res.writeHead(400).end(JSON.stringify({ error: "Security verification failed. Please try again." }));
       return;
     }
 
@@ -1585,8 +1553,8 @@ async function handlePostMessage(
   }
 }
 
-const portEnv = Number(process.env.PORT ?? 8000);
-const port = Number.isFinite(portEnv) ? portEnv : 8000;
+const portEnv = Number(process.env.PORT ?? 8001);
+const port = Number.isFinite(portEnv) ? portEnv : 8001;
 
 const httpServer = createServer(
   async (req: IncomingMessage, res: ServerResponse) => {
@@ -1681,13 +1649,7 @@ const httpServer = createServer(
         if (ext === ".html" && path.basename(assetPath) === "investment-calculator.html") {
           try {
             let html = fs.readFileSync(assetPath, "utf8");
-            
-            if (TURNSTILE_SITE_KEY) {
-              html = html.replace(/__TURNSTILE_SITE_KEY__/g, TURNSTILE_SITE_KEY);
-            } else {
-              console.warn("[Turnstile] TURNSTILE_SITE_KEY missing; captcha will not render");
-            }
-
+            // (Turnstile logic removed)
             res.end(html);
             return;
           } catch (e) {
