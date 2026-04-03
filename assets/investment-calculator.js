@@ -48976,6 +48976,11 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       if (initialData2.current_balance) newValues.currentBalance = String(initialData2.current_balance);
       if (initialData2.monthly_contribution) newValues.monthlyContribution = String(initialData2.monthly_contribution);
       if (initialData2.target_amount) newValues.targetAmount = String(initialData2.target_amount);
+      if (initialData2.time_horizon) newValues.timeHorizon = String(initialData2.time_horizon);
+      const strategy = String(initialData2.investment_strategy || "").toLowerCase();
+      if (strategy === "conservative" || strategy === "moderate" || strategy === "aggressive") {
+        newValues.investmentStrategy = strategy;
+      }
       setValues(newValues);
     }
   }, [initialData2]);
@@ -49274,6 +49279,9 @@ function InvestmentCalculator({ initialData: initialData2 }) {
             background-color: rgba(0,0,0,0.05) !important;
         }
         .action-btn:active {
+            transform: scale(0.95);
+        }
+        .related-btn:active {
             transform: scale(0.95);
         }
         @media print {
@@ -49744,6 +49752,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "button",
             {
+              className: "related-btn",
               style: {
                 flex: 1,
                 padding: "12px 10px",
@@ -49777,6 +49786,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "button",
             {
+              className: "related-btn",
               style: {
                 flex: 1,
                 padding: "12px 10px",
@@ -49811,6 +49821,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "button",
           {
+            className: "related-btn",
             style: {
               flex: "0 1 50%",
               padding: "12px 10px",

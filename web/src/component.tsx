@@ -361,6 +361,11 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         if (initialData.current_balance) newValues.currentBalance = String(initialData.current_balance);
         if (initialData.monthly_contribution) newValues.monthlyContribution = String(initialData.monthly_contribution);
         if (initialData.target_amount) newValues.targetAmount = String(initialData.target_amount);
+        if (initialData.time_horizon) newValues.timeHorizon = String(initialData.time_horizon);
+        const strategy = String(initialData.investment_strategy || "").toLowerCase();
+        if (strategy === "conservative" || strategy === "moderate" || strategy === "aggressive") {
+            newValues.investmentStrategy = strategy;
+        }
         setValues(newValues);
     }
   }, [initialData]);
