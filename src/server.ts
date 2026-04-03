@@ -596,13 +596,8 @@ function createInvestmentCalculatorServer(): Server {
           }
         } catch {}
 
-        // Construct text content for the transcript
-        const summaryText = structured.summary?.investment_status
-          ? `Investment Status: ${structured.summary.investment_status}. Projected Value: $${structured.summary.future_value?.toLocaleString()}.`
-          : "Please enter your details in the calculator widget.";
-
         return {
-          content: [{ type: "text", text: summaryText }],
+          content: [],
           structuredContent: structured,
           _meta: metaForReturn,
         };
