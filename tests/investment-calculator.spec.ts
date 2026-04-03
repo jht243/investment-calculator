@@ -13,8 +13,7 @@ test.describe('Investment Calculator Tests', () => {
     test('Calculator loads successfully', async ({ page }) => {
         await page.goto(`file://${LOCAL_CALCULATOR_PATH}`);
         
-        // Wait for the component to be interactive
-        await expect(page.getByText('Investment Calculator')).toBeVisible({ timeout: 10000 });
+        await expect(page.getByText('The Investment Growth Strategist')).toBeVisible({ timeout: 10000 });
     });
 
     test('Calculator displays goal selection buttons', async ({ page }) => {
@@ -72,8 +71,7 @@ test.describe('Investment Calculator Tests', () => {
             // This is a basic sanity check that the calculator renders
             const pageContent = await page.content();
             
-            // Verify basic structure exists
-            expect(pageContent).toContain('Investment');
+            expect(pageContent).toContain('The Investment Growth Strategist');
             expect(pageContent).toContain('$');
         });
     }

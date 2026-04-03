@@ -249,9 +249,7 @@ function widgetMeta(widget: InvestmentCalculatorWidget, bustCache: boolean = fal
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": {
       connect_domains: [
-        "https://api.stlouisfed.org",
-        "https://investment-calculator-1a2t.onrender.com",
-        "http://localhost:8010"
+        "https://investment-calculator-1a2t.onrender.com"
       ],
       script_src_domains: [
         "https://investment-calculator-1a2t.onrender.com"
@@ -316,17 +314,14 @@ const tools: Tool[] = widgets.map((widget) => ({
   description:
     "Use this for investment growth calculations and financial planning. Call this tool immediately with NO arguments to let the user enter their data manually. Only provide arguments if the user has explicitly stated them.",
   inputSchema: toolInputSchema,
-  outputSchema: {
+    outputSchema: {
     type: "object",
     properties: {
-      ready: { type: "boolean" },
-      timestamp: { type: "string" },
       current_balance: { type: "number" },
       monthly_contribution: { type: "number" },
       target_amount: { type: "number" },
       time_horizon: { type: "number" },
       rate_of_return: { type: "number" },
-      input_source: { type: "string", enum: ["user", "default"] },
       summary: {
         type: "object",
         properties: {
@@ -444,8 +439,6 @@ function createInvestmentCalculatorServer(): Server {
       let userAgentString: string | null = null;
       let deviceCategory = "Unknown";
       
-      // Log the full request to debug _meta location
-      console.log("Full request object:", JSON.stringify(request, null, 2));
       
       try {
         const widget = widgetsById.get(request.params.name);
@@ -479,13 +472,11 @@ function createInvestmentCalculatorServer(): Server {
         userAgentString = typeof userAgent === "string" ? userAgent : null;
         deviceCategory = classifyDevice(userAgentString);
         
-        // Debug log
-        console.log("Captured meta:", { userLocation, userLocale, userAgent });
+        console.log("[MCP] Captured meta: location=%s, locale=%s", !!userLocation, userLocale);
 
         // If ChatGPT didn't pass structured arguments, try to infer key numbers from freeform text in meta
         try {
           const candidates: any[] = [
-            meta["openai/subject"],
             meta["openai/userPrompt"],
             meta["openai/userText"],
             meta["openai/lastUserMessage"],
@@ -546,9 +537,6 @@ function createInvestmentCalculatorServer(): Server {
 
         const responseTime = Date.now() - startTime;
 
-        // Check if we are using defaults (i.e. no arguments provided)
-        const usedDefaults = Object.keys(args).length === 0;
-
         // Infer likely user query from parameters
         const inferredQuery = [] as string[];
         if (args.current_balance) inferredQuery.push(`balance: $${args.current_balance.toLocaleString()}`);
@@ -558,21 +546,11 @@ function createInvestmentCalculatorServer(): Server {
 
         logAnalytics("tool_call_success", {
           toolName: request.params.name,
-          params: args,
           inferredQuery: inferredQuery.length > 0 ? inferredQuery.join(", ") : "Investment Calculator",
           responseTime,
-
           device: deviceCategory,
-          userLocation: userLocation
-            ? {
-                city: userLocation.city,
-                region: userLocation.region,
-                country: userLocation.country,
-                timezone: userLocation.timezone,
-              }
-            : null,
-          userLocale,
-          userAgent,
+          country: userLocation?.country || null,
+          locale: userLocale,
         });
 
         // Use a stable template URI so toolOutput reliably hydrates the component
@@ -582,11 +560,7 @@ function createInvestmentCalculatorServer(): Server {
         // Build structured content once so we can log it and return it.
         // For the investment calculator, expose fields relevant to investment growth projections
         const structured = {
-          ready: true,
-          timestamp: new Date().toISOString(),
           ...args,
-          input_source: usedDefaults ? "default" : "user",
-          // Summary + follow-ups for natural language UX
           summary: computeSummary(args),
           suggested_followups: [
             "How much will I have in 10 years?",
@@ -612,26 +586,13 @@ function createInvestmentCalculatorServer(): Server {
         console.log("[MCP] Returning outputTemplate:", (metaForReturn as any)["openai/outputTemplate"]);
         console.log("[MCP] Returning structuredContent:", structured);
 
-        // Log success analytics
         try {
-          // Check for "empty" result - when no main calculation inputs are provided
           const hasMainInputs = args.current_balance || args.monthly_contribution || args.target_amount || args.time_horizon;
-          
           if (!hasMainInputs) {
              logAnalytics("tool_call_empty", {
                toolName: request.params.name,
-               params: request.params.arguments || {},
                reason: "No calculation inputs provided"
              });
-          } else {
-          logAnalytics("tool_call_success", {
-            responseTime,
-            params: request.params.arguments || {},
-            inferredQuery: inferredQuery.join(", "),
-            userLocation,
-            userLocale,
-            device: deviceCategory,
-          });
           }
         } catch {}
 
@@ -648,10 +609,8 @@ function createInvestmentCalculatorServer(): Server {
       } catch (error: any) {
         logAnalytics("tool_call_error", {
           error: error.message,
-          stack: error.stack,
           responseTime: Date.now() - startTime,
           device: deviceCategory,
-          userAgent: userAgentString,
         });
         throw error;
       }
@@ -1265,9 +1224,8 @@ async function handleTrackEvent(req: IncomingMessage, res: ServerResponse) {
 async function subscribeToButtondown(email: string, topicId: string, topicName: string) {
   const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY;
   
-  console.log("[Buttondown] subscribeToButtondown called", { email, topicId, topicName });
+  console.log("[Buttondown] subscribeToButtondown called", { topicId, topicName });
   console.log("[Buttondown] API Key present:", !!BUTTONDOWN_API_KEY);
-  console.log("[Buttondown] API Key length:", BUTTONDOWN_API_KEY?.length);
   
   if (!BUTTONDOWN_API_KEY) {
     throw new Error("BUTTONDOWN_API_KEY not set in environment variables");
@@ -1285,7 +1243,7 @@ async function subscribeToButtondown(email: string, topicId: string, topicName: 
     metadata,
   };
   
-  console.log("[Buttondown] Sending request to Buttondown API:", JSON.stringify(requestBody));
+  console.log("[Buttondown] Sending subscribe request for topic:", topicId);
 
   const response = await fetch("https://api.buttondown.email/v1/subscribers", {
     method: "POST",
@@ -1319,7 +1277,7 @@ async function subscribeToButtondown(email: string, topicId: string, topicName: 
   }
 
   const responseData = await response.json();
-  console.log("[Buttondown] Success response:", JSON.stringify(responseData));
+  console.log("[Buttondown] Subscribe succeeded");
   return responseData;
 }
 
@@ -1418,7 +1376,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
       body += chunk;
     }
     
-    console.log("[Subscribe] Received request body:", body);
+    console.log("[Subscribe] Received subscribe request");
 
     // Support both old (settlementId/settlementName) and new (topicId/topicName) field names
     const parsed = JSON.parse(body);
@@ -1426,7 +1384,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
     const topicId = parsed.topicId || parsed.settlementId || "investment-news";
     const topicName = parsed.topicName || parsed.settlementName || "Investment Calculator Updates";
     
-    console.log("[Subscribe] Parsed subscription request:", { email, topicId, topicName });
+    console.log("[Subscribe] Parsed subscription request for topic:", topicId);
 
     if (!email || !email.includes("@")) {
       res.writeHead(400).end(JSON.stringify({ error: "Invalid email address" }));
@@ -1451,7 +1409,7 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
       const already = msg.includes('already subscribed') || msg.includes('already exists') || msg.includes('already on your list') || msg.includes('subscriber already exists') || msg.includes('already');
 
       if (already) {
-        console.log("Subscriber already on list, attempting update", { email, topicId, message: rawMessage });
+        console.log("Subscriber already on list, attempting update", { topicId, message: rawMessage });
         try {
           await updateButtondownSubscriber(email, topicId, topicName);
           res.writeHead(200).end(JSON.stringify({ 
@@ -1460,13 +1418,11 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
           }));
         } catch (updateError: any) {
           console.warn("Update subscriber failed, returning graceful success", {
-            email,
             topicId,
             error: updateError?.message,
           });
           logAnalytics("widget_notify_me_subscribe_error", {
             stage: "update",
-            email,
             error: updateError?.message,
           });
           res.writeHead(200).end(JSON.stringify({
@@ -1479,7 +1435,6 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
 
       logAnalytics("widget_notify_me_subscribe_error", {
         stage: "subscribe",
-        email,
         error: rawMessage || "unknown_error",
       });
       throw subscribeError;
@@ -1490,7 +1445,6 @@ async function handleSubscribe(req: IncomingMessage, res: ServerResponse) {
     console.error("Error stack:", error.stack);
     logAnalytics("widget_notify_me_subscribe_error", {
       stage: "handler",
-      email: undefined,
       error: error.message || "unknown_error",
     });
     res.writeHead(500).end(JSON.stringify({ 
