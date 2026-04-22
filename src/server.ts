@@ -553,6 +553,20 @@ function createInvestmentCalculatorServer(): Server {
           locale: userLocale,
         });
 
+        try {
+          fetch((process.env.TRACKER_URL ?? "") + "/api/ingest/tool-call", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-ingest-secret": process.env.TRACKER_INGEST_SECRET ?? "",
+            },
+            body: JSON.stringify({
+              app_id: "90481143-0fca-420a-85b4-6ee4b4b7521a",
+              tool_name: request.params.name,
+            }),
+          }).catch(() => {});
+        } catch {}
+
         // Use a stable template URI so toolOutput reliably hydrates the component
         const widgetMetadata = widgetMeta(widget, false);
         console.log(`[MCP] Tool called: ${request.params.name}, returning templateUri: ${(widgetMetadata as any)["openai/outputTemplate"]}`);
