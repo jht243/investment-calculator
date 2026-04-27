@@ -586,12 +586,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         gap: "8px",
         transition: "all 0.2s"
     }),
-    grid: {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "16px",
-        marginBottom: "24px"
-    },
+    grid: {},
     solveForContainer: {
         marginTop: "24px",
         marginBottom: "24px",
@@ -704,11 +699,22 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
         .related-btn:active {
             transform: scale(0.95);
         }
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 400px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         @media print {
             body { background-color: white; }
             .action-btn, button { display: none !important; }
             /* Hide subscribe banner */
-            div[style*="backgroundColor: #E0F2FE"] { display: none !important; } 
+            div[style*="backgroundColor: #E0F2FE"] { display: none !important; }
             /* Reset container width */
             div[style*="maxWidth: 600px"] { max-width: none !important; width: 100% !important; }
         }
@@ -948,7 +954,7 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
             </div>
         )}
 
-        <div style={styles.grid}>
+        <div className="input-grid">
             {/* Current Balance */}
             <div>
                 <label style={styles.label}>Current Balance</label>
@@ -1094,8 +1100,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
           <div style={styles.card}>
               <div style={styles.resultLabel}>{getResultHeader()}</div>
               <div style={styles.resultBig}>
-                  {values.solveFor === "rate" ? result.mainValue.toFixed(2) + "%" : 
-                   values.solveFor === "time" ? result.mainValue.toFixed(1) + " Years" :
+                  {values.goal === "target" && values.solveFor === "rate" ? result.mainValue.toFixed(2) + "%" :
+                   values.goal === "target" && values.solveFor === "time" ? result.mainValue.toFixed(1) + " Years" :
                    "$" + Math.round(result.mainValue).toLocaleString()}
               </div>
               <div style={{fontSize: "14px", color: COLORS.textSecondary, textAlign: "center" as const, lineHeight: 1.5, marginBottom: "16px"}}>

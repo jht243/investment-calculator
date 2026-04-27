@@ -49168,12 +49168,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       gap: "8px",
       transition: "all 0.2s"
     }),
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "16px",
-      marginBottom: "24px"
-    },
+    grid: {},
     solveForContainer: {
       marginTop: "24px",
       marginBottom: "24px",
@@ -49284,11 +49279,22 @@ function InvestmentCalculator({ initialData: initialData2 }) {
         .related-btn:active {
             transform: scale(0.95);
         }
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 400px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         @media print {
             body { background-color: white; }
             .action-btn, button { display: none !important; }
             /* Hide subscribe banner */
-            div[style*="backgroundColor: #E0F2FE"] { display: none !important; } 
+            div[style*="backgroundColor: #E0F2FE"] { display: none !important; }
             /* Reset container width */
             div[style*="maxWidth: 600px"] { max-width: none !important; width: 100% !important; }
         }
@@ -49502,7 +49508,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
           values.solveFor === "current" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { size: 16 })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.grid, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "input-grid", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: styles.label, children: "Current Balance" }),
           values.goal === "target" && values.solveFor === "current" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
@@ -49658,7 +49664,7 @@ function InvestmentCalculator({ initialData: initialData2 }) {
       };
       return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: styles.card, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultLabel, children: getResultHeader() }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultBig, children: values.solveFor === "rate" ? result.mainValue.toFixed(2) + "%" : values.solveFor === "time" ? result.mainValue.toFixed(1) + " Years" : "$" + Math.round(result.mainValue).toLocaleString() }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: styles.resultBig, children: values.goal === "target" && values.solveFor === "rate" ? result.mainValue.toFixed(2) + "%" : values.goal === "target" && values.solveFor === "time" ? result.mainValue.toFixed(1) + " Years" : "$" + Math.round(result.mainValue).toLocaleString() }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { fontSize: "14px", color: COLORS.textSecondary, textAlign: "center", lineHeight: 1.5, marginBottom: "16px" }, children: getResultSubtext() }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: "24px" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: "12px", marginBottom: "20px" }, children: [
