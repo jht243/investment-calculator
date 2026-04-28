@@ -1646,10 +1646,15 @@ httpServer.on("clientError", (err: Error, socket) => {
   socket.end("HTTP/1.1 400 Bad Request\r\n\r\n");
 });
 
-httpServer.listen(port, () => {
-  console.log(`Investment Calculator MCP server listening on http://localhost:${port}`);
-  console.log(`  SSE stream: GET http://localhost:${port}${ssePath}`);
+// Bind to 0.0.0.0 explicitly so Render's port scanner (and any IPv4-only
+// health check) can reach the service. Without an explicit host, Node binds
+// to :: and on some hosts that does not accept IPv4 connections, which causes
+// Render to report "No open ports detected" even though the process is alive.
+const host = process.env.HOST ?? "0.0.0.0";
+httpServer.listen(port, host, () => {
+  console.log(`Investment Calculator MCP server listening on http://${host}:${port}`);
+  console.log(`  SSE stream: GET http://${host}:${port}${ssePath}`);
   console.log(
-    `  Message post endpoint: POST http://localhost:${port}${postPath}?sessionId=...`
+    `  Message post endpoint: POST http://${host}:${port}${postPath}?sessionId=...`
   );
 });
