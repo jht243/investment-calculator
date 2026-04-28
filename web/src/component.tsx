@@ -710,6 +710,38 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
                 grid-template-columns: 1fr;
             }
         }
+        .feedback-pill {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: #56C596;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(86, 197, 150, 0.4);
+            transition: transform 0.15s, box-shadow 0.15s;
+            z-index: 100;
+        }
+        .feedback-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(86, 197, 150, 0.5);
+        }
+        .feedback-pill:active {
+            transform: scale(0.96);
+        }
+        @media (max-width: 600px) {
+            .feedback-pill {
+                display: none;
+            }
+        }
         @media print {
             body { background-color: white; }
             .action-btn, button { display: none !important; }
@@ -1176,86 +1208,64 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
           marginBottom: "20px"
       }}>
           <div style={{
-              fontSize: "14px", 
-              fontWeight: 600, 
-              color: COLORS.textSecondary, 
+              fontSize: "14px",
+              fontWeight: 600,
+              color: COLORS.textSecondary,
               marginBottom: "12px",
               textAlign: "center"
           }}>
               Related Calculators
           </div>
-          <div style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "8px",
-              width: "100%"
-          }}>
-              {/* First row - 2 buttons */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
+              {/* First row - 2 links */}
               <div style={{ display: "flex", gap: "8px" }}>
-                  <button 
-                    className="related-btn"
-                    style={{
-                        flex: 1,
-                        padding: "12px 10px",
-                        backgroundColor: COLORS.inputBg,
-                        border: `1px solid ${COLORS.border}`,
-                        borderRadius: "10px",
-                        color: COLORS.primary,
-                        fontWeight: 600,
-                        fontSize: "14px",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "6px"
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = COLORS.accentLight;
-                        e.currentTarget.style.borderColor = COLORS.primary;
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = COLORS.inputBg;
-                        e.currentTarget.style.borderColor = COLORS.border;
-                    }}
-                  >
-                      <TrendingUp size={16} />
-                      Retirement Calculator
-                  </button>
-                  <button 
-                    className="related-btn"
-                    style={{
-                        flex: 1,
-                        padding: "12px 10px",
-                        backgroundColor: COLORS.inputBg,
-                        border: `1px solid ${COLORS.border}`,
-                        borderRadius: "10px",
-                        color: COLORS.primary,
-                        fontWeight: 600,
-                        fontSize: "14px",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "6px"
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = COLORS.accentLight;
-                        e.currentTarget.style.borderColor = COLORS.primary;
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = COLORS.inputBg;
-                        e.currentTarget.style.borderColor = COLORS.border;
-                    }}
-                  >
-                      <Target size={16} />
-                      Mortgage Calculator
-                  </button>
+                  {[
+                      { label: "Net Worth Calculator", icon: <TrendingUp size={16} />, href: "https://chatgpt.com/apps/wealthcheck-financial-planner/asdk_app_6987ab1379ac8191b34a34006094ee81" },
+                      { label: "Mortgage IQ", icon: <Target size={16} />, href: "https://chatgpt.com/apps/mortgage-iq/asdk_app_69a1be0ee430819188038dc11b5ba4b1" },
+                  ].map(({ label, icon, href }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="related-btn"
+                        style={{
+                            flex: 1,
+                            padding: "12px 10px",
+                            backgroundColor: COLORS.inputBg,
+                            border: `1px solid ${COLORS.border}`,
+                            borderRadius: "10px",
+                            color: COLORS.primary,
+                            fontWeight: 600,
+                            fontSize: "14px",
+                            cursor: "pointer",
+                            transition: "all 0.2s",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "6px",
+                            textDecoration: "none"
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = COLORS.accentLight;
+                            e.currentTarget.style.borderColor = COLORS.primary;
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = COLORS.inputBg;
+                            e.currentTarget.style.borderColor = COLORS.border;
+                        }}
+                      >
+                          {icon}
+                          {label}
+                      </a>
+                  ))}
               </div>
-              {/* Second row - 1 button centered */}
+              {/* Second row - 1 link centered */}
               <div style={{ display: "flex", justifyContent: "center" }}>
-                  <button 
+                  <a
+                    href="https://chatgpt.com/apps/retirementiq/asdk_app_694db56addec8191ac9c2ee5fe52c4ea"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="related-btn"
                     style={{
                         flex: "0 1 50%",
@@ -1271,7 +1281,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        gap: "6px"
+                        gap: "6px",
+                        textDecoration: "none"
                     }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = COLORS.accentLight;
@@ -1283,8 +1294,8 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
                     }}
                   >
                       <Check size={16} />
-                      Portfolio Analyzer
-                  </button>
+                      Retirement Calculator
+                  </a>
               </div>
           </div>
       </div>
@@ -1320,6 +1331,12 @@ export default function InvestmentCalculator({ initialData }: { initialData?: an
             Print
         </button>
       </div>
+
+      {/* Floating feedback pill — desktop only, hidden on mobile via CSS */}
+      <button className="feedback-pill" onClick={() => setShowFeedbackModal(true)}>
+        <MessageSquare size={16} />
+        Feedback
+      </button>
     </div>
   );
 }
